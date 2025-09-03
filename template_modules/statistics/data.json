@@ -1,0 +1,112 @@
+{
+  "statistics": {
+    "sessions": [
+      {
+        "date": "01.09.2025",
+        "start": 1756711873737,
+        "end": 1756711967190
+      },
+      {
+        "date": "01.09.2025",
+        "start": 1756711978258,
+        "end": 1756712146368
+      },
+      {
+        "date": "01.09.2025",
+        "start": 1756712160249,
+        "end": 1756714184001
+      },
+      {
+        "date": "01.09.2025",
+        "start": 1756714192237,
+        "end": 1756714242532
+      },
+      {
+        "date": "01.09.2025",
+        "start": 1756714252873,
+        "end": 1756716039108
+      },
+      {
+        "date": "01.09.2025",
+        "start": 1756716052171,
+        "end": 1756718105986
+      },
+      {
+        "date": "01.09.2025",
+        "start": 1756718356936,
+        "end": 1756724377716
+      },
+      {
+        "date": "01.09.2025",
+        "start": 1756724388475,
+        "end": 1756738677005
+      },
+      {
+        "date": "01.09.2025",
+        "start": 1756738684361,
+        "end": 1756745032972
+      },
+      {
+        "date": "02.09.2025",
+        "start": 1756798054183,
+        "end": 1756822619919
+      },
+      {
+        "date": "02.09.2025",
+        "start": 1756822626990,
+        "end": 1756830839145
+      },
+      {
+        "date": "03.09.2025",
+        "start": 1756885579589,
+        "end": 1756897283908
+      },
+      {
+        "date": "03.09.2025",
+        "start": 1756902910894,
+        "end": 1756905480045
+      },
+      {
+        "date": "03.09.2025",
+        "start": 1756905485669,
+        "end": 1756916798488,
+        "type": "build"
+      }
+    ],
+    "files": [
+      "Montserrat-SemiBold.woff2",
+      "MontserratAlternates-MediumItalic.ttf",
+      "MontserratAlternates-MediumItalic.woff2",
+      "MontserratAlternates-Regular.ttf",
+      "MontserratAlternates-Regular.woff2",
+      "OpenSans-Bold.ttf",
+      "OpenSans-Bold.woff2",
+      "OpenSans-Regular.ttf",
+      "OpenSans-SemiBold.ttf",
+      "cake.html",
+      "index.html",
+      "cake.scss",
+      "style.scss",
+      "marquee.scss",
+      "marquee.html",
+      "marquee.js",
+      "buttons.html",
+      "buttons.scss",
+      "_components.html",
+      "hero-bg-pc.jpg",
+      "cake.js",
+      "hero-bg.mp4",
+      "hero-bg-mb.mp4",
+      "cake-detail-1.png",
+      "cake-detail-2.png",
+      "cake-detail-3.png",
+      "popup.html",
+      "popup.js",
+      "popup.scss",
+      "el-3.png",
+      "el-1.png",
+      "cake-detail-4.png",
+      "dynamic.js"
+    ]
+  }
+}
