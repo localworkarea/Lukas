@@ -129,6 +129,16 @@ body {
 	margin-inline: auto;
 }
 
+[class*="__container--big"] {
+	max-width: 1490px;
+}
+
 .ff-acc {
 	font-family: 'Gogol',sans-serif;
+}
+
+.txt {
+	font-weight: 400;
+	line-height: 1.18;
+	@include adaptiveValue("font-size", 18, 14);
 }

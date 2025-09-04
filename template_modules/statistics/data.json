@@ -71,6 +71,22 @@
         "start": 1756905485669,
         "end": 1756916798488,
         "type": "build"
+      },
+      {
+        "date": "03.09.2025",
+        "start": 1756917129843,
+        "end": 1756918374018
+      },
+      {
+        "date": "04.09.2025",
+        "start": 1756974318991,
+        "end": 1756987913133
+      },
+      {
+        "date": "04.09.2025",
+        "start": 1756987925516,
+        "end": 1756996187585,
+        "type": "build"
       }
     ],
     "files": [
@@ -106,7 +122,13 @@
       "el-3.png",
       "el-1.png",
       "cake-detail-4.png",
-      "dynamic.js"
+      "dynamic.js",
+      "cake-history-0.jpg",
+      "cake-history-group-1.png",
+      "cake-history-group-1-mb.png",
+      "cake-6.png",
+      "cake-7.jpg",
+      "slider.js"
     ]
   }
 }

@@ -3,7 +3,7 @@
 
 <main class="page page--cake">
 	<section class="cake-hero">
-		<div class="cake-hero__bg">
+		<div data-fls-clip class="cake-hero__bg">
 			<picture>
 				<source srcset="@img/hero-cake/hero-bg-pc.jpg" media="(min-width: 30.062em)" type="image/webp">
 				<source srcset="@img/hero-cake/hero-bg-mb.jpg" media="(max-width: 30.061em)" type="image/webp">
@@ -54,6 +54,39 @@
 					<p>"Каштан"</p>
 				</div>
 			</li>
+			<li class="marquee-cake__item">
+				<div class="marquee-cake__body">
+					<div class="marquee-cake__picture">
+						<img src="@img/cake/cake-1.png" width="735" height="450" alt="Image">
+					</div>
+					<div class="marquee-cake__podium"></div>
+				</div>
+				<div class="marquee-cake__title">
+					<p>"Венеціанська ніч"</p>
+				</div>
+			</li>
+			<li class="marquee-cake__item">
+				<div class="marquee-cake__body">
+					<div class="marquee-cake__picture">
+						<img src="@img/cake/cake-2.png" width="735" height="450" alt="Image">
+					</div>
+					<div class="marquee-cake__podium"></div>
+				</div>
+				<div class="marquee-cake__title">
+					<p>"Наполеон"</p>
+				</div>
+			</li>
+			<li class="marquee-cake__item">
+				<div class="marquee-cake__body">
+					<div class="marquee-cake__picture">
+						<img src="@img/cake/cake-3.png" width="735" height="450" alt="Image">
+					</div>
+					<div class="marquee-cake__podium"></div>
+				</div>
+				<div class="marquee-cake__title">
+					<p>"Каштан"</p>
+				</div>
+			</li>
 		</ul>
 		<div class="cake-hero__container cake-hero__container--bottom">
 			<a href="#" data-fls-buttons class="cake-hero__btn btn btn--a">
@@ -62,27 +95,29 @@
 		</div>
 	</section>
 	<section class="cake-detail">
-		<div data-trigger-start="top,75%"  class="cake-detail__container">
+		<div data-trigger-start="top,75%" class="cake-detail__container">
 			<div class="cake-detail__body">
 				<ul data-trigger-start="top,25%" class="cake-detail__list list-detail">
 
 					<li class="list-detail__item list-detail__item--1">
-						<button type="button" data-fls-popup-link="popup-details" data-info="1"   data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
+						<button type="button" data-fls-popup-link="popup-details" data-info="1" data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
 							<span>шокодані крихти</span>
 							<svg width="82" height="37" viewBox="0 0 82 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M1.61923 1.19563C20.4526 11.3623 58.1192 30.6956 58.1192 26.6956C58.1192 21.6956 53.1192 19.1956 58.1192 19.1956C62.1192 19.1956 74.4526 30.1956 80.1192 35.6956" stroke="#0D0D0D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 5"/>
+								<path d="M1.61923 1.19563C20.4526 11.3623 58.1192 30.6956 58.1192 26.6956C58.1192 21.6956 53.1192 19.1956 58.1192 19.1956C62.1192 19.1956 74.4526 30.1956 80.1192 35.6956" stroke="#0D0D0D" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round" stroke-dasharray="1 5" />
 							</svg>
 						</button>
-						<button type="button" data-fls-popup-link="popup-details" data-info="2"   data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
+						<button type="button" data-fls-popup-link="popup-details" data-info="2" data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
 							<span>вишня для<br> оздоблення</span>
 							<svg width="110" height="44" viewBox="0 0 110 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M0.99978 42.6598C3.95021 36.1902 12.9897 22.8383 25.5442 21.1876C41.2374 19.1243 42.2534 35.5255 33.7727 36.0703C25.2919 36.6152 28.1738 6.74875 58.9996 2.69571C95.9998 -2.16915 109 15.6957 109 15.6957" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 5"/>
+								<path d="M0.99978 42.6598C3.95021 36.1902 12.9897 22.8383 25.5442 21.1876C41.2374 19.1243 42.2534 35.5255 33.7727 36.0703C25.2919 36.6152 28.1738 6.74875 58.9996 2.69571C95.9998 -2.16915 109 15.6957 109 15.6957" stroke="black"
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 5" />
 							</svg>
 						</button>
-						<button type="button" data-fls-popup-link="popup-details" data-info="3"   data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
+						<button type="button" data-fls-popup-link="popup-details" data-info="3" data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
 							<span>Глазур зі сметаною</span>
 							<svg width="59" height="24" viewBox="0 0 59 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M57.0623 19.2071C57.0623 19.2071 44.6639 26.1586 25.2461 20.2469C5.82827 14.3351 1.38415 1.00047 1.38415 1.00047" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 5"/>
+								<path d="M57.0623 19.2071C57.0623 19.2071 44.6639 26.1586 25.2461 20.2469C5.82827 14.3351 1.38415 1.00047 1.38415 1.00047" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 5" />
 							</svg>
 						</button>
 						<div class="list-detail__img">
@@ -91,29 +126,30 @@
 					</li>
 
 					<li class="list-detail__item list-detail__item--2">
-						<button type="button" data-fls-popup-link="popup-details" data-info="4"   data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
+						<button type="button" data-fls-popup-link="popup-details" data-info="4" data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
 							<span>Сироп з коньяком</span>
 							<svg width="92" height="48" viewBox="0 0 92 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M90.2808 4.44508C90.2808 4.44508 68.2467 -4.45535 37.2979 9.46367C6.34909 23.3827 1.80521 46.4382 1.80521 46.4382" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 8"/>
+								<path d="M90.2808 4.44508C90.2808 4.44508 68.2467 -4.45535 37.2979 9.46367C6.34909 23.3827 1.80521 46.4382 1.80521 46.4382" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 8" />
 							</svg>
 						</button>
-						<button type="button" data-fls-popup-link="popup-details" data-info="5"   data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
+						<button type="button" data-fls-popup-link="popup-details" data-info="5" data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
 							<span>бісквіт з какао</span>
 							<svg width="82" height="61" viewBox="0 0 82 61" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M80.1406 1.00038C80.1406 1.00038 77.4406 24.6103 50.4338 45.1578C23.427 65.7053 0.99969 58.6897 0.99969 58.6897" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 8"/>
+								<path d="M80.1406 1.00038C80.1406 1.00038 77.4406 24.6103 50.4338 45.1578C23.427 65.7053 0.99969 58.6897 0.99969 58.6897" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 8" />
 							</svg>
 						</button>
-					
+
 						<div class="list-detail__img">
 							<img loading="lazy" src="@img/cake-detail/cake-detail-2.png" width="397" height="236" alt="частина торта">
 						</div>
 					</li>
 
 					<li class="list-detail__item list-detail__item--3">
-						<button type="button" data-fls-popup-link="popup-details" data-info="7"   data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
+						<button type="button" data-fls-popup-link="popup-details" data-info="7" data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
 							<span>соковита вишня</span>
 							<svg width="85" height="29" viewBox="0 0 85 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M83.3201 1.00003C67.1205 25.962 24.2993 25.0635 24.675 21.0812C25.1446 16.1033 30.3573 14.0838 25.3794 13.6143C21.397 13.2386 8.08516 23.0317 1.92701 27.9753" stroke="#0D0D0D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 5"/>
+								<path d="M83.3201 1.00003C67.1205 25.962 24.2993 25.0635 24.675 21.0812C25.1446 16.1033 30.3573 14.0838 25.3794 13.6143C21.397 13.2386 8.08516 23.0317 1.92701 27.9753" stroke="#0D0D0D" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round" stroke-dasharray="1 5" />
 							</svg>
 						</button>
 						<div class="list-detail__img">
@@ -122,10 +158,10 @@
 					</li>
 
 					<li class="list-detail__item list-detail__item--4">
-						<button type="button" data-fls-popup-link="popup-details" data-info="6"   data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
+						<button type="button" data-fls-popup-link="popup-details" data-info="6" data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
 							<span>Крем зі згущеним<br> молоком</span>
 							<svg width="101" height="31" viewBox="0 0 101 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M1.89796 16.7875C1.89796 16.7875 39.6564 44.8998 57.4468 18.4311C75.2371 -8.03754 99.0569 4.47939 99.0569 4.47939" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 8"/>
+								<path d="M1.89796 16.7875C1.89796 16.7875 39.6564 44.8998 57.4468 18.4311C75.2371 -8.03754 99.0569 4.47939 99.0569 4.47939" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 8" />
 							</svg>
 						</button>
 						<div class="list-detail__img">
@@ -140,10 +176,10 @@
 					</li>
 
 					<li class="list-detail__item list-detail__item--6">
-						<button type="button" data-fls-popup-link="popup-details" data-info="7"   data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
+						<button type="button" data-fls-popup-link="popup-details" data-info="7" data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
 							<span>соковита вишня</span>
 							<svg width="97" height="39" viewBox="0 0 97 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M1.81441 1.41859C1.81441 1.41859 11.8823 22.9443 44.0214 33.8369C76.1604 44.7294 95.1925 30.9461 95.1925 30.9461" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 8"/>
+								<path d="M1.81441 1.41859C1.81441 1.41859 11.8823 22.9443 44.0214 33.8369C76.1604 44.7294 95.1925 30.9461 95.1925 30.9461" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 8" />
 							</svg>
 						</button>
 						<div class="list-detail__img">
@@ -152,10 +188,11 @@
 					</li>
 
 					<li class="list-detail__item list-detail__item--7">
-						<button type="button" data-fls-popup-link="popup-details" data-info="6"   data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
+						<button type="button" data-fls-popup-link="popup-details" data-info="6" data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
 							<span>Крем зі згущеним<br> молоком</span>
 							<svg width="122" height="25" viewBox="0 0 122 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M120.133 23.1483C116 17.3623 104.574 5.98541 91.9351 6.76599C76.137 7.74171 78.2761 24.0345 86.7045 22.9475C95.133 21.8606 87.5327 -0.324891 56.5007 1.59172C31.6751 3.12501 9.59644 9.39715 1.66031 12.3416" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 5"/>
+								<path d="M120.133 23.1483C116 17.3623 104.574 5.98541 91.9351 6.76599C76.137 7.74171 78.2761 24.0345 86.7045 22.9475C95.133 21.8606 87.5327 -0.324891 56.5007 1.59172C31.6751 3.12501 9.59644 9.39715 1.66031 12.3416" stroke="black"
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 5" />
 							</svg>
 						</button>
 						<div class="list-detail__img">
@@ -164,16 +201,17 @@
 					</li>
 
 					<li class="list-detail__item list-detail__item--8">
-						<button type="button" data-fls-popup-link="popup-details" data-info="4"   data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
+						<button type="button" data-fls-popup-link="popup-details" data-info="4" data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
 							<span>Сироп з коньяком</span>
 							<svg width="123" height="34" viewBox="0 0 123 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M121.46 11.4481C117.932 13.2261 110.068 14.6916 104.195 13.228C94.9764 10.9308 98.4938 1.14961 87.122 1.00026C75.7502 0.850901 76.6411 15.6342 61.9413 11.2562C41.4699 5.15931 21.33 -2.45457 1 32.8008" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 5"/>
+								<path d="M121.46 11.4481C117.932 13.2261 110.068 14.6916 104.195 13.228C94.9764 10.9308 98.4938 1.14961 87.122 1.00026C75.7502 0.850901 76.6411 15.6342 61.9413 11.2562C41.4699 5.15931 21.33 -2.45457 1 32.8008" stroke="black"
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 5" />
 							</svg>
 						</button>
-						<button type="button" data-fls-popup-link="popup-details" data-info="5"   data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
+						<button type="button" data-fls-popup-link="popup-details" data-info="5" data-fls-popup-width="992.98" class="list-detail__btn" aria-label="більше про частину торта">
 							<span>бісквіт з какао</span>
 							<svg width="99" height="29" viewBox="0 0 99 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M97.9724 1.05802C97.9724 1.05802 84.4869 20.6248 50.9899 26.0583C17.493 31.4919 0.999396 14.7538 0.999396 14.7538" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 8"/>
+								<path d="M97.9724 1.05802C97.9724 1.05802 84.4869 20.6248 50.9899 26.0583C17.493 31.4919 0.999396 14.7538 0.999396 14.7538" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 8" />
 							</svg>
 						</button>
 						<div class="list-detail__img">
@@ -193,5 +231,256 @@
 		</div>
 	</section>
 
+	<section class="cake-history">
+		<div class="cake-history__top">
+			<div class="cake-history__bg">
+				<img loading="lazy" class="ibg" src="@img/cake-history/cake-history-bg.jpg" width="1440" height="709" alt="Image">
+			</div>
+			<div class="cake-history__container">
+				<div class="cake-history__pictures">
+					<div class="cake-history__img">
+						<img loading="lazy" class="ibg" src="@img/cake-history/cake-history-0.jpg" width="559" height="666" alt="Image">
+					</div>
+					<div class="cake-history__subtext ff-acc">
+						<p>з теплом<br> &nbsp;для настрою</p>
+					</div>
+				</div>
+				<div class="cake-history__body">
+					<h2 class="cake-history__title">
+						Кожен торт —
+						це історія
+						створена
+						людьми
+					</h2>
+					<div class="cake-history__text txt">
+						<p>
+							Ми поєднуємо сучасні технології з теплом
+							рук наших кондитерів, щоб кожен шматочок
+							був бездоганним. Тому торти Лукас
+							це результат майстерності та любові.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cake-history__container--big">
+			<div class="cake-history__items items-history">
+				<div class="items-history__item items-history__item--img item--1">
+					<picture>
+						<source srcset="@img/cake-history/cake-history-group-1.png" media="(min-width: 30.062em)" type="image/webp">
+						<source srcset="@img/cake-history/cake-history-group-1-mb.png" type="image/webp">
+						<img loading="lazy" src="@img/cake-history/cake-history-group-1.png" width="934" height="996" alt="image">
+					</picture>
+				</div>
+				<div class="items-history__item items-history__item--img item--2">
+					<img loading="lazy" src="@img/cake-history/cake-history-2.jpg" width="934" height="996" alt="image">
+				</div>
+				<div class="items-history__item items-history__item--block item--3">
+					<h3 class="items-history__title">
+						Історії, що тануть <span>на язику</span>
+					</h3>
+					<div class="items-history__text txt">
+						<p>Кожен торт — це витвір наших кондитерів, які створюють не просто десерт, а маленьку гастрономічну історію з характером і настроєм.
+						</p>
+					</div>
+				</div>
+				<div class="items-history__item items-history__item--img item--4">
+					<picture>
+						<source srcset="@img/cake-history/cake-history-group-2.png" media="(min-width: 30.062em)" type="image/webp">
+						<source srcset="@img/cake-history/cake-history-group-2-mb.png" type="image/webp">
+						<img loading="lazy" src="@img/cake-history/cake-history-group-2.png" width="934" height="996" alt="image">
+					</picture>
+				</div>
+				<div class="items-history__item items-history__item--block item--5">
+					<h3 class="items-history__title">
+						Емоції зі смаком <span>ванілі й шоколаду</span>
+					</h3>
+					<div class="items-history__text txt">
+						<p>Ми не просто печемо торти —
+							ми передаємо настрій. Радість, тепло, несподіваний сюрприз —
+							у кожному шматочку своя емоція.
+						</p>
+					</div>
+				</div>
+				<div class="items-history__item items-history__item--img item--6">
+					<picture>
+						<source srcset="@img/cake-history/cake-history-group-3.png" media="(min-width: 30.062em)" type="image/webp">
+						<source srcset="@img/cake-history/cake-history-group-3-mb.png" type="image/webp">
+						<img loading="lazy" src="@img/cake-history/cake-history-group-3.png" width="934" height="996" alt="image">
+					</picture>
+				</div>
+				<div class="items-history__item items-history__item--block item--7">
+					<h3 class="items-history__title">
+						Почуття, до яких <span>хочеться повертатись</span>
+					</h3>
+					<div class="items-history__text txt">
+						<p>Це символи родинного затишку
+							і свята. Торти, які об’єднують за столом і створюють атмосферу
+							"тут і зараз" — щодня.
+						</p>
+					</div>
+				</div>
+				<div class="items-history__item items-history__item--img item--8">
+					<picture>
+						<source srcset="@img/cake-history/cake-history-group-4.png" media="(min-width: 30.062em)" type="image/webp">
+						<source srcset="@img/cake-history/cake-history-group-4-mb.png" type="image/webp">
+						<img loading="lazy" src="@img/cake-history/cake-history-group-4.png" width="934" height="996" alt="image">
+					</picture>
+				</div>
+			</div>
+		</div>
+		<div class="cake-history__marquee marquee-history">
+			<ul class="marquee-cake" data-fls-marquee data-fls-marquee-space="5" data-fls-marquee-speed="500" data-fls-marquee-direction="right">
+				<li class="marquee-cake__item">
+					<div class="marquee-cake__body">
+						<div class="marquee-cake__picture">
+							<img src="@img/cake/cake-4.png" width="735" height="450" alt="Image">
+						</div>
+						<div class="marquee-cake__podium"></div>
+					</div>
+					<div class="marquee-cake__title--2 ff-acc">
+						<p>для святкового<br> настрою</p>
+					</div>
+				</li>
+				<li class="marquee-cake__item">
+					<div class="marquee-cake__body">
+						<div class="marquee-cake__picture">
+							<img src="@img/cake/cake-5.png" width="735" height="450" alt="Image">
+						</div>
+						<div class="marquee-cake__podium"></div>
+					</div>
+					<div class="marquee-cake__title--2 ff-acc">
+						<p>для моменту<br> ніжності</p>
+					</div>
+				</li>
+				<li class="marquee-cake__item">
+					<div class="marquee-cake__body">
+						<div class="marquee-cake__picture">
+							<img src="@img/cake/cake-6.png" width="735" height="450" alt="Image">
+						</div>
+						<div class="marquee-cake__podium"></div>
+					</div>
+					<div class="marquee-cake__title--2 ff-acc">
+						<p>для святкового<br> настрою</p>
+					</div>
+				</li>
+				<li class="marquee-cake__item">
+					<div class="marquee-cake__body">
+						<div class="marquee-cake__picture">
+							<img src="@img/cake/cake-5.png" width="735" height="450" alt="Image">
+						</div>
+						<div class="marquee-cake__podium"></div>
+					</div>
+					<div class="marquee-cake__title--2 ff-acc">
+						<p>для моменту<br> ніжності</p>
+					</div>
+				</li>
+			</ul>
+			<div class="marquee-history__container">
+				<div class="marquee-history__txt">
+					<p>Ласощі які<br> ви обираєте</p>
+				</div>
+			</div>
+		</div>
+		<div class="cake-history__marquee--rect">
+			<ul class="marquee-rect" data-fls-marquee data-fls-marquee-space="0" data-fls-marquee-speed="500" data-fls-marquee-direction="left">
+				<li class="marquee-rect__item">
+					<img class="ibg" src="@img/cake/cake-7.jpg" width="421" height="297" alt="Image">
+				</li>
+				<li class="marquee-rect__item">
+					<img class="ibg" src="@img/cake/cake-8.jpg" width="421" height="297" alt="Image">
+				</li>
+				<li class="marquee-rect__item">
+					<img class="ibg" src="@img/cake/cake-9.jpg" width="421" height="297" alt="Image">
+				</li>
+				<li class="marquee-rect__item">
+					<img class="ibg" src="@img/cake/cake-10.jpg" width="421" height="297" alt="Image">
+				</li>
+			</ul>
+		</div>
+	</section>
+	<section class="cake-format">
+		<div class="cake-format__container top">
+			<div class="cake-format__head">
+				<h2 class="cake-format__title">
+					Улюблені смаки<br> <span>у зручному форматі</span>
+				</h2>
+			</div>
+			<div data-fls-slider class="cake-format__slider swiper">
+				<ul class="cake-format__wrapper swiper-wrapper">
+					<li class="cake-format__slide swiper-slide">
+						<div class="cake-format__img">
+							<img class="ibg" src="@img/caki-format/cake-format-1.png" width="381" height="354" alt="Image">
+						</div>
+						<div class="cake-format__slide-title">
+							<p>«медовий»</p>
+						</div>
+					</li>
+					<li class="cake-format__slide swiper-slide">
+						<div class="cake-format__img">
+							<img class="ibg" src="@img/caki-format/cake-format-2.png" width="381" height="354" alt="Image">
+						</div>
+						<div class="cake-format__slide-title">
+							<p>«спартак»</p>
+						</div>
+					</li>
+					<li class="cake-format__slide swiper-slide">
+						<div class="cake-format__img">
+							<img class="ibg" src="@img/caki-format/cake-format-3.png" width="381" height="354" alt="Image">
+						</div>
+						<div class="cake-format__slide-title">
+							<p>«Наполеон»</p>
+						</div>
+					</li>
+					<li class="cake-format__slide swiper-slide">
+						<div class="cake-format__img">
+							<img class="ibg" src="@img/caki-format/cake-format-1.png" width="381" height="354" alt="Image">
+						</div>
+						<div class="cake-format__slide-title">
+							<p>«медовий»</p>
+						</div>
+					</li>
+					<li class="cake-format__slide swiper-slide">
+						<div class="cake-format__img">
+							<img class="ibg" src="@img/caki-format/cake-format-2.png" width="381" height="354" alt="Image">
+						</div>
+						<div class="cake-format__slide-title">
+							<p>«спартак»</p>
+						</div>
+					</li>
+					<li class="cake-format__slide swiper-slide">
+						<div class="cake-format__img">
+							<img class="ibg" src="@img/caki-format/cake-format-3.png" width="381" height="354" alt="Image">
+						</div>
+						<div class="cake-format__slide-title">
+							<p>«Наполеон»</p>
+						</div>
+					</li>
+				</ul>
+				<button type="button" class="cake-format__button swiper-button-prev" aria-label="попередній слайд">
+					<svg width="74" height="74" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M45.4946 54.4101C44.9214 55.0081 43.9715 55.0282 43.3735 54.455L24.8315 36.6855L43.3735 18.9169C43.9716 18.3437 44.9214 18.3637 45.4946 18.9618C46.0675 19.5598 46.0474 20.5088 45.4496 21.082L29.1684 36.6855L45.4496 52.289C46.0476 52.8622 46.0677 53.812 45.4946 54.4101Z" fill="#FF0037"/>
+					</svg>
+				</button>
+				<button type="button" class="cake-format__button swiper-button-next" aria-label="наступний слайд">
+					<svg width="74" height="74" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M29.5054 19.5899C30.0786 18.9919 31.0285 18.9718 31.6265 19.545L50.1685 37.3145L31.6265 55.0831C31.0284 55.6563 30.0786 55.6363 29.5054 55.0382C28.9325 54.4402 28.9526 53.4912 29.5504 52.918L45.8316 37.3145L29.5504 21.711C28.9524 21.1378 28.9323 20.188 29.5054 19.5899Z" fill="#FF0037"/>
+					</svg>
+				</button>
+			</div>
+		</div>
+		<div class="cake-format__dessert dessert-cake">
+			<div class="dessert-cake__bg">
+				<img loading="lazy" class="ibg" src="@img/cake-history/cake-history-bg.jpg" width="1440" height="709" alt="Image">
+			</div>
+			<div class="dessert-cake__container">
+				<div class="dessert-cake__block">
+					<p class="dessert-cake__txt">
+						Солодкий десерт <span class="dessert-cake__img img--1"><img src="@img/elements/part-cake-1.png" width="223" height="50" alt="Image"></span> із щирим <span class="dessert-cake__img img--2 img--dymanic"></span> побажанням — <span class="dessert-cake__img img--2"><img data-fls-dynamic=".img--dymanic,480.98,0,min" src="@img/elements/part-cake-2.png" width="223" height="50" alt="Image"></span> найкращий подарунок для серця!
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
 </main>

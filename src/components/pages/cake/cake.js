@@ -3,24 +3,28 @@ import { addTouchAttr, addLoadedAttr, isMobile, FLS } from "@js/common/functions
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  function updateClipPath(angleDeg = -8) {
-    const el = document.querySelector('.cake-hero__bg');
-    if (!el) return;
-  
-    const width = el.offsetWidth;
-    const height = el.getBoundingClientRect().height;
-  
-    const angleRad = angleDeg * (Math.PI / 180);
-    const offset = Math.tan(Math.abs(angleRad)) * width;
-    const yRight = height - offset;
-  
-    el.style.clipPath = `polygon(
-      0 0,
-      ${width}px 0,
-      ${width}px ${yRight}px,
-      0 ${height}px
-    )`;
-  }
+function updateClipPath(angleDeg = -8) {
+	const elements = document.querySelectorAll('[data-fls-clip]');
+	if (!elements.length) return;
+
+	const angleRad = angleDeg * (Math.PI / 180);
+
+	elements.forEach(el => {
+		const width = el.offsetWidth;
+		const height = el.getBoundingClientRect().height;
+
+		const offset = Math.tan(Math.abs(angleRad)) * width;
+		const yRight = height - offset;
+
+		el.style.clipPath = `polygon(
+			0 0,
+			${width}px 0,
+			${width}px ${yRight}px,
+			0 ${height}px
+		)`;
+	});
+}
+
   
   
   updateClipPath(-8);
