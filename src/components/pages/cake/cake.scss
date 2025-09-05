@@ -1520,7 +1520,8 @@
       height: 1px;
       width: 100%;
       background-color: var(--red);
-      @media (min-width:toEm($mobileSmall)){
+
+      @media (min-width:toEm($mobileSmall)) {
         height: 2px;
       }
     }
@@ -1584,7 +1585,7 @@
           }
         }
       }
-      
+
       &.swiper-slide-active {
         .cake-format__img {
           img {
@@ -1684,18 +1685,23 @@
 }
 
 
+%pddBlock96-45 {
+  @include adaptiveValue("padding-block", 96, 45);
+}
 
 .dessert-cake {
   position: relative;
   z-index: 1;
-  @include adaptiveValue("padding-block", 96, 45);
+  @extend %pddBlock96-45;
   color: var(--white);
+
   // .dessert-cake__bg
   &__bg {
-      @extend %imageBgSection;
-      img {
-        object-position: top;
-      }
+    @extend %imageBgSection;
+
+    img {
+      object-position: top;
+    }
   }
 
   // .dessert-cake__container
@@ -1703,13 +1709,14 @@
 
   // .dessert-cake__block
   &__block {
-     font-family: "MontserratAlternates", sans-serif;
+    font-family: "MontserratAlternates", sans-serif;
     font-weight: 400;
     line-height: 1.2;
     @include adaptiveValue("font-size", 53, 22);
     max-width: 95%;
+
     // text-wrap: balance;
-    @media (min-width:toEm($mobileSmall)){
+    @media (min-width:toEm($mobileSmall)) {
       max-width: 86%;
     }
   }
@@ -1720,26 +1727,308 @@
   // .dessert-cake__img
   &__img {
     display: inline-block;
+
     &.img--1 {
       img {
         @include adaptiveValue("max-width", 223, 91);
         aspect-ratio: 223/50;
       }
     }
+
     &.img--2 {
       img {
         @include adaptiveValue("max-width", 194, 79);
         aspect-ratio: 194/50;
       }
     }
+
     &.img--dymanic {
-      @media (max-width:toEm($mobileSmall)){
-         display: none; 
+      @media (max-width:toEm($mobileSmall)) {
+        display: none;
       }
     }
+
     img {
       width: 100%;
       height: auto;
     }
   }
+}
+
+
+%beforeHearts {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 44%;
+    left: 45%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 115%;
+    aspect-ratio: 1;
+    @extend %bgImage;
+    background-image: url("@img/elements/hearts.svg");
+    background-size: contain;
+    z-index: -1;
+    transition: transform .45s ease;
+    // will-change: transform;
+  }
+}
+
+// SECTION == CAKE-CATALOG ====================================
+.cake-catalog {
+  @extend %pddBlock96-45;
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 70%);
+    aspect-ratio: 1440/82;
+    @extend %bgImage;
+    background-image: url("@img/elements/ellipse.svg");
+    background-size: contain;
+    width: 100%;
+
+    @media (min-width:toEm($mobileSmall)) {
+      transform: translate(-50%, 40%);
+    }
+  }
+
+  // .cake-catalog__container
+  &__container {}
+
+  // .cake-catalog__head
+  &__head {
+    @include adaptiveValue("margin-bottom", 44, 37);
+    text-wrap: balance;
+  }
+
+  // .cake-catalog__list
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    gap: 32px 5px;
+
+    @media (min-width:toEm($mobileSmall)) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+  }
+
+  // .cake-catalog__item
+  &__item {}
+
+  // .cake-catalog__link
+  &__link {
+
+    @extend %beforeHearts;
+
+    img {
+      @include adaptiveValue("max-width", 235, 134);
+      object-fit: contain;
+      margin-bottom: 10px;
+      transition: transform .45s ease;
+
+      @media (min-width:toEm($mobileSmall)) {
+        margin-bottom: 5px;
+      }
+    }
+
+    h3 {
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 1.18;
+      @include adaptiveValue("font-size", 20, 12);
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+
+        &::before {
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+    }
+
+    &:active {
+      img {
+        transform: scale(1.05);
+      }
+
+      &::before {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+    }
+  }
+}
+
+
+// == CATEGORY-CAKE =============
+.category-cake {
+  @extend %pddBlock96-45;
+  position: relative;
+  z-index: 1;
+
+  // .category-cake__container
+  &__container {}
+
+  // .category-cake__list
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    gap: 30px 15px;
+
+    @media (min-width:toEm(700.98)) {
+      gap: 15px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  // .category-cake__item
+  &__item {}
+
+  // .category-cake__picture
+  &__picture {
+
+    @extend %beforeHearts;
+    margin-bottom: 5px;
+    &::before{
+      width: 100%;
+    }
+
+    img {
+      @extend %ibg;
+      object-fit: contain;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+    }
+
+    &:active {
+      &::before {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+    }
+  }
+
+  // .category-cake__btn
+  &__btn {
+    max-width: 230px;
+    margin-inline: auto;
+  }
+}
+
+
+.catalog-cake {
+  padding-top: 50px;
+  margin-bottom: 50px;
+		// .catalog-cake__container
+		&__container {
+		}
+
+		// .catalog-cake__item
+		&__item {
+      position: relative;
+      display: grid;
+      grid-template-columns: auto 40% auto;
+      justify-content: space-between;
+      align-items: center;
+      @include adaptiveValue("border-radius", 25, 19);
+      background-color: var(--red);
+      color: var(--white);
+      padding-inline: 22px;
+      padding-block: 27px;
+      @media (min-width:toEm(1024.98)){
+        padding-inline: 110px 80px;
+        padding-block: 58px;
+      }
+      @media (min-width:toEm($mobileSmall)){
+        gap: 20px;
+        grid-template-columns: auto 33% auto;
+      }
+		}
+
+		// .catalog-cake__title
+		&__title {
+      font-family: "MontserratAlternates", sans-serif;
+      font-weight: 500;
+      line-height: 1.18;
+      @include adaptiveValue("font-size", 36, 18);
+		}
+
+		// .catalog-cake__picture
+		&__picture {
+      position: absolute;
+      grid-column: 2/3;
+      left: 50%;
+      transform: translate(-60%,0%);
+      width: 100%;
+      max-width: 318px;
+      min-width: 150px;
+      @media (min-width:toEm($mobileSmall)){
+        transform: translate(-50%,0%);
+      }
+      @media (max-width: toEm(374.98)){
+        min-width: 100px;
+      }
+      img {
+        @extend %ibg;
+        object-fit: contain;
+      }
+		}
+
+		// .catalog-cake__link
+		&__link {
+      grid-column: 3/4;
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 1px solid var(--white);
+      transition: all .3s ease;
+      @media (min-width:toEm(600.98)){
+        width: 74px;
+        height: 74px;
+        border-width: 2px;
+      }
+      svg {
+        width: 100%;
+        height: auto;
+        path {
+          transition: fill .3s ease;
+        }
+      }
+      @media (any-hover: hover){
+        &:hover{
+          background-color: var(--white);
+          svg {
+            path {
+              fill: var(--red);
+            }
+          }
+        }
+      }
+		}
+}
+
+.footer-margin {
+  margin-bottom: 500px;
 }

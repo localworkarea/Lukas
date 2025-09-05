@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	<include src="@components/layout/head/head.html" locals='{
+<include src="@components/layout/head/head.html" locals='{
 		"title":"Розробка компонентів", 
 		"preloader": {
 			"enable":"false",
@@ -9,8 +9,8 @@
 		"keywords":"", 
 		"description":""
 	}'>
-	</include>
-	<style>
+</include>
+<style>
 	.components {
 		padding: 50px;
 		display: flex;
@@ -22,28 +22,36 @@
 	.components__item>* {
 		margin-bottom: 10px;
 	}
-	</style>
-	<body>
-		<div class="components">
-			<div class="components__item">
+</style>
+
+<body>
+	<div class="components">
+		<div class="components__item">
 			<a href="#" data-fls-buttons class="btn btn--a">
-			  <span>До каталогу</span>
+				<span>До каталогу</span>
 			</a>
 			<a href="#" data-fls-buttons class="btn btn--b">
-			  <span>До каталогу</span>
+				<span>До каталогу</span>
 			</a>
-		
-			</div>
-			<div class="components__item">
+			<a href="#" data-fls-buttons class="btn btn--c">
+				<div class="btn--ic">
+					<img src="@img/icons/cart-dark.svg" width="28" height="31" alt="корзина замовлення">
+				</div>
+				<span>До каталогу</span>
+			</a>
 
-			</div>
-			<div class="components__item">
-
-			</div>
-			<div class="components__item">
-
-			</div>
 		</div>
-	</body>
-	<script type="module" src="@js/app.js"></script>
+		<div class="components__item">
+
+		</div>
+		<div class="components__item">
+
+		</div>
+		<div class="components__item">
+
+		</div>
+	</div>
+</body>
+<script type="module" src="@js/app.js"></script>
+
 </html>

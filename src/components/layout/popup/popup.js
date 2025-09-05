@@ -27,7 +27,7 @@ class Popup {
 				popupActive: 'data-fls-popup-active', // Додається для попапа, коли він відкривається
 				bodyActive: 'data-fls-popup-open', // Додається для боді, коли попап відкритий
 			},
-			focusCatch: true, // Фокус усередині попапа зациклений
+			focusCatch: false, // Фокус усередині попапа зациклений
 			closeEsc: true, // Закриття ESC
 			bodyLock: true, // Блокування скролла
 			hashSettings: {
