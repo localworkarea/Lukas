@@ -272,11 +272,11 @@
 					<picture>
 						<source srcset="@img/cake-history/cake-history-group-1.png" media="(min-width: 30.062em)" type="image/webp">
 						<source srcset="@img/cake-history/cake-history-group-1-mb.png" type="image/webp">
-						<img loading="lazy" src="@img/cake-history/cake-history-group-1.png" width="934" height="996" alt="image">
+						<img src="@img/cake-history/cake-history-group-1.png" width="934" height="996" alt="image">
 					</picture>
 				</div>
 				<div data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="0.8" class="items-history__item items-history__item--img item--2">
-					<img loading="lazy" src="@img/cake-history/cake-history-2.jpg" width="934" height="996" alt="image">
+					<img src="@img/cake-history/cake-history-2.jpg" width="934" height="996" alt="image">
 				</div>
 				<div data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="items-history__item items-history__item--block item--3">
 					<h3 class="items-history__title">
@@ -291,7 +291,7 @@
 					<picture>
 						<source srcset="@img/cake-history/cake-history-group-2.png" media="(min-width: 30.062em)" type="image/webp">
 						<source srcset="@img/cake-history/cake-history-group-2-mb.png" type="image/webp">
-						<img loading="lazy" src="@img/cake-history/cake-history-group-2.png" width="934" height="996" alt="image">
+						<img  src="@img/cake-history/cake-history-group-2.png" width="934" height="996" alt="image">
 					</picture>
 				</div>
 				<div data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="items-history__item items-history__item--block item--5">
@@ -309,7 +309,7 @@
 					<picture>
 						<source srcset="@img/cake-history/cake-history-group-3.png" media="(min-width: 30.062em)" type="image/webp">
 						<source srcset="@img/cake-history/cake-history-group-3-mb.png" type="image/webp">
-						<img loading="lazy" src="@img/cake-history/cake-history-group-3.png" width="934" height="996" alt="image">
+						<img  src="@img/cake-history/cake-history-group-3.png" width="934" height="996" alt="image">
 					</picture>
 				</div>
 				<div data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="items-history__item items-history__item--block item--7">
@@ -327,14 +327,14 @@
 					<picture>
 						<source srcset="@img/cake-history/cake-history-group-4.png" media="(min-width: 30.062em)" type="image/webp">
 						<source srcset="@img/cake-history/cake-history-group-4-mb.png" type="image/webp">
-						<img loading="lazy" src="@img/cake-history/cake-history-group-4.png" width="934" height="996" alt="image">
+						<img  src="@img/cake-history/cake-history-group-4.png" width="934" height="996" alt="image">
 					</picture>
 				</div>
 			</div>
 		</div>
 		<div class="cake-history__marquee marquee-history">
-			<ul class="marquee-cake" data-fls-marquee data-fls-marquee-space="5" data-fls-marquee-speed="500" data-fls-marquee-direction="right">
-				<li class="marquee-cake__item">
+			<div class="marquee-cake" data-fls-marquee data-fls-marquee-space="5" data-fls-marquee-speed="500" data-fls-marquee-direction="right">
+				<div class="marquee-cake__item">
 					<div class="marquee-cake__body">
 						<div class="marquee-cake__picture">
 							<img src="@img/cake/cake-4.png" width="735" height="450" alt="Image">
@@ -344,8 +344,8 @@
 					<div class="marquee-cake__title--2 ff-acc">
 						<p>для святкового<br> настрою</p>
 					</div>
-				</li>
-				<li class="marquee-cake__item">
+				</div>
+				<div class="marquee-cake__item">
 					<div class="marquee-cake__body">
 						<div class="marquee-cake__picture">
 							<img src="@img/cake/cake-5.png" width="735" height="450" alt="Image">
@@ -355,8 +355,8 @@
 					<div class="marquee-cake__title--2 ff-acc">
 						<p>для моменту<br> ніжності</p>
 					</div>
-				</li>
-				<li class="marquee-cake__item">
+				</div>
+				<div class="marquee-cake__item">
 					<div class="marquee-cake__body">
 						<div class="marquee-cake__picture">
 							<img src="@img/cake/cake-6.png" width="735" height="450" alt="Image">
@@ -366,8 +366,8 @@
 					<div class="marquee-cake__title--2 ff-acc">
 						<p>для святкового<br> настрою</p>
 					</div>
-				</li>
-				<li class="marquee-cake__item">
+				</div>
+				<div class="marquee-cake__item">
 					<div class="marquee-cake__body">
 						<div class="marquee-cake__picture">
 							<img src="@img/cake/cake-5.png" width="735" height="450" alt="Image">
@@ -377,8 +377,8 @@
 					<div class="marquee-cake__title--2 ff-acc">
 						<p>для моменту<br> ніжності</p>
 					</div>
-				</li>
-			</ul>
+				</div>
+			</div>
 			<div class="marquee-history__container">
 				<div class="marquee-history__txt">
 					<p>Ласощі які<br> ви обираєте</p>
@@ -622,7 +622,7 @@
 					data-fls-parallax-coefficient="10"
 					src="@img/elements/catalog.png" width="318" height="303" alt="Image">
 				</div>
-				<a href="@files/catalog.pdf" target="_blank" class="catalog-cake__link">
+				<a href="@files/catalog.pdf" target="_blank" class="catalog-cake__link" aria-label="Завантажити каталог">
 					<svg width="74" height="74" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M29.5054 19.5899C30.0786 18.9919 31.0285 18.9718 31.6265 19.545L50.1685 37.3145L31.6265 55.0831C31.0284 55.6563 30.0786 55.6363 29.5054 55.0382C28.9325 54.4402 28.9526 53.4912 29.5504 52.918L45.8316 37.3145L29.5504 21.711C28.9524 21.1378 28.9323 20.188 29.5054 19.5899Z" fill="#ffffff"/>
 					</svg>
