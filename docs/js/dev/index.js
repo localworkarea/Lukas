@@ -4889,12 +4889,10 @@ class ScrollWatcher {
   scrollWatcherUpdate() {
     this.scrollWatcherRun();
   }
-  // Запускаємо конструктор
   scrollWatcherRun() {
     document.documentElement.setAttribute("data-fls-watch", "");
     this.scrollWatcherConstructor(document.querySelectorAll("[data-fls-watcher]"));
   }
-  // Конструктор спостерігачів
   scrollWatcherConstructor(items) {
     if (items.length) {
       let uniqParams = uniqArray(Array.from(items).map(function(item) {
@@ -4935,7 +4933,6 @@ class ScrollWatcher {
       });
     }
   }
-  // Функція створення налаштувань
   getScrollWatcherConfig(paramsWatch) {
     let configWatcher = {};
     if (document.querySelector(paramsWatch.root)) {
@@ -4956,7 +4953,6 @@ class ScrollWatcher {
     configWatcher.threshold = paramsWatch.threshold;
     return configWatcher;
   }
-  // Функція створення нового спостерігача зі своїми налаштуваннями
   scrollWatcherCreate(configWatcher) {
     this.observer = new IntersectionObserver((entries2, observer) => {
       entries2.forEach((entry) => {
@@ -4964,12 +4960,10 @@ class ScrollWatcher {
       });
     }, configWatcher);
   }
-  // Функція ініціалізації спостерігача зі своїми налаштуваннями
   scrollWatcherInit(items, configWatcher) {
     this.scrollWatcherCreate(configWatcher);
     items.forEach((item) => this.observer.observe(item));
   }
-  // Функція обробки базових дій точок спрацьовування
   scrollWatcherIntersecting(entry, targetElement) {
     if (entry.isIntersecting) {
       !targetElement.classList.contains("--watcher-view") ? targetElement.classList.add("--watcher-view") : null;
@@ -4981,7 +4975,6 @@ class ScrollWatcher {
   scrollWatcherOff(targetElement, observer) {
     observer.unobserve(targetElement);
   }
-  // Функція обробки спостереження
   scrollWatcherCallback(entry, observer) {
     const targetElement = entry.target;
     this.scrollWatcherIntersecting(entry, targetElement);
