@@ -1,6 +1,6 @@
 import { addTouchAttr, addLoadedAttr, isMobile, FLS } from "@js/common/functions.js"
-
-
+// import SplitType from 'split-type'
+addLoadedAttr();
 
 document.addEventListener("DOMContentLoaded", () => {
 function updateClipPath(angleDeg = -8) {
@@ -257,6 +257,4 @@ function updateClipPath(angleDeg = -8) {
     }
     // ===================================
 });
-
-
 

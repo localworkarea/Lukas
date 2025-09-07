@@ -16,11 +16,11 @@
 		</div>
 		<div class="cake-hero__container cake-hero__container--top">
 			<h1 class="cake-hero__title">
-				Обирай настрій
+				<span data-fls-splittype="words,span">Обирай настрій</span><br>
 				<span class="ff-acc">на кожен день</span>
 			</h1>
 		</div>
-		<div class="cake-hero__marquee marquee-cake" data-fls-marquee data-fls-marquee-space="5" data-fls-marquee-speed="500" data-fls-marquee-direction="right">
+		<div class="cake-hero__marquee marquee-cake" data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="0.5" data-fls-marquee data-fls-marquee-space="5" data-fls-marquee-speed="500" data-fls-marquee-direction="right">
 			<div class="marquee-cake__item">
 				<div class="marquee-cake__body">
 					<div class="marquee-cake__picture">
@@ -94,6 +94,7 @@
 			</a>
 		</div>
 	</section>
+
 	<section class="cake-detail">
 		<div data-trigger-start="top,75%" class="cake-detail__container">
 			<div class="cake-detail__body">
@@ -222,11 +223,13 @@
 				</ul>
 				<!-- Сюди Динамічно підставляється контент .info-cake  з попапу на ширині вище чем 992рх -->
 			</div>
-			<div class="cake-detail__bottom">
-				<h2 class="cake-detail__title"><span>з любов’ю</span><br> до деталей</h2>
-				<a href="#" data-fls-buttons class="cake-detail__btn btn btn--a">
-					<span>як ми це робимо</span>
-				</a>
+			<div data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="cake-detail__bottom">
+				<h2 data-fls-splittype="words,span" class="cake-detail__title"><span class="red">з любов’ю</span><br> до деталей</h2>
+				<div class="cake-detail__btn--wr">
+					<a href="#" data-fls-buttons class="cake-detail__btn btn btn--a">
+						<span>як ми це робимо</span>
+					</a>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -238,15 +241,15 @@
 			</div>
 			<div class="cake-history__container">
 				<div class="cake-history__pictures">
-					<div class="cake-history__img">
+					<div data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="0.8" class="cake-history__img">
 						<img loading="lazy" class="ibg" src="@img/cake-history/cake-history-0.jpg" width="559" height="666" alt="Image">
 					</div>
 					<div class="cake-history__subtext ff-acc">
 						<p>з теплом<br> &nbsp;для настрою</p>
 					</div>
 				</div>
-				<div class="cake-history__body">
-					<h2 class="cake-history__title">
+				<div data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="cake-history__body">
+					<h2 data-fls-splittype="words,span" class="cake-history__title">
 						Кожен торт —
 						це історія
 						створена
@@ -265,17 +268,17 @@
 		</div>
 		<div class="cake-history__container--big">
 			<div class="cake-history__items items-history">
-				<div class="items-history__item items-history__item--img item--1">
+				<div data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="0.6" class="items-history__item items-history__item--img item--1">
 					<picture>
 						<source srcset="@img/cake-history/cake-history-group-1.png" media="(min-width: 30.062em)" type="image/webp">
 						<source srcset="@img/cake-history/cake-history-group-1-mb.png" type="image/webp">
 						<img loading="lazy" src="@img/cake-history/cake-history-group-1.png" width="934" height="996" alt="image">
 					</picture>
 				</div>
-				<div class="items-history__item items-history__item--img item--2">
+				<div data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="0.8" class="items-history__item items-history__item--img item--2">
 					<img loading="lazy" src="@img/cake-history/cake-history-2.jpg" width="934" height="996" alt="image">
 				</div>
-				<div class="items-history__item items-history__item--block item--3">
+				<div data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="items-history__item items-history__item--block item--3">
 					<h3 class="items-history__title">
 						Історії, що тануть <span>на язику</span>
 					</h3>
@@ -284,14 +287,14 @@
 						</p>
 					</div>
 				</div>
-				<div class="items-history__item items-history__item--img item--4">
+				<div data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="0.8" class="items-history__item items-history__item--img item--4">
 					<picture>
 						<source srcset="@img/cake-history/cake-history-group-2.png" media="(min-width: 30.062em)" type="image/webp">
 						<source srcset="@img/cake-history/cake-history-group-2-mb.png" type="image/webp">
 						<img loading="lazy" src="@img/cake-history/cake-history-group-2.png" width="934" height="996" alt="image">
 					</picture>
 				</div>
-				<div class="items-history__item items-history__item--block item--5">
+				<div data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="items-history__item items-history__item--block item--5">
 					<h3 class="items-history__title">
 						Емоції зі смаком <span>ванілі й шоколаду</span>
 					</h3>
@@ -302,14 +305,14 @@
 						</p>
 					</div>
 				</div>
-				<div class="items-history__item items-history__item--img item--6">
+				<div data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="0.8" class="items-history__item items-history__item--img item--6">
 					<picture>
 						<source srcset="@img/cake-history/cake-history-group-3.png" media="(min-width: 30.062em)" type="image/webp">
 						<source srcset="@img/cake-history/cake-history-group-3-mb.png" type="image/webp">
 						<img loading="lazy" src="@img/cake-history/cake-history-group-3.png" width="934" height="996" alt="image">
 					</picture>
 				</div>
-				<div class="items-history__item items-history__item--block item--7">
+				<div data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="items-history__item items-history__item--block item--7">
 					<h3 class="items-history__title">
 						Почуття, до яких <span>хочеться повертатись</span>
 					</h3>
@@ -320,7 +323,7 @@
 						</p>
 					</div>
 				</div>
-				<div class="items-history__item items-history__item--img item--8">
+				<div data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="0.4" class="items-history__item items-history__item--img item--8">
 					<picture>
 						<source srcset="@img/cake-history/cake-history-group-4.png" media="(min-width: 30.062em)" type="image/webp">
 						<source srcset="@img/cake-history/cake-history-group-4-mb.png" type="image/webp">
@@ -401,10 +404,10 @@
 	</section>
 
 	<section class="cake-format">
-		<div class="cake-format__container top">
-			<div class="cake-format__head">
-				<h2 class="cake-format__title">
-					Улюблені смаки<br> <span>у зручному форматі</span>
+		<div  class="cake-format__container top">
+			<div data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="cake-format__head">
+				<h2 data-fls-splittype="words,span"  class="cake-format__title">
+					Улюблені смаки<br> <span class="red">у зручному форматі</span>
 				</h2>
 			</div>
 			<div data-fls-slider class="cake-format__slider swiper">
@@ -475,8 +478,8 @@
 				<img loading="lazy" class="ibg" src="@img/cake-history/cake-history-bg.jpg" width="1440" height="709" alt="Image">
 			</div>
 			<div class="dessert-cake__container">
-				<div class="dessert-cake__block">
-					<p class="dessert-cake__txt">
+				<div data-fls-watcher data-fls-watcher-threshold="1" class="dessert-cake__block">
+					<p data-fls-splittype="words,span" class="dessert-cake__txt">
 						Солодкий десерт <span class="dessert-cake__img img--1"><img src="@img/elements/part-cake-1.png" width="223" height="50" alt="Image"></span> із щирим <span class="dessert-cake__img img--2 img--dymanic"></span> побажанням — <span class="dessert-cake__img img--2"><img data-fls-dynamic=".img--dymanic,480.98,0,min" src="@img/elements/part-cake-2.png" width="223" height="50" alt="Image"></span> найкращий подарунок для серця!
 					</p>
 				</div>
@@ -486,79 +489,79 @@
 
 	<section class="cake-catalog">
 		<div class="cake-catalog__container">
-			<div class="cake-catalog__head cake-format__head">
-				<h2 class="cake-format__title">
-					Зроблено <span>з любов’ю </span>
+			<div data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="cake-catalog__head cake-format__head">
+				<h2 data-fls-splittype="words,span" class="cake-format__title">
+					Зроблено <span class="red">з любов’ю </span>
 				</h2>
 			</div>
 			<ul class="cake-catalog__list">
-				<li id="10" data-fls-popup-link="popup-cake" class="cake-catalog__item">
+				<li id="10" data-fls-popup-link="popup-cake" data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="cake-catalog__item">
 					<a href="#" class="cake-catalog__link">
 						<img loading="lazy" class="ibg" src="@img/cake/cake-piece-1.png" width="235" height="224" alt="Вишнева ніч">
 						<h3>«ВИШНЕВА НІЧ»</h3>
 					</a>
 				</li>
-				<li id="11" data-fls-popup-link="popup-cake" class="cake-catalog__item">
+				<li id="11" data-fls-popup-link="popup-cake" data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="cake-catalog__item">
 					<a href="#" class="cake-catalog__link">
 						<img loading="lazy" class="ibg" src="@img/cake/cake-piece-2.png" width="235" height="224" alt="Вишнева ніч">
 						<h3>«ВКУСНЯШКА»</h3>
 					</a>
 				</li>
-				<li id="12" data-fls-popup-link="popup-cake" class="cake-catalog__item">
+				<li id="12" data-fls-popup-link="popup-cake" data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="cake-catalog__item">
 					<a href="#" class="cake-catalog__link">
 						<img loading="lazy" class="ibg" src="@img/cake/cake-piece-3.png" width="235" height="224" alt="Вишнева ніч">
 						<h3>«ВИШИВАНКА»</h3>
 					</a>
 				</li>
-				<li id="13" data-fls-popup-link="popup-cake" class="cake-catalog__item">
+				<li id="13" data-fls-popup-link="popup-cake" data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="cake-catalog__item">
 					<a href="#" class="cake-catalog__link">
 						<img loading="lazy" class="ibg" src="@img/cake/cake-piece-4.png" width="235" height="224" alt="Вишнева ніч">
 						<h3>«П'ЯНКА ВИШНЯ»</h3>
 					</a>
 				</li>
-				<li id="14" data-fls-popup-link="popup-cake" class="cake-catalog__item">
+				<li id="14" data-fls-popup-link="popup-cake" data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="cake-catalog__item">
 					<a href="#" class="cake-catalog__link">
 						<img loading="lazy" class="ibg" src="@img/cake/cake-piece-5.png" width="235" height="224" alt="Вишнева ніч">
 						<h3>«ВКУСНЯШКА»</h3>
 					</a>
 				</li>
-				<li id="15" data-fls-popup-link="popup-cake" class="cake-catalog__item">
+				<li id="15" data-fls-popup-link="popup-cake" data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="cake-catalog__item">
 					<a href="#" class="cake-catalog__link">
 						<img loading="lazy" class="ibg" src="@img/cake/cake-piece-1.png" width="235" height="224" alt="Вишнева ніч">
 						<h3>«ВИШНЕВА НІЧ»</h3>
 					</a>
 				</li>
-				<li id="16" data-fls-popup-link="popup-cake" class="cake-catalog__item">
+				<li id="16" data-fls-popup-link="popup-cake" data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="cake-catalog__item">
 					<a href="#" class="cake-catalog__link">
 						<img loading="lazy" class="ibg" src="@img/cake/cake-piece-2.png" width="235" height="224" alt="Вишнева ніч">
 						<h3>«ВКУСНЯШКА»</h3>
 					</a>
 				</li>
-				<li id="17" data-fls-popup-link="popup-cake" class="cake-catalog__item">
+				<li id="17" data-fls-popup-link="popup-cake" data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="cake-catalog__item">
 					<a href="#" class="cake-catalog__link">
 						<img loading="lazy" class="ibg" src="@img/cake/cake-piece-3.png" width="235" height="224" alt="Вишнева ніч">
 						<h3>«ВИШИВАНКА»</h3>
 					</a>
 				</li>
-				<li id="18" data-fls-popup-link="popup-cake" class="cake-catalog__item">
+				<li id="18" data-fls-popup-link="popup-cake" data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="cake-catalog__item">
 					<a href="#" class="cake-catalog__link">
 						<img loading="lazy" class="ibg" src="@img/cake/cake-piece-4.png" width="235" height="224" alt="Вишнева ніч">
 						<h3>«П'ЯНКА ВИШНЯ»</h3>
 					</a>
 				</li>
-				<li id="19" data-fls-popup-link="popup-cake" class="cake-catalog__item">
+				<li id="19" data-fls-popup-link="popup-cake" data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="cake-catalog__item">
 					<a href="#" class="cake-catalog__link">
 						<img loading="lazy" class="ibg" src="@img/cake/cake-piece-5.png" width="235" height="224" alt="Вишнева ніч">
 						<h3>«ВКУСНЯШКА»</h3>
 					</a>
 				</li>
-					<li id="20" data-fls-popup-link="popup-cake" class="cake-catalog__item">
+				<li id="20" data-fls-popup-link="popup-cake" data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="cake-catalog__item">
 					<a href="#" class="cake-catalog__link">
 						<img loading="lazy" class="ibg" src="@img/cake/cake-piece-1.png" width="235" height="224" alt="Вишнева ніч">
 						<h3>«ВИШНЕВА НІЧ»</h3>
 					</a>
 				</li>
-				<li id="21" data-fls-popup-link="popup-cake" class="cake-catalog__item">
+				<li id="21" data-fls-popup-link="popup-cake" data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="cake-catalog__item">
 					<a href="#" class="cake-catalog__link">
 						<img loading="lazy" class="ibg" src="@img/cake/cake-piece-2.png" width="235" height="224" alt="Вишнева ніч">
 						<h3>«ВКУСНЯШКА»</h3>
@@ -609,8 +612,8 @@
 
 	<div data-fls-parallax-parent data-fls-parallax-smooth="20" data-fls-parallax-center="center"  class="catalog-cake footer-margin">
 		<div class="catalog-cake__container">
-			<div class="catalog-cake__item">
-				<p class="catalog-cake__title">
+			<div data-fls-watcher data-fls-watcher-once data-fls-watcher-threshold="1" class="catalog-cake__item">
+				<p data-fls-splittype="words,span" class="catalog-cake__title">
 					КАТАЛОГ ПРОДУКЦІЇ
 				</p>
 				<div class="catalog-cake__picture">

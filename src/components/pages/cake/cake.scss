@@ -2,6 +2,8 @@
   background-color: var(--gray-bg);
 }
 
+
+
 .cake-hero {
   position: relative;
   z-index: 1;
@@ -38,7 +40,10 @@
   }
 
   // cake-hero__container--bottom
-  &__container--bottom {}
+  &__container--bottom {
+   @extend %opacityHero;
+   transition-delay: 0.5s;
+  }
 
   // .cake-hero__title
   &__title {
@@ -49,6 +54,11 @@
     @media (max-width:toEm($mobile)) {
       text-align: center;
     }
+    opacity: 0;
+      [data-fls-loaded] & {
+        opacity: 1;
+        transition: opacity .2s ease;
+      }
 
     .ff-acc {
       display: block;
@@ -56,18 +66,39 @@
       text-transform: lowercase;
       @include adaptiveValue("font-size", 63, 38);
 
+      @extend %opacityHero;      
+      transition-delay: .3s !important;
       @media (min-width:toEm($mobile)) {
         padding-left: 52px;
+      }
+    }
+    
+    .subword {
+      transform: translateY(100%);
+    }
+    [data-fls-loaded] & {
+      .subword {
+        transition: transform .75s cubic-bezier(.22,.89,.34,.96), opacity .2s ease;
+          transform: translateY(10%);
+          transition-delay: calc(var(--index) * .05s);
       }
     }
   }
 
   // .cake-hero__marquee
-  &__marquee {}
+  &__marquee {
+    opacity: 0;
+    &.--watcher-view {
+      opacity: 1;
+      transition: opacity .65s ease .5s;
+    }
+  }
 
   // .cake-hero__btn
   &__btn {
     min-width: 200px;
+
+   
 
     @media (min-width:toEm($mobileSmall)) {
       margin-left: auto;
@@ -219,16 +250,22 @@
     font-family: "MontserratAlternates", sans-serif;
     font-weight: 400;
     text-transform: uppercase;
-    line-height: 1.18;
+    // line-height: 1.18;
     @include adaptiveValue("font-size", 42, 32);
 
-    span {
-      color: var(--red);
-    }
+    // span {
+    //   color: var(--red);
+    // }
 
     br {
       @media (min-width:toEm(600.98)) {
         display: none;
+      }
+    }
+  
+    .subword {
+      .--watcher-view & {
+        @extend %splitTransformOpacity;
       }
     }
 
@@ -236,6 +273,12 @@
       margin-bottom: 29px;
     }
   }
+
+	// .cake-detail__btn--wr
+	&__btn--wr {
+    @extend %opacityWatcher;
+    transition-delay: 0.5s;
+	}
 
   // .cake-detail__btn
   &__btn {
@@ -1162,6 +1205,10 @@
 
   // .cake-history__title
   &__title {
+    .word {
+      line-height: 0.9;
+    }
+    @extend %splitTransformOpacityWatcher;
     @include adaptiveValue("font-size", 50, 25);
     line-height: 1.12;
 
@@ -1174,6 +1221,9 @@
   &__text {
     line-height: 1.23;
     text-wrap: balance;
+
+    @extend %opacityWatcher;
+    transition-delay: 0.3s;
 
     p {
       &:not(:last-child) {
@@ -1196,7 +1246,9 @@
 
   // .cake-history__img
   &__img {
+    @extend %transitionClipPathEase;
     img {
+      transition-duration: 1s;
       aspect-ratio: 558/666;
     }
   }
@@ -1277,6 +1329,10 @@
     line-height: 1.18;
     font-weight: 500;
 
+    @extend %opacityWatcher;
+     transition-duration: .8s;
+    transition-delay: 0.3s;
+
     span {
       display: block;
       color: var(--red);
@@ -1289,6 +1345,9 @@
 
   // .items-history__text
   &__text {
+     @extend %opacityWatcher;
+     transition-duration: .8s;
+      transition-delay: 0.45s;
     text-wrap: balance;
 
     @media (max-width:toEm($mobileSmall)) {
@@ -1301,33 +1360,68 @@
     position: relative;
 
     // .items-history__item--img {}
-    &--img {}
-
+    &--img {
+      img {
+        transition-duration: 1.5s;
+      }
+      &.item--1 {
+        @extend %transitionClipPathEase;
+        img {
+          aspect-ratio: 934/996;
+        }
+      }
+      &.item--2 {
+        @extend %transitionClipPathEase2;
+        img {
+          aspect-ratio: 513/479;
+        }
+      }
+      &.item--4 {
+        @extend %transitionClipPathEase;
+        img {
+          aspect-ratio: 726/570;
+        }
+      }
+      &.item--6 {
+        @extend %transitionClipPathEase2;
+        img {
+          aspect-ratio: 780/760;
+        }
+      }
+      &.item--8 {
+        @extend %transitionClipPathEase;
+        img {
+          aspect-ratio: 1317/654;
+        }
+      }
+    }
+    
     // .items-history__item--block {}
     &--block {
       padding-block: 40px;
 
+      
       @media (max-width: toEm(820.98)) {
         margin-inline: auto;
       }
-
+      
       @media (min-width:toEm($mobileSmall)) {
         max-width: 78%;
         align-self: center;
       }
     }
-
+    
     &.item--1 {
       @media (min-width:toEm(820.98)) {
         grid-column: 1/3;
         grid-row: 1/3;
       }
-
+      
       @media (max-width: toEm(820.98)) {
         margin-inline: -80px;
       }
     }
-
+    
     &.item--2 {
       @media (max-width: toEm(820.98)) {
         display: none;
@@ -1346,6 +1440,7 @@
         grid-column: 2/4;
         grid-row: 3/4;
         max-width: 80%;
+        width: 100%;
         justify-self: center;
         margin-top: -15%;
         margin-bottom: -4%;
@@ -1366,6 +1461,7 @@
         grid-column: 1/3;
         grid-row: 4/5;
         max-width: 82%;
+        width: 100%;
         justify-self: flex-end;
         margin-right: 30px;
         margin-top: -10%;
@@ -1385,6 +1481,7 @@
         grid-row: 5/6;
         justify-self: center;
         max-width: 85%;
+        width: 100%;
       }
 
       @media (max-width: toEm(820.98)) {
@@ -1536,14 +1633,16 @@
     font-weight: 400;
     @include adaptiveValue("font-size", 40, 22);
 
-    @media (max-width:toEm($mobileSmall)) {
-      line-height: 1.18;
+    @extend %splitTransformOpacityWatcher;
+    .subword {
+      .--watcher-view & {
+        transform: translateY(-8%);
+      }
     }
 
-    span {
-      color: var(--red);
-    }
-
+    // @media (max-width:toEm($mobileSmall)) {
+      // line-height: 1.18;
+    // }
   }
 
   // .cake-format__slider
@@ -1625,7 +1724,7 @@
     aspect-ratio: 1;
     display: grid;
     place-items: center;
-    // border-radius: 50%;
+    border-radius: 50%;
 
     transition: background-color .3s ease;
 
@@ -1711,7 +1810,7 @@
   &__block {
     font-family: "MontserratAlternates", sans-serif;
     font-weight: 400;
-    line-height: 1.2;
+    // line-height: 1.2;
     @include adaptiveValue("font-size", 53, 22);
     max-width: 95%;
 
@@ -1722,23 +1821,32 @@
   }
 
   // .dessert-cake__txt
-  &__txt {}
+  &__txt {
+     @extend %splitTransformOpacityWatcher;
+     	.subword {
+	    	.--watcher-view & {
+	    		transform: translateY(-8%);
+	    	}
+	    }
+  }
 
   // .dessert-cake__img
   &__img {
     display: inline-block;
-
+    overflow: hidden;
     &.img--1 {
       img {
         @include adaptiveValue("max-width", 223, 91);
         aspect-ratio: 223/50;
+        transition-delay: 0.15s;
       }
     }
-
+    
     &.img--2 {
       img {
         @include adaptiveValue("max-width", 194, 79);
         aspect-ratio: 194/50;
+        transition-delay: 0.3s;
       }
     }
 
@@ -1751,6 +1859,14 @@
     img {
       width: 100%;
       height: auto;
+      // @extend %opacityWatcher;
+      transition: transform .65s ease, opacity .3s ease;
+      transform: translate(0, 100%);
+      opacity: 0;
+      .--watcher-view & {
+        opacity: 1;
+        transform: translate(0%,0);
+      }
     }
   }
 }
@@ -1806,6 +1922,9 @@
   &__head {
     @include adaptiveValue("margin-bottom", 44, 37);
     text-wrap: balance;
+    .cake-format__title {
+      text-wrap: auto;
+    }
   }
 
   // .cake-catalog__list
@@ -1822,10 +1941,21 @@
   }
 
   // .cake-catalog__item
-  &__item {}
+  &__item {
+
+  }
 
   // .cake-catalog__link
   &__link {
+
+    opacity: 0;
+    transform: translate(0,50%);
+    transition: opacity .45s ease, transform .75s ease;
+    .--watcher-view & {
+      opacity: 1;
+      transform: translate(0%);
+    }
+
 
     @extend %beforeHearts;
 
@@ -1834,7 +1964,7 @@
       object-fit: contain;
       margin-bottom: 10px;
       transition: transform .45s ease;
-
+      aspect-ratio: 235/224;
       @media (min-width:toEm($mobileSmall)) {
         margin-bottom: 5px;
       }
@@ -1971,6 +2101,7 @@
       font-weight: 500;
       line-height: 1.18;
       @include adaptiveValue("font-size", 36, 18);
+      @extend %splitTransformOpacityWatcher;
 		}
 
 		// .catalog-cake__picture

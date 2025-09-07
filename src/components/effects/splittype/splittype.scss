@@ -1,4 +1,32 @@
-// ====== Component ======
-.splittype {
-  /* Стилі компонента */
+[data-fls-splittype] {
+   font-kerning: none;
 }
+
+.element {
+  .line {
+    overflow: hidden;
+  }
+  .word {
+    transform: translateY(100%);
+    transition: transform .55s cubic-bezier(.22,.89,.34,.96);
+  }
+  &._watcher-view {
+    .word {
+      transform: translateY(0);
+      transition-delay: calc(var(--index) * .03s);
+    }
+  }
+}
+
+.word {
+  overflow: hidden;
+}
+.subword {
+  // transform: translateY(100%);
+  // transition: transform .55s cubic-bezier(.22,.89,.34,.96), opacity .2s ease;
+}
+
+// %splitTransition {
+//   transform: translateY(0);
+//   transition-delay: calc(var(--index) * .03s);
+// }

@@ -103,6 +103,18 @@
         "start": 1757069664954,
         "end": 1757084898685,
         "type": "build"
+      },
+      {
+        "date": "07.09.2025",
+        "start": 1757254004668,
+        "end": 1757263847986,
+        "type": "build"
+      },
+      {
+        "date": "07.09.2025",
+        "start": 1757263920982,
+        "end": 1757264549512,
+        "type": "build"
       }
     ],
     "files": [
@@ -146,7 +158,11 @@
       "cake-7.jpg",
       "slider.js",
       "bg.png",
-      "ellipse.svg"
+      "ellipse.svg",
+      "splittype.js",
+      "splittype.scss",
+      "extends.scss",
+      "watcher.js"
     ]
   }
 }

@@ -100,6 +100,11 @@ body::after {
 [data-fls-popup="popup-cake"] {
 	padding: 0px;
 	background-color: var(--gray-bg);
+	 &::-webkit-scrollbar {
+		 @media (max-width: toEm(820.98)){
+			 display:none;
+		}
+  }
 	[data-fls-popup-body] {
 		transform: scale(1);
 		transition:
@@ -181,14 +186,29 @@ body::after {
 				aspect-ratio: 1440/800;
 				// background-image: url("@img/cake-popup/bg.png");
 				background-color: var(--red);		
-				clip-path: ellipse(66% 70% at 47% 0%);
+				clip-path: ellipse(66% 0% at 47% 0%);
+				
+				transition: clip-path 0.45s ease 0.55s;
+				
+				[data-fls-popup-active] & {
+					clip-path: ellipse(66% 70% at 47% 0%);
+					transition-delay: 0s;
+				}
+				
 				@media (orientation: portrait) {
 					// height: 80vh;
 					height: 95%;
-					clip-path: ellipse(60% 70% at 47% 25%) !important;
+					clip-path: ellipse(60% 0% at 47% 0%) !important;
+					[data-fls-popup-active] & {
+						clip-path: ellipse(60% 70% at 47% 25%) !important;
+						transition-delay: 0s !important;
+					}
 				}
 				@media (max-width:toEm($mobileSmall)){
-					clip-path: ellipse(40% 70% at 47% 25%) !important;
+					clip-path: ellipse(40% 0% at 47% 0%) !important;
+						[data-fls-popup-active] & {
+							clip-path: ellipse(40% 70% at 47% 25%) !important;
+						}
 				}
 			}
 
@@ -237,6 +257,12 @@ body::after {
 
 		// .popup-cake__body
 		&__body {
+			opacity: 0;
+			transition: opacity .45s ease 0.3s;
+			[data-fls-popup-active] & {
+				opacity: 1;
+				// transition-delay: 0.5s;
+			}
 			@media (min-width:toEm(820.98)){
 				display: grid;
 				grid-template-columns: 60% 1fr;
