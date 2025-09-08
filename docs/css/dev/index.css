@@ -264,7 +264,7 @@ filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(292deg) brightness(104%
   object-fit: cover;
 }
 
-.marquee-cake__podium, .info-cake::before, .info-cake__images::before, .info-cake__images--2::after, .marquee-history__txt::before, .cake-catalog::after, .cake-catalog__link::before, .category-cake__picture::before {
+.marquee-cake__podium, .info-cake::before, .info-cake__images::before, .info-cake__images--2::after, .marquee-history__txt::before, .cake-catalog::after, .cake-format__img::before, .cake-catalog__link::before, .category-cake__picture::before {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -320,6 +320,23 @@ filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(292deg) brightness(104%
   opacity: 1;
 }
 
+.cake-format__img, .cake-catalog__link, .category-cake__picture {
+  position: relative;
+}
+.cake-format__img::before, .cake-catalog__link::before, .category-cake__picture::before {
+  content: "";
+  position: absolute;
+  top: 44%;
+  left: 45%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 115%;
+  aspect-ratio: 1;
+  background-image: url("../assets/img/elements/hearts.svg");
+  background-size: contain;
+  z-index: -1;
+  transition: transform 0.45s ease;
+}
+
 .page--cake {
   background-color: var(--gray-bg);
 }
@@ -341,7 +358,7 @@ filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(292deg) brightness(104%
   z-index: 1;
 }
 .cake-hero__container--bottom {
-  transition-delay: 0.5s;
+  transition-delay: 0.8s !important;
 }
 .cake-hero__title {
   color: var(--white);
@@ -450,6 +467,10 @@ filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(292deg) brightness(104%
   font-weight: 400;
   text-transform: uppercase;
 }
+.cake-detail__title .subword {
+  transform: translateY(100%);
+  transition: transform 0.55s cubic-bezier(0.22, 0.89, 0.34, 0.96), opacity 0.2s ease;
+}
 .cake-detail__btn--wr {
   transition-delay: 0.5s;
 }
@@ -502,6 +523,13 @@ filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(292deg) brightness(104%
 }
 .list-detail__btn svg path {
   transition: stroke 0.3s ease;
+}
+.list-detail__btn.--hover-el {
+  color: var(--red);
+  text-shadow: 0 0 0.0375rem currentColor, 0 0 0.0375rem currentColor, 0 0 0.0375rem currentColor, 0 0 0.0375rem currentColor;
+}
+.list-detail__btn.--hover-el svg path {
+  stroke: var(--red);
 }
 .list-detail__btn:active {
   color: var(--red);
@@ -892,8 +920,7 @@ filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(292deg) brightness(104%
 .marquee-history {
   position: relative;
   z-index: 1;
-  padding-block: 3.125rem 6.25rem;
-  margin-top: 3.125rem;
+  padding-block: 1.5625rem 6.25rem;
   background-color: var(--red);
 }
 .marquee-history .marquee-cake {
@@ -975,9 +1002,16 @@ filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(292deg) brightness(104%
   text-align: center;
   text-transform: uppercase;
 }
+.cake-format__img {
+  cursor: pointer;
+}
+.cake-format__img:before {
+  width: 100%;
+}
 .cake-format__img img {
   aspect-ratio: 381/354;
   object-fit: contain;
+  transition: filter 0.3s ease 0.3s, transform 0.65s ease;
 }
 .cake-format__button {
   position: absolute;
@@ -1048,23 +1082,6 @@ filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(292deg) brightness(104%
 .--watcher-view .dessert-cake__img img {
   opacity: 1;
   transform: translate(0%, 0);
-}
-
-.category-cake__picture, .cake-catalog__link {
-  position: relative;
-}
-.category-cake__picture::before, .cake-catalog__link::before {
-  content: "";
-  position: absolute;
-  top: 44%;
-  left: 45%;
-  transform: translate(-50%, -50%) scale(0);
-  width: 115%;
-  aspect-ratio: 1;
-  background-image: url("../assets/img/elements/hearts.svg");
-  background-size: contain;
-  z-index: -1;
-  transition: transform 0.45s ease;
 }
 
 .cake-catalog {
@@ -1139,9 +1156,13 @@ filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(292deg) brightness(104%
 }
 .category-cake__picture img {
   object-fit: contain;
+  transition: transform 0.45s ease;
 }
 .category-cake__picture:active::before {
   transform: translate(-50%, -50%) scale(1);
+}
+.category-cake__picture:active img {
+  transform: translate(0, -5%);
 }
 .category-cake__btn {
   max-width: 14.375rem;
@@ -1591,7 +1612,7 @@ body::after {
     max-width: 100%;
   }
   .info-cake__title {
-    max-width: 85%;
+    max-width: 79%;
   }
   .items-history__text {
     max-width: 80%;
@@ -1602,8 +1623,9 @@ body::after {
   .cake-format__slide.swiper-slide-active .cake-format__img img {
     transition-delay: 0s;
   }
-  .cake-format__img img {
-    transition: filter 0.3s ease 0.3s;
+  .swiper-slide-active .cake-format__img::before {
+    transform: translate(-50%, -50%) scale(1);
+    transition-delay: 0.3s;
   }
   .dessert-cake__img.img--dymanic {
     display: none;
@@ -1612,7 +1634,14 @@ body::after {
     clip-path: ellipse(40% 0% at 47% 0%) !important;
   }
   [data-fls-popup-active] .popup-cake__bg::before {
-    clip-path: ellipse(40% 70% at 47% 25%) !important;
+    clip-path: ellipse(40% 70% at 47% 15%) !important;
+  }
+  .popup-cake__bg::after {
+    height: 84% !important;
+    transform: translate(-50%, 0) rotate(-4deg);
+  }
+  .popup-cake__images {
+    margin-top: -1.875rem;
   }
 }
 @media (max-width: 23.43625em) {
@@ -2052,6 +2081,7 @@ body::after {
     align-self: center;
   }
   .marquee-history {
+    margin-top: 3.125rem;
     padding-block: 3.125rem 9.5rem;
   }
   .cake-format__head {
@@ -2312,6 +2342,9 @@ body::after {
   }
 }
 @media (min-width: 75.06125em) {
+  .cake-hero__btn {
+    margin-top: -3.125rem;
+  }
   .cake-history__subtext p {
     margin-right: -1.875rem;
   }
@@ -2474,12 +2507,8 @@ body::after {
   .btn--c:hover .btn--ic img {
     filter: invert(11%) sepia(92%) saturate(6875%) hue-rotate(344deg) brightness(103%) contrast(104%);
   }
-  .list-detail__btn:hover {
-    color: var(--red);
-    text-shadow: 0 0 0.0375rem currentColor, 0 0 0.0375rem currentColor, 0 0 0.0375rem currentColor, 0 0 0.0375rem currentColor;
-  }
-  .list-detail__btn:hover svg path {
-    stroke: var(--red);
+  .cake-format__img:hover::before {
+    transform: translate(-50%, -50%) scale(1);
   }
   .cake-format__button:hover {
     background-color: var(--red);
@@ -2495,6 +2524,9 @@ body::after {
   }
   .category-cake__picture:hover::before {
     transform: translate(-50%, -50%) scale(1);
+  }
+  .category-cake__picture:hover img {
+    transform: translate(0, -5%);
   }
   .catalog-cake__link:hover {
     background-color: var(--white);
@@ -2520,7 +2552,7 @@ body::after {
   }
   .popup-cake__bg::after {
     top: 0%;
-    height: 95%;
+    height: 94%;
     background-size: contain;
     background-position: 50% 94%;
   }

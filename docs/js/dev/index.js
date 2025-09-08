@@ -6136,10 +6136,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }, clearAllHoverClasses2 = function() {
       buttons.forEach((btn) => {
         btn.parentElement?.classList.remove("--hover");
+        btn.classList.remove("--hover-el");
       });
     }, setHoverOn2 = function(btn) {
       clearAllHoverClasses2();
       btn.parentElement?.classList.add("--hover");
+      btn.classList.add("--hover-el");
     };
     var initDisplay = initDisplay2, showInfoByIndex = showInfoByIndex2, clearAllHoverClasses = clearAllHoverClasses2, setHoverOn = setHoverOn2;
     const subBlocks = [...dataInfoEl.querySelectorAll("[data-info-subel]")];

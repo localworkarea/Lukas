@@ -207,7 +207,7 @@ body::after {
 				@media (max-width:toEm($mobileSmall)){
 					clip-path: ellipse(40% 0% at 47% 0%) !important;
 						[data-fls-popup-active] & {
-							clip-path: ellipse(40% 70% at 47% 25%) !important;
+							clip-path: ellipse(40% 70% at 47% 15%) !important;
 						}
 				}
 			}
@@ -221,10 +221,14 @@ body::after {
 				@media (orientation: portrait) {
 			  		top: 0%;
         		// height: 80vh;
-						height: 95%;
+						height: 94%;
         		background-size: contain;
         		background-position: 50% 94%;
 					
+				}
+				@media (max-width:toEm($mobileSmall)){
+					 height: 84% !important; 
+					 transform: translate(-50%,0) rotate(-4deg);
 				}
 			}
 		
@@ -332,6 +336,9 @@ body::after {
 			@media (max-width: toEm(820.98)){
 				max-width: 500px;
 				margin-inline: auto;
+			}
+			@media (max-width:toEm($mobileSmall)){
+				 margin-top: -30px; 
 			}
 		}
 

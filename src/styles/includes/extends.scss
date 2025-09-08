@@ -170,3 +170,24 @@
 		opacity: 1;
 	}
 }
+
+
+%beforeHearts {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 44%;
+    left: 45%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 115%;
+    aspect-ratio: 1;
+    @extend %bgImage;
+    background-image: url("@img/elements/hearts.svg");
+    background-size: contain;
+    z-index: -1;
+    transition: transform .45s ease;
+    // will-change: transform;
+  }
+}

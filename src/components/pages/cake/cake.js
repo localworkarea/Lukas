@@ -60,6 +60,7 @@ function updateClipPath(angleDeg = -8) {
   	function clearAllHoverClasses() {
   		buttons.forEach((btn) => {
   			btn.parentElement?.classList.remove('--hover');
+				btn.classList.remove('--hover-el');
   		});
   	}
 
@@ -67,6 +68,7 @@ function updateClipPath(angleDeg = -8) {
   	function setHoverOn(btn) {
   		clearAllHoverClasses();
   		btn.parentElement?.classList.add('--hover');
+  		btn.classList.add('--hover-el');
   	}
 
   	initDisplay();
