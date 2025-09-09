@@ -97,6 +97,8 @@
   // .cake-hero__btn
   &__btn {
     min-width: 200px;
+    position: relative;
+    z-index: 5;
 
     
     @media (min-width:toEm(1200.98)){

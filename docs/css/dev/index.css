@@ -392,6 +392,8 @@ filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(292deg) brightness(104%
 }
 .cake-hero__btn {
   min-width: 12.5rem;
+  position: relative;
+  z-index: 5;
 }
 
 .marquee-cake {
