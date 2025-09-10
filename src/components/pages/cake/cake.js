@@ -32,72 +32,148 @@ function updateClipPath(angleDeg = -8) {
   
   
   // СМЕНА КАРТИНОК И ТЕКСТА ДЛЯ ЭЛЕМЕНТА [data-info-el] по клику на кнопки data-info =====
-  const dataInfoEl = document.querySelector('[data-info-el]');
-  if (dataInfoEl) {
-  	const subBlocks = [...dataInfoEl.querySelectorAll('[data-info-subel]')];
-  	const buttons = [...document.querySelectorAll('[data-info]')];
+  // const dataInfoEl = document.querySelector('[data-info-el]');
+  // if (dataInfoEl) {
+  // 	const subBlocks = [...dataInfoEl.querySelectorAll('[data-info-subel]')];
+  // 	const buttons = [...document.querySelectorAll('[data-info]')];
 
-  	// Установка начального состояния — активны только первые элементы
-  	function initDisplay() {
-  		subBlocks.forEach((block) => {
-  			[...block.children].forEach((child, i) => {
-  				child.classList.toggle('--active', i === 0);
-  			});
-  		});
-  	}
+  // 	// Установка начального состояния — активны только первые элементы
+  // 	function initDisplay() {
+  // 		subBlocks.forEach((block) => {
+  // 			[...block.children].forEach((child, i) => {
+  // 				child.classList.toggle('--active', i === 0);
+  // 			});
+  // 		});
+  // 	}
 
-  	// Показать по индексу (index — с 1)
-  	function showInfoByIndex(index) {
-  		const targetIndex = index - 1;
-  		subBlocks.forEach((block) => {
-  			[...block.children].forEach((child, i) => {
-  				child.classList.toggle('--active', i === targetIndex);
-  			});
-  		});
-  	}
+  // 	// Показать по индексу (index — с 1)
+  // 	function showInfoByIndex(index) {
+  // 		const targetIndex = index - 1;
+  // 		subBlocks.forEach((block) => {
+  // 			[...block.children].forEach((child, i) => {
+  // 				child.classList.toggle('--active', i === targetIndex);
+  // 			});
+  // 		});
+  // 	}
 
-  	// Удалить все --hover
-  	function clearAllHoverClasses() {
-  		buttons.forEach((btn) => {
-  			btn.parentElement?.classList.remove('--hover');
-				btn.classList.remove('--hover-el');
-  		});
-  	}
+  // 	// Удалить все --hover
+  // 	function clearAllHoverClasses() {
+  // 		buttons.forEach((btn) => {
+  // 			btn.parentElement?.classList.remove('--hover');
+	// 			btn.classList.remove('--hover-el');
+  // 		});
+  // 	}
 
-  	// Установить --hover только нужному
-  	function setHoverOn(btn) {
-  		clearAllHoverClasses();
-  		btn.parentElement?.classList.add('--hover');
-  		btn.classList.add('--hover-el');
-  	}
+  // 	// Установить --hover только нужному
+  // 	function setHoverOn(btn) {
+  // 		clearAllHoverClasses();
+  // 		btn.parentElement?.classList.add('--hover');
+  // 		btn.classList.add('--hover-el');
+  // 	}
 
-  	initDisplay();
+  // 	initDisplay();
 
-  	buttons.forEach((btn) => {
-  		const index = parseInt(btn.dataset.info, 10);
-  		if (isNaN(index)) return;
+  // 	buttons.forEach((btn) => {
+  // 		const index = parseInt(btn.dataset.info, 10);
+  // 		if (isNaN(index)) return;
 
-  		const handleInteraction = () => {
-  			showInfoByIndex(index);
-  			setHoverOn(btn);
-  		};
+  // 		const handleInteraction = () => {
+  // 			showInfoByIndex(index);
+  // 			setHoverOn(btn);
+  // 		};
 
-  		btn.addEventListener('mouseenter', handleInteraction);
-  		btn.addEventListener('click', handleInteraction);
+  // 		btn.addEventListener('mouseenter', handleInteraction);
+  // 		btn.addEventListener('click', handleInteraction);
 
-  		// Удаляем --hover при уходе мыши
-  		btn.addEventListener('mouseleave', () => {
-  			btn.parentElement?.classList.remove('--hover');
-  		});
-  	});
+  // 		// Удаляем --hover при уходе мыши
+  // 		btn.addEventListener('mouseleave', () => {
+  // 			btn.parentElement?.classList.remove('--hover');
+  // 		});
+  // 	});
 
-  	// Слушаем клик по документу — убираем все --hover если клик был вне кнопок
-  	document.addEventListener('click', (e) => {
-  		if (!e.target.closest('[data-info]')) {
-  			clearAllHoverClasses();
-  		}
-  	});
-  }
+  // 	// Слушаем клик по документу — убираем все --hover если клик был вне кнопок
+  // 	document.addEventListener('click', (e) => {
+  // 		if (!e.target.closest('[data-info]')) {
+  // 			clearAllHoverClasses();
+  // 		}
+  // 	});
+  // }
+
+
+
+	const dataInfoEl = document.querySelector('[data-info-el]');
+if (dataInfoEl) {
+	const subBlocks = [...dataInfoEl.querySelectorAll('[data-info-subel]')];
+	const buttons = [...document.querySelectorAll('[data-info]')];
+
+	// Получить все целевые элементы внутри блока
+	function getItems(block) {
+		// ищем либо картинки, либо элементы списка
+		return block.querySelectorAll('.info-cake__img, .info-cake__item');
+	}
+
+	// Установка начального состояния — активны только первые элементы
+	function initDisplay() {
+		subBlocks.forEach((block) => {
+			getItems(block).forEach((child, i) => {
+				child.classList.toggle('--active', i === 0);
+			});
+		});
+	}
+
+	// Показать по индексу (index — с 1)
+	function showInfoByIndex(index) {
+		const targetIndex = index - 1;
+		subBlocks.forEach((block) => {
+			getItems(block).forEach((child, i) => {
+				child.classList.toggle('--active', i === targetIndex);
+			});
+		});
+	}
+
+	// Удалить все --hover
+	function clearAllHoverClasses() {
+		buttons.forEach((btn) => {
+			btn.parentElement?.classList.remove('--hover');
+			btn.classList.remove('--hover-el');
+		});
+	}
+
+	// Установить --hover только нужному
+	function setHoverOn(btn) {
+		clearAllHoverClasses();
+		btn.parentElement?.classList.add('--hover');
+		btn.classList.add('--hover-el');
+	}
+
+	initDisplay();
+
+	buttons.forEach((btn) => {
+		const index = parseInt(btn.dataset.info, 10);
+		if (isNaN(index)) return;
+
+		const handleInteraction = () => {
+			showInfoByIndex(index);
+			setHoverOn(btn);
+		};
+
+		btn.addEventListener('mouseenter', handleInteraction);
+		btn.addEventListener('click', handleInteraction);
+
+		// Удаляем --hover при уходе мыши
+		btn.addEventListener('mouseleave', () => {
+			btn.parentElement?.classList.remove('--hover');
+		});
+	});
+
+	// Слушаем клик по документу — убираем все --hover если клик был вне кнопок
+	document.addEventListener('click', (e) => {
+		if (!e.target.closest('[data-info]')) {
+			clearAllHoverClasses();
+		}
+	});
+}
+
 
 
   // === end ================
@@ -196,6 +272,154 @@ function updateClipPath(angleDeg = -8) {
   // ===== end ======================================================
 
 
+
+	// ПОДСТАВИТЬ КОНТЕНТ В ПОПАП ===========
+	// const popupCake = document.querySelector('[data-fls-popup="popup-cake"]');
+	// if (popupCake) {
+	// 	const popupTitle = popupCake.querySelector(".popup-cake__title");
+	// 	const popupDescr = popupCake.querySelector(".popup-cake__txt"); 
+	// 	const popupSpecs = popupCake.querySelector(".popup-cake__specification"); 
+	// 	const orderBtn = popupCake.querySelector(".popup-cake__btn");
+	// 	const popupImg = popupCake.querySelector(".popup-cake__picture img");
+
+	// 	const ROOT = document.documentElement;
+  // 	const CLASS_PREFIX = "popup-el--";
+
+	// 	const catalogItems = document.querySelectorAll('[data-fls-popup-link="popup-cake"]');
+	// 	const infoBlocks = document.querySelectorAll("[data-popup-info]");
+
+	// 	catalogItems.forEach((item, index) => {
+	// 		item.addEventListener("click", (e) => {
+	// 			e.preventDefault();
+				
+
+	// 			const info = infoBlocks[index];
+	// 			if (!info) return;
+
+	// 			// Заголовок
+	// 			popupTitle.textContent = "";
+	// 			const infoTitle = info.querySelector("[data-popup-title]");
+	// 			if (infoTitle) popupTitle.textContent = infoTitle.textContent;
+
+	// 			// Описание
+	// 			popupDescr.innerHTML = "";
+	// 			const infoDescr = info.querySelector("[data-popup-descr]");
+	// 			if (infoDescr) popupDescr.innerHTML = infoDescr.innerHTML;
+
+	// 			// Спецификации
+	// 			popupSpecs.innerHTML = "";
+	// 			const infoSpecs = info.querySelectorAll("[data-popup-specs-item]");
+	// 			if (infoSpecs.length) {
+	// 				const ul = document.createElement("ul");
+	// 				ul.className = "specification__list";
+
+	// 				infoSpecs.forEach((spec) => {
+	// 					const title = spec.querySelector("[data-popup-specs-title]")?.textContent.trim() || "";
+	// 					const descr = spec.querySelector("[data-popup-specs-descr]")?.textContent.trim() || "";
+
+	// 					const li = document.createElement("li");
+	// 					li.className = "specification__item";
+
+	// 					li.innerHTML = `
+	// 						<div class="specification__title"><p>${title}</p></div>
+	// 						<div class="specification__descr"><p>${descr}</p></div>
+	// 					`;
+	// 					ul.appendChild(li);
+	// 				});
+
+	// 				popupSpecs.appendChild(ul);
+	// 			}
+
+	// 			// Картинка
+	// 			const catalogImg = item.querySelector("img");
+	// 			if (catalogImg && popupImg) {
+	// 				popupImg.setAttribute("src", catalogImg.getAttribute("src"));
+	// 				popupImg.setAttribute("alt", catalogImg.getAttribute("alt") || "Image");
+	// 			}
+
+	// 			// Кнопка заказа
+	// 			const orderUrl = info.dataset.popupOrder || "#";
+	// 			if (orderUrl) {
+	// 				orderBtn.setAttribute("href", orderUrl);
+	// 			}
+	// 		});
+	// 	});
+	// }
+
+
+
+	const popupCake = document.querySelector('[data-fls-popup="popup-cake"]');
+
+if (popupCake) {
+  const popupTitle = popupCake.querySelector(".popup-cake__title");
+  const popupDescr = popupCake.querySelector(".popup-cake__txt");
+  const popupSpecs = popupCake.querySelector(".popup-cake__specification");
+  const orderBtn   = popupCake.querySelector(".popup-cake__btn");
+  const popupImg   = popupCake.querySelector(".popup-cake__picture img");
+
+  const ROOT = document.documentElement;
+  const CLASS_PREFIX = "popup-el--";
+
+  const catalogItems = document.querySelectorAll('[data-fls-popup-link="popup-cake"]');
+
+  catalogItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      // 1) Данные берём из блока внутри текущего item
+      const info = item.querySelector("[data-popup-info]");
+      if (!info) return;
+
+      // 2) Заголовок
+      popupTitle.textContent = "";
+      const infoTitle = info.querySelector("[data-popup-title]");
+      if (infoTitle) popupTitle.textContent = infoTitle.textContent.trim();
+
+      // 3) Описание
+      popupDescr.innerHTML = "";
+      const infoDescr = info.querySelector("[data-popup-descr]");
+      if (infoDescr) popupDescr.innerHTML = infoDescr.innerHTML.trim();
+
+      // 4) Спецификации
+      popupSpecs.innerHTML = "";
+      const infoSpecs = info.querySelectorAll("[data-popup-specs-item]");
+      if (infoSpecs.length) {
+        const ul = document.createElement("ul");
+        ul.className = "specification__list";
+
+        infoSpecs.forEach((spec) => {
+          const title = spec.querySelector("[data-popup-specs-title]")?.textContent.trim() || "";
+          const descr = spec.querySelector("[data-popup-specs-descr]")?.textContent.trim() || "";
+          if (!title && !descr) return;
+
+          const li = document.createElement("li");
+          li.className = "specification__item";
+          li.innerHTML = `
+            <div class="specification__title"><p>${title}</p></div>
+            <div class="specification__descr"><p>${descr}</p></div>
+          `;
+          ul.appendChild(li);
+        });
+
+        if (ul.children.length) popupSpecs.appendChild(ul);
+      }
+
+      // 5) Картинка из кликнутого элемента
+      const catalogImg = item.querySelector("img");
+      if (catalogImg && popupImg) {
+        popupImg.src = catalogImg.getAttribute("src") || popupImg.src;
+        popupImg.alt = catalogImg.getAttribute("alt") || "Image";
+      }
+
+      // 6) Кнопка заказа
+      orderBtn.setAttribute("href", info.dataset.popupOrder || "#");
+    });
+  });
+}
+
+	// ===== END ========================================
+
+
   
 
   // == funcsion risize ======================
@@ -259,4 +483,7 @@ function updateClipPath(angleDeg = -8) {
     }
     // ===================================
 });
+
+
+
 

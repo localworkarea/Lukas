@@ -34,6 +34,7 @@ class Popup {
 				location: false, // Хеш в адресному рядку
 				goHash: false, // Перехід по наявності в адресному рядку
 			},
+			delayRemoveClass: 800, 
 			on: { // Події
 				beforeOpen: function () { },
 				afterOpen: function () { },
@@ -41,6 +42,10 @@ class Popup {
 				afterClose: function () { },
 			},
 		}
+
+		this._openerPopupElVal = null;
+		this._clearClassTimer = null; 
+
 		this.youTubeCode;
 		this.isOpen = false;
 		// Поточне вікно
@@ -100,6 +105,27 @@ class Popup {
 		this.bodyLock = false;
 		this.options.init ? this.initPopups() : null
 	}
+		
+	_clearPopupClasses() {
+	  const ROOT = document.documentElement;
+	  const CLASS_PREFIX = "popup-el--";
+	  if (![...ROOT.classList].some(c => c.startsWith(CLASS_PREFIX))) return;
+	
+	  // Если уже есть таймер — отменим, чтобы не плодить и не снести новый класс при следующем open()
+	  if (this._clearClassTimer) {
+	    clearTimeout(this._clearClassTimer);
+	    this._clearClassTimer = null;
+	  }
+	
+	  this._clearClassTimer = setTimeout(() => {
+	    Array.from(ROOT.classList).forEach(c => {
+	      if (c.startsWith(CLASS_PREFIX)) ROOT.classList.remove(c);
+	    });
+	    this._clearClassTimer = null; // очистка ссылки на таймер
+	  }, this.options.delayRemoveClass);
+	}
+	
+
 	initPopups() {
 		FLS(`_FLS_POPUP_START`)
 
@@ -150,6 +176,12 @@ class Popup {
 					if (!this.isOpen) this.lastFocusEl = buttonOpen;
 					this.targetOpen.selector = `${this._dataValue}`;
 					this._selectorOpen = true;
+
+					this._openerPopupElVal = (
+					  buttonOpen.getAttribute('data-popup-el') ||
+					  buttonOpen.closest('[data-popup-el]')?.getAttribute('data-popup-el') || ''
+					).trim() || null;
+
 					this.open();
 					return;
 				} else { FLS(`_FLS_POPUP_NOATTR`) }
@@ -259,6 +291,33 @@ class Popup {
 					this._focusTrap()
 				}, 50)
 
+				// ===== ДОБАВЛЯЕМ popup-el--КЛАСС НА <html> =====
+				// 1) если был запланирован предыдущий таймер снятия — отменяем, чтобы не снёс новый класс
+				if (this._clearClassTimer) {
+				  clearTimeout(this._clearClassTimer);
+				  this._clearClassTimer = null;
+				}
+				// 2) мгновенно убираем старые popup-el--* (без задержки, т.к. мы ОТКРЫВАЕМ новый попап)
+				{
+				  const ROOT = document.documentElement;
+				  const CLASS_PREFIX = "popup-el--";
+				  Array.from(ROOT.classList).forEach(c => {
+				    if (c.startsWith(CLASS_PREFIX)) ROOT.classList.remove(c);
+				  });
+				}
+
+				// 3) определяем значение: сначала берем из opener'а, если нет — пробуем с самого попапа
+				const elValFromOpener = this._openerPopupElVal;
+				const elValFromPopup  = this.targetOpen.element.getAttribute("data-popup-el")?.trim();
+				const elVal = elValFromOpener || elValFromPopup;
+
+				// 4) ставим новый класс
+				if (elVal) {
+				  document.documentElement.classList.add(`popup-el--${elVal}`);
+				}
+
+
+
 				// Після відкриття
 				this.options.on.afterOpen(this)
 				// Створюємо свою подію після відкриття попапа
@@ -297,6 +356,10 @@ class Popup {
 		this.previousOpen.element.removeAttribute(this.options.classes.popupActive);
 		// aria-hidden
 		this.previousOpen.element.setAttribute('aria-hidden', 'true');
+
+		// ===== УДАЛЯЕМ popup-el--КЛАССЫ С ЗАДЕРЖКОЙ =====
+		this._clearPopupClasses();
+
 		if (!this._reopen) {
 			document.documentElement.removeAttribute(this.options.classes.bodyActive);
 			!this.bodyLock ? bodyUnlock() : null;

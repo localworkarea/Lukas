@@ -4512,6 +4512,7 @@ class Popup {
         goHash: false
         // Перехід по наявності в адресному рядку
       },
+      delayRemoveClass: 800,
       on: {
         // Події
         beforeOpen: function() {
@@ -4524,6 +4525,8 @@ class Popup {
         }
       }
     };
+    this._openerPopupElVal = null;
+    this._clearClassTimer = null;
     this.youTubeCode;
     this.isOpen = false;
     this.targetOpen = {
@@ -4576,6 +4579,21 @@ class Popup {
     this.bodyLock = false;
     this.options.init ? this.initPopups() : null;
   }
+  _clearPopupClasses() {
+    const ROOT = document.documentElement;
+    const CLASS_PREFIX = "popup-el--";
+    if (![...ROOT.classList].some((c) => c.startsWith(CLASS_PREFIX))) return;
+    if (this._clearClassTimer) {
+      clearTimeout(this._clearClassTimer);
+      this._clearClassTimer = null;
+    }
+    this._clearClassTimer = setTimeout(() => {
+      Array.from(ROOT.classList).forEach((c) => {
+        if (c.startsWith(CLASS_PREFIX)) ROOT.classList.remove(c);
+      });
+      this._clearClassTimer = null;
+    }, this.options.delayRemoveClass);
+  }
   initPopups() {
     this.buildPopup();
     this.eventsPopup();
@@ -4604,6 +4622,7 @@ class Popup {
           if (!this.isOpen) this.lastFocusEl = buttonOpen;
           this.targetOpen.selector = `${this._dataValue}`;
           this._selectorOpen = true;
+          this._openerPopupElVal = (buttonOpen.getAttribute("data-popup-el") || buttonOpen.closest("[data-popup-el]")?.getAttribute("data-popup-el") || "").trim() || null;
           this.open();
           return;
         }
@@ -4678,6 +4697,23 @@ class Popup {
         setTimeout(() => {
           this._focusTrap();
         }, 50);
+        if (this._clearClassTimer) {
+          clearTimeout(this._clearClassTimer);
+          this._clearClassTimer = null;
+        }
+        {
+          const ROOT = document.documentElement;
+          const CLASS_PREFIX = "popup-el--";
+          Array.from(ROOT.classList).forEach((c) => {
+            if (c.startsWith(CLASS_PREFIX)) ROOT.classList.remove(c);
+          });
+        }
+        const elValFromOpener = this._openerPopupElVal;
+        const elValFromPopup = this.targetOpen.element.getAttribute("data-popup-el")?.trim();
+        const elVal = elValFromOpener || elValFromPopup;
+        if (elVal) {
+          document.documentElement.classList.add(`popup-el--${elVal}`);
+        }
         this.options.on.afterOpen(this);
         document.dispatchEvent(new CustomEvent("afterPopupOpen", {
           detail: {
@@ -4702,6 +4738,7 @@ class Popup {
     }));
     this.previousOpen.element.removeAttribute(this.options.classes.popupActive);
     this.previousOpen.element.setAttribute("aria-hidden", "true");
+    this._clearPopupClasses();
     if (!this._reopen) {
       document.documentElement.removeAttribute(this.options.classes.bodyActive);
       !this.bodyLock ? bodyUnlock() : null;
@@ -5902,6 +5939,60 @@ Parallax.Each = class {
 if (document.querySelector("[data-fls-parallax-parent]")) {
   new Parallax(document.querySelectorAll("[data-fls-parallax-parent]"));
 }
+class MousePRLX {
+  constructor(props, data = null) {
+    let defaultConfig = {
+      init: true
+    };
+    this.config = Object.assign(defaultConfig, props);
+    if (this.config.init) {
+      const paralaxMouse = document.querySelectorAll("[data-fls-mouse]");
+      if (paralaxMouse.length) {
+        this.paralaxMouseInit(paralaxMouse);
+      }
+    }
+  }
+  paralaxMouseInit(paralaxMouse) {
+    paralaxMouse.forEach((el) => {
+      const paralaxMouseWrapper = el.closest("[data-fls-mouse-wrapper]");
+      const paramСoefficientX = +el.dataset.flsMouseCx || 100;
+      const paramСoefficientY = +el.dataset.flsMouseCy || 100;
+      const directionX = el.hasAttribute("data-fls-mouse-dxr") ? -1 : 1;
+      const directionY = el.hasAttribute("data-fls-mouse-dyr") ? -1 : 1;
+      const paramAnimation = el.dataset.prlxA ? +el.dataset.prlxA : 50;
+      let positionX = 0, positionY = 0;
+      let coordXprocent = 0, coordYprocent = 0;
+      setMouseParallaxStyle();
+      if (paralaxMouseWrapper) {
+        mouseMoveParalax(paralaxMouseWrapper);
+      } else {
+        mouseMoveParalax();
+      }
+      function setMouseParallaxStyle() {
+        const distX = coordXprocent - positionX;
+        const distY = coordYprocent - positionY;
+        positionX = positionX + distX * paramAnimation / 1e3;
+        positionY = positionY + distY * paramAnimation / 1e3;
+        el.style.cssText = `transform: translate3D(${directionX * positionX / (paramСoefficientX / 10)}%,${directionY * positionY / (paramСoefficientY / 10)}%,0) rotate(0.02deg);`;
+        requestAnimationFrame(setMouseParallaxStyle);
+      }
+      function mouseMoveParalax(wrapper = window) {
+        wrapper.addEventListener("mousemove", function(e) {
+          const offsetTop = el.getBoundingClientRect().top + window.scrollY;
+          if (offsetTop >= window.scrollY || offsetTop + el.offsetHeight >= window.scrollY) {
+            const parallaxWidth = window.innerWidth;
+            const parallaxHeight = window.innerHeight;
+            const coordX = e.clientX - parallaxWidth / 2;
+            const coordY = e.clientY - parallaxHeight / 2;
+            coordXprocent = coordX / parallaxWidth * 100;
+            coordYprocent = coordY / parallaxHeight * 100;
+          }
+        });
+      }
+    });
+  }
+}
+document.querySelector("[data-fls-mouse]") ? window.addEventListener("load", new MousePRLX({})) : null;
 document.addEventListener("DOMContentLoaded", () => {
   marquee();
 });
@@ -6188,16 +6279,18 @@ document.addEventListener("DOMContentLoaded", () => {
   updateClipPath(-8);
   const dataInfoEl = document.querySelector("[data-info-el]");
   if (dataInfoEl) {
-    let initDisplay2 = function() {
+    let getItems2 = function(block) {
+      return block.querySelectorAll(".info-cake__img, .info-cake__item");
+    }, initDisplay2 = function() {
       subBlocks.forEach((block) => {
-        [...block.children].forEach((child, i) => {
+        getItems2(block).forEach((child, i) => {
           child.classList.toggle("--active", i === 0);
         });
       });
     }, showInfoByIndex2 = function(index) {
       const targetIndex = index - 1;
       subBlocks.forEach((block) => {
-        [...block.children].forEach((child, i) => {
+        getItems2(block).forEach((child, i) => {
           child.classList.toggle("--active", i === targetIndex);
         });
       });
@@ -6211,7 +6304,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.parentElement?.classList.add("--hover");
       btn.classList.add("--hover-el");
     };
-    var initDisplay = initDisplay2, showInfoByIndex = showInfoByIndex2, clearAllHoverClasses = clearAllHoverClasses2, setHoverOn = setHoverOn2;
+    var getItems = getItems2, initDisplay = initDisplay2, showInfoByIndex = showInfoByIndex2, clearAllHoverClasses = clearAllHoverClasses2, setHoverOn = setHoverOn2;
     const subBlocks = [...dataInfoEl.querySelectorAll("[data-info-subel]")];
     const buttons = [...document.querySelectorAll("[data-info]")];
     initDisplay2();
@@ -6297,6 +6390,53 @@ document.addEventListener("DOMContentLoaded", () => {
     lastScrollY = window.scrollY;
   }
   initTriggers();
+  const popupCake = document.querySelector('[data-fls-popup="popup-cake"]');
+  if (popupCake) {
+    const popupTitle = popupCake.querySelector(".popup-cake__title");
+    const popupDescr = popupCake.querySelector(".popup-cake__txt");
+    const popupSpecs = popupCake.querySelector(".popup-cake__specification");
+    const orderBtn = popupCake.querySelector(".popup-cake__btn");
+    const popupImg = popupCake.querySelector(".popup-cake__picture img");
+    const catalogItems = document.querySelectorAll('[data-fls-popup-link="popup-cake"]');
+    catalogItems.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        e.preventDefault();
+        const info = item.querySelector("[data-popup-info]");
+        if (!info) return;
+        popupTitle.textContent = "";
+        const infoTitle = info.querySelector("[data-popup-title]");
+        if (infoTitle) popupTitle.textContent = infoTitle.textContent.trim();
+        popupDescr.innerHTML = "";
+        const infoDescr = info.querySelector("[data-popup-descr]");
+        if (infoDescr) popupDescr.innerHTML = infoDescr.innerHTML.trim();
+        popupSpecs.innerHTML = "";
+        const infoSpecs = info.querySelectorAll("[data-popup-specs-item]");
+        if (infoSpecs.length) {
+          const ul = document.createElement("ul");
+          ul.className = "specification__list";
+          infoSpecs.forEach((spec) => {
+            const title = spec.querySelector("[data-popup-specs-title]")?.textContent.trim() || "";
+            const descr = spec.querySelector("[data-popup-specs-descr]")?.textContent.trim() || "";
+            if (!title && !descr) return;
+            const li = document.createElement("li");
+            li.className = "specification__item";
+            li.innerHTML = `
+            <div class="specification__title"><p>${title}</p></div>
+            <div class="specification__descr"><p>${descr}</p></div>
+          `;
+            ul.appendChild(li);
+          });
+          if (ul.children.length) popupSpecs.appendChild(ul);
+        }
+        const catalogImg = item.querySelector("img");
+        if (catalogImg && popupImg) {
+          popupImg.src = catalogImg.getAttribute("src") || popupImg.src;
+          popupImg.alt = catalogImg.getAttribute("alt") || "Image";
+        }
+        orderBtn.setAttribute("href", info.dataset.popupOrder || "#");
+      });
+    });
+  }
   let lastWidth = window.innerWidth;
   const resizeObserver = new ResizeObserver((entries2) => {
     requestAnimationFrame(() => {

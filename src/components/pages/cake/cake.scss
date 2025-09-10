@@ -873,13 +873,15 @@
 
 }
 
-[data-info-subel]>* {
-  opacity: 0;
-  transition: opacity .3s ease;
-}
-
-[data-info-subel]>*.--active {
-  opacity: 1;
+[data-info-subel] {
+  .info-cake__img,
+  .info-cake__item {
+    opacity: 0;
+    transition: opacity .3s ease;
+    &.--active {
+      opacity: 1;
+    }
+  }
 }
 
 
@@ -901,53 +903,59 @@
     column-gap: 20px;
   }
 
-  &::before {
-    @extend %bgImage;
-
-    @media (min-width:toEm($tablet)) {
-      content: '';
-      position: absolute;
-      pointer-events: none;
-      z-index: 10;
-      bottom: 0%;
-      right: 0%;
-      background-image: url("@img/elements/el-4.png");
-      width: 346px;
-      aspect-ratio: 346/451;
-      transform: translate(78%, -1%) rotate(1deg);
+	// .info-cake__bg
+	&__bg {
+    display: inline-block;
+    position: absolute;
+    pointer-events: none;
+    z-index: 10;
+    span {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      @extend %bgImage;
     }
+    &.info-cake__bg--0 {
+      span {
+        @media (min-width:toEm($tablet)) {
+          background-image: url("@img/elements/el-4.png");
+        }
+      }
+      @media (min-width:toEm($tablet)) {
+        bottom: 0%;
+        right: 0%;
+        width: 346px;
+        aspect-ratio: 346/451;
+        transform: translate(78%, -1%) rotate(1deg);
+      }
+      @media (max-width:toEm($tablet)){
+        display: none;
+      }
+    }
+	}
+
+	// .info-cake__bg--1
+	&__bg--1 {
+    top: 0%;
+    right: 0%;
+	}
+  // .info-cake__bg--2
+	&__bg--2 {
   }
 
   // .info-cake__images
   &__images {
     position: relative;
-
     @media (min-width:toEm($tablet)) {
       position: absolute;
     }
 
-    &::before {
-      content: '';
-      position: absolute;
-      pointer-events: none;
-      z-index: 10;
-      top: 0%;
-      right: 0%;
-      @extend %bgImage;
-    }
   }
 
   // .info-cake__images--1
   &__images--1 {
     @include adaptiveValue("max-width", 277, 152);
     aspect-ratio: 277/311;
-
-    &::before {
-      background-image: url("@img/elements/el-1.png");
-      width: 66%;
-      aspect-ratio: 183/68;
-      transform: translate(28%, -18%) rotate(62deg);
-    }
 
     @media (min-width:toEm($tablet)) {
       left: 0;
@@ -960,22 +968,31 @@
       grid-row: 1/2;
       transform: translate(-36%, 0%) rotate(-15deg);
       margin-top: 30px;
+    }
 
-      &::after {
-        content: '';
-        position: absolute;
+    .info-cake__bg--1 {
+      transform: translate(28%, -18%) rotate(62deg);
+      width: 66%;
+      aspect-ratio: 183/68;
+      span {
+        background-image: url("@img/elements/el-1.png");
+      }
+    }
+
+    .info-cake__bg--2 {
+      @media (min-width:toEm($tablet)){
+         display: none; 
+      }
+      @media (max-width:toEm($tablet)){
         bottom: 0%;
         left: 0%;
-        z-index: 2;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        background-image: url("@img/elements/el-3.png");
+        transform: translate(-33%, 51%) rotate(-7deg) scaleX(-1);
         width: 110%;
         aspect-ratio: 313/145;
-        transform: translate(-33%, 51%) rotate(-7deg) scaleX(-1);
+        span {
+          background-image: url("@img/elements/el-3.png");
+        }
       }
-
     }
 
     .info-cake__img {
@@ -988,10 +1005,12 @@
     @include adaptiveValue("max-width", 286, 179);
     aspect-ratio: 286/196;
 
-    &::before {
-      background-image: url("@img/elements/el-2.png");
+    .info-cake__bg--1 {
       width: 72%;
       aspect-ratio: 206/197;
+      span {
+        background-image: url("@img/elements/el-2.png");
+      }
 
       @media (min-width:toEm($tablet)) {
         transform: translate(17%, -70%) rotate(-6deg);
@@ -1004,19 +1023,21 @@
       }
     }
 
-    &::after {
-      @extend %bgImage;
-
+    .info-cake__bg--2 {
+      span {
+        @media (min-width:toEm($tablet)){
+          background-image: url("@img/elements/el-3.png");
+        }
+      }
       @media (min-width:toEm($tablet)) {
-        content: '';
-        position: absolute;
         bottom: 0%;
         left: 0%;
-        z-index: 11;
-        background-image: url("@img/elements/el-3.png");
         width: 110%;
         aspect-ratio: 313/145;
         transform: translate(-10%, 127%) rotate(-33deg) scaleX(-1);
+      }
+      @media (max-width:toEm($tablet)){
+        display: none;
       }
     }
 
@@ -1042,8 +1063,10 @@
     @include adaptiveValue("max-width", 234, 145);
     aspect-ratio: 237/356;
 
-    &::before {
-      background-image: url("@img/elements/el-3.png");
+    .info-cake__bg--1 {
+      span {
+        background-image: url("@img/elements/el-3.png");
+      }
       width: 132%;
       aspect-ratio: 313/145;
       transform: translate(71%, -10%) rotate(3deg);
