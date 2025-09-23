@@ -2,6 +2,60 @@ import { FLS, slideUp, slideDown, slideToggle, dataMediaQueries } from "@js/comm
 
 import './parallax.scss'
 
+/*
+
+РОДИТЕЛЬСКИЙ ЭЛЕМЕНТ (data-fls-parallax-parent):
+-------------------------------------------------
+- data-fls-parallax-smooth="15"
+    Тип: число (по умолчанию 15)
+    Определяет плавность/скорость анимации.
+    Чем больше число — тем медленнее и плавнее движение.
+
+- data-fls-parallax-center="top|center|bottom"
+    Тип: строка (по умолчанию "center")
+    Устанавливает точку отсчёта для расчёта смещения:
+      "top"    → движение начинается, когда верх блока касается верха окна.
+      "center" → движение относительно центра экрана.
+      "bottom" → движение начинается, когда низ окна совпадает с верхом блока.
+
+ДОЧЕРНИЕ ЭЛЕМЕНТЫ (data-fls-parallax):
+--------------------------------------
+- data-axis="v|h"
+    Тип: строка (по умолчанию "v")
+    Определяет ось движения:
+      "v" → вертикаль (ось Y)
+      "h" → горизонталь (ось X)
+
+- data-fls-parallax-direction="1|-1"
+    Тип: число (по умолчанию -1)
+    Определяет направление движения:
+      1  → в ту же сторону, что и скролл
+      -1 → в противоположную сторону
+
+- data-fls-parallax-coefficient="5"
+    Тип: число (по умолчанию 5)
+    Коэффициент влияния. Чем больше число — тем слабее сдвиг.
+
+- data-fls-parallax-properties="scale(1.1) rotate(5deg)"
+    Тип: строка (по умолчанию пусто)
+    Любые дополнительные CSS transform-свойства.
+    Добавляются к translate3D.
+
+=============================
+Пример использования:
+-----------------------------
+<div data-fls-parallax-parent data-fls-parallax-smooth="20" data-fls-parallax-center="top">
+  <img src="img.png"
+       data-fls-parallax
+       data-axis="v"
+       data-fls-parallax-direction="1"
+       data-fls-parallax-coefficient="10"
+       data-fls-parallax-properties="scale(1.1)">
+</div>
+=============================
+*/
+
+
 class Parallax {
 	constructor(elements) {
 		if (elements.length) {

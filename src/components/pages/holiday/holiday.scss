@@ -1,0 +1,517 @@
+.page--holiday {
+  color: var(--white);
+  background-color: var(--red);
+}
+
+[data-stars] {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  top: 0;
+
+  .star {
+    position: absolute;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: #fff;
+    pointer-events: none;
+    animation: starBlink infinite alternate ease-in-out;
+  }
+
+  .star-big {
+    position: absolute;
+    aspect-ratio: 1;
+    pointer-events: none;
+    animation: starBlinkBig infinite alternate ease-in-out;
+  }
+}
+
+@keyframes starBlink {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+
+@keyframes starBlinkBig {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  100% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+}
+
+
+.title-head {
+  line-height: 1.2;
+  text-wrap: balance;
+
+  // .title-head__title
+  &__title {
+    @include adaptiveValue("font-size", 40, 22);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+
+    @media (min-width:toEm($mobileSmall)) {
+      margin-bottom: 15px;
+    }
+  }
+
+  // .title-head__title-up
+  &__title-up {
+    font-family: 'Gogol', sans-serif;
+  }
+
+  // .title-head__subtitle
+  &__subtitle {
+    @include adaptiveValue("font-size", 18, 12);
+
+    p {
+      &:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 15, 10);
+      }
+    }
+  }
+}
+
+%brSection {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  @include adaptiveValue("border-top-left-radius", 75, 30);
+  @include adaptiveValue("border-top-right-radius", 75, 30);
+  @include adaptiveValue("margin-top", -75, -30);
+}
+
+%bgGradient {
+  background:
+    url("@img/holiday/hero/light.png") no-repeat center / contain,
+    radial-gradient(65.39% 65.39% at 52.15% 70.03%, #ff0006 0%, #a6001e 100%);
+}
+
+
+%bgRepeat {
+  position: relative;
+  width: 100%;
+  background-position: 50% 100%;
+  background-size: contain;
+  background-repeat: repeat-x;
+}
+
+.holiday-hero {
+  position: relative;
+  overflow: hidden;
+  @extend %bgGradient;
+  // min-height: 100svh;
+
+  min-height: calc(100svh + 35px);
+
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 170px;
+
+  @media (min-width:toEm($mobileSmall)) {
+    min-height: calc(100svh + 75px);
+    padding-top: 215px;
+  }
+
+  // .holiday-hero__container
+  &__container {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+  }
+
+  // .holiday-hero__body
+  &__body {}
+
+  // .holiday-hero__title
+  &__title {
+    @include adaptiveValue("font-size", 37, 24, 0, 768.98, 480.98);
+    text-transform: uppercase;
+    font-weight: 400;
+    // color: var(--white);
+    line-height: 1.18;
+    text-align: center;
+    margin-bottom: 11px;
+
+    @media (max-width:toEm(396.98)) {
+      font-size: 6vw !important;
+    }
+  }
+
+  // .holiday-hero__counter
+  &__counter {
+    // display: flex;
+    align-items: center;
+    // justify-content:center;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 630px;
+    margin-inline: auto;
+  }
+
+  // .holiday-hero__item
+  &__item {
+    text-transform: uppercase;
+    text-align: center;
+
+    p {
+      color: var(--white);
+      font-weight: 600;
+      @include adaptiveValue("font-size", 19, 10, 0, 768.98, 480.98);
+    }
+  }
+
+  // .holiday-hero__el
+  &__el {
+    span {
+      display: inline-block;
+
+      font-family: "LibreBodoni", sans-serif;
+      @include adaptiveValue("font-size", 97, 50, 0, 768.98, 480.98);
+
+      line-height: 1.18;
+      background: linear-gradient(165deg, #f8ac67 22%, #f5dc77 43%, #f8ac67 68%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      @media (max-width:toEm($mobileXS)) {
+        font-size: 12vw !important;
+      }
+    }
+  }
+
+  // .holiday-hero__bgs
+  &__bgs {
+    position: relative;
+    z-index: 1;
+    min-width: 889px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    @include adaptiveValue("margin-top", -60, -30);
+  }
+
+  // .holiday-hero__moon
+  &__moon {
+    position: relative;
+    z-index: 0;
+
+    img {
+      display: block;
+      margin-inline: auto;
+      @include adaptiveValue("width", 368, 228, 0, 1440.98, 480.98);
+    }
+  }
+
+  // .holiday-hero__santa
+  &__santa {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100vw;
+    z-index: 4;
+    max-width: 900px;
+    margin-inline: auto;
+
+    img {
+      @include adaptiveValue("width", 161, 99);
+    }
+  }
+
+  // .holiday-hero__bgs-wr
+  &__bgs-wr {
+    position: relative;
+    z-index: 1;
+  }
+
+  // .holiday-hero__bg
+  &__bg {
+    @extend %bgRepeat;
+    // position: relative;
+    // width: 100%;
+    // background-position: 50% 100%;
+    // background-size:contain;
+    // background-repeat:repeat-x;
+  }
+
+  // .holiday-hero__bg--1
+  &__bg--1 {
+    z-index: 1;
+    // margin-top: -231px;
+    background-image: url("@img/holiday/hero/mountains-mb.png");
+
+    @media (min-width:toEm($mobileSmall)) {
+      background-image: url("@img/holiday/hero/mountains.png");
+    }
+
+    // height: 415px;
+    @include adaptiveValue("margin-top", -231, -143);
+    @include adaptiveValue("height", 415, 256);
+  }
+
+  // .holiday-hero__bg--2
+  &__bg--2 {
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+    background-image: url("@img/holiday/hero/trees-mb.png");
+    // height: 439px;
+    height: 85%;
+
+    @media (min-width:toEm($mobileSmall)) {
+      background-image: url("@img/holiday/hero/trees.png");
+    }
+  }
+
+  // .holiday-hero__bg--3
+  &__bg--3 {
+    position: absolute;
+    bottom: 0;
+    z-index: 5;
+    background-image: url("@img/holiday/hero/houses-mb.png");
+    // height: 346px;
+    height: 67%;
+
+    @media (min-width:toEm($mobileSmall)) {
+      background-image: url("@img/holiday/hero/houses.png");
+    }
+  }
+
+
+  // .holiday-hero__stars
+  &__stars {
+    opacity: 0;
+
+    [data-fls-loaded] & {
+      opacity: 1;
+      transition: opacity 1s ease 0s;
+    }
+  }
+
+}
+
+
+.holiday-gifts {
+
+  @extend %brSection;
+  @extend %bgGradient;
+  // min-height: 100svh;
+
+  // .holiday-gifts__wrapper
+  &__wrapper {}
+
+  // .holiday-gifts__container
+  &__container {
+    position: relative;
+    z-index: 2;
+    @include adaptiveValue("padding-top", 217, 85);
+    @include adaptiveValue("margin-bottom", -170, -100);
+
+    @media (min-width:toEm(820.98)) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  // .holiday-gifts__head-title
+  &__head-title {
+    position: relative;
+    z-index: 2;
+    max-width: 420px;
+
+    @media (min-width:toEm(820.98)) {
+      margin-left: auto;
+    }
+  }
+
+  // .holiday-gifts__picture
+  &__picture {
+    position: relative;
+    opacity: 0;
+    max-width: 480px;
+
+    @media (min-width:toEm(820.98)) {
+      max-width: auto;
+    }
+
+    @media (max-width: toEm(820.98)) {
+      max-width: 580px;
+
+    }
+
+    img {
+      // position: absolute;
+      // top: 0;
+      // left: 0;
+      transform: translate(100%, 0%) scale(1);
+
+      @media (min-width:toEm(820.98)) {
+        transform: translate(50%, -20%) scale(1.45);
+      }
+    }
+  }
+
+  // .holiday-gifts__stars
+  &__stars {
+    opacity: 0;
+    transition: opacity .3s ease;
+
+    &.--view {
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+  }
+
+  // .holiday-gifts__clouds
+  &__clouds {
+    position: relative;
+    z-index: 1;
+    min-width: 889px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  // .holiday-gifts__cloud
+  &__cloud {
+    @extend %bgRepeat;
+    transition: transform .8s ease 0s, opacity .65s ease 0s;
+
+    opacity: 0;
+    transform: translate(0%, 50%);
+
+    .--view & {
+      opacity: 1;
+      transform: translate(0%, 0%);
+    }
+  }
+
+  // .holiday-gifts__cloud--1
+  &__cloud--1 {
+    position: relative;
+    z-index: 0;
+    background-image: url("@img/holiday/clouds/cloud-1-mb.png");
+    @include adaptiveValue("height", 393, 233);
+
+    @media (min-width:toEm($mobileSmall)) {
+      background-image: url("@img/holiday/clouds/cloud-1.png");
+    }
+  }
+
+  // .holiday-gifts__cloud--2
+  &__cloud--2 {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    background-image: url("@img/holiday/clouds/cloud-2-mb.png");
+    height: 78%;
+
+    @media (min-width:$mobileSmall) {
+      background-image: url("@img/holiday/clouds/cloud-2.png");
+    }
+
+    .--view & {
+      transition-delay: 0.3s;
+    }
+  }
+
+  // .holiday-gifts__cloud--3
+  &__cloud--3 {
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    background-image: url("@img/holiday/clouds/cloud-3-mb.png");
+    height: 52%;
+
+    @media (min-width:toEm($mobileSmall)) {
+      background-image: url("@img/holiday/clouds/cloud-3.png");
+    }
+
+    .--view & {
+      transition-delay: 0.6s;
+    }
+  }
+}
+
+.holiday-hearts {
+  background: linear-gradient(104deg, #00a553 0%, #047840 100%);
+  position: relative;
+  z-index: 1;
+
+  min-height: 100svh;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 105%;
+    aspect-ratio: 1440/177;
+    background: inherit;
+
+    left: 50%;
+    transform: translate(-50%,-50%);
+    max-width: 2000px;
+    
+    -webkit-mask-image: url("@img/holiday/clouds/cloud-green.svg");
+    -webkit-mask-repeat: repeat-x;
+    -webkit-mask-position: top center;
+    -webkit-mask-size: contain;
+    
+    mask-image: url("@img/holiday/clouds/cloud-green.svg");
+    mask-repeat: repeat-x;
+    mask-position: top center;
+    mask-size: contain;
+    
+    @media (max-width: toEm(820.98)){
+      left: 50%;
+      width: 1100px;
+      transform: translate(-50%,-50%);
+    }
+  }
+
+}
+
+
+
+
+.holiday-hearts__gerland {
+  width: 100%;
+  height: auto;
+
+  circle {
+    fill: #f3fff9;
+    border-radius: 50%;
+    // filter: 
+    // drop-shadow(0 0 11px #f8ff30)
+    // drop-shadow(0 0 7px rgba(241, 255, 117, 0.96))
+    // drop-shadow(0 0 13px rgba(253, 255, 110, 0.33));
+  }
+}

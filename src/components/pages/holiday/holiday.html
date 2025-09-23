@@ -1,0 +1,274 @@
+<script type="module" src="@components/pages/holiday/holiday.js"></script>
+<link rel="stylesheet" href="@components/pages/holiday/holiday.scss">
+
+<main class="page page--holiday">
+	<section data-fls-parallax-parent data-fls-parallax-smooth="25" class="holiday-hero">
+		<div class="holiday-hero__container">
+			<div class="holiday-hero__body">
+				<h1 class="holiday-hero__title">
+					до різдвяного<br>
+					настрою залишилось
+				</h1>
+				<div data-fls-counter="2026-01-07,00:00" class="holiday-hero__counter">
+					<div class="holiday-hero__item">
+						<div class="holiday-hero__el">
+							<span data-fls-counter-el="days"></span>
+						</div>
+						<p>днів</p>
+					</div>
+					<div class="holiday-hero__item">
+						<div class="holiday-hero__el">
+							<span data-fls-counter-el="hours"></span>
+						</div>
+						<p>годин</p>
+					</div>
+					<div class="holiday-hero__item">
+						<div class="holiday-hero__el">
+							<span data-fls-counter-el="minuts"></span>
+						</div>
+						<p>хвилин</p>
+					</div>
+					<div class="holiday-hero__item">
+						<div class="holiday-hero__el">
+							<span data-fls-counter-el="seconds"></span>
+						</div>
+						<p>секунд</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div data-anim-block class="holiday-hero__bgs-wr">
+			<div class="holiday-hero__bgs">
+				<div class="holiday-hero__moon">
+					<img src="@img/holiday/hero/moon.png" width="368" height="331" alt="луна">
+				</div>
+				<div fetchpriority="high" class="holiday-hero__santa">
+					<img src="@img/holiday/hero/santa.png" width="161" height="76" alt="санта">
+				</div>
+				<div class="holiday-hero__bg holiday-hero__bg--1"></div>
+				<div class="holiday-hero__bg holiday-hero__bg--2"></div>
+				<div class="holiday-hero__bg holiday-hero__bg--3"></div>
+			</div>
+		</div>
+		<div data-fls-parallax data-stars data-src="@img/holiday/elements/star.png" class="holiday-hero__stars">
+		</div>
+	</section>
+	<section data-fls-parallax-parent data-fls-parallax-smooth="20" class="holiday-gifts">
+		<div class="holiday-gifts__container">
+			<div class="holiday-gifts__head-title title-head">
+				<h2 class="title-head__title">
+					а лукас вже<br> готує подарунки
+				</h2>
+				<div class="title-head__subtitle">
+					<p>а з ним — час теплих обіймів, чарівної атмосфери та солодких сюрпризів.
+						Наші новорічні подарунки створені,
+						щоб подарувати радість кожному:
+						від найменших ласунів
+						до справжніх гурманів. </p>
+				</div>
+			</div>
+			<div class="holiday-gifts__picture">
+				<picture>
+					<source srcset="@img/holiday/elements/deer-pc.png" media="(min-width: 30.062em)" type="image/webp">
+					<source srcset="@img/holiday/elements/deer-mb.png" type="image/webp">
+					<img loading="lazy" class="ibg-cn" src="@img/holiday/elements/deer-pc.png" width="849" height="743" alt="image">
+				</picture>
+			</div>
+		</div>
+		<div data-anim-watch class="holiday-gifts__clouds">
+			<div class="holiday-gifts__cloud holiday-gifts__cloud--1"></div>
+			<div class="holiday-gifts__cloud holiday-gifts__cloud--2"></div>
+			<div class="holiday-gifts__cloud holiday-gifts__cloud--3"></div>
+		</div>
+		<div data-stars data-anim-watch data-fls-parallax data-fls-parallax-coefficient="5" data-src="@img/holiday/elements/star.png" class="holiday-gifts__stars"></div>
+	</section>
+
+	<section class="holiday-hearts">
+		<div class="holiday-hearts__container red">
+		<svg class="holiday-hearts__gerland" width="1735" height="356" viewBox="0 0 1735 356" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path
+				d="M1733.73 133.633C1647.52 -6.03981 1492.68 30.8218 1452.83 69.8778C1412.97 108.934 1353.86 119.434 1318.7 96.1921C1283.55 72.9501 1337.97 36.8543 1348.04 78.8505C1358.1 120.847 1338.67 143.838 1306.45 172.708C1274.22 201.578 1178.04 182.542 1121.74 152.735C1095.19 138.682 1064.94 132.459 1036.5 133.751"
+				stroke="#F3FFF9" stroke-width="3" />
+
+			<circle cx="1159.86" cy="168.48" r="7" filter="url(#glow)"></circle>
+			<circle cx="1228.6" cy="182.865" r="11" filter="url(#glow)"></circle>
+			<circle cx="1342.41" cy="131.178" r="11" filter="url(#glow)"></circle>
+			<circle cx="1536.81" cy="35.6036" r="10" filter="url(#glow)"></circle>
+			<circle cx="1402.64" cy="100.313" r="10" filter="url(#glow)"></circle>
+			<circle cx="1632.28" cy="46.1537" r="7" filter="url(#glow)"></circle>
+			<circle cx="1587.3" cy="35.4326" r="5" filter="url(#glow)"></circle>
+			<circle cx="1447.46" cy="74.6885" r="5" filter="url(#glow)"></circle>
+			<circle cx="1349.88" cy="84.6455" r="5" filter="url(#glow)"></circle>
+			<circle cx="1307.17" cy="75.6205" r="7" filter="url(#glow)"></circle>
+			<circle cx="1696.36" cy="84.441" r="8" filter="url(#glow)"></circle>
+			<circle cx="1098.47" cy="141.929" r="8" filter="url(#glow)"></circle>
+
+
+			<path id="star-glow-path" d="M1066 125L1067 134.16L1073.78 128.22L1067.5 135L1077 136L1067.5 137L1073.78 143.78L1067 137.84L1066 147L1065 137.84L1058.22 143.78L1064.16 137L1055 136L1064.5 135L1058.22 128.22L1065 134.16L1066 125Z" fill="#FFF59E"
+				filter="url(#star-glow)" />
+
+			<path
+				d="M29 244.169C42.4853 241.679 66.9585 238.192 117.403 271.067C167.848 303.943 239.77 337.813 289.715 325.361C313.19 318.719 356.942 295.076 344.156 253.634C328.173 201.831 288.716 168.457 244.265 178.918C199.813 189.378 209.303 216.774 236.274 226.238C263.244 235.702 327.174 238.192 398.097 229.724C469.019 221.257 528.954 195.355 620.854 229.724C694.373 257.22 708.092 293.316 705.761 307.927"
+				stroke="#F3FFF9" stroke-width="3" />
+
+			<circle cx="327" cy="221" r="10" filter="url(#glow)"></circle>
+			<circle cx="275" cy="180" r="10" filter="url(#glow)"></circle>
+			<circle cx="221" cy="320" r="11" filter="url(#glow)"></circle>
+			<circle cx="36" cy="243" r="11" filter="url(#glow)"></circle>
+			<circle cx="470" cy="217" r="8" filter="url(#glow)"></circle>
+			<circle cx="214" cy="204" r="7" filter="url(#glow)"></circle>
+			<circle cx="101" cy="262" r="7" filter="url(#glow)"></circle>
+			<circle cx="271" cy="234" r="6" filter="url(#glow)"></circle>
+			<circle cx="160" cy="296" r="6" filter="url(#glow)"></circle>
+			<circle cx="291.5" cy="324.5" r="6.5" filter="url(#glow)"></circle>
+			<circle cx="341.5" cy="284.5" r="6.5" filter="url(#glow)"></circle>
+			<circle cx="705.5" cy="303.5" r="12.5" filter="url(#glow)"></circle>
+			<circle cx="619.5" cy="231.5" r="11.5" filter="url(#glow)"></circle>
+
+
+
+			<path id="star-glow-path" d="M185 297L186 306.16L192.78 300.22L186.5 307L196 308L186.5 309L192.78 315.78L186 309.84L185 319L184 309.84L177.22 315.78L183.16 309L174 308L183.5 307L177.22 300.22L184 306.16L185 297Z" fill="#FFF59E"
+				filter="url(#star-glow)" />
+
+			<path id="star-glow-path" d="M346 249L347 258.16L353.78 252.22L347.5 259L357 260L347.5 261L353.78 267.78L347 261.84L346 271L345 261.84L338.22 267.78L344.16 261L335 260L344.5 259L338.22 252.22L345 258.16L346 249Z" fill="#FFF59E"
+				filter="url(#star-glow)" />
+
+			<path
+				d="M1485 206.376C1452.72 221.314 1368.98 238.841 1292.31 189.447C1225.91 143.147 1153.03 182.478 1103.11 215.837C1064.17 237.912 975.112 272.802 930.384 235.755C885.655 198.708 916.739 149.946 937.872 130.196C951.85 116.254 988.392 94.0466 1022.74 116.752C1057.08 139.457 1018.41 154.428 994.782 159.076C969.655 161.897 908.02 165.051 862.493 155.092C805.583 142.644 628.865 98.8271 544 228.785"
+				stroke="#F3FFF9" stroke-width="3" />
+
+
+			<circle cx="964" cy="250" r="9" filter="url(#glow)"></circle>
+			<circle cx="911" cy="211" r="9" filter="url(#glow)"></circle>
+			<circle cx="1215" cy="169" r="7" filter="url(#glow)"></circle>
+			<circle cx="1092" cy="221" r="8" filter="url(#glow)"></circle>
+			<circle cx="651" cy="149" r="10" filter="url(#glow)"></circle>
+			<circle cx="777" cy="139" r="10" filter="url(#glow)"></circle>
+			<circle cx="920" cy="154" r="12" filter="url(#glow)"></circle>
+			<circle cx="1036" cy="133" r="10" filter="url(#glow)"></circle>
+			<circle cx="979" cy="107" r="7" filter="url(#glow)"></circle>
+			<circle cx="982" cy="160" r="7" filter="url(#glow)"></circle>
+			<circle cx="1280" cy="180" r="10" filter="url(#glow)"></circle>
+			<circle cx="1335.5" cy="210.5" r="7.5" filter="url(#glow)"></circle>
+			<circle cx="1415" cy="222" r="8" filter="url(#glow)"></circle>
+			<circle cx="1151" cy="188" r="8" filter="url(#glow)"></circle>
+			<circle cx="1033" cy="246" r="13" filter="url(#glow)"></circle>
+			<circle cx="589" cy="180" r="6" filter="url(#glow)"></circle>
+			<circle cx="714" cy="139" r="6" filter="url(#glow)"></circle>
+			<circle cx="847" cy="151" r="7" filter="url(#glow)"></circle>
+			<circle cx="545" cy="226" r="6" filter="url(#glow)"></circle>
+
+
+
+			<path id="star-glow-path" d="M1122 193L1123 202.16L1129.78 196.22L1123.5 203L1133 204L1123.5 205L1129.78 211.78L1123 205.84L1122 215L1121 205.84L1114.22 211.78L1120.16 205L1111 204L1120.5 203L1114.22 196.22L1121 202.16L1122 193Z" fill="#FFF59E"
+				filter="url(#star-glow)" />
+
+			<path id="star-glow-path"
+				d="M1374.31 209.131L1376.71 218.028L1382.49 211.117L1377.33 218.782L1386.87 218.311L1377.64 220.758L1384.88 226.493L1377.27 221.665L1377.69 230.87L1375.29 221.972L1369.51 228.883L1374.34 221.271L1365.13 221.69L1374.36 219.242L1367.12 213.508L1374.73 218.336L1374.31 209.131Z"
+				fill="#FFF59E" filter="url(#star-glow)" />
+
+			<path id="star-glow-path" d="M997 240L998 249.16L1004.78 243.22L998.5 250L1008 251L998.5 252L1004.78 258.78L998 252.84L997 262L996 252.84L989.22 258.78L995.16 252L986 251L995.5 250L989.22 243.22L996 249.16L997 240Z" fill="#FFF59E"
+				filter="url(#star-glow)" />
+
+			<path id="star-glow-path" d="M624 149L625 158.16L631.78 152.22L625.5 159L635 160L625.5 161L631.78 167.78L625 161.84L624 171L623 161.84L616.22 167.78L622.16 161L613 160L622.5 159L616.22 152.22L623 158.16L624 149Z" fill="#FFF59E"
+				filter="url(#star-glow)" />
+
+			<path
+				d="M141.651 118.74L146.293 124.68L148.449 117.627L147.003 125.048L154.041 121.65L147.865 126.439L155.154 128.449L147.879 127.239L151.131 134.041L146.488 128.101L144.332 135.154L145.542 127.879L138.74 131.13L144.916 126.341L137.627 124.332L144.902 125.541L141.651 118.74Z"
+				fill="#FFF59E" filter="url(#star-glow)" />
+
+			<path id="star-glow-path"
+				d="M441 187L441.909 195.327L448.073 189.927L442.364 196.091L451 197L442.364 197.909L448.073 204.073L441.909 198.673L441 207L440.091 198.673L433.927 204.073L439.327 197.909L431 197L439.636 196.091L433.927 189.927L440.091 195.327L441 187Z"
+				fill="#FFF59E" filter="url(#star-glow)" />
+
+			<path
+				d="M28.5 165C50.3333 164.833 102.4 158.1 136 132.5C178 100.5 251 105.5 302.5 143C354 180.5 446.5 213.002 482.5 189.001C518.5 165 541 145.001 537 102.001C533 59.001 474 87.0019 505.5 115.001C537 143 597 141 642 108C687 75 845.5 60.5 911 211"
+				stroke="#F3FFF9" stroke-width="3" />
+
+			<circle cx="94" cy="151" r="10" filter="url(#glow)"></circle>
+			<circle cx="338" cy="164" r="7" filter="url(#glow)"></circle>
+			<circle cx="154" cy="121" r="7" filter="url(#glow)"></circle>
+			<circle cx="404" cy="188" r="11" filter="url(#glow)"></circle>
+			<circle cx="524" cy="153" r="11" filter="url(#glow)"></circle>
+			<circle cx="730" cy="86" r="10" filter="url(#glow)"></circle>
+			<circle cx="588" cy="131" r="10" filter="url(#glow)"></circle>
+			<circle cx="823" cy="110" r="7" filter="url(#glow)"></circle>
+			<circle cx="780" cy="93" r="5" filter="url(#glow)"></circle>
+			<circle cx="636" cy="112" r="5" filter="url(#glow)"></circle>
+			<circle cx="538" cy="108" r="5" filter="url(#glow)"></circle>
+			<circle cx="497" cy="93" r="7" filter="url(#glow)"></circle>
+			<circle cx="881" cy="157" r="8" filter="url(#glow)"></circle>
+			<circle cx="281" cy="129" r="8" filter="url(#glow)"></circle>
+			<circle cx="220" cy="111" r="10" filter="url(#glow)"></circle>
+			<circle cx="476" cy="192" r="6" filter="url(#glow)"></circle>
+
+
+			<defs>
+				<filter id="glow" x="-80%" y="-80%" width="260%" height="260%" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+					<!-- Первый слой (яркий жёлтый) -->
+					<feGaussianBlur in="SourceAlpha" stdDeviation="5.5" result="blur1" />
+					<feFlood flood-color="#f8ff30" result="color1" />
+					<feComposite in="color1" in2="blur1" operator="in" result="glow1" />
+
+					<!-- Второй слой (плотный светло-зелёный) -->
+					<feGaussianBlur in="SourceAlpha" stdDeviation="3.5" result="blur2" />
+					<feFlood flood-color="rgba(241,255,117,0.96)" result="color2" />
+					<feComposite in="color2" in2="blur2" operator="in" result="glow2" />
+
+					<!-- Третий слой (широкое мягкое свечение) -->
+					<feGaussianBlur in="SourceAlpha" stdDeviation="12" result="blur3" />
+					<feFlood flood-color="rgba(253,255,110,0.33)" result="color3" />
+					<feComposite in="color3" in2="blur3" operator="in" result="glow3" />
+
+					<!-- Склеиваем всё -->
+					<feMerge>
+						<feMergeNode in="glow1" />
+						<feMergeNode in="glow2" />
+						<feMergeNode in="glow3" />
+						<feMergeNode in="SourceGraphic" />
+					</feMerge>
+				</filter>
+
+				<filter id="star-glow" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB">
+					<!-- Тень -->
+					<feOffset dy="4" in="SourceAlpha" result="offset" />
+					<feGaussianBlur in="offset" stdDeviation="10" result="shadow" />
+					<feColorMatrix in="shadow" type="matrix" values="0 0 0 0 1
+            0 0 0 0 1
+            0 0 0 0 0
+            0 0 0 0.6 0" result="shadowColor" />
+
+					<!-- Свечение -->
+					<feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur" />
+					<feFlood flood-color="#FFF59E" flood-opacity="0.8" result="color" />
+					<feComposite in="color" in2="blur" operator="in" result="glow" />
+
+					<!-- Склеиваем -->
+					<feMerge>
+						<feMergeNode in="shadowColor" />
+						<feMergeNode in="glow" />
+						<feMergeNode in="SourceGraphic" />
+					</feMerge>
+				</filter>
+
+
+			</defs>
+
+		</svg>
+
+		
+		</div>
+	</section>
+
+</main>
+
+
+<!-- <div class="holiday-gifts__head-title title-head">
+	<h2 class="title-head__title">
+		<span class="title-head__title-up">солодощі</span>
+		створені, щоб<br> <span class="red">зігріти серце</span>
+	</h2>
+	<div class="title-head__subtitle">
+		<p></p>
+	</div>
+</div> -->

