@@ -64,6 +64,9 @@
 }
 .title-head__title-up {
   font-family: "Gogol", sans-serif;
+  text-transform: lowercase;
+  display: block;
+  line-height: 0.8;
 }
 
 .holiday-gifts {
@@ -196,6 +199,7 @@
 }
 .holiday-gifts__picture {
   position: relative;
+  z-index: 3;
   opacity: 0;
   max-width: 30rem;
 }
@@ -253,12 +257,23 @@
 }
 
 .holiday-hearts {
-  background: linear-gradient(104deg, #00a553 0%, #047840 100%);
   position: relative;
   z-index: 1;
-  min-height: 100svh;
+  background: #f7edef;
+  margin-top: -0.3125rem;
 }
-.holiday-hearts::before {
+.holiday-hearts__wrapper {
+  opacity: 0;
+  transform: translate(0%, 6.25rem);
+  transition: opacity 0.3s ease 0s, transform 0.8s ease 0s;
+  will-change: transform;
+  background: linear-gradient(104deg, #00a553 0%, #047840 100%);
+}
+.--view .holiday-hearts__wrapper {
+  opacity: 1;
+  transform: translate(0%, 0rem);
+}
+.holiday-hearts__wrapper::before {
   content: "";
   position: absolute;
   z-index: 0;
@@ -279,23 +294,68 @@
   mask-position: top center;
   mask-size: contain;
 }
-
 .holiday-hearts__gerland {
-  width: 100%;
+  position: relative;
+  z-index: 5;
+  width: 123%;
   height: auto;
+  min-width: 68.75rem;
+  max-width: 156.25rem;
+  left: 100%;
+  transform: translate(-50%, 0%);
 }
-.holiday-hearts__gerland circle {
-  fill: #f3fff9;
-  border-radius: 50%;
+.holiday-hearts__gerland image {
+  opacity: 0;
+}
+.holiday-hearts__picture {
+  position: relative;
+}
+.holiday-hearts__girl-img {
+  position: relative;
+  z-index: 1;
+}
+.holiday-hearts__frame {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-51.3%, -53.3%);
+  max-width: 101%;
+}
+.holiday-hearts__line {
+  display: none;
+}
+.holiday-hearts__body {
+  padding-top: 1.25rem;
+  padding-left: 2.5rem;
+}
+.holiday-hearts__head-title .title-head__btn.btn {
+  min-width: 15.375rem;
+}
+@media (max-width: 56.31125em) {
+  .holiday-hearts__gerland {
+    margin-top: -7.5rem;
+  }
+  .holiday-hearts__container {
+    margin-top: -3.125rem;
+  }
 }
 @media (max-width: 51.31125em) {
   .holiday-gifts__picture {
     max-width: 36.25rem;
   }
-  .holiday-hearts::before {
+  .holiday-hearts__wrapper::before {
     left: 50%;
     width: 68.75rem;
     transform: translate(-50%, -50%);
+  }
+}
+@media (max-width: 46.93625em) {
+  .holiday-hearts__container {
+    max-width: 30rem;
+  }
+  .holiday-hearts__body {
+    padding-left: 0rem;
   }
 }
 @media (max-width: 30.06125em) {
@@ -310,6 +370,9 @@
   }
   .holiday-hero__moon img {
     width: 14.25rem;
+  }
+  .holiday-hearts__container {
+    margin-top: -5.625rem !important;
   }
 }
 @media (max-width: 24.81125em) {
@@ -362,6 +425,12 @@
   .holiday-gifts__cloud--1 {
     height: 14.5625rem;
   }
+  .holiday-hearts__wrapper {
+    padding-bottom: 5.0625rem;
+  }
+  .holiday-hearts__head-title .title-head__btn {
+    margin-top: 1.5rem;
+  }
 }
 @media (min-width: 480.98) {
   .holiday-gifts__cloud--2 {
@@ -408,6 +477,12 @@
   .holiday-gifts__cloud--1 {
     height: clamp( 14.5625rem , 11.00694444444375rem  +  17.7777777778vw , 24.5625rem );
   }
+  .holiday-hearts__wrapper {
+    padding-bottom: clamp( 5.0625rem , 3.240277777775rem  +  9.1111111111vw , 10.1875rem );
+  }
+  .holiday-hearts__head-title .title-head__btn {
+    margin-top: clamp( 1.5rem , 1.4111111111125rem  +  0.4444444444vw , 1.75rem );
+  }
 }
 @media (min-width: 30.06125em) and (max-width: 90.06125em) {
   .holiday-hero__moon img {
@@ -448,6 +523,30 @@
   .holiday-gifts__cloud--3 {
     background-image: url("../assets/img/holiday/clouds/cloud-3.webp");
   }
+  .holiday-hearts__gerland {
+    left: 59%;
+  }
+  .holiday-hearts__head-title .title-head__btn.btn {
+    min-width: 19.625rem;
+  }
+}
+@media (min-width: 46.93625em) {
+  .holiday-hearts__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .holiday-hearts__frame {
+    max-width: 96%;
+    transform: translate(-49.5%, -52%);
+  }
+  .holiday-hearts__line {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    right: 0;
+    width: 84%;
+  }
 }
 @media (min-width: 48.06125em) {
   .holiday-hero__title {
@@ -472,7 +571,21 @@
     max-width: auto;
   }
   .holiday-gifts__picture img {
-    transform: translate(50%, -20%) scale(1.45);
+    transform: translate(50%, -10%) scale(1.45);
+  }
+}
+@media (min-width: 56.31125em) and (max-width: 120.06125em) {
+  .holiday-hearts__gerland {
+    margin-top: clamp( -10.625rem , -4.73964460784375rem  +  -4.9019607843vw , -7.5rem );
+  }
+  .holiday-hearts__container {
+    margin-top: clamp( -10.625rem , 3.499852941175rem  +  -11.7647058824vw , -3.125rem );
+  }
+}
+@media (min-width: 64.06125em) {
+  .holiday-hearts__body {
+    padding-left: 5.0625rem;
+    padding-top: 7.3125rem;
   }
 }
 @media (min-width: 76.25em) {
@@ -515,9 +628,23 @@
   .holiday-gifts__cloud--1 {
     height: 24.5625rem;
   }
+  .holiday-hearts__wrapper {
+    padding-bottom: 10.1875rem;
+  }
+  .holiday-hearts__head-title .title-head__btn {
+    margin-top: 1.75rem;
+  }
 }
 @media (min-width: 90.06125em) {
   .holiday-hero__moon img {
     width: 23rem;
+  }
+}
+@media (min-width: 120.06125em) {
+  .holiday-hearts__gerland {
+    margin-top: -10.625rem;
+  }
+  .holiday-hearts__container {
+    margin-top: -10.625rem;
   }
 }

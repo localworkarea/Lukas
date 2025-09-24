@@ -17,14 +17,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // const starsEl = document.querySelectorAll('[data-stars]');
   const deerParent = document.querySelector('.holiday-gifts__picture');
   const deerImg = document.querySelector('.holiday-gifts__picture img');
+  
+  const heartsSection = document.querySelector('.holiday-hearts');
 
-
+  const svgGerland = document.querySelector(".holiday-hearts__gerland");
+  
+  
+  
 	// фукнция для создания анимации
 	function createGsapAnim() {
-   
-		// удаляем тригеры после срабатывания фунции (поворота экрана...)
+    
+    // удаляем тригеры после срабатывания фунции (поворота экрана...)
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-
+    
     blockEl.forEach((section) => {
       gsap.to(section, {
         yPercent: 15,
@@ -33,11 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
           trigger: section,
           start: "bottom bottom",  
           end: "bottom top",  
-          scrub: 2
+          scrub: 1
         }
       });
     });
-
+    
     watchEl.forEach((element) => {
       ScrollTrigger.create({
         trigger: element,
@@ -46,8 +51,18 @@ document.addEventListener("DOMContentLoaded", () => {
         onLeaveBack: () => element.classList.remove('--view'),
       });
     });
-
     
+    
+    ScrollTrigger.create({
+      trigger: heartsSection,
+      start: "top 90%", 
+      onEnter: () => heartsSection.classList.add('--view'),
+      onLeaveBack: () => heartsSection.classList.remove('--view'),
+    });
+    
+
+
+
 
     // для очищения стилей gsap при повороте для элементов, которым не нужно больше
     gsap.set([deerImg], { clearProps: "all" }); 
@@ -55,11 +70,55 @@ document.addEventListener("DOMContentLoaded", () => {
     
     let mm = gsap.matchMedia();
     mm.add({
-      min820: "(min-width: 821px)",
-      max820: "(max-width: 820px)",
+      min820: "(min-width: 51.311em)",
+      max820: "(max-width: 51.310em)",
     }, (context) => {
       
       let { min820, max820  } = context.conditions;
+
+      if (svgGerland) {
+        const paths = svgGerland.querySelectorAll("path");
+      
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: svgGerland,
+            start: min820 ? "center bottom" : "bottom bottom",
+            end: min820 ? "center top" : "top 30%",
+            scrub: 2,
+          }
+        });
+      
+        paths.forEach((path, index) => {
+          const length = path.getTotalLength();
+        
+          const start = path.getPointAtLength(0);
+          const end = path.getPointAtLength(length);
+          const rawIsReversed = start.x > end.x;
+          const isReversed = isMobile.iOS() ? false : rawIsReversed;
+        
+          path.style.strokeDasharray = length;
+          path.style.strokeDashoffset = isReversed ? -length : length;
+        
+          const groupDelay = index * 0.1;
+        
+          tl.to(path, {
+            strokeDashoffset: 0,
+          }, groupDelay);
+        
+          const parentGroup = path.closest("g");
+          const images = parentGroup?.querySelectorAll("image");
+        
+          if (images?.length) {
+            images.forEach((image, imgIndex) => {
+              tl.to(image, {
+                opacity: 1,
+                duration: 0.3,
+              }, groupDelay + imgIndex * 0.03);
+            });
+          }
+        });
+      }
+
       
       if (min820) {
         
@@ -69,14 +128,14 @@ document.addEventListener("DOMContentLoaded", () => {
           scrollTrigger: {
             trigger: deerParent,
             start: "top center",
-            end: " bottom 60%",
+            end: " bottom 70%",
             scrub: 2,
           }
         });
         
         gsap.to(deerImg, {
-          xPercent: -150,
-          yPercent: 70,
+          xPercent: -180,
+          // yPercent: 70,
           scrollTrigger: {
             trigger: deerParent,
             start: 'top center',

@@ -1,4 +1,4 @@
-import { a as addLoadedAttr } from "./app.min.js";
+import { a as addLoadedAttr, i as isMobile } from "./app.min.js";
 document.addEventListener("DOMContentLoaded", () => {
   const counters = document.querySelectorAll("[data-fls-counter]");
   if (!counters.length) return;
@@ -6275,6 +6275,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const watchEl = document.querySelectorAll("[data-anim-watch]");
   const deerParent = document.querySelector(".holiday-gifts__picture");
   const deerImg = document.querySelector(".holiday-gifts__picture img");
+  const heartsSection = document.querySelector(".holiday-hearts");
+  const svgGerland = document.querySelector(".holiday-hearts__gerland");
   function createGsapAnim() {
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     blockEl.forEach((section) => {
@@ -6285,7 +6287,7 @@ document.addEventListener("DOMContentLoaded", () => {
           trigger: section,
           start: "bottom bottom",
           end: "bottom top",
-          scrub: 2
+          scrub: 1
         }
       });
     });
@@ -6297,13 +6299,53 @@ document.addEventListener("DOMContentLoaded", () => {
         onLeaveBack: () => element.classList.remove("--view")
       });
     });
+    ScrollTrigger.create({
+      trigger: heartsSection,
+      start: "top 90%",
+      onEnter: () => heartsSection.classList.add("--view"),
+      onLeaveBack: () => heartsSection.classList.remove("--view")
+    });
     gsapWithCSS.set([deerImg], { clearProps: "all" });
     let mm = gsapWithCSS.matchMedia();
     mm.add({
-      min820: "(min-width: 821px)",
-      max820: "(max-width: 820px)"
+      min820: "(min-width: 51.311em)",
+      max820: "(max-width: 51.310em)"
     }, (context3) => {
       let { min820, max820 } = context3.conditions;
+      if (svgGerland) {
+        const paths = svgGerland.querySelectorAll("path");
+        const tl = gsapWithCSS.timeline({
+          scrollTrigger: {
+            trigger: svgGerland,
+            start: min820 ? "center bottom" : "bottom bottom",
+            end: min820 ? "center top" : "top 30%",
+            scrub: 2
+          }
+        });
+        paths.forEach((path, index) => {
+          const length = path.getTotalLength();
+          const start = path.getPointAtLength(0);
+          const end = path.getPointAtLength(length);
+          const rawIsReversed = start.x > end.x;
+          const isReversed = isMobile.iOS() ? false : rawIsReversed;
+          path.style.strokeDasharray = length;
+          path.style.strokeDashoffset = isReversed ? -length : length;
+          const groupDelay = index * 0.1;
+          tl.to(path, {
+            strokeDashoffset: 0
+          }, groupDelay);
+          const parentGroup = path.closest("g");
+          const images = parentGroup?.querySelectorAll("image");
+          if (images?.length) {
+            images.forEach((image, imgIndex) => {
+              tl.to(image, {
+                opacity: 1,
+                duration: 0.3
+              }, groupDelay + imgIndex * 0.03);
+            });
+          }
+        });
+      }
       if (min820) {
         gsapWithCSS.to(deerParent, {
           opacity: 1,
@@ -6311,13 +6353,13 @@ document.addEventListener("DOMContentLoaded", () => {
           scrollTrigger: {
             trigger: deerParent,
             start: "top center",
-            end: " bottom 60%",
+            end: " bottom 70%",
             scrub: 2
           }
         });
         gsapWithCSS.to(deerImg, {
-          xPercent: -150,
-          yPercent: 70,
+          xPercent: -180,
+          // yPercent: 70,
           scrollTrigger: {
             trigger: deerParent,
             start: "top center",

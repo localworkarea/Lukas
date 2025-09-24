@@ -67,5 +67,17 @@
       }
     }
   }
+
+   // .btn--d
+  &--d {
+    @include adaptiveValue("min-height", 51, 40);
+    @include adaptiveValue("font-size", 13,10);
+    border-color: var(--red);
+    @media (any-hover: hover){
+      &:hover{
+        border-color: var(--white);
+      }
+    }
+  }
  
 }

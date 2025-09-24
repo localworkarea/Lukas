@@ -80,6 +80,9 @@
   // .title-head__title-up
   &__title-up {
     font-family: 'Gogol', sans-serif;
+    text-transform: lowercase;
+    display: block;
+    line-height: 0.8;
   }
 
   // .title-head__subtitle
@@ -354,6 +357,7 @@
   // .holiday-gifts__picture
   &__picture {
     position: relative;
+    z-index: 3;
     opacity: 0;
     max-width: 480px;
 
@@ -373,7 +377,7 @@
       transform: translate(100%, 0%) scale(1);
 
       @media (min-width:toEm(820.98)) {
-        transform: translate(50%, -20%) scale(1.45);
+        transform: translate(50%, -10%) scale(1.45);
       }
     }
   }
@@ -460,58 +464,167 @@
 }
 
 .holiday-hearts {
-  background: linear-gradient(104deg, #00a553 0%, #047840 100%);
   position: relative;
   z-index: 1;
+  background: #f7edef;
+  margin-top: -5px;
+  // background: linear-gradient(104deg, #00a553 0%, #047840 100%);
+  // .holiday-hearts__wrapper
+	&__wrapper {
+      opacity: 0;
+      transform: translate(0%,100px);
+      transition: opacity .3s ease 0s, transform .8s ease 0s;
+      will-change: transform;
 
-  min-height: 100svh;
+      .--view & {
+        opacity: 1;
+        transform: translate(0%,0px);
+      }
 
-  &::before {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    top: 0;
-    left: 0;
-    width: 105%;
-    aspect-ratio: 1440/177;
-    background: inherit;
+    background: linear-gradient(104deg, #00a553 0%, #047840 100%);
 
-    left: 50%;
-    transform: translate(-50%,-50%);
-    max-width: 2000px;
-    
-    -webkit-mask-image: url("@img/holiday/clouds/cloud-green.svg");
-    -webkit-mask-repeat: repeat-x;
-    -webkit-mask-position: top center;
-    -webkit-mask-size: contain;
-    
-    mask-image: url("@img/holiday/clouds/cloud-green.svg");
-    mask-repeat: repeat-x;
-    mask-position: top center;
-    mask-size: contain;
-    
-    @media (max-width: toEm(820.98)){
+    @include adaptiveValue("padding-bottom", 163, 81);
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      width: 105%;
+      aspect-ratio: 1440/177;
+      background: inherit;
+
       left: 50%;
-      width: 1100px;
       transform: translate(-50%,-50%);
+      max-width: 2000px;
+
+      -webkit-mask-image: url("@img/holiday/clouds/cloud-green.svg");
+      -webkit-mask-repeat: repeat-x;
+      -webkit-mask-position: top center;
+      -webkit-mask-size: contain;
+
+      mask-image: url("@img/holiday/clouds/cloud-green.svg");
+      mask-repeat: repeat-x;
+      mask-position: top center;
+      mask-size: contain;
+
+      @media (max-width: toEm(820.98)){
+        left: 50%;
+        width: 1100px;
+        transform: translate(-50%,-50%);
+      }
     }
   }
 
-}
+  // .holiday-hearts__gerland
+  &__gerland {
+    position: relative;
+    z-index: 5;
+    width: 123%;
+    height: auto;
 
-
-
-
-.holiday-hearts__gerland {
-  width: 100%;
-  height: auto;
-
-  circle {
-    fill: #f3fff9;
-    border-radius: 50%;
-    // filter: 
-    // drop-shadow(0 0 11px #f8ff30)
-    // drop-shadow(0 0 7px rgba(241, 255, 117, 0.96))
-    // drop-shadow(0 0 13px rgba(253, 255, 110, 0.33));
+    min-width: 1100px;
+    max-width: 2500px;
+    left: 100%;
+    
+    // margin-top: -170px;
+    @include adaptiveValue("margin-top", -170, -120,0,1920.98,900.98);
+    transform: translate(-50%,0%);
+    
+    @media (min-width:toEm($mobileSmall)){
+      left: 59%;
+    }
+    
+    image {
+      opacity: 0;
+    }
   }
+  
+  // .holiday-hearts__container
+  &__container {
+    @include adaptiveValue("margin-top", -170, -50,0,1920.98,900.98);
+    
+    @media (min-width:toEm(750.98)){
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: toEm(750.98)){
+      max-width: 480px;
+    }
+    @media (max-width:toEm($mobileSmall)){
+       margin-top: -90px !important; 
+    }
+  }
+
+  // .holiday-hearts__picture
+  &__picture {
+    position: relative;
+  }
+
+  // .holiday-hearts__girl-img
+  &__girl-img {
+    position: relative;
+    z-index: 1;
+  }
+
+  // .holiday-hearts__frame
+  &__frame {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-51.3%,-53.3%);
+    max-width: 101%;
+    @media (min-width: toEm(750.98)){
+      max-width: 96%;
+      transform: translate(-49.5%,-52%);
+    }
+  }
+
+  // .holiday-hearts__line
+  &__line {
+    display: none;
+    @media (min-width:toEm(750.98)){
+      display: block;
+      position: absolute;
+      z-index: 2;
+      bottom: 0;
+      right: 0;
+      width: 84%;
+    }
+  }
+
+  // .holiday-hearts__body
+  &__body {
+    padding-top: 20px;
+    padding-left: 40px;
+    @media (min-width:toEm(1024.98)){
+      padding-left: 81px;
+      padding-top: 117px;
+    }
+    @media (max-width: toEm(750.98)){
+      padding-left: 0px;
+    }
+  }
+
+  // .holiday-hearts__head-title
+  &__head-title {
+   
+    .title-head__title {}
+    .title-head__title-up {}
+    .title-head__subtitle {}
+    .title-head__btn {
+      @include adaptiveValue("margin-top", 28, 24);
+      &.btn {
+        min-width: 246px;
+        // border-color: var(--red);
+        @media (min-width:toEm($mobileSmall)){
+          min-width: 314px;
+        }
+      }
+    }
+  }
+  
 }
+
