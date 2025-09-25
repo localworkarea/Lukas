@@ -463,28 +463,43 @@
   }
 }
 
+%beforeStarBig {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("@img/holiday/elements/star-big.svg");
+  aspect-ratio: 1;
+  pointer-events: none;
+ 
+  transition: opacity .3s ease, transform .8s ease;
+}
+
 .holiday-hearts {
   position: relative;
   z-index: 1;
   background: #f7edef;
   margin-top: -5px;
-  // background: linear-gradient(104deg, #00a553 0%, #047840 100%);
+  background: linear-gradient(104deg, #00a553 0%, #047840 100%);
+
   // .holiday-hearts__wrapper
-	&__wrapper {
-      opacity: 0;
-      transform: translate(0%,100px);
-      transition: opacity .3s ease 0s, transform .8s ease 0s;
-      will-change: transform;
+  &__wrapper {
+    opacity: 0;
+    transform: translate(0%, 100px);
+    transition: opacity .3s ease 0s, transform .8s ease 0s;
+    will-change: transform;
 
-      .--view & {
-        opacity: 1;
-        transform: translate(0%,0px);
-      }
-
-    background: linear-gradient(104deg, #00a553 0%, #047840 100%);
-
+    .--view & {
+      opacity: 1;
+      transform: translate(0%, 0px);
+    }
+    
+    // background: linear-gradient(104deg, #00a553 0%, #047840 100%);
+    
     @include adaptiveValue("padding-bottom", 163, 81);
-
+    
     &::before {
       content: "";
       position: absolute;
@@ -493,10 +508,11 @@
       left: 0;
       width: 105%;
       aspect-ratio: 1440/177;
-      background: inherit;
+      // background: inherit;
+      background: linear-gradient(104deg, #00a553 0%, #047840 100%);
 
       left: 50%;
-      transform: translate(-50%,-50%);
+      transform: translate(-50%, -50%);
       max-width: 2000px;
 
       -webkit-mask-image: url("@img/holiday/clouds/cloud-green.svg");
@@ -509,10 +525,10 @@
       mask-position: top center;
       mask-size: contain;
 
-      @media (max-width: toEm(820.98)){
+      @media (max-width: toEm(820.98)) {
         left: 50%;
         width: 1100px;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
       }
     }
   }
@@ -527,33 +543,88 @@
     min-width: 1100px;
     max-width: 2500px;
     left: 100%;
-    
+
     // margin-top: -170px;
-    @include adaptiveValue("margin-top", -170, -120,0,1920.98,900.98);
-    transform: translate(-50%,0%);
-    
-    @media (min-width:toEm($mobileSmall)){
+    @include adaptiveValue("margin-top", -170, -120, 0, 1920.98, 900.98);
+    transform: translate(-50%, 0%);
+
+    @media (min-width:toEm($mobileSmall)) {
       left: 59%;
     }
-    
+
     image {
       opacity: 0;
     }
   }
-  
+
   // .holiday-hearts__container
   &__container {
-    @include adaptiveValue("margin-top", -170, -50,0,1920.98,900.98);
-    
-    @media (min-width:toEm(750.98)){
+    position: relative;
+    z-index: 1;
+    @include adaptiveValue("margin-top", -170, -50, 0, 1920.98, 900.98);
+
+    &.--view {
+      &::before {
+        opacity: 1;
+        transform: translate(-55%, -20%);
+
+        @media (min-width:toEm(1200.98)) {
+          transform: translate(-80%, -20%);
+        }
+      }
+
+      &::after {
+        transition-delay: 0.15s;
+        opacity: 1;
+        transform: translate(55%, 30%);
+
+        @media (min-width:toEm(1200.98)) {
+          transform: translate(80%, 30%);
+        }
+      }
+    }
+
+    &:before,
+    &:after {
+      @extend %beforeStarBig;
+       opacity: 0;
+        @include adaptiveValue("width", 409, 200);
+    }
+
+    &::before {
+      filter: invert(38%) sepia(43%) saturate(705%) hue-rotate(99deg) brightness(94%) contrast(88%);
+      left: 0;
+
+
+      transform: translate(-150%, -20%);
+
+      @media (min-width:toEm(1200.98)) {
+        transform: translate(-150%, -20%);
+      }
+    }
+
+    &::after {
+      filter: invert(42%) sepia(58%) saturate(595%) hue-rotate(99deg) brightness(95%) contrast(89%);
+      right: 0;
+      bottom: 0;
+      transform: translate(150%, 30%);
+
+      @media (min-width:toEm(1200.98)) {
+        transform: translate(150%, 30%);
+      }
+    }
+
+    @media (min-width:toEm(820.98)) {
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
-    @media (max-width: toEm(750.98)){
+
+    @media (max-width: toEm(820.98)) {
       max-width: 480px;
     }
-    @media (max-width:toEm($mobileSmall)){
-       margin-top: -90px !important; 
+
+    @media (max-width:toEm($mobileSmall)) {
+      margin-top: -90px !important;
     }
   }
 
@@ -574,57 +645,286 @@
     z-index: 0;
     top: 50%;
     left: 50%;
-    transform: translate(-51.3%,-53.3%);
+    transform: translate(-51.3%, -53.7%);
     max-width: 101%;
-    @media (min-width: toEm(750.98)){
+
+    @media (min-width: toEm(820.98)) {
       max-width: 96%;
-      transform: translate(-49.5%,-52%);
+      transform: translate(-49.5%, -52%);
+    }
+
+    @media (max-width:toEm($mobileSmall)) {
+      transform: translate(-51.3%, -52.9%);
     }
   }
 
   // .holiday-hearts__line
   &__line {
     display: none;
-    @media (min-width:toEm(750.98)){
+
+    @media (min-width:toEm(820.98)) {
       display: block;
       position: absolute;
       z-index: 2;
       bottom: 0;
       right: 0;
       width: 84%;
+      transform: translate(83.5%, -38%);
     }
   }
+
+  // .holiday-hearts__paths
+  &__paths {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    width: 60%;
+    height: auto;
+    opacity: 0;
+    pointer-events: none;
+
+    @media (min-width:toEm($mobileSmall)) {
+      transform: translate(-50%, -55%);
+    }
+  }
+
+  // .holiday-hearts__candy
+  &__candy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    will-change: transform;
+    z-index: 6;
+    max-width: 90px;
+
+    @media (max-width:toEm($mobileSmall)) {
+      scale: 0.8;
+    }
+
+    &.candy-1 {
+      max-width: 121px;
+    }
+
+    &.candy-2 {
+      max-width: 88px;
+    }
+
+    &.candy-3 {
+      max-width: 112px;
+    }
+
+    &.candy-4 {
+      max-width: 112px;
+    }
+
+    &.candy-5 {
+      max-width: 77px;
+    }
+  }
+
 
   // .holiday-hearts__body
   &__body {
     padding-top: 20px;
     padding-left: 40px;
-    @media (min-width:toEm(1024.98)){
+
+    @media (min-width:toEm(1200.98)) {
       padding-left: 81px;
-      padding-top: 117px;
+      padding-top: 100px;
     }
-    @media (max-width: toEm(750.98)){
+
+    @media (max-width: toEm(820.98)) {
       padding-left: 0px;
+      margin-top: -40px;
     }
   }
 
   // .holiday-hearts__head-title
   &__head-title {
-   
+
     .title-head__title {}
+
     .title-head__title-up {}
-    .title-head__subtitle {}
+
+    .title-head__subtitle {
+      @media (min-width:toEm(1200.98)) {
+        max-width: 75%;
+      }
+    }
+
     .title-head__btn {
       @include adaptiveValue("margin-top", 28, 24);
+
       &.btn {
         min-width: 246px;
+
         // border-color: var(--red);
-        @media (min-width:toEm($mobileSmall)){
+        @media (min-width:toEm($mobileSmall)) {
           min-width: 314px;
         }
       }
     }
   }
-  
+
+  // .holiday-hearts__slider
+  &__slider {}
 }
 
+
+.slider-holiday {
+  @extend %brSection;
+  background-color: #D60115;
+  opacity: 0;
+  transform: translate(0%, 120px) scale(0.9);
+  transition: transform .65s ease, opacity .45s ease;
+
+  &.--view {
+    opacity: 1;
+    transform: translate(0%, 0px) scale(1);
+  }
+
+  // .slider-holiday__slider
+  &__slider {
+    position: relative;
+    &::before {
+       @extend %beforeStarBig;
+       z-index: 2;
+       left: 0;
+       transform: translate(-55%,0%);
+        @include adaptiveValue("width", 409, 140);
+        filter: invert(8%) sepia(92%) saturate(5559%) hue-rotate(336deg) brightness(115%) contrast(117%);
+    }
+  }
+
+  // .slider-holiday__wrapper
+  &__wrapper {}
+
+  // .slider-holiday__slide
+  &__slide {}
+
+  // .slider-holiday__slide-picture
+  &__slide-picture {
+    aspect-ratio: 375/332;
+
+    @media (min-width:toEm($mobileSmall)) {
+      aspect-ratio: 1440/840;
+    }
+
+    img {
+      aspect-ratio: 375/332;
+
+      @media (min-width:toEm($mobileSmall)) {
+        aspect-ratio: 1440/840;
+      }
+    }
+  }
+
+  // .slider-holiday__pagination
+  &__pagination {
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+
+    @media (min-width:toEm($mobileSmall)) {
+      top: 50%;
+      bottom: auto;
+      max-width: 87vw;
+    }
+
+    .swiper-pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include adaptiveValue("gap", 15, 9);
+
+      @media (min-width:toEm($mobileSmall)) {
+        align-items: flex-end;
+        flex-direction: column;
+      }
+
+      .swiper-pagination-bullet {
+        border-radius: 50%;
+        width: 3px;
+        aspect-ratio: 1;
+        background-color: var(--white);
+        opacity: 0.5;
+        transition: opacity .5s ease;
+
+        @media (min-width:toEm(820.98)) {
+          width: 5px;
+        }
+
+        &.swiper-pagination-bullet-active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  // .slider-holiday__btns
+  &__btns {
+    display: none;
+
+    @media (min-width:toEm(820.98)) {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 5px;
+
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      @include adaptiveValue("bottom", 150, 45);
+
+      width: 100%;
+      max-width: 88vw;
+    }
+  }
+
+  // .slider-holiday__btn
+  &__btn {
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    transition: background-color .3s ease, border-color .3s ease;
+
+    svg {
+      width: 65px;
+      height: auto;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: var(--red);
+        border-color: var(--white);
+      }
+    }
+
+    &.swiper-button-prev {}
+
+    &.swiper-button-next {}
+
+    &.swiper-button-disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+}
+
+
+.holiday-residence {
+  @extend %brSection;
+  box-shadow: 0 -9px 11px 0 rgba(105, 6, 0, 0.26);
+  background: #a6001e;
+
+  // .holiday-residence__container
+  &__container {}
+}

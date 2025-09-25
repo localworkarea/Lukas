@@ -68,13 +68,13 @@ var _config = {
   duration: 0.5,
   overwrite: false,
   delay: 0
-}, _suppressOverwrites$1, _reverting$1, _context$2, _bigNum$1 = 1e8, _tinyNum = 1 / _bigNum$1, _2PI = Math.PI * 2, _HALF_PI = _2PI / 4, _gsID = 0, _sqrt = Math.sqrt, _cos = Math.cos, _sin = Math.sin, _isString$1 = function _isString2(value) {
+}, _suppressOverwrites$1, _reverting$2, _context$2, _bigNum$1 = 1e8, _tinyNum = 1 / _bigNum$1, _2PI = Math.PI * 2, _HALF_PI = _2PI / 4, _gsID = 0, _sqrt$1 = Math.sqrt, _cos$1 = Math.cos, _sin$1 = Math.sin, _isString$2 = function _isString2(value) {
   return typeof value === "string";
 }, _isFunction$1 = function _isFunction2(value) {
   return typeof value === "function";
-}, _isNumber$1 = function _isNumber2(value) {
+}, _isNumber$2 = function _isNumber2(value) {
   return typeof value === "number";
-}, _isUndefined = function _isUndefined2(value) {
+}, _isUndefined$1 = function _isUndefined2(value) {
   return typeof value === "undefined";
 }, _isObject$1 = function _isObject2(value) {
   return typeof value === "object";
@@ -83,17 +83,17 @@ var _config = {
 }, _windowExists$2 = function _windowExists2() {
   return typeof window !== "undefined";
 }, _isFuncOrString = function _isFuncOrString2(value) {
-  return _isFunction$1(value) || _isString$1(value);
+  return _isFunction$1(value) || _isString$2(value);
 }, _isTypedArray = typeof ArrayBuffer === "function" && ArrayBuffer.isView || function() {
-}, _isArray = Array.isArray, _strictNumExp = /(?:-?\.?\d|\.)+/gi, _numExp = /[-+=.]*\d+[.e\-+]*\d*[e\-+]*\d*/g, _numWithUnitExp = /[-+=.]*\d+[.e-]*\d*[a-z%]*/g, _complexStringNumExp = /[-+=.]*\d+\.?\d*(?:e-|e\+)?\d*/gi, _relExp = /[+-]=-?[.\d]+/, _delimitedValueExp = /[^,'"\[\]\s]+/gi, _unitExp = /^[+\-=e\s\d]*\d+[.\d]*([a-z]*|%)\s*$/i, _globalTimeline, _win$3, _coreInitted$2, _doc$3, _globals = {}, _installScope = {}, _coreReady, _install = function _install2(scope) {
-  return (_installScope = _merge(scope, _globals)) && gsap$2;
+}, _isArray = Array.isArray, _strictNumExp = /(?:-?\.?\d|\.)+/gi, _numExp$1 = /[-+=.]*\d+[.e\-+]*\d*[e\-+]*\d*/g, _numWithUnitExp = /[-+=.]*\d+[.e-]*\d*[a-z%]*/g, _complexStringNumExp = /[-+=.]*\d+\.?\d*(?:e-|e\+)?\d*/gi, _relExp = /[+-]=-?[.\d]+/, _delimitedValueExp = /[^,'"\[\]\s]+/gi, _unitExp = /^[+\-=e\s\d]*\d+[.\d]*([a-z]*|%)\s*$/i, _globalTimeline, _win$4, _coreInitted$2, _doc$4, _globals = {}, _installScope = {}, _coreReady, _install = function _install2(scope) {
+  return (_installScope = _merge(scope, _globals)) && gsap$3;
 }, _missingPlugin = function _missingPlugin2(property, value) {
   return console.warn("Invalid property", property, "set to", value, "Missing plugin? gsap.registerPlugin()");
 }, _warn = function _warn2(message, suppress) {
   return !suppress && console.warn(message);
 }, _addGlobal = function _addGlobal2(name, obj) {
   return name && (_globals[name] = obj) && _installScope && (_installScope[name] = obj) || _globals;
-}, _emptyFunc = function _emptyFunc2() {
+}, _emptyFunc$1 = function _emptyFunc2() {
   return 0;
 }, _startAtRevertConfig = {
   suppressEvents: true,
@@ -121,12 +121,12 @@ var _config = {
 }, _getCache = function _getCache2(target) {
   return target._gsap || _harness(toArray(target))[0]._gsap;
 }, _getProperty = function _getProperty2(target, property, v) {
-  return (v = target[property]) && _isFunction$1(v) ? target[property]() : _isUndefined(v) && target.getAttribute && target.getAttribute(property) || v;
+  return (v = target[property]) && _isFunction$1(v) ? target[property]() : _isUndefined$1(v) && target.getAttribute && target.getAttribute(property) || v;
 }, _forEachName = function _forEachName2(names, func) {
   return (names = names.split(",")).forEach(func) || names;
-}, _round$1 = function _round2(value) {
+}, _round$2 = function _round2(value) {
   return Math.round(value * 1e5) / 1e5 || 0;
-}, _roundPrecise = function _roundPrecise2(value) {
+}, _roundPrecise$1 = function _roundPrecise2(value) {
   return Math.round(value * 1e7) / 1e7 || 0;
 }, _parseRelative = function _parseRelative2(start, value) {
   var operator = value.charAt(0), end = parseFloat(value.substr(2));
@@ -148,12 +148,12 @@ var _config = {
 }, _isRevertWorthy = function _isRevertWorthy2(animation) {
   return !!(animation._initted || animation._startAt || animation.add);
 }, _lazySafeRender = function _lazySafeRender2(animation, time, suppressEvents, force) {
-  _lazyTweens.length && !_reverting$1 && _lazyRender();
-  animation.render(time, suppressEvents, !!(_reverting$1 && time < 0 && _isRevertWorthy(animation)));
-  _lazyTweens.length && !_reverting$1 && _lazyRender();
+  _lazyTweens.length && !_reverting$2 && _lazyRender();
+  animation.render(time, suppressEvents, !!(_reverting$2 && time < 0 && _isRevertWorthy(animation)));
+  _lazyTweens.length && !_reverting$2 && _lazyRender();
 }, _numericIfPossible = function _numericIfPossible2(value) {
   var n = parseFloat(value);
-  return (n || n === 0) && (value + "").match(_delimitedValueExp).length < 2 ? n : _isString$1(value) ? value.trim() : value;
+  return (n || n === 0) && (value + "").match(_delimitedValueExp).length < 2 ? n : _isString$2(value) ? value.trim() : value;
 }, _passThrough$1 = function _passThrough2(p) {
   return p;
 }, _setDefaults$1 = function _setDefaults2(obj, defaults2) {
@@ -260,22 +260,22 @@ var _config = {
   }
   return animation;
 }, _rewindStartAt = function _rewindStartAt2(tween, totalTime, suppressEvents, force) {
-  return tween._startAt && (_reverting$1 ? tween._startAt.revert(_revertConfigNoKill) : tween.vars.immediateRender && !tween.vars.autoRevert || tween._startAt.render(totalTime, true, force));
+  return tween._startAt && (_reverting$2 ? tween._startAt.revert(_revertConfigNoKill) : tween.vars.immediateRender && !tween.vars.autoRevert || tween._startAt.render(totalTime, true, force));
 }, _hasNoPausedAncestors = function _hasNoPausedAncestors2(animation) {
   return !animation || animation._ts && _hasNoPausedAncestors2(animation.parent);
 }, _elapsedCycleDuration = function _elapsedCycleDuration2(animation) {
   return animation._repeat ? _animationCycle(animation._tTime, animation = animation.duration() + animation._rDelay) * animation : 0;
 }, _animationCycle = function _animationCycle2(tTime, cycleDuration) {
-  var whole = Math.floor(tTime = _roundPrecise(tTime / cycleDuration));
+  var whole = Math.floor(tTime = _roundPrecise$1(tTime / cycleDuration));
   return tTime && whole === tTime ? whole - 1 : whole;
 }, _parentToChildTotalTime = function _parentToChildTotalTime2(parentTime, child) {
   return (parentTime - child._start) * child._ts + (child._ts >= 0 ? 0 : child._dirty ? child.totalDuration() : child._tDur);
 }, _setEnd = function _setEnd2(animation) {
-  return animation._end = _roundPrecise(animation._start + (animation._tDur / Math.abs(animation._ts || animation._rts || _tinyNum) || 0));
+  return animation._end = _roundPrecise$1(animation._start + (animation._tDur / Math.abs(animation._ts || animation._rts || _tinyNum) || 0));
 }, _alignPlayhead = function _alignPlayhead2(animation, totalTime) {
   var parent = animation._dp;
   if (parent && parent.smoothChildTiming && animation._ts) {
-    animation._start = _roundPrecise(parent._time - (animation._ts > 0 ? totalTime / animation._ts : ((animation._dirty ? animation.totalDuration() : animation._tDur) - totalTime) / -animation._ts));
+    animation._start = _roundPrecise$1(parent._time - (animation._ts > 0 ? totalTime / animation._ts : ((animation._dirty ? animation.totalDuration() : animation._tDur) - totalTime) / -animation._ts));
     _setEnd(animation);
     parent._dirty || _uncache(parent, animation);
   }
@@ -300,8 +300,8 @@ var _config = {
   }
 }, _addToTimeline = function _addToTimeline2(timeline2, child, position, skipChecks) {
   child.parent && _removeFromParent(child);
-  child._start = _roundPrecise((_isNumber$1(position) ? position : position || timeline2 !== _globalTimeline ? _parsePosition$1(timeline2, position, child) : timeline2._time) + child._delay);
-  child._end = _roundPrecise(child._start + (child.totalDuration() / Math.abs(child.timeScale()) || 0));
+  child._start = _roundPrecise$1((_isNumber$2(position) ? position : position || timeline2 !== _globalTimeline ? _parsePosition$1(timeline2, position, child) : timeline2._time) + child._delay);
+  child._end = _roundPrecise$1(child._start + (child.totalDuration() / Math.abs(child.timeScale()) || 0));
   _addLinkedListItem(timeline2, child, "_first", "_last", timeline2._sort ? "_start" : 0);
   _isFromOrFromStart(child) || (timeline2._recent = child);
   skipChecks || _postAddChecks(timeline2, child);
@@ -314,7 +314,7 @@ var _config = {
   if (!tween._initted) {
     return 1;
   }
-  if (!force && tween._pt && !_reverting$1 && (tween._dur && tween.vars.lazy !== false || !tween._dur && tween.vars.lazy) && _lastRenderedFrame !== _ticker.frame) {
+  if (!force && tween._pt && !_reverting$2 && (tween._dur && tween.vars.lazy !== false || !tween._dur && tween.vars.lazy) && _lastRenderedFrame !== _ticker.frame) {
     _lazyTweens.push(tween);
     tween._lazy = [tTime, suppressEvents];
     return 1;
@@ -336,7 +336,7 @@ var _config = {
       tween.vars.repeatRefresh && tween._initted && tween.invalidate();
     }
   }
-  if (ratio !== prevRatio || _reverting$1 || force || tween._zTime === _tinyNum || !totalTime && tween._zTime) {
+  if (ratio !== prevRatio || _reverting$2 || force || tween._zTime === _tinyNum || !totalTime && tween._zTime) {
     if (!tween._initted && _attemptInitTween(tween, totalTime, force, suppressEvents, tTime)) {
       return;
     }
@@ -357,7 +357,7 @@ var _config = {
     tTime && tween._repeat && !suppressEvents && tween.parent && _callback$1(tween, "onRepeat");
     if ((totalTime >= tween._tDur || totalTime < 0) && tween.ratio === ratio) {
       ratio && _removeFromParent(tween, 1);
-      if (!suppressEvents && !_reverting$1) {
+      if (!suppressEvents && !_reverting$2) {
         _callback$1(tween, ratio ? "onComplete" : "onReverseComplete", true);
         tween._prom && tween._prom();
       }
@@ -385,10 +385,10 @@ var _config = {
     }
   }
 }, _setDuration = function _setDuration2(animation, duration, skipUncache, leavePlayhead) {
-  var repeat = animation._repeat, dur = _roundPrecise(duration) || 0, totalProgress = animation._tTime / animation._tDur;
+  var repeat = animation._repeat, dur = _roundPrecise$1(duration) || 0, totalProgress = animation._tTime / animation._tDur;
   totalProgress && !leavePlayhead && (animation._time *= dur / animation._dur);
   animation._dur = dur;
-  animation._tDur = !repeat ? dur : repeat < 0 ? 1e10 : _roundPrecise(dur * (repeat + 1) + animation._rDelay * repeat);
+  animation._tDur = !repeat ? dur : repeat < 0 ? 1e10 : _roundPrecise$1(dur * (repeat + 1) + animation._rDelay * repeat);
   totalProgress > 0 && !leavePlayhead && _alignPlayhead(animation, animation._tTime = animation._tDur * totalProgress);
   animation.parent && _setEnd(animation);
   skipUncache || _uncache(animation.parent, animation);
@@ -397,11 +397,11 @@ var _config = {
   return animation instanceof Timeline ? _uncache(animation) : _setDuration(animation, animation._dur);
 }, _zeroPosition = {
   _start: 0,
-  endTime: _emptyFunc,
-  totalDuration: _emptyFunc
+  endTime: _emptyFunc$1,
+  totalDuration: _emptyFunc$1
 }, _parsePosition$1 = function _parsePosition2(animation, position, percentAnimation) {
   var labels = animation.labels, recent = animation._recent || _zeroPosition, clippedDuration = animation.duration() >= _bigNum$1 ? recent.endTime(false) : animation._dur, i, offset, isPercent;
-  if (_isString$1(position) && (isNaN(position) || position in labels)) {
+  if (_isString$2(position) && (isNaN(position) || position in labels)) {
     offset = position.charAt(0);
     isPercent = position.substr(-1) === "%";
     i = position.indexOf("=");
@@ -421,7 +421,7 @@ var _config = {
   }
   return position == null ? clippedDuration : +position;
 }, _createTweenType = function _createTweenType2(type, params, timeline2) {
-  var isLegacy = _isNumber$1(params[1]), varsIndex = (isLegacy ? 2 : 1) + (type < 2 ? 0 : 1), vars = params[varsIndex], irVars, parent;
+  var isLegacy = _isNumber$2(params[1]), varsIndex = (isLegacy ? 2 : 1) + (type < 2 ? 0 : 1), vars = params[varsIndex], irVars, parent;
   isLegacy && (vars.duration = params[1]);
   vars.parent = timeline2;
   if (type) {
@@ -440,28 +440,28 @@ var _config = {
 }, _clamp$1 = function _clamp2(min, max, value) {
   return value < min ? min : value > max ? max : value;
 }, getUnit = function getUnit2(value, v) {
-  return !_isString$1(value) || !(v = _unitExp.exec(value)) ? "" : v[1];
+  return !_isString$2(value) || !(v = _unitExp.exec(value)) ? "" : v[1];
 }, clamp = function clamp2(min, max, value) {
   return _conditionalReturn(value, function(v) {
     return _clamp$1(min, max, v);
   });
 }, _slice = [].slice, _isArrayLike = function _isArrayLike2(value, nonEmpty) {
-  return value && _isObject$1(value) && "length" in value && (!nonEmpty && !value.length || value.length - 1 in value && _isObject$1(value[0])) && !value.nodeType && value !== _win$3;
+  return value && _isObject$1(value) && "length" in value && (!nonEmpty && !value.length || value.length - 1 in value && _isObject$1(value[0])) && !value.nodeType && value !== _win$4;
 }, _flatten = function _flatten2(ar, leaveStrings, accumulator) {
   if (accumulator === void 0) {
     accumulator = [];
   }
   return ar.forEach(function(value) {
     var _accumulator;
-    return _isString$1(value) && !leaveStrings || _isArrayLike(value, 1) ? (_accumulator = accumulator).push.apply(_accumulator, toArray(value)) : accumulator.push(value);
+    return _isString$2(value) && !leaveStrings || _isArrayLike(value, 1) ? (_accumulator = accumulator).push.apply(_accumulator, toArray(value)) : accumulator.push(value);
   }) || accumulator;
 }, toArray = function toArray2(value, scope, leaveStrings) {
-  return _context$2 && !scope && _context$2.selector ? _context$2.selector(value) : _isString$1(value) && !leaveStrings && (_coreInitted$2 || !_wake()) ? _slice.call((scope || _doc$3).querySelectorAll(value), 0) : _isArray(value) ? _flatten(value, leaveStrings) : _isArrayLike(value) ? _slice.call(value, 0) : value ? [value] : [];
+  return _context$2 && !scope && _context$2.selector ? _context$2.selector(value) : _isString$2(value) && !leaveStrings && (_coreInitted$2 || !_wake()) ? _slice.call((scope || _doc$4).querySelectorAll(value), 0) : _isArray(value) ? _flatten(value, leaveStrings) : _isArrayLike(value) ? _slice.call(value, 0) : value ? [value] : [];
 }, selector = function selector2(value) {
   value = toArray(value)[0] || _warn("Invalid scope") || {};
   return function(v) {
     var el = value.current || value.nativeElement || value;
-    return toArray(v, el.querySelectorAll ? el : el === value ? _warn("Invalid scope") || _doc$3.createElement("div") : value);
+    return toArray(v, el.querySelectorAll ? el : el === value ? _warn("Invalid scope") || _doc$4.createElement("div") : value);
   };
 }, shuffle = function shuffle2(a) {
   return a.sort(function() {
@@ -474,7 +474,7 @@ var _config = {
   var vars = _isObject$1(v) ? v : {
     each: v
   }, ease = _parseEase(vars.ease), from = vars.from || 0, base = parseFloat(vars.base) || 0, cache = {}, isDecimal = from > 0 && from < 1, ratios = isNaN(from) || isDecimal, axis = vars.axis, ratioX = from, ratioY = from;
-  if (_isString$1(from)) {
+  if (_isString$2(from)) {
     ratioX = ratioY = {
       center: 0.5,
       edges: 0.5,
@@ -502,7 +502,7 @@ var _config = {
       for (j = 0; j < l; j++) {
         x = j % wrapAt - originX;
         y = originY - (j / wrapAt | 0);
-        distances[j] = d = !axis ? _sqrt(x * x + y * y) : Math.abs(axis === "y" ? y : x);
+        distances[j] = d = !axis ? _sqrt$1(x * x + y * y) : Math.abs(axis === "y" ? y : x);
         d > max && (max = d);
         d < min && (min = d);
       }
@@ -515,13 +515,13 @@ var _config = {
       ease = ease && l < 0 ? _invertEase(ease) : ease;
     }
     l = (distances[i] - distances.min) / distances.max || 0;
-    return _roundPrecise(distances.b + (ease ? ease(l) : l) * distances.v) + distances.u;
+    return _roundPrecise$1(distances.b + (ease ? ease(l) : l) * distances.v) + distances.u;
   };
 }, _roundModifier = function _roundModifier2(v) {
   var p = Math.pow(10, ((v + "").split(".")[1] || "").length);
   return function(raw) {
-    var n = _roundPrecise(Math.round(parseFloat(raw) / v) * v * p);
-    return (n - n % 1) / p + (_isNumber$1(raw) ? 0 : getUnit(raw));
+    var n = _roundPrecise$1(Math.round(parseFloat(raw) / v) * v * p);
+    return (n - n % 1) / p + (_isNumber$2(raw) ? 0 : getUnit(raw));
   };
 }, snap = function snap2(snapTo, value) {
   var isArray = _isArray(snapTo), radius, is2D;
@@ -529,7 +529,7 @@ var _config = {
     radius = isArray = snapTo.radius || _bigNum$1;
     if (snapTo.values) {
       snapTo = toArray(snapTo.values);
-      if (is2D = !_isNumber$1(snapTo[0])) {
+      if (is2D = !_isNumber$2(snapTo[0])) {
         radius *= radius;
       }
     } else {
@@ -555,7 +555,7 @@ var _config = {
       }
     }
     closest = !radius || min <= radius ? snapTo[closest] : raw;
-    return is2D || closest === raw || _isNumber$1(raw) ? closest : closest + getUnit(raw);
+    return is2D || closest === raw || _isNumber$2(raw) ? closest : closest + getUnit(raw);
   });
 }, random = function random2(min, max, roundingIncrement, returnFunction) {
   return _conditionalReturn(_isArray(min) ? !max : roundingIncrement === true ? !!(roundingIncrement = 0) : !returnFunction, function() {
@@ -611,7 +611,7 @@ var _config = {
     return (1 - p2) * start + p2 * end;
   };
   if (!func) {
-    var isString = _isString$1(start), master = {}, p, i, interpolators, l, il;
+    var isString = _isString$2(start), master = {}, p, i, interpolators, l, il;
     progress === true && (mutate = 1) && (progress = null);
     if (isString) {
       start = {
@@ -671,7 +671,7 @@ var _config = {
   return result;
 }, _interrupt = function _interrupt2(animation) {
   _removeFromParent(animation);
-  animation.scrollTrigger && animation.scrollTrigger.kill(!!_reverting$1);
+  animation.scrollTrigger && animation.scrollTrigger.kill(!!_reverting$2);
   animation.progress() < 1 && _callback$1(animation, "onInterrupt");
   return animation;
 }, _quickTween, _registerPluginQueue = [], _createPlugin = function _createPlugin2(config3) {
@@ -681,7 +681,7 @@ var _config = {
     var name = config3.name, isFunc = _isFunction$1(config3), Plugin = name && !isFunc && config3.init ? function() {
       this._props = [];
     } : config3, instanceDefaults = {
-      init: _emptyFunc,
+      init: _emptyFunc$1,
       render: _renderPropTweens,
       add: _addPropTween,
       kill: _killPropTweensOf,
@@ -709,7 +709,7 @@ var _config = {
       name = (name === "css" ? "CSS" : name.charAt(0).toUpperCase() + name.substr(1)) + "Plugin";
     }
     _addGlobal(name, Plugin);
-    config3.register && config3.register(gsap$2, Plugin, PropTween);
+    config3.register && config3.register(gsap$3, Plugin, PropTween$1);
   } else {
     _registerPluginQueue.push(config3);
   }
@@ -737,7 +737,7 @@ var _config = {
   h += h < 0 ? 1 : h > 1 ? -1 : 0;
   return (h * 6 < 1 ? m1 + (m2 - m1) * h * 6 : h < 0.5 ? m2 : h * 3 < 2 ? m1 + (m2 - m1) * (2 / 3 - h) * 6 : m1) * _255 + 0.5 | 0;
 }, splitColor = function splitColor2(v, toHSL, forceAlpha) {
-  var a = !v ? _colorLookup.black : _isNumber$1(v) ? [v >> 16, v >> 8 & _255, v & _255] : 0, r, g, b, h, s, l, max, min, d, wasHSL;
+  var a = !v ? _colorLookup.black : _isNumber$2(v) ? [v >> 16, v >> 8 & _255, v & _255] : 0, r, g, b, h, s, l, max, min, d, wasHSL;
   if (!a) {
     if (v.substr(-1) === ",") {
       v = v.substr(0, v.length - 1);
@@ -770,7 +770,7 @@ var _config = {
         a[1] = _hue(h, r, g);
         a[2] = _hue(h - 1 / 3, r, g);
       } else if (~v.indexOf("=")) {
-        a = v.match(_numExp);
+        a = v.match(_numExp$1);
         forceAlpha && a.length < 4 && (a[3] = 1);
         return a;
       }
@@ -884,11 +884,11 @@ var _config = {
     wake: function wake() {
       if (_coreReady) {
         if (!_coreInitted$2 && _windowExists$2()) {
-          _win$3 = _coreInitted$2 = window;
-          _doc$3 = _win$3.document || {};
-          _globals.gsap = gsap$2;
-          (_win$3.gsapVersions || (_win$3.gsapVersions = [])).push(gsap$2.version);
-          _install(_installScope || _win$3.GreenSockGlobals || !_win$3.gsap && _win$3 || {});
+          _win$4 = _coreInitted$2 = window;
+          _doc$4 = _win$4.document || {};
+          _globals.gsap = gsap$3;
+          (_win$4.gsapVersions || (_win$4.gsapVersions = [])).push(gsap$3.version);
+          _install(_installScope || _win$4.GreenSockGlobals || !_win$4.gsap && _win$4 || {});
           _registerPluginQueue.forEach(_createPlugin);
         }
         _raf = typeof requestAnimationFrame !== "undefined" && requestAnimationFrame;
@@ -903,7 +903,7 @@ var _config = {
     sleep: function sleep() {
       (_raf ? cancelAnimationFrame : clearTimeout)(_id);
       _tickerActive = 0;
-      _req = _emptyFunc;
+      _req = _emptyFunc$1;
     },
     lagSmoothing: function lagSmoothing(threshold, adjustedLag) {
       _lagThreshold = threshold || Infinity;
@@ -1000,7 +1000,7 @@ var _config = {
   };
 }, _configElastic = function _configElastic2(type, amplitude, period) {
   var p1 = amplitude >= 1 ? amplitude : 1, p2 = (period || (type ? 0.3 : 0.45)) / (amplitude < 1 ? amplitude : 1), p3 = p2 / _2PI * (Math.asin(1 / p1) || 0), easeOut = function easeOut2(p) {
-    return p === 1 ? 1 : p1 * Math.pow(2, -10 * p) * _sin((p - p3) * p2) + 1;
+    return p === 1 ? 1 : p1 * Math.pow(2, -10 * p) * _sin$1((p - p3) * p2) + 1;
   }, ease = type === "out" ? easeOut : type === "in" ? function(p) {
     return 1 - easeOut(1 - p);
   } : _easeInOutFromOut(easeOut);
@@ -1049,10 +1049,10 @@ _insertEase("Expo", function(p) {
   return Math.pow(2, 10 * (p - 1)) * p + p * p * p * p * p * p * (1 - p);
 });
 _insertEase("Circ", function(p) {
-  return -(_sqrt(1 - p * p) - 1);
+  return -(_sqrt$1(1 - p * p) - 1);
 });
 _insertEase("Sine", function(p) {
-  return p === 1 ? 1 : -_cos(p * _HALF_PI) + 1;
+  return p === 1 ? 1 : -_cos$1(p * _HALF_PI) + 1;
 });
 _insertEase("Back", _configBack("in"), _configBack("out"), _configBack());
 _easeMap.SteppedEase = _easeMap.steps = _globals.SteppedEase = {
@@ -1203,14 +1203,14 @@ var Animation = /* @__PURE__ */ (function() {
     if (config3 === void 0) {
       config3 = _revertConfig;
     }
-    var prevIsReverting = _reverting$1;
-    _reverting$1 = config3;
+    var prevIsReverting = _reverting$2;
+    _reverting$2 = config3;
     if (_isRevertWorthy(this)) {
       this.timeline && this.timeline.revert(config3);
       this.totalTime(-0.01, config3.suppressEvents);
     }
     this.data !== "nested" && config3.kill !== false && this.kill();
-    _reverting$1 = prevIsReverting;
+    _reverting$2 = prevIsReverting;
     return this;
   };
   _proto.globalTime = function globalTime(rawTime) {
@@ -1401,7 +1401,7 @@ var Timeline = /* @__PURE__ */ (function(_Animation) {
     return this.staggerTo(targets, duration, toVars, stagger, position, onCompleteAll, onCompleteAllParams);
   };
   _proto2.render = function render22(totalTime, suppressEvents, force) {
-    var prevTime = this._time, tDur = this._dirty ? this.totalDuration() : this._tDur, dur = this._dur, tTime = totalTime <= 0 ? 0 : _roundPrecise(totalTime), crossingStart = this._zTime < 0 !== totalTime < 0 && (this._initted || !dur), time, child, next, iteration, cycleDuration, prevPaused, pauseTween, timeScale, prevStart, prevIteration, yoyo, isYoyo;
+    var prevTime = this._time, tDur = this._dirty ? this.totalDuration() : this._tDur, dur = this._dur, tTime = totalTime <= 0 ? 0 : _roundPrecise$1(totalTime), crossingStart = this._zTime < 0 !== totalTime < 0 && (this._initted || !dur), time, child, next, iteration, cycleDuration, prevPaused, pauseTween, timeScale, prevStart, prevIteration, yoyo, isYoyo;
     this !== _globalTimeline && tTime > tDur && totalTime >= 0 && (tTime = tDur);
     if (tTime !== this._tTime || force || crossingStart) {
       if (prevTime !== this._time && dur) {
@@ -1422,12 +1422,12 @@ var Timeline = /* @__PURE__ */ (function(_Animation) {
         if (this._repeat < -1 && totalTime < 0) {
           return this.totalTime(cycleDuration * 100 + totalTime, suppressEvents, force);
         }
-        time = _roundPrecise(tTime % cycleDuration);
+        time = _roundPrecise$1(tTime % cycleDuration);
         if (tTime === tDur) {
           iteration = this._repeat;
           time = dur;
         } else {
-          prevIteration = _roundPrecise(tTime / cycleDuration);
+          prevIteration = _roundPrecise$1(tTime / cycleDuration);
           iteration = ~~prevIteration;
           if (iteration && iteration === prevIteration) {
             time = dur;
@@ -1446,7 +1446,7 @@ var Timeline = /* @__PURE__ */ (function(_Animation) {
           iteration < prevIteration && (rewinding = !rewinding);
           prevTime = rewinding ? 0 : tTime % dur ? dur : tTime;
           this._lock = 1;
-          this.render(prevTime || (isYoyo ? 0 : _roundPrecise(iteration * cycleDuration)), suppressEvents, !dur)._lock = 0;
+          this.render(prevTime || (isYoyo ? 0 : _roundPrecise$1(iteration * cycleDuration)), suppressEvents, !dur)._lock = 0;
           this._tTime = tTime;
           !suppressEvents && this.parent && _callback$1(this, "onRepeat");
           this.vars.repeatRefresh && !isYoyo && (this.invalidate()._lock = 1);
@@ -1469,7 +1469,7 @@ var Timeline = /* @__PURE__ */ (function(_Animation) {
         }
       }
       if (this._hasPause && !this._forcing && this._lock < 2) {
-        pauseTween = _findNextPauseTween(this, _roundPrecise(prevTime), _roundPrecise(time));
+        pauseTween = _findNextPauseTween(this, _roundPrecise$1(prevTime), _roundPrecise$1(time));
         if (pauseTween) {
           tTime -= time - (time = pauseTween._start);
         }
@@ -1515,7 +1515,7 @@ var Timeline = /* @__PURE__ */ (function(_Animation) {
             if (child.parent !== this) {
               return this.render(totalTime, suppressEvents, force);
             }
-            child.render(child._ts > 0 ? (adjustedTime - child._start) * child._ts : (child._dirty ? child.totalDuration() : child._tDur) + (adjustedTime - child._start) * child._ts, suppressEvents, force || _reverting$1 && _isRevertWorthy(child));
+            child.render(child._ts > 0 ? (adjustedTime - child._start) * child._ts : (child._dirty ? child.totalDuration() : child._tDur) + (adjustedTime - child._start) * child._ts, suppressEvents, force || _reverting$2 && _isRevertWorthy(child));
             if (time !== this._time || !this._ts && !prevPaused) {
               pauseTween = 0;
               next && (tTime += this._zTime = adjustedTime ? -_tinyNum : _tinyNum);
@@ -1551,7 +1551,7 @@ var Timeline = /* @__PURE__ */ (function(_Animation) {
   };
   _proto2.add = function add(child, position) {
     var _this2 = this;
-    _isNumber$1(position) || (position = _parsePosition$1(this, position, child));
+    _isNumber$2(position) || (position = _parsePosition$1(this, position, child));
     if (!(child instanceof Animation)) {
       if (_isArray(child)) {
         child.forEach(function(obj) {
@@ -1559,7 +1559,7 @@ var Timeline = /* @__PURE__ */ (function(_Animation) {
         });
         return this;
       }
-      if (_isString$1(child)) {
+      if (_isString$2(child)) {
         return this.addLabel(child, position);
       }
       if (_isFunction$1(child)) {
@@ -1606,7 +1606,7 @@ var Timeline = /* @__PURE__ */ (function(_Animation) {
     }
   };
   _proto2.remove = function remove(child) {
-    if (_isString$1(child)) {
+    if (_isString$2(child)) {
       return this.removeLabel(child);
     }
     if (_isFunction$1(child)) {
@@ -1624,7 +1624,7 @@ var Timeline = /* @__PURE__ */ (function(_Animation) {
     }
     this._forcing = 1;
     if (!this._dp && this._ts) {
-      this._start = _roundPrecise(_ticker.time - (this._ts > 0 ? _totalTime2 / this._ts : (this.totalDuration() - _totalTime2) / -this._ts));
+      this._start = _roundPrecise$1(_ticker.time - (this._ts > 0 ? _totalTime2 / this._ts : (this.totalDuration() - _totalTime2) / -this._ts));
     }
     _Animation.prototype.totalTime.call(this, _totalTime2, suppressEvents);
     this._forcing = 0;
@@ -1639,7 +1639,7 @@ var Timeline = /* @__PURE__ */ (function(_Animation) {
     return this;
   };
   _proto2.addPause = function addPause(position, callback, params) {
-    var t = Tween.delayedCall(0, callback || _emptyFunc, params);
+    var t = Tween.delayedCall(0, callback || _emptyFunc$1, params);
     t.data = "isPause";
     this._hasPause = 1;
     return _addToTimeline(this, t, _parsePosition$1(this, position));
@@ -1662,7 +1662,7 @@ var Timeline = /* @__PURE__ */ (function(_Animation) {
     return this;
   };
   _proto2.getTweensOf = function getTweensOf2(targets, onlyActive) {
-    var a = [], parsedTargets = toArray(targets), child = this._first, isGlobalTime = _isNumber$1(onlyActive), children;
+    var a = [], parsedTargets = toArray(targets), child = this._first, isGlobalTime = _isNumber$2(onlyActive), children;
     while (child) {
       if (child instanceof Tween) {
         if (_arrayContainsAny(child._targets, parsedTargets) && (isGlobalTime ? (!_overwritingTween || child._initted && child._ts) && child.globalTime(0) <= onlyActive && child.globalTime(child.totalDuration()) > onlyActive : !onlyActive || child.isActive())) {
@@ -1826,7 +1826,7 @@ _setDefaults$1(Timeline.prototype, {
   _forcing: 0
 });
 var _addComplexStringPropTween = function _addComplexStringPropTween2(target, prop, start, end, setter, stringFilter, funcParam) {
-  var pt = new PropTween(this._pt, target, prop, 0, 1, _renderComplexString, null, setter), index = 0, matchIndex = 0, result, startNums, color, endNum, chunk, startNum, hasRandom, a;
+  var pt = new PropTween$1(this._pt, target, prop, 0, 1, _renderComplexString, null, setter), index = 0, matchIndex = 0, result, startNums, color, endNum, chunk, startNum, hasRandom, a;
   pt.b = start;
   pt.e = end;
   start += "";
@@ -1872,7 +1872,7 @@ var _addComplexStringPropTween = function _addComplexStringPropTween2(target, pr
 }, _addPropTween = function _addPropTween2(target, prop, start, end, index, targets, modifier, stringFilter, funcParam, optional) {
   _isFunction$1(end) && (end = end(index || 0, target, targets));
   var currentValue = target[prop], parsedStart = start !== "get" ? start : !_isFunction$1(currentValue) ? currentValue : funcParam ? target[prop.indexOf("set") || !_isFunction$1(target["get" + prop.substr(3)]) ? prop : "get" + prop.substr(3)](funcParam) : target[prop](), setter = !_isFunction$1(currentValue) ? _setterPlain : funcParam ? _setterFuncWithParam : _setterFunc, pt;
-  if (_isString$1(end)) {
+  if (_isString$2(end)) {
     if (~end.indexOf("random(")) {
       end = _replaceRandom(end);
     }
@@ -1885,7 +1885,7 @@ var _addComplexStringPropTween = function _addComplexStringPropTween2(target, pr
   }
   if (!optional || parsedStart !== end || _forceAllPropTweens) {
     if (!isNaN(parsedStart * end) && end !== "") {
-      pt = new PropTween(this._pt, target, prop, +parsedStart || 0, end - (parsedStart || 0), typeof currentValue === "boolean" ? _renderBoolean : _renderPlain, 0, setter);
+      pt = new PropTween$1(this._pt, target, prop, +parsedStart || 0, end - (parsedStart || 0), typeof currentValue === "boolean" ? _renderBoolean : _renderPlain, 0, setter);
       funcParam && (pt.fp = funcParam);
       modifier && pt.modifier(modifier, this, target);
       return this._pt = pt;
@@ -1896,7 +1896,7 @@ var _addComplexStringPropTween = function _addComplexStringPropTween2(target, pr
 }, _processVars = function _processVars2(vars, index, target, targets, tween) {
   _isFunction$1(vars) && (vars = _parseFuncOrString(vars, tween, index, target, targets));
   if (!_isObject$1(vars) || vars.style && vars.nodeType || _isArray(vars) || _isTypedArray(vars)) {
-    return _isString$1(vars) ? _parseFuncOrString(vars, tween, index, target, targets) : vars;
+    return _isString$2(vars) ? _parseFuncOrString(vars, tween, index, target, targets) : vars;
   }
   var copy = {}, p;
   for (p in vars) {
@@ -1906,7 +1906,7 @@ var _addComplexStringPropTween = function _addComplexStringPropTween2(target, pr
 }, _checkPlugin = function _checkPlugin2(property, vars, tween, index, target, targets) {
   var plugin, pt, ptLookup, i;
   if (_plugins[property] && (plugin = new _plugins[property]()).init(target, plugin.rawVars ? vars[property] : _processVars(vars[property], index, target, targets, tween), tween, index, targets) !== false) {
-    tween._pt = pt = new PropTween(tween._pt, target, property, 0, 1, plugin.render, plugin, 0, plugin.priority);
+    tween._pt = pt = new PropTween$1(tween._pt, target, property, 0, 1, plugin.render, plugin, 0, plugin.priority);
     if (tween !== _quickTween) {
       ptLookup = tween._ptLookup[tween._targets.indexOf(target)];
       i = plugin._props.length;
@@ -1952,7 +1952,7 @@ var _addComplexStringPropTween = function _addComplexStringPropTween2(target, pr
       }, startAt)));
       tween._startAt._dp = 0;
       tween._startAt._sat = tween;
-      time < 0 && (_reverting$1 || !immediateRender && !autoRevert) && tween._startAt.revert(_revertConfigNoKill);
+      time < 0 && (_reverting$2 || !immediateRender && !autoRevert) && tween._startAt.revert(_revertConfigNoKill);
       if (immediateRender) {
         if (dur && time <= 0 && tTime <= 0) {
           time && (tween._zTime = time);
@@ -1977,7 +1977,7 @@ var _addComplexStringPropTween = function _addComplexStringPropTween2(target, pr
         _removeFromParent(tween._startAt = Tween.set(targets, p));
         tween._startAt._dp = 0;
         tween._startAt._sat = tween;
-        time < 0 && (_reverting$1 ? tween._startAt.revert(_revertConfigNoKill) : tween._startAt.render(-1, true));
+        time < 0 && (_reverting$2 ? tween._startAt.revert(_revertConfigNoKill) : tween._startAt.render(-1, true));
         tween._zTime = time;
         if (!immediateRender) {
           _initTween2(tween._startAt, _tinyNum, _tinyNum);
@@ -1995,7 +1995,7 @@ var _addComplexStringPropTween = function _addComplexStringPropTween2(target, pr
       _lazyLookup[gsData.id] && _lazyTweens.length && _lazyRender();
       index = fullTargets === targets ? i : fullTargets.indexOf(target);
       if (harness && (plugin = new harness()).init(target, harnessVars || cleanVars, tween, index, fullTargets) !== false) {
-        tween._pt = pt = new PropTween(tween._pt, target, plugin.name, 0, 1, plugin.render, plugin, 0, plugin.priority);
+        tween._pt = pt = new PropTween$1(tween._pt, target, plugin.name, 0, 1, plugin.render, plugin, 0, plugin.priority);
         plugin._props.forEach(function(name) {
           ptLookup[name] = pt;
         });
@@ -2055,7 +2055,7 @@ var _addComplexStringPropTween = function _addComplexStringPropTween2(target, pr
     pt = rootPT._pt || rootPT;
     pt.s = (start || start === 0) && !startIsRelative ? start : pt.s + (start || 0) + ratio * pt.c;
     pt.c = value - pt.s;
-    rootPT.e && (rootPT.e = _round$1(value) + getUnit(rootPT.e));
+    rootPT.e && (rootPT.e = _round$2(value) + getUnit(rootPT.e));
     rootPT.b && (rootPT.b = pt.s + getUnit(rootPT.b));
   }
 }, _addAliasesToVars = function _addAliasesToVars2(targets, vars) {
@@ -2096,7 +2096,7 @@ var _addComplexStringPropTween = function _addComplexStringPropTween2(target, pr
     }
   }
 }, _parseFuncOrString = function _parseFuncOrString2(value, tween, i, target, targets) {
-  return _isFunction$1(value) ? value.call(tween, i, target, targets) : _isString$1(value) && ~value.indexOf("random(") ? _replaceRandom(value) : value;
+  return _isFunction$1(value) ? value.call(tween, i, target, targets) : _isString$2(value) && ~value.indexOf("random(") ? _replaceRandom(value) : value;
 }, _staggerTweenProps = _callbackNames + "repeat,repeatDelay,yoyo,repeatRefresh,yoyoEase,autoRevert", _staggerPropsToSkip = {};
 _forEachName(_staggerTweenProps + ",id,stagger,delay,duration,paused,scrollTrigger", function(name) {
   return _staggerPropsToSkip[name] = 1;
@@ -2111,7 +2111,7 @@ var Tween = /* @__PURE__ */ (function(_Animation2) {
       position = null;
     }
     _this3 = _Animation2.call(this, skipInherit ? vars : _inheritDefaults(vars)) || this;
-    var _this3$vars = _this3.vars, duration = _this3$vars.duration, delay = _this3$vars.delay, immediateRender = _this3$vars.immediateRender, stagger = _this3$vars.stagger, overwrite = _this3$vars.overwrite, keyframes = _this3$vars.keyframes, defaults2 = _this3$vars.defaults, scrollTrigger = _this3$vars.scrollTrigger, yoyoEase = _this3$vars.yoyoEase, parent = vars.parent || _globalTimeline, parsedTargets = (_isArray(targets) || _isTypedArray(targets) ? _isNumber$1(targets[0]) : "length" in vars) ? [targets] : toArray(targets), tl, i, copy, l, p, curTarget, staggerFunc, staggerVarsToMerge;
+    var _this3$vars = _this3.vars, duration = _this3$vars.duration, delay = _this3$vars.delay, immediateRender = _this3$vars.immediateRender, stagger = _this3$vars.stagger, overwrite = _this3$vars.overwrite, keyframes = _this3$vars.keyframes, defaults2 = _this3$vars.defaults, scrollTrigger = _this3$vars.scrollTrigger, yoyoEase = _this3$vars.yoyoEase, parent = vars.parent || _globalTimeline, parsedTargets = (_isArray(targets) || _isTypedArray(targets) ? _isNumber$2(targets[0]) : "length" in vars) ? [targets] : toArray(targets), tl, i, copy, l, p, curTarget, staggerFunc, staggerVarsToMerge;
     _this3._targets = parsedTargets.length ? _harness(parsedTargets) : _warn("GSAP target " + targets + " not found. https://gsap.com", !_config.nullTargetWarn) || [];
     _this3._ptLookup = [];
     _this3._overwrite = overwrite;
@@ -2202,7 +2202,7 @@ var Tween = /* @__PURE__ */ (function(_Animation2) {
     _addToTimeline(parent, _assertThisInitialized(_this3), position);
     vars.reversed && _this3.reverse();
     vars.paused && _this3.paused(true);
-    if (immediateRender || !duration && !keyframes && _this3._start === _roundPrecise(parent._time) && _isNotFalse(immediateRender) && _hasNoPausedAncestors(_assertThisInitialized(_this3)) && parent.data !== "nested") {
+    if (immediateRender || !duration && !keyframes && _this3._start === _roundPrecise$1(parent._time) && _isNotFalse(immediateRender) && _hasNoPausedAncestors(_assertThisInitialized(_this3)) && parent.data !== "nested") {
       _this3._tTime = -_tinyNum;
       _this3.render(Math.max(0, -delay) || 0);
     }
@@ -2222,12 +2222,12 @@ var Tween = /* @__PURE__ */ (function(_Animation2) {
         if (this._repeat < -1 && isNegative) {
           return this.totalTime(cycleDuration * 100 + totalTime, suppressEvents, force);
         }
-        time = _roundPrecise(tTime % cycleDuration);
+        time = _roundPrecise$1(tTime % cycleDuration);
         if (tTime === tDur) {
           iteration = this._repeat;
           time = dur;
         } else {
-          prevIteration = _roundPrecise(tTime / cycleDuration);
+          prevIteration = _roundPrecise$1(tTime / cycleDuration);
           iteration = ~~prevIteration;
           if (iteration && iteration === prevIteration) {
             time = dur;
@@ -2250,7 +2250,7 @@ var Tween = /* @__PURE__ */ (function(_Animation2) {
           timeline2 && this._yEase && _propagateYoyoEase(timeline2, isYoyo);
           if (this.vars.repeatRefresh && !isYoyo && !this._lock && time !== cycleDuration && this._initted) {
             this._lock = force = 1;
-            this.render(_roundPrecise(cycleDuration * iteration), true).invalidate()._lock = 0;
+            this.render(_roundPrecise$1(cycleDuration * iteration), true).invalidate()._lock = 0;
           }
         }
       }
@@ -2333,7 +2333,7 @@ var Tween = /* @__PURE__ */ (function(_Animation2) {
     }
     if (!targets && (!vars || vars === "all")) {
       this._lazy = this._pt = 0;
-      this.parent ? _interrupt(this) : this.scrollTrigger && this.scrollTrigger.kill(!!_reverting$1);
+      this.parent ? _interrupt(this) : this.scrollTrigger && this.scrollTrigger.kill(!!_reverting$2);
       return this;
     }
     if (this.timeline) {
@@ -2349,7 +2349,7 @@ var Tween = /* @__PURE__ */ (function(_Animation2) {
     }
     overwrittenProps = this._op = this._op || [];
     if (vars !== "all") {
-      if (_isString$1(vars)) {
+      if (_isString$2(vars)) {
         p = {};
         _forEachName(vars, function(name) {
           return p[name] = 1;
@@ -2442,7 +2442,7 @@ var _setterPlain = function _setterPlain2(target, property, value) {
 }, _setterAttribute = function _setterAttribute2(target, property, value) {
   return target.setAttribute(property, value);
 }, _getSetter = function _getSetter2(target, property) {
-  return _isFunction$1(target[property]) ? _setterFunc : _isUndefined(target[property]) && target.setAttribute ? _setterAttribute : _setterPlain;
+  return _isFunction$1(target[property]) ? _setterFunc : _isUndefined$1(target[property]) && target.setAttribute ? _setterAttribute : _setterPlain;
 }, _renderPlain = function _renderPlain2(ratio, data) {
   return data.set(data.t, data.p, Math.round((data.s + data.c * ratio) * 1e6) / 1e6, data);
 }, _renderBoolean = function _renderBoolean2(ratio, data) {
@@ -2510,7 +2510,7 @@ var _setterPlain = function _setterPlain2(target, property, value) {
   }
   parent._pt = first;
 };
-var PropTween = /* @__PURE__ */ (function() {
+var PropTween$1 = /* @__PURE__ */ (function() {
   function PropTween2(next, target, prop, start, change, renderer, data, setter, priority) {
     this.t = target;
     this.s = start;
@@ -2559,7 +2559,7 @@ var _media = [], _listeners$1 = {}, _emptyArray$1 = [], _lastMediaTime = 0, _con
     _media.forEach(function(c) {
       var queries = c.queries, conditions = c.conditions, match, p, anyMatch, toggled;
       for (p in queries) {
-        match = _win$3.matchMedia(queries[p]).matches;
+        match = _win$4.matchMedia(queries[p]).matches;
         match && (anyMatch = 1);
         if (match !== conditions[p]) {
           conditions[p] = match;
@@ -2709,7 +2709,7 @@ var MatchMedia = /* @__PURE__ */ (function() {
       if (p === "all") {
         active = 1;
       } else {
-        mq = _win$3.matchMedia(conditions[p]);
+        mq = _win$4.matchMedia(conditions[p]);
         if (mq) {
           _media.indexOf(context3) < 0 && _media.push(context3);
           (cond[p] = mq.matches) && (active = 1);
@@ -2748,7 +2748,7 @@ var _gsap = {
     return _globalTimeline.getTweensOf(targets, onlyActive);
   },
   getProperty: function getProperty(target, property, unit, uncache) {
-    _isString$1(target) && (target = toArray(target)[0]);
+    _isString$2(target) && (target = toArray(target)[0]);
     var getter = _getCache(target || {}).get, format = unit ? _passThrough$1 : _numericIfPossible;
     unit === "native" && (unit = "");
     return !target ? target : !property ? function(property2, unit2, uncache2) {
@@ -2759,7 +2759,7 @@ var _gsap = {
     target = toArray(target);
     if (target.length > 1) {
       var setters = target.map(function(t) {
-        return gsap$2.quickSetter(t, property, unit);
+        return gsap$3.quickSetter(t, property, unit);
       }), l = setters.length;
       return function(value) {
         var i = l;
@@ -2782,7 +2782,7 @@ var _gsap = {
   },
   quickTo: function quickTo(target, property, vars) {
     var _setDefaults22;
-    var tween = gsap$2.to(target, _setDefaults$1((_setDefaults22 = {}, _setDefaults22[property] = "+=0.1", _setDefaults22.paused = true, _setDefaults22.stagger = 0, _setDefaults22), vars || {})), func = function func2(value, start, startIsRelative) {
+    var tween = gsap$3.to(target, _setDefaults$1((_setDefaults22 = {}, _setDefaults22[property] = "+=0.1", _setDefaults22.paused = true, _setDefaults22.stagger = 0, _setDefaults22), vars || {})), func = function func2(value, start, startIsRelative) {
       return tween.resetTo(property, value, start, startIsRelative);
     };
     func.tween = tween;
@@ -2892,7 +2892,7 @@ var _gsap = {
   plugins: _plugins,
   globalTimeline: _globalTimeline,
   core: {
-    PropTween,
+    PropTween: PropTween$1,
     globals: _addGlobal,
     Tween,
     Timeline,
@@ -2900,7 +2900,7 @@ var _gsap = {
     getCache: _getCache,
     _removeLinkedListItem,
     reverting: function reverting() {
-      return _reverting$1;
+      return _reverting$2;
     },
     context: function context2(toAdd) {
       if (toAdd && _context$2) {
@@ -2950,7 +2950,7 @@ var _getPluginPropTween = function _getPluginPropTween2(plugin, prop) {
     init: function init32(target, vars, tween) {
       tween._onInit = function(tween2) {
         var temp, p;
-        if (_isString$1(vars)) {
+        if (_isString$2(vars)) {
           temp = {};
           _forEachName(vars, function(name2) {
             return temp[name2] = 1;
@@ -2969,7 +2969,7 @@ var _getPluginPropTween = function _getPluginPropTween2(plugin, prop) {
     }
   };
 };
-var gsap$2 = _gsap.registerPlugin({
+var gsap$3 = _gsap.registerPlugin({
   name: "attr",
   init: function init(target, vars, tween, index, targets) {
     var p, pt, v;
@@ -2985,7 +2985,7 @@ var gsap$2 = _gsap.registerPlugin({
   render: function render(ratio, data) {
     var pt = data._pt;
     while (pt) {
-      _reverting$1 ? pt.set(pt.t, pt.p, pt.b, pt) : pt.r(ratio, pt.d);
+      _reverting$2 ? pt.set(pt.t, pt.p, pt.b, pt) : pt.r(ratio, pt.d);
       pt = pt._next;
     }
   }
@@ -2999,7 +2999,7 @@ var gsap$2 = _gsap.registerPlugin({
     }
   }
 }, _buildModifierPlugin("roundProps", _roundModifier), _buildModifierPlugin("modifiers"), _buildModifierPlugin("snap", snap)) || _gsap;
-Tween.version = Timeline.version = gsap$2.version = "3.13.0";
+Tween.version = Timeline.version = gsap$3.version = "3.13.0";
 _coreReady = 1;
 _windowExists$2() && _wake();
 _easeMap.Power0;
@@ -3028,9 +3028,9 @@ _easeMap.Circ;
  * Subject to the terms at https://gsap.com/standard-license
  * @author: Jack Doyle, jack@greensock.com
 */
-var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, _reverting, _windowExists$1 = function _windowExists22() {
+var _win$3, _doc$3, _docElement$1, _pluginInitted, _tempDiv, _recentSetterPlugin, _reverting$1, _windowExists$1 = function _windowExists22() {
   return typeof window !== "undefined";
-}, _transformProps = {}, _RAD2DEG = 180 / Math.PI, _DEG2RAD = Math.PI / 180, _atan2 = Math.atan2, _bigNum = 1e8, _capsExp$1 = /([A-Z])/g, _horizontalExp = /(left|right|width|margin|padding|x)/i, _complexExp = /[\s,\(]\S/, _propertyAliases = {
+}, _transformProps = {}, _RAD2DEG$1 = 180 / Math.PI, _DEG2RAD$2 = Math.PI / 180, _atan2$1 = Math.atan2, _bigNum = 1e8, _capsExp$1 = /([A-Z])/g, _horizontalExp = /(left|right|width|margin|padding|x)/i, _complexExp = /[\s,\(]\S/, _propertyAliases = {
   autoAlpha: "opacity,visibility",
   scale: "scaleX,scaleY",
   alpha: "opacity"
@@ -3063,7 +3063,7 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
   var cache = target._gsap;
   cache[property] = value;
   cache.renderTransform(ratio, cache);
-}, _transformProp$1 = "transform", _transformOriginProp = _transformProp$1 + "Origin", _saveStyle = function _saveStyle2(property, isNotCSS) {
+}, _transformProp$2 = "transform", _transformOriginProp$1 = _transformProp$2 + "Origin", _saveStyle = function _saveStyle2(property, isNotCSS) {
   var _this = this;
   var target = this.target, style = target.style, cache = target._gsap;
   if (property in _transformProps && style) {
@@ -3073,20 +3073,20 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
       ~property.indexOf(",") ? property.split(",").forEach(function(a) {
         return _this.tfm[a] = _get(target, a);
       }) : this.tfm[property] = cache.x ? cache[property] : _get(target, property);
-      property === _transformOriginProp && (this.tfm.zOrigin = cache.zOrigin);
+      property === _transformOriginProp$1 && (this.tfm.zOrigin = cache.zOrigin);
     } else {
       return _propertyAliases.transform.split(",").forEach(function(p) {
         return _saveStyle2.call(_this, p, isNotCSS);
       });
     }
-    if (this.props.indexOf(_transformProp$1) >= 0) {
+    if (this.props.indexOf(_transformProp$2) >= 0) {
       return;
     }
     if (cache.svg) {
       this.svgo = target.getAttribute("data-svg-origin");
-      this.props.push(_transformOriginProp, isNotCSS, "");
+      this.props.push(_transformOriginProp$1, isNotCSS, "");
     }
-    property = _transformProp$1;
+    property = _transformProp$2;
   }
   (style || isNotCSS) && this.props.push(property, isNotCSS, style[property]);
 }, _removeIndependentTransforms = function _removeIndependentTransforms2(style) {
@@ -3114,32 +3114,32 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
       cache.renderTransform();
       target.setAttribute("data-svg-origin", this.svgo || "");
     }
-    i = _reverting();
-    if ((!i || !i.isStart) && !style[_transformProp$1]) {
+    i = _reverting$1();
+    if ((!i || !i.isStart) && !style[_transformProp$2]) {
       _removeIndependentTransforms(style);
-      if (cache.zOrigin && style[_transformOriginProp]) {
-        style[_transformOriginProp] += " " + cache.zOrigin + "px";
+      if (cache.zOrigin && style[_transformOriginProp$1]) {
+        style[_transformOriginProp$1] += " " + cache.zOrigin + "px";
         cache.zOrigin = 0;
         cache.renderTransform();
       }
       cache.uncache = 1;
     }
   }
-}, _getStyleSaver = function _getStyleSaver2(target, properties) {
+}, _getStyleSaver$1 = function _getStyleSaver2(target, properties) {
   var saver = {
     target,
     props: [],
     revert: _revertStyle,
     save: _saveStyle
   };
-  target._gsap || gsap$2.core.getCache(target);
+  target._gsap || gsap$3.core.getCache(target);
   properties && target.style && target.nodeType && properties.split(",").forEach(function(p) {
     return saver.save(p);
   });
   return saver;
 }, _supports3D, _createElement = function _createElement2(type, ns) {
-  var e = _doc$2.createElementNS ? _doc$2.createElementNS((ns || "http://www.w3.org/1999/xhtml").replace(/^https/, "http"), type) : _doc$2.createElement(type);
-  return e && e.style ? e : _doc$2.createElement(type);
+  var e = _doc$3.createElementNS ? _doc$3.createElementNS((ns || "http://www.w3.org/1999/xhtml").replace(/^https/, "http"), type) : _doc$3.createElement(type);
+  return e && e.style ? e : _doc$3.createElement(type);
 }, _getComputedProperty = function _getComputedProperty2(target, property, skipPrefixFallback) {
   var cs = getComputedStyle(target);
   return cs[property] || cs.getPropertyValue(property.replace(_capsExp$1, "-$1").toLowerCase()) || cs.getPropertyValue(property) || !skipPrefixFallback && _getComputedProperty2(target, _checkPropPrefix(property) || property, 1) || "";
@@ -3154,31 +3154,31 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
   return i < 0 ? null : (i === 3 ? "ms" : i >= 0 ? _prefixes[i] : "") + property;
 }, _initCore$1 = function _initCore2() {
   if (_windowExists$1() && window.document) {
-    _win$2 = window;
-    _doc$2 = _win$2.document;
-    _docElement = _doc$2.documentElement;
+    _win$3 = window;
+    _doc$3 = _win$3.document;
+    _docElement$1 = _doc$3.documentElement;
     _tempDiv = _createElement("div") || {
       style: {}
     };
     _createElement("div");
-    _transformProp$1 = _checkPropPrefix(_transformProp$1);
-    _transformOriginProp = _transformProp$1 + "Origin";
+    _transformProp$2 = _checkPropPrefix(_transformProp$2);
+    _transformOriginProp$1 = _transformProp$2 + "Origin";
     _tempDiv.style.cssText = "border-width:0;line-height:0;position:absolute;padding:0";
     _supports3D = !!_checkPropPrefix("perspective");
-    _reverting = gsap$2.core.reverting;
+    _reverting$1 = gsap$3.core.reverting;
     _pluginInitted = 1;
   }
 }, _getReparentedCloneBBox = function _getReparentedCloneBBox2(target) {
   var owner = target.ownerSVGElement, svg = _createElement("svg", owner && owner.getAttribute("xmlns") || "http://www.w3.org/2000/svg"), clone = target.cloneNode(true), bbox;
   clone.style.display = "block";
   svg.appendChild(clone);
-  _docElement.appendChild(svg);
+  _docElement$1.appendChild(svg);
   try {
     bbox = clone.getBBox();
   } catch (e) {
   }
   svg.removeChild(clone);
-  _docElement.removeChild(svg);
+  _docElement$1.removeChild(svg);
   return bbox;
 }, _getAttributeFallbacks = function _getAttributeFallbacks2(target, attributesArray) {
   var i = attributesArray.length;
@@ -3207,8 +3207,8 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
 }, _removeProperty = function _removeProperty2(target, property) {
   if (property) {
     var style = target.style, first2Chars;
-    if (property in _transformProps && property !== _transformOriginProp) {
-      property = _transformProp$1;
+    if (property in _transformProps && property !== _transformOriginProp$1) {
+      property = _transformProp$2;
     }
     if (style.removeProperty) {
       first2Chars = property.substr(0, 2);
@@ -3221,7 +3221,7 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
     }
   }
 }, _addNonTweeningPT = function _addNonTweeningPT2(plugin, target, property, beginning, end, onlySetAtEnd) {
-  var pt = new PropTween(plugin._pt, target, property, 0, 1, onlySetAtEnd ? _renderNonTweeningValueOnlyAtEnd : _renderNonTweeningValue);
+  var pt = new PropTween$1(plugin._pt, target, property, 0, 1, onlySetAtEnd ? _renderNonTweeningValueOnlyAtEnd : _renderNonTweeningValue);
   plugin._pt = pt;
   pt.b = beginning;
   pt.e = end;
@@ -3243,19 +3243,19 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
   isSVG = target.getCTM && _isSVG(target);
   if ((toPercent || curUnit === "%") && (_transformProps[property] || ~property.indexOf("adius"))) {
     px = isSVG ? target.getBBox()[horizontal ? "width" : "height"] : target[measureProperty];
-    return _round$1(toPercent ? curValue / px * amount : curValue / 100 * px);
+    return _round$2(toPercent ? curValue / px * amount : curValue / 100 * px);
   }
   style[horizontal ? "width" : "height"] = amount + (toPixels ? curUnit : unit);
   parent = unit !== "rem" && ~property.indexOf("adius") || unit === "em" && target.appendChild && !isRootSVG ? target : target.parentNode;
   if (isSVG) {
     parent = (target.ownerSVGElement || {}).parentNode;
   }
-  if (!parent || parent === _doc$2 || !parent.appendChild) {
-    parent = _doc$2.body;
+  if (!parent || parent === _doc$3 || !parent.appendChild) {
+    parent = _doc$3.body;
   }
   cache = parent._gsap;
   if (cache && toPercent && cache.width && horizontal && cache.time === _ticker.time && !cache.uncache) {
-    return _round$1(curValue / cache.width * amount);
+    return _round$2(curValue / cache.width * amount);
   } else {
     if (toPercent && (property === "height" || property === "width")) {
       var v = target.style[property];
@@ -3276,7 +3276,7 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
       cache.width = parent[measureProperty];
     }
   }
-  return _round$1(toPixels ? px * curValue / amount : px && curValue ? amount / px * curValue : 0);
+  return _round$2(toPixels ? px * curValue / amount : px && curValue ? amount / px * curValue : 0);
 }, _get = function _get2(target, property, unit, uncache) {
   var value;
   _pluginInitted || _initCore$1();
@@ -3288,7 +3288,7 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
   }
   if (_transformProps[property] && property !== "transform") {
     value = _parseTransform(target, uncache);
-    value = property !== "transformOrigin" ? value[property] : value.svg ? value.origin : _firstTwoOnly(_getComputedProperty(target, _transformOriginProp)) + " " + value.zOrigin + "px";
+    value = property !== "transformOrigin" ? value[property] : value.svg ? value.origin : _firstTwoOnly(_getComputedProperty(target, _transformOriginProp$1)) + " " + value.zOrigin + "px";
   } else {
     value = target.style[property];
     if (!value || value === "auto" || uncache || ~(value + "").indexOf("calc(")) {
@@ -3306,7 +3306,7 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
       start = _getComputedProperty(target, "borderTopColor");
     }
   }
-  var pt = new PropTween(this._pt, target.style, prop, 0, 1, _renderComplexString), index = 0, matchIndex = 0, a, result, startValues, startNum, color, startValue, endValue, endNum, chunk, endUnit, startUnit, endValues;
+  var pt = new PropTween$1(this._pt, target.style, prop, 0, 1, _renderComplexString), index = 0, matchIndex = 0, a, result, startValues, startNum, color, startValue, endValue, endNum, chunk, endUnit, startUnit, endValues;
   pt.b = start;
   pt.e = end;
   start += "";
@@ -3398,13 +3398,13 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
         prop = props[i];
         if (_transformProps[prop]) {
           clearTransforms = 1;
-          prop = prop === "transformOrigin" ? _transformOriginProp : _transformProp$1;
+          prop = prop === "transformOrigin" ? _transformOriginProp$1 : _transformProp$2;
         }
         _removeProperty(target, prop);
       }
     }
     if (clearTransforms) {
-      _removeProperty(target, _transformProp$1);
+      _removeProperty(target, _transformProp$2);
       if (cache) {
         cache.svg && target.removeAttribute("transform");
         style.scale = style.rotate = style.translate = "none";
@@ -3417,7 +3417,7 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
 }, _specialProps = {
   clearProps: function clearProps(plugin, target, property, endValue, tween) {
     if (tween.data !== "isFromStart") {
-      var pt = plugin._pt = new PropTween(plugin._pt, target, property, 0, 0, _renderClearProps);
+      var pt = plugin._pt = new PropTween$1(plugin._pt, target, property, 0, 0, _renderClearProps);
       pt.u = endValue;
       pt.pr = -10;
       pt.tween = tween;
@@ -3491,27 +3491,27 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
 }, _identity2DMatrix = [1, 0, 0, 1, 0, 0], _rotationalProperties = {}, _isNullTransform = function _isNullTransform2(value) {
   return value === "matrix(1, 0, 0, 1, 0, 0)" || value === "none" || !value;
 }, _getComputedTransformMatrixAsArray = function _getComputedTransformMatrixAsArray2(target) {
-  var matrixString = _getComputedProperty(target, _transformProp$1);
-  return _isNullTransform(matrixString) ? _identity2DMatrix : matrixString.substr(7).match(_numExp).map(_round$1);
+  var matrixString = _getComputedProperty(target, _transformProp$2);
+  return _isNullTransform(matrixString) ? _identity2DMatrix : matrixString.substr(7).match(_numExp$1).map(_round$2);
 }, _getMatrix = function _getMatrix2(target, force2D) {
   var cache = target._gsap || _getCache(target), style = target.style, matrix = _getComputedTransformMatrixAsArray(target), parent, nextSibling, temp, addedToDOM;
   if (cache.svg && target.getAttribute("transform")) {
     temp = target.transform.baseVal.consolidate().matrix;
     matrix = [temp.a, temp.b, temp.c, temp.d, temp.e, temp.f];
     return matrix.join(",") === "1,0,0,1,0,0" ? _identity2DMatrix : matrix;
-  } else if (matrix === _identity2DMatrix && !target.offsetParent && target !== _docElement && !cache.svg) {
+  } else if (matrix === _identity2DMatrix && !target.offsetParent && target !== _docElement$1 && !cache.svg) {
     temp = style.display;
     style.display = "block";
     parent = target.parentNode;
     if (!parent || !target.offsetParent && !target.getBoundingClientRect().width) {
       addedToDOM = 1;
       nextSibling = target.nextElementSibling;
-      _docElement.appendChild(target);
+      _docElement$1.appendChild(target);
     }
     matrix = _getComputedTransformMatrixAsArray(target);
     temp ? style.display = temp : _removeProperty(target, "display");
     if (addedToDOM) {
-      nextSibling ? parent.insertBefore(target, nextSibling) : parent ? parent.appendChild(target) : _docElement.removeChild(target);
+      nextSibling ? parent.insertBefore(target, nextSibling) : parent ? parent.appendChild(target) : _docElement$1.removeChild(target);
     }
   }
   return force2D && matrix.length > 6 ? [matrix[0], matrix[1], matrix[4], matrix[5], matrix[12], matrix[13]] : matrix;
@@ -3540,7 +3540,7 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
   cache.smooth = !!smooth;
   cache.origin = origin;
   cache.originIsAbsolute = !!originIsAbsolute;
-  target.style[_transformOriginProp] = "0px 0px";
+  target.style[_transformOriginProp$1] = "0px 0px";
   if (pluginToAddPropTweensTo) {
     _addNonTweeningPT(pluginToAddPropTweensTo, cache, "xOrigin", xOriginOld, xOrigin);
     _addNonTweeningPT(pluginToAddPropTweensTo, cache, "yOrigin", yOriginOld, yOrigin);
@@ -3553,13 +3553,13 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
   if ("x" in cache && !uncache && !cache.uncache) {
     return cache;
   }
-  var style = target.style, invertedScaleX = cache.scaleX < 0, px = "px", deg = "deg", cs = getComputedStyle(target), origin = _getComputedProperty(target, _transformOriginProp) || "0", x, y, z, scaleX, scaleY, rotation, rotationX, rotationY, skewX, skewY, perspective, xOrigin, yOrigin, matrix, angle, cos, sin, a, b, c, d, a12, a22, t1, t2, t3, a13, a23, a33, a42, a43, a32;
+  var style = target.style, invertedScaleX = cache.scaleX < 0, px = "px", deg = "deg", cs = getComputedStyle(target), origin = _getComputedProperty(target, _transformOriginProp$1) || "0", x, y, z, scaleX, scaleY, rotation, rotationX, rotationY, skewX, skewY, perspective, xOrigin, yOrigin, matrix, angle, cos, sin, a, b, c, d, a12, a22, t1, t2, t3, a13, a23, a33, a42, a43, a32;
   x = y = z = rotation = rotationX = rotationY = skewX = skewY = perspective = 0;
   scaleX = scaleY = 1;
   cache.svg = !!(target.getCTM && _isSVG(target));
   if (cs.translate) {
     if (cs.translate !== "none" || cs.scale !== "none" || cs.rotate !== "none") {
-      style[_transformProp$1] = (cs.translate !== "none" ? "translate3d(" + (cs.translate + " 0 0").split(" ").slice(0, 3).join(", ") + ") " : "") + (cs.rotate !== "none" ? "rotate(" + cs.rotate + ") " : "") + (cs.scale !== "none" ? "scale(" + cs.scale.split(" ").join(",") + ") " : "") + (cs[_transformProp$1] !== "none" ? cs[_transformProp$1] : "");
+      style[_transformProp$2] = (cs.translate !== "none" ? "translate3d(" + (cs.translate + " 0 0").split(" ").slice(0, 3).join(", ") + ") " : "") + (cs.rotate !== "none" ? "rotate(" + cs.rotate + ") " : "") + (cs.scale !== "none" ? "scale(" + cs.scale.split(" ").join(",") + ") " : "") + (cs[_transformProp$2] !== "none" ? cs[_transformProp$2] : "");
     }
     style.scale = style.rotate = style.translate = "none";
   }
@@ -3586,9 +3586,9 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
     if (matrix.length === 6) {
       scaleX = Math.sqrt(a * a + b * b);
       scaleY = Math.sqrt(d * d + c * c);
-      rotation = a || b ? _atan2(b, a) * _RAD2DEG : 0;
-      skewX = c || d ? _atan2(c, d) * _RAD2DEG + rotation : 0;
-      skewX && (scaleY *= Math.abs(Math.cos(skewX * _DEG2RAD)));
+      rotation = a || b ? _atan2$1(b, a) * _RAD2DEG$1 : 0;
+      skewX = c || d ? _atan2$1(c, d) * _RAD2DEG$1 + rotation : 0;
+      skewX && (scaleY *= Math.abs(Math.cos(skewX * _DEG2RAD$2)));
       if (cache.svg) {
         x -= xOrigin - (xOrigin * a + yOrigin * c);
         y -= yOrigin - (xOrigin * b + yOrigin * d);
@@ -3603,8 +3603,8 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
       x = matrix[12];
       y = matrix[13];
       z = matrix[14];
-      angle = _atan2(a32, a33);
-      rotationX = angle * _RAD2DEG;
+      angle = _atan2$1(a32, a33);
+      rotationX = angle * _RAD2DEG$1;
       if (angle) {
         cos = Math.cos(-angle);
         sin = Math.sin(-angle);
@@ -3619,8 +3619,8 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
         a22 = t2;
         a32 = t3;
       }
-      angle = _atan2(-c, a33);
-      rotationY = angle * _RAD2DEG;
+      angle = _atan2$1(-c, a33);
+      rotationY = angle * _RAD2DEG$1;
       if (angle) {
         cos = Math.cos(-angle);
         sin = Math.sin(-angle);
@@ -3632,8 +3632,8 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
         b = t2;
         c = t3;
       }
-      angle = _atan2(b, a);
-      rotation = angle * _RAD2DEG;
+      angle = _atan2$1(b, a);
+      rotation = angle * _RAD2DEG$1;
       if (angle) {
         cos = Math.cos(angle);
         sin = Math.sin(angle);
@@ -3648,15 +3648,15 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
         rotationX = rotation = 0;
         rotationY = 180 - rotationY;
       }
-      scaleX = _round$1(Math.sqrt(a * a + b * b + c * c));
-      scaleY = _round$1(Math.sqrt(a22 * a22 + a32 * a32));
-      angle = _atan2(a12, a22);
-      skewX = Math.abs(angle) > 2e-4 ? angle * _RAD2DEG : 0;
+      scaleX = _round$2(Math.sqrt(a * a + b * b + c * c));
+      scaleY = _round$2(Math.sqrt(a22 * a22 + a32 * a32));
+      angle = _atan2$1(a12, a22);
+      skewX = Math.abs(angle) > 2e-4 ? angle * _RAD2DEG$1 : 0;
       perspective = a43 ? 1 / (a43 < 0 ? -a43 : a43) : 0;
     }
     if (cache.svg) {
       t1 = target.getAttribute("transform");
-      cache.forceCSS = target.setAttribute("transform", "") || !_isNullTransform(_getComputedProperty(target, _transformProp$1));
+      cache.forceCSS = target.setAttribute("transform", "") || !_isNullTransform(_getComputedProperty(target, _transformProp$2));
       t1 && target.setAttribute("transform", t1);
     }
   }
@@ -3674,16 +3674,16 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
   cache.x = x - ((cache.xPercent = x && (!uncache && cache.xPercent || (Math.round(target.offsetWidth / 2) === Math.round(-x) ? -50 : 0))) ? target.offsetWidth * cache.xPercent / 100 : 0) + px;
   cache.y = y - ((cache.yPercent = y && (!uncache && cache.yPercent || (Math.round(target.offsetHeight / 2) === Math.round(-y) ? -50 : 0))) ? target.offsetHeight * cache.yPercent / 100 : 0) + px;
   cache.z = z + px;
-  cache.scaleX = _round$1(scaleX);
-  cache.scaleY = _round$1(scaleY);
-  cache.rotation = _round$1(rotation) + deg;
-  cache.rotationX = _round$1(rotationX) + deg;
-  cache.rotationY = _round$1(rotationY) + deg;
+  cache.scaleX = _round$2(scaleX);
+  cache.scaleY = _round$2(scaleY);
+  cache.rotation = _round$2(rotation) + deg;
+  cache.rotationX = _round$2(rotationX) + deg;
+  cache.rotationY = _round$2(rotationY) + deg;
   cache.skewX = skewX + deg;
   cache.skewY = skewY + deg;
   cache.transformPerspective = perspective + px;
   if (cache.zOrigin = parseFloat(origin.split(" ")[2]) || !uncache && cache.zOrigin || 0) {
-    style[_transformOriginProp] = _firstTwoOnly(origin);
+    style[_transformOriginProp$1] = _firstTwoOnly(origin);
   }
   cache.xOffset = cache.yOffset = 0;
   cache.force3D = _config.force3D;
@@ -3694,7 +3694,7 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
   return (value = value.split(" "))[0] + " " + value[1];
 }, _addPxTranslate = function _addPxTranslate2(target, start, value) {
   var unit = getUnit(start);
-  return _round$1(parseFloat(start) + parseFloat(_convertToUnit(target, "x", value + "px", unit))) + unit;
+  return _round$2(parseFloat(start) + parseFloat(_convertToUnit(target, "x", value + "px", unit))) + unit;
 }, _renderNon3DTransforms = function _renderNon3DTransforms2(ratio, cache) {
   cache.z = "0px";
   cache.rotationY = cache.rotationX = "0deg";
@@ -3703,8 +3703,8 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
 }, _zeroDeg = "0deg", _zeroPx = "0px", _endParenthesis = ") ", _renderCSSTransforms = function _renderCSSTransforms2(ratio, cache) {
   var _ref = cache || this, xPercent = _ref.xPercent, yPercent = _ref.yPercent, x = _ref.x, y = _ref.y, z = _ref.z, rotation = _ref.rotation, rotationY = _ref.rotationY, rotationX = _ref.rotationX, skewX = _ref.skewX, skewY = _ref.skewY, scaleX = _ref.scaleX, scaleY = _ref.scaleY, transformPerspective = _ref.transformPerspective, force3D = _ref.force3D, target = _ref.target, zOrigin = _ref.zOrigin, transforms = "", use3D = force3D === "auto" && ratio && ratio !== 1 || force3D === true;
   if (zOrigin && (rotationX !== _zeroDeg || rotationY !== _zeroDeg)) {
-    var angle = parseFloat(rotationY) * _DEG2RAD, a13 = Math.sin(angle), a33 = Math.cos(angle), cos;
-    angle = parseFloat(rotationX) * _DEG2RAD;
+    var angle = parseFloat(rotationY) * _DEG2RAD$2, a13 = Math.sin(angle), a33 = Math.cos(angle), cos;
+    angle = parseFloat(rotationX) * _DEG2RAD$2;
     cos = Math.cos(angle);
     x = _addPxTranslate(target, x, a13 * cos * -zOrigin);
     y = _addPxTranslate(target, y, -Math.sin(angle) * -zOrigin);
@@ -3734,7 +3734,7 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
   if (scaleX !== 1 || scaleY !== 1) {
     transforms += "scale(" + scaleX + ", " + scaleY + _endParenthesis;
   }
-  target.style[_transformProp$1] = transforms || "translate(0, 0)";
+  target.style[_transformProp$2] = transforms || "translate(0, 0)";
 }, _renderSVGTransforms = function _renderSVGTransforms2(ratio, cache) {
   var _ref2 = cache || this, xPercent = _ref2.xPercent, yPercent = _ref2.yPercent, x = _ref2.x, y = _ref2.y, rotation = _ref2.rotation, skewX = _ref2.skewX, skewY = _ref2.skewY, scaleX = _ref2.scaleX, scaleY = _ref2.scaleY, target = _ref2.target, xOrigin = _ref2.xOrigin, yOrigin = _ref2.yOrigin, xOffset = _ref2.xOffset, yOffset = _ref2.yOffset, forceCSS = _ref2.forceCSS, tx = parseFloat(x), ty = parseFloat(y), a11, a21, a12, a22, temp;
   rotation = parseFloat(rotation);
@@ -3746,14 +3746,14 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
     rotation += skewY;
   }
   if (rotation || skewX) {
-    rotation *= _DEG2RAD;
-    skewX *= _DEG2RAD;
+    rotation *= _DEG2RAD$2;
+    skewX *= _DEG2RAD$2;
     a11 = Math.cos(rotation) * scaleX;
     a21 = Math.sin(rotation) * scaleX;
     a12 = Math.sin(rotation - skewX) * -scaleY;
     a22 = Math.cos(rotation - skewX) * scaleY;
     if (skewX) {
-      skewY *= _DEG2RAD;
+      skewY *= _DEG2RAD$2;
       temp = Math.tan(skewX - skewY);
       temp = Math.sqrt(1 + temp * temp);
       a12 *= temp;
@@ -3765,10 +3765,10 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
         a21 *= temp;
       }
     }
-    a11 = _round$1(a11);
-    a21 = _round$1(a21);
-    a12 = _round$1(a12);
-    a22 = _round$1(a22);
+    a11 = _round$2(a11);
+    a21 = _round$2(a21);
+    a12 = _round$2(a12);
+    a22 = _round$2(a22);
   } else {
     a11 = scaleX;
     a22 = scaleY;
@@ -3779,19 +3779,19 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
     ty = _convertToUnit(target, "y", y, "px");
   }
   if (xOrigin || yOrigin || xOffset || yOffset) {
-    tx = _round$1(tx + xOrigin - (xOrigin * a11 + yOrigin * a12) + xOffset);
-    ty = _round$1(ty + yOrigin - (xOrigin * a21 + yOrigin * a22) + yOffset);
+    tx = _round$2(tx + xOrigin - (xOrigin * a11 + yOrigin * a12) + xOffset);
+    ty = _round$2(ty + yOrigin - (xOrigin * a21 + yOrigin * a22) + yOffset);
   }
   if (xPercent || yPercent) {
     temp = target.getBBox();
-    tx = _round$1(tx + xPercent / 100 * temp.width);
-    ty = _round$1(ty + yPercent / 100 * temp.height);
+    tx = _round$2(tx + xPercent / 100 * temp.width);
+    ty = _round$2(ty + yPercent / 100 * temp.height);
   }
   temp = "matrix(" + a11 + "," + a21 + "," + a12 + "," + a22 + "," + tx + "," + ty + ")";
   target.setAttribute("transform", temp);
-  forceCSS && (target.style[_transformProp$1] = temp);
+  forceCSS && (target.style[_transformProp$2] = temp);
 }, _addRotationalPropTween = function _addRotationalPropTween2(plugin, target, property, startNum, endValue) {
-  var cap = 360, isString = _isString$1(endValue), endNum = parseFloat(endValue) * (isString && ~endValue.indexOf("rad") ? _RAD2DEG : 1), change = endNum - startNum, finalValue = startNum + change + "deg", direction, pt;
+  var cap = 360, isString = _isString$2(endValue), endNum = parseFloat(endValue) * (isString && ~endValue.indexOf("rad") ? _RAD2DEG$1 : 1), change = endNum - startNum, finalValue = startNum + change + "deg", direction, pt;
   if (isString) {
     direction = endValue.split("_")[1];
     if (direction === "short") {
@@ -3806,7 +3806,7 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
       change = (change - cap * _bigNum) % cap - ~~(change / cap) * cap;
     }
   }
-  plugin._pt = pt = new PropTween(plugin._pt, target, property, startNum, change, _renderPropWithEnd);
+  plugin._pt = pt = new PropTween$1(plugin._pt, target, property, startNum, change, _renderPropWithEnd);
   pt.e = finalValue;
   pt.u = "deg";
   plugin._props.push(property);
@@ -3821,15 +3821,15 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
   if (startCache.svg) {
     startValue = target.getAttribute("transform");
     target.setAttribute("transform", "");
-    style[_transformProp$1] = transforms;
+    style[_transformProp$2] = transforms;
     endCache = _parseTransform(target, 1);
-    _removeProperty(target, _transformProp$1);
+    _removeProperty(target, _transformProp$2);
     target.setAttribute("transform", startValue);
   } else {
-    startValue = getComputedStyle(target)[_transformProp$1];
-    style[_transformProp$1] = transforms;
+    startValue = getComputedStyle(target)[_transformProp$2];
+    style[_transformProp$2] = transforms;
     endCache = _parseTransform(target, 1);
-    style[_transformProp$1] = startValue;
+    style[_transformProp$2] = startValue;
   }
   for (p in _transformProps) {
     startValue = startCache[p];
@@ -3839,7 +3839,7 @@ var _win$2, _doc$2, _docElement, _pluginInitted, _tempDiv, _recentSetterPlugin, 
       endUnit = getUnit(endValue);
       startNum = startUnit !== endUnit ? _convertToUnit(target, p, startValue, endUnit) : parseFloat(startValue);
       endNum = parseFloat(endValue);
-      plugin._pt = new PropTween(plugin._pt, endCache, p, startNum, endNum - startNum, _renderCSSProp);
+      plugin._pt = new PropTween$1(plugin._pt, endCache, p, startNum, endNum - startNum, _renderCSSProp);
       plugin._pt.u = endUnit || 0;
       plugin._props.push(p);
     }
@@ -3876,7 +3876,7 @@ var CSSPlugin = {
   init: function init3(target, vars, tween, index, targets) {
     var props = this._props, style = target.style, startAt = tween.vars.startAt, startValue, endValue, endNum, startNum, type, specialProp, p, startUnit, endUnit, relative, isTransformRelated, transformPropTween, cache, smooth, hasPriority, inlineProps;
     _pluginInitted || _initCore$1();
-    this.styles = this.styles || _getStyleSaver(target);
+    this.styles = this.styles || _getStyleSaver$1(target);
     inlineProps = this.styles.props;
     this.tween = tween;
     for (p in vars) {
@@ -3913,7 +3913,7 @@ var CSSPlugin = {
       } else if (type !== "undefined") {
         if (startAt && p in startAt) {
           startValue = typeof startAt[p] === "function" ? startAt[p].call(tween, index, target, targets) : startAt[p];
-          _isString$1(startValue) && ~startValue.indexOf("random(") && (startValue = _replaceRandom(startValue));
+          _isString$2(startValue) && ~startValue.indexOf("random(") && (startValue = _replaceRandom(startValue));
           getUnit(startValue + "") || startValue === "auto" || (startValue += _config.units[p] || getUnit(_get(target, p)) || "");
           (startValue + "").charAt(1) === "=" && (startValue = _get(target, p));
         } else {
@@ -3947,16 +3947,16 @@ var CSSPlugin = {
             cache = target._gsap;
             cache.renderTransform && !vars.parseTransform || _parseTransform(target, vars.parseTransform);
             smooth = vars.smoothOrigin !== false && cache.smooth;
-            transformPropTween = this._pt = new PropTween(this._pt, style, _transformProp$1, 0, 1, cache.renderTransform, cache, 0, -1);
+            transformPropTween = this._pt = new PropTween$1(this._pt, style, _transformProp$2, 0, 1, cache.renderTransform, cache, 0, -1);
             transformPropTween.dep = 1;
           }
           if (p === "scale") {
-            this._pt = new PropTween(this._pt, cache, "scaleY", cache.scaleY, (relative ? _parseRelative(cache.scaleY, relative + endNum) : endNum) - cache.scaleY || 0, _renderCSSProp);
+            this._pt = new PropTween$1(this._pt, cache, "scaleY", cache.scaleY, (relative ? _parseRelative(cache.scaleY, relative + endNum) : endNum) - cache.scaleY || 0, _renderCSSProp);
             this._pt.u = 0;
             props.push("scaleY", p);
             p += "X";
           } else if (p === "transformOrigin") {
-            inlineProps.push(_transformOriginProp, 0, style[_transformOriginProp]);
+            inlineProps.push(_transformOriginProp$1, 0, style[_transformOriginProp$1]);
             endValue = _convertKeywordsToPercentages(endValue);
             if (cache.svg) {
               _applySVGOrigin(target, endValue, 0, smooth, 0, this);
@@ -3990,7 +3990,7 @@ var CSSPlugin = {
           endNum || (endNum = 0);
           endUnit = getUnit(endValue) || (p in _config.units ? _config.units[p] : startUnit);
           startUnit !== endUnit && (startNum = _convertToUnit(target, p, startValue, endUnit));
-          this._pt = new PropTween(this._pt, isTransformRelated ? cache : style, p, startNum, (relative ? _parseRelative(startNum, relative + endNum) : endNum) - startNum, !isTransformRelated && (endUnit === "px" || p === "zIndex") && vars.autoRound !== false ? _renderRoundedCSSProp : _renderCSSProp);
+          this._pt = new PropTween$1(this._pt, isTransformRelated ? cache : style, p, startNum, (relative ? _parseRelative(startNum, relative + endNum) : endNum) - startNum, !isTransformRelated && (endUnit === "px" || p === "zIndex") && vars.autoRound !== false ? _renderRoundedCSSProp : _renderCSSProp);
           this._pt.u = endUnit || 0;
           if (startUnit !== endUnit && endUnit !== "%") {
             this._pt.b = startValue;
@@ -4013,7 +4013,7 @@ var CSSPlugin = {
     hasPriority && _sortPropTweensByPriority(this);
   },
   render: function render2(ratio, data) {
-    if (data.tween._time || !_reverting()) {
+    if (data.tween._time || !_reverting$1()) {
       var pt = data._pt;
       while (pt) {
         pt.r(ratio, pt.d);
@@ -4028,15 +4028,15 @@ var CSSPlugin = {
   getSetter: function getSetter(target, property, plugin) {
     var p = _propertyAliases[property];
     p && p.indexOf(",") < 0 && (property = p);
-    return property in _transformProps && property !== _transformOriginProp && (target._gsap.x || _get(target, "x")) ? plugin && _recentSetterPlugin === plugin ? property === "scale" ? _setterScale : _setterTransform : (_recentSetterPlugin = plugin || {}) && (property === "scale" ? _setterScaleWithRender : _setterTransformWithRender) : target.style && !_isUndefined(target.style[property]) ? _setterCSSStyle : ~property.indexOf("-") ? _setterCSSProp : _getSetter(target, property);
+    return property in _transformProps && property !== _transformOriginProp$1 && (target._gsap.x || _get(target, "x")) ? plugin && _recentSetterPlugin === plugin ? property === "scale" ? _setterScale : _setterTransform : (_recentSetterPlugin = plugin || {}) && (property === "scale" ? _setterScaleWithRender : _setterTransformWithRender) : target.style && !_isUndefined$1(target.style[property]) ? _setterCSSStyle : ~property.indexOf("-") ? _setterCSSProp : _getSetter(target, property);
   },
   core: {
     _removeProperty,
     _getMatrix
   }
 };
-gsap$2.utils.checkPrefix = _checkPropPrefix;
-gsap$2.core.getStyleSaver = _getStyleSaver;
+gsap$3.utils.checkPrefix = _checkPropPrefix;
+gsap$3.core.getStyleSaver = _getStyleSaver$1;
 (function(positionAndScale, rotation, others, aliases) {
   var all = _forEachName(positionAndScale + "," + rotation + "," + others, function(name) {
     _transformProps[name] = 1;
@@ -4054,7 +4054,1222 @@ gsap$2.core.getStyleSaver = _getStyleSaver;
 _forEachName("x,y,z,top,right,bottom,left,width,height,fontSize,padding,margin,perspective", function(name) {
   _config.units[name] = "px";
 });
-gsap$2.registerPlugin(CSSPlugin);
+gsap$3.registerPlugin(CSSPlugin);
+/*!
+ * paths 3.13.0
+ * https://gsap.com
+ *
+ * Copyright 2008-2025, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license
+ * @author: Jack Doyle, jack@greensock.com
+*/
+var _svgPathExp = /[achlmqstvz]|(-?\d*\.?\d*(?:e[\-+]?\d+)?)[0-9]/ig, _numbersExp = /(?:(-)?\d*\.?\d*(?:e[\-+]?\d+)?)[0-9]/ig, _scientific = /[\+\-]?\d*\.?\d+e[\+\-]?\d+/ig, _selectorExp = /(^[#\.][a-z]|[a-y][a-z])/i, _DEG2RAD$1 = Math.PI / 180, _RAD2DEG = 180 / Math.PI, _sin = Math.sin, _cos = Math.cos, _abs$1 = Math.abs, _sqrt = Math.sqrt, _atan2 = Math.atan2, _largeNum = 1e8, _isString$1 = function _isString(value) {
+  return typeof value === "string";
+}, _isNumber$1 = function _isNumber(value) {
+  return typeof value === "number";
+}, _isUndefined = function _isUndefined3(value) {
+  return typeof value === "undefined";
+}, _temp = {}, _temp2 = {}, _roundingNum = 1e5, _wrapProgress = function _wrapProgress2(progress) {
+  return Math.round((progress + _largeNum) % 1 * _roundingNum) / _roundingNum || (progress < 0 ? 0 : 1);
+}, _round$1 = function _round(value) {
+  return Math.round(value * _roundingNum) / _roundingNum || 0;
+}, _roundPrecise = function _roundPrecise3(value) {
+  return Math.round(value * 1e10) / 1e10 || 0;
+}, _splitSegment = function _splitSegment2(rawPath, segIndex, i, t) {
+  var segment = rawPath[segIndex], shift = t === 1 ? 6 : subdivideSegment(segment, i, t);
+  if ((shift || !t) && shift + i + 2 < segment.length) {
+    rawPath.splice(segIndex, 0, segment.slice(0, i + shift + 2));
+    segment.splice(0, i + shift);
+    return 1;
+  }
+}, _getSampleIndex = function _getSampleIndex2(samples, length, progress) {
+  var l = samples.length, i = ~~(progress * l);
+  if (samples[i] > length) {
+    while (--i && samples[i] > length) {
+    }
+    i < 0 && (i = 0);
+  } else {
+    while (samples[++i] < length && i < l) {
+    }
+  }
+  return i < l ? i : l - 1;
+}, _reverseRawPath = function _reverseRawPath2(rawPath, skipOuter) {
+  var i = rawPath.length;
+  rawPath.reverse();
+  while (i--) {
+    rawPath[i].reversed || reverseSegment(rawPath[i]);
+  }
+}, _copyMetaData = function _copyMetaData2(source, copy) {
+  copy.totalLength = source.totalLength;
+  if (source.samples) {
+    copy.samples = source.samples.slice(0);
+    copy.lookup = source.lookup.slice(0);
+    copy.minLength = source.minLength;
+    copy.resolution = source.resolution;
+  } else if (source.totalPoints) {
+    copy.totalPoints = source.totalPoints;
+  }
+  return copy;
+}, _appendOrMerge = function _appendOrMerge2(rawPath, segment) {
+  var index = rawPath.length, prevSeg = rawPath[index - 1] || [], l = prevSeg.length;
+  if (index && segment[0] === prevSeg[l - 2] && segment[1] === prevSeg[l - 1]) {
+    segment = prevSeg.concat(segment.slice(2));
+    index--;
+  }
+  rawPath[index] = segment;
+};
+function getRawPath(value) {
+  value = _isString$1(value) && _selectorExp.test(value) ? document.querySelector(value) || value : value;
+  var e = value.getAttribute ? value : 0, rawPath;
+  if (e && (value = value.getAttribute("d"))) {
+    if (!e._gsPath) {
+      e._gsPath = {};
+    }
+    rawPath = e._gsPath[value];
+    return rawPath && !rawPath._dirty ? rawPath : e._gsPath[value] = stringToRawPath(value);
+  }
+  return !value ? console.warn("Expecting a <path> element or an SVG path data string") : _isString$1(value) ? stringToRawPath(value) : _isNumber$1(value[0]) ? [value] : value;
+}
+function copyRawPath(rawPath) {
+  var a = [], i = 0;
+  for (; i < rawPath.length; i++) {
+    a[i] = _copyMetaData(rawPath[i], rawPath[i].slice(0));
+  }
+  return _copyMetaData(rawPath, a);
+}
+function reverseSegment(segment) {
+  var i = 0, y;
+  segment.reverse();
+  for (; i < segment.length; i += 2) {
+    y = segment[i];
+    segment[i] = segment[i + 1];
+    segment[i + 1] = y;
+  }
+  segment.reversed = !segment.reversed;
+}
+var _createPath = function _createPath2(e, ignore) {
+  var path = document.createElementNS("http://www.w3.org/2000/svg", "path"), attr = [].slice.call(e.attributes), i = attr.length, name;
+  ignore = "," + ignore + ",";
+  while (--i > -1) {
+    name = attr[i].nodeName.toLowerCase();
+    if (ignore.indexOf("," + name + ",") < 0) {
+      path.setAttributeNS(null, name, attr[i].nodeValue);
+    }
+  }
+  return path;
+}, _typeAttrs = {
+  rect: "rx,ry,x,y,width,height",
+  circle: "r,cx,cy",
+  ellipse: "rx,ry,cx,cy",
+  line: "x1,x2,y1,y2"
+}, _attrToObj = function _attrToObj2(e, attrs) {
+  var props = attrs ? attrs.split(",") : [], obj = {}, i = props.length;
+  while (--i > -1) {
+    obj[props[i]] = +e.getAttribute(props[i]) || 0;
+  }
+  return obj;
+};
+function convertToPath(element, swap) {
+  var type = element.tagName.toLowerCase(), circ = 0.552284749831, data, x, y, r, ry, path, rcirc, rycirc, points, w, h, x2, x3, x4, x5, x6, y2, y3, y4, y5, y6, attr;
+  if (type === "path" || !element.getBBox) {
+    return element;
+  }
+  path = _createPath(element, "x,y,width,height,cx,cy,rx,ry,r,x1,x2,y1,y2,points");
+  attr = _attrToObj(element, _typeAttrs[type]);
+  if (type === "rect") {
+    r = attr.rx;
+    ry = attr.ry || r;
+    x = attr.x;
+    y = attr.y;
+    w = attr.width - r * 2;
+    h = attr.height - ry * 2;
+    if (r || ry) {
+      x2 = x + r * (1 - circ);
+      x3 = x + r;
+      x4 = x3 + w;
+      x5 = x4 + r * circ;
+      x6 = x4 + r;
+      y2 = y + ry * (1 - circ);
+      y3 = y + ry;
+      y4 = y3 + h;
+      y5 = y4 + ry * circ;
+      y6 = y4 + ry;
+      data = "M" + x6 + "," + y3 + " V" + y4 + " C" + [x6, y5, x5, y6, x4, y6, x4 - (x4 - x3) / 3, y6, x3 + (x4 - x3) / 3, y6, x3, y6, x2, y6, x, y5, x, y4, x, y4 - (y4 - y3) / 3, x, y3 + (y4 - y3) / 3, x, y3, x, y2, x2, y, x3, y, x3 + (x4 - x3) / 3, y, x4 - (x4 - x3) / 3, y, x4, y, x5, y, x6, y2, x6, y3].join(",") + "z";
+    } else {
+      data = "M" + (x + w) + "," + y + " v" + h + " h" + -w + " v" + -h + " h" + w + "z";
+    }
+  } else if (type === "circle" || type === "ellipse") {
+    if (type === "circle") {
+      r = ry = attr.r;
+      rycirc = r * circ;
+    } else {
+      r = attr.rx;
+      ry = attr.ry;
+      rycirc = ry * circ;
+    }
+    x = attr.cx;
+    y = attr.cy;
+    rcirc = r * circ;
+    data = "M" + (x + r) + "," + y + " C" + [x + r, y + rycirc, x + rcirc, y + ry, x, y + ry, x - rcirc, y + ry, x - r, y + rycirc, x - r, y, x - r, y - rycirc, x - rcirc, y - ry, x, y - ry, x + rcirc, y - ry, x + r, y - rycirc, x + r, y].join(",") + "z";
+  } else if (type === "line") {
+    data = "M" + attr.x1 + "," + attr.y1 + " L" + attr.x2 + "," + attr.y2;
+  } else if (type === "polyline" || type === "polygon") {
+    points = (element.getAttribute("points") + "").match(_numbersExp) || [];
+    x = points.shift();
+    y = points.shift();
+    data = "M" + x + "," + y + " L" + points.join(",");
+    if (type === "polygon") {
+      data += "," + x + "," + y + "z";
+    }
+  }
+  path.setAttribute("d", rawPathToString(path._gsRawPath = stringToRawPath(data)));
+  if (swap && element.parentNode) {
+    element.parentNode.insertBefore(path, element);
+    element.parentNode.removeChild(element);
+  }
+  return path;
+}
+function getRotationAtBezierT(segment, i, t) {
+  var a = segment[i], b = segment[i + 2], c = segment[i + 4], x;
+  a += (b - a) * t;
+  b += (c - b) * t;
+  a += (b - a) * t;
+  x = b + (c + (segment[i + 6] - c) * t - b) * t - a;
+  a = segment[i + 1];
+  b = segment[i + 3];
+  c = segment[i + 5];
+  a += (b - a) * t;
+  b += (c - b) * t;
+  a += (b - a) * t;
+  return _round$1(_atan2(b + (c + (segment[i + 7] - c) * t - b) * t - a, x) * _RAD2DEG);
+}
+function sliceRawPath(rawPath, start, end) {
+  end = _isUndefined(end) ? 1 : _roundPrecise(end) || 0;
+  start = _roundPrecise(start) || 0;
+  var loops = Math.max(0, ~~(_abs$1(end - start) - 1e-8)), path = copyRawPath(rawPath);
+  if (start > end) {
+    start = 1 - start;
+    end = 1 - end;
+    _reverseRawPath(path);
+    path.totalLength = 0;
+  }
+  if (start < 0 || end < 0) {
+    var offset = Math.abs(~~Math.min(start, end)) + 1;
+    start += offset;
+    end += offset;
+  }
+  path.totalLength || cacheRawPathMeasurements(path);
+  var wrap3 = end > 1, s = getProgressData(path, start, _temp, true), e = getProgressData(path, end, _temp2), eSeg = e.segment, sSeg = s.segment, eSegIndex = e.segIndex, sSegIndex = s.segIndex, ei = e.i, si = s.i, sameSegment = sSegIndex === eSegIndex, sameBezier = ei === si && sameSegment, wrapsBehind, sShift, eShift, i, copy, totalSegments, l, j;
+  if (wrap3 || loops) {
+    wrapsBehind = eSegIndex < sSegIndex || sameSegment && ei < si || sameBezier && e.t < s.t;
+    if (_splitSegment(path, sSegIndex, si, s.t)) {
+      sSegIndex++;
+      if (!wrapsBehind) {
+        eSegIndex++;
+        if (sameBezier) {
+          e.t = (e.t - s.t) / (1 - s.t);
+          ei = 0;
+        } else if (sameSegment) {
+          ei -= si;
+        }
+      }
+    }
+    if (Math.abs(1 - (end - start)) < 1e-5) {
+      eSegIndex = sSegIndex - 1;
+    } else if (!e.t && eSegIndex) {
+      eSegIndex--;
+    } else if (_splitSegment(path, eSegIndex, ei, e.t) && wrapsBehind) {
+      sSegIndex++;
+    }
+    if (s.t === 1) {
+      sSegIndex = (sSegIndex + 1) % path.length;
+    }
+    copy = [];
+    totalSegments = path.length;
+    l = 1 + totalSegments * loops;
+    j = sSegIndex;
+    l += (totalSegments - sSegIndex + eSegIndex) % totalSegments;
+    for (i = 0; i < l; i++) {
+      _appendOrMerge(copy, path[j++ % totalSegments]);
+    }
+    path = copy;
+  } else {
+    eShift = e.t === 1 ? 6 : subdivideSegment(eSeg, ei, e.t);
+    if (start !== end) {
+      sShift = subdivideSegment(sSeg, si, sameBezier ? s.t / e.t : s.t);
+      sameSegment && (eShift += sShift);
+      eSeg.splice(ei + eShift + 2);
+      (sShift || si) && sSeg.splice(0, si + sShift);
+      i = path.length;
+      while (i--) {
+        (i < sSegIndex || i > eSegIndex) && path.splice(i, 1);
+      }
+    } else {
+      eSeg.angle = getRotationAtBezierT(eSeg, ei + eShift, 0);
+      ei += eShift;
+      s = eSeg[ei];
+      e = eSeg[ei + 1];
+      eSeg.length = eSeg.totalLength = 0;
+      eSeg.totalPoints = path.totalPoints = 8;
+      eSeg.push(s, e, s, e, s, e, s, e);
+    }
+  }
+  path.totalLength = 0;
+  return path;
+}
+function measureSegment(segment, startIndex, bezierQty) {
+  startIndex = startIndex || 0;
+  if (!segment.samples) {
+    segment.samples = [];
+    segment.lookup = [];
+  }
+  var resolution = ~~segment.resolution || 12, inc = 1 / resolution, endIndex = segment.length, x1 = segment[startIndex], y1 = segment[startIndex + 1], samplesIndex = startIndex ? startIndex / 6 * resolution : 0, samples = segment.samples, lookup = segment.lookup, min = (startIndex ? segment.minLength : _largeNum) || _largeNum, prevLength = samples[samplesIndex + bezierQty * resolution - 1], length = startIndex ? samples[samplesIndex - 1] : 0, i, j, x4, x3, x2, xd, xd1, y4, y3, y2, yd, yd1, inv, t, lengthIndex, l, segLength;
+  samples.length = lookup.length = 0;
+  for (j = startIndex + 2; j < endIndex; j += 6) {
+    x4 = segment[j + 4] - x1;
+    x3 = segment[j + 2] - x1;
+    x2 = segment[j] - x1;
+    y4 = segment[j + 5] - y1;
+    y3 = segment[j + 3] - y1;
+    y2 = segment[j + 1] - y1;
+    xd = xd1 = yd = yd1 = 0;
+    if (_abs$1(x4) < 0.01 && _abs$1(y4) < 0.01 && _abs$1(x2) + _abs$1(y2) < 0.01) {
+      if (segment.length > 8) {
+        segment.splice(j, 6);
+        j -= 6;
+        endIndex -= 6;
+      }
+    } else {
+      for (i = 1; i <= resolution; i++) {
+        t = inc * i;
+        inv = 1 - t;
+        xd = xd1 - (xd1 = (t * t * x4 + 3 * inv * (t * x3 + inv * x2)) * t);
+        yd = yd1 - (yd1 = (t * t * y4 + 3 * inv * (t * y3 + inv * y2)) * t);
+        l = _sqrt(yd * yd + xd * xd);
+        if (l < min) {
+          min = l;
+        }
+        length += l;
+        samples[samplesIndex++] = length;
+      }
+    }
+    x1 += x4;
+    y1 += y4;
+  }
+  if (prevLength) {
+    prevLength -= length;
+    for (; samplesIndex < samples.length; samplesIndex++) {
+      samples[samplesIndex] += prevLength;
+    }
+  }
+  if (samples.length && min) {
+    segment.totalLength = segLength = samples[samples.length - 1] || 0;
+    segment.minLength = min;
+    if (segLength / min < 9999) {
+      l = lengthIndex = 0;
+      for (i = 0; i < segLength; i += min) {
+        lookup[l++] = samples[lengthIndex] < i ? ++lengthIndex : lengthIndex;
+      }
+    }
+  } else {
+    segment.totalLength = samples[0] = 0;
+  }
+  return startIndex ? length - samples[startIndex / 2 - 1] : length;
+}
+function cacheRawPathMeasurements(rawPath, resolution) {
+  var pathLength, points, i;
+  for (i = pathLength = points = 0; i < rawPath.length; i++) {
+    rawPath[i].resolution = ~~resolution || 12;
+    points += rawPath[i].length;
+    pathLength += measureSegment(rawPath[i]);
+  }
+  rawPath.totalPoints = points;
+  rawPath.totalLength = pathLength;
+  return rawPath;
+}
+function subdivideSegment(segment, i, t) {
+  if (t <= 0 || t >= 1) {
+    return 0;
+  }
+  var ax = segment[i], ay = segment[i + 1], cp1x = segment[i + 2], cp1y = segment[i + 3], cp2x = segment[i + 4], cp2y = segment[i + 5], bx = segment[i + 6], by = segment[i + 7], x1a = ax + (cp1x - ax) * t, x2 = cp1x + (cp2x - cp1x) * t, y1a = ay + (cp1y - ay) * t, y2 = cp1y + (cp2y - cp1y) * t, x1 = x1a + (x2 - x1a) * t, y1 = y1a + (y2 - y1a) * t, x2a = cp2x + (bx - cp2x) * t, y2a = cp2y + (by - cp2y) * t;
+  x2 += (x2a - x2) * t;
+  y2 += (y2a - y2) * t;
+  segment.splice(
+    i + 2,
+    4,
+    _round$1(x1a),
+    //first control point
+    _round$1(y1a),
+    _round$1(x1),
+    //second control point
+    _round$1(y1),
+    _round$1(x1 + (x2 - x1) * t),
+    //new fabricated anchor on line
+    _round$1(y1 + (y2 - y1) * t),
+    _round$1(x2),
+    //third control point
+    _round$1(y2),
+    _round$1(x2a),
+    //fourth control point
+    _round$1(y2a)
+  );
+  segment.samples && segment.samples.splice(i / 6 * segment.resolution | 0, 0, 0, 0, 0, 0, 0, 0);
+  return 6;
+}
+function getProgressData(rawPath, progress, decoratee, pushToNextIfAtEnd) {
+  decoratee = decoratee || {};
+  rawPath.totalLength || cacheRawPathMeasurements(rawPath);
+  if (progress < 0 || progress > 1) {
+    progress = _wrapProgress(progress);
+  }
+  var segIndex = 0, segment = rawPath[0], samples, resolution, length, min, max, i, t;
+  if (!progress) {
+    t = i = segIndex = 0;
+    segment = rawPath[0];
+  } else if (progress === 1) {
+    t = 1;
+    segIndex = rawPath.length - 1;
+    segment = rawPath[segIndex];
+    i = segment.length - 8;
+  } else {
+    if (rawPath.length > 1) {
+      length = rawPath.totalLength * progress;
+      max = i = 0;
+      while ((max += rawPath[i++].totalLength) < length) {
+        segIndex = i;
+      }
+      segment = rawPath[segIndex];
+      min = max - segment.totalLength;
+      progress = (length - min) / (max - min) || 0;
+    }
+    samples = segment.samples;
+    resolution = segment.resolution;
+    length = segment.totalLength * progress;
+    i = segment.lookup.length ? segment.lookup[~~(length / segment.minLength)] || 0 : _getSampleIndex(samples, length, progress);
+    min = i ? samples[i - 1] : 0;
+    max = samples[i];
+    if (max < length) {
+      min = max;
+      max = samples[++i];
+    }
+    t = 1 / resolution * ((length - min) / (max - min) + i % resolution);
+    i = ~~(i / resolution) * 6;
+    if (pushToNextIfAtEnd && t === 1) {
+      if (i + 6 < segment.length) {
+        i += 6;
+        t = 0;
+      } else if (segIndex + 1 < rawPath.length) {
+        i = t = 0;
+        segment = rawPath[++segIndex];
+      }
+    }
+  }
+  decoratee.t = t;
+  decoratee.i = i;
+  decoratee.path = rawPath;
+  decoratee.segment = segment;
+  decoratee.segIndex = segIndex;
+  return decoratee;
+}
+function getPositionOnPath(rawPath, progress, includeAngle, point) {
+  var segment = rawPath[0], result = point || {}, samples, resolution, length, min, max, i, t, a, inv;
+  if (progress < 0 || progress > 1) {
+    progress = _wrapProgress(progress);
+  }
+  segment.lookup || cacheRawPathMeasurements(rawPath);
+  if (rawPath.length > 1) {
+    length = rawPath.totalLength * progress;
+    max = i = 0;
+    while ((max += rawPath[i++].totalLength) < length) {
+      segment = rawPath[i];
+    }
+    min = max - segment.totalLength;
+    progress = (length - min) / (max - min) || 0;
+  }
+  samples = segment.samples;
+  resolution = segment.resolution;
+  length = segment.totalLength * progress;
+  i = segment.lookup.length ? segment.lookup[progress < 1 ? ~~(length / segment.minLength) : segment.lookup.length - 1] || 0 : _getSampleIndex(samples, length, progress);
+  min = i ? samples[i - 1] : 0;
+  max = samples[i];
+  if (max < length) {
+    min = max;
+    max = samples[++i];
+  }
+  t = 1 / resolution * ((length - min) / (max - min) + i % resolution) || 0;
+  inv = 1 - t;
+  i = ~~(i / resolution) * 6;
+  a = segment[i];
+  result.x = _round$1((t * t * (segment[i + 6] - a) + 3 * inv * (t * (segment[i + 4] - a) + inv * (segment[i + 2] - a))) * t + a);
+  result.y = _round$1((t * t * (segment[i + 7] - (a = segment[i + 1])) + 3 * inv * (t * (segment[i + 5] - a) + inv * (segment[i + 3] - a))) * t + a);
+  if (includeAngle) {
+    result.angle = segment.totalLength ? getRotationAtBezierT(segment, i, t >= 1 ? 1 - 1e-9 : t ? t : 1e-9) : segment.angle || 0;
+  }
+  return result;
+}
+function transformRawPath(rawPath, a, b, c, d, tx, ty) {
+  var j = rawPath.length, segment, l, i, x, y;
+  while (--j > -1) {
+    segment = rawPath[j];
+    l = segment.length;
+    for (i = 0; i < l; i += 2) {
+      x = segment[i];
+      y = segment[i + 1];
+      segment[i] = x * a + y * c + tx;
+      segment[i + 1] = x * b + y * d + ty;
+    }
+  }
+  rawPath._dirty = 1;
+  return rawPath;
+}
+function arcToSegment(lastX, lastY, rx, ry, angle, largeArcFlag, sweepFlag, x, y) {
+  if (lastX === x && lastY === y) {
+    return;
+  }
+  rx = _abs$1(rx);
+  ry = _abs$1(ry);
+  var angleRad = angle % 360 * _DEG2RAD$1, cosAngle = _cos(angleRad), sinAngle = _sin(angleRad), PI = Math.PI, TWOPI = PI * 2, dx2 = (lastX - x) / 2, dy2 = (lastY - y) / 2, x1 = cosAngle * dx2 + sinAngle * dy2, y1 = -sinAngle * dx2 + cosAngle * dy2, x1_sq = x1 * x1, y1_sq = y1 * y1, radiiCheck = x1_sq / (rx * rx) + y1_sq / (ry * ry);
+  if (radiiCheck > 1) {
+    rx = _sqrt(radiiCheck) * rx;
+    ry = _sqrt(radiiCheck) * ry;
+  }
+  var rx_sq = rx * rx, ry_sq = ry * ry, sq = (rx_sq * ry_sq - rx_sq * y1_sq - ry_sq * x1_sq) / (rx_sq * y1_sq + ry_sq * x1_sq);
+  if (sq < 0) {
+    sq = 0;
+  }
+  var coef = (largeArcFlag === sweepFlag ? -1 : 1) * _sqrt(sq), cx1 = coef * (rx * y1 / ry), cy1 = coef * -(ry * x1 / rx), sx2 = (lastX + x) / 2, sy2 = (lastY + y) / 2, cx = sx2 + (cosAngle * cx1 - sinAngle * cy1), cy = sy2 + (sinAngle * cx1 + cosAngle * cy1), ux = (x1 - cx1) / rx, uy = (y1 - cy1) / ry, vx = (-x1 - cx1) / rx, vy = (-y1 - cy1) / ry, temp = ux * ux + uy * uy, angleStart = (uy < 0 ? -1 : 1) * Math.acos(ux / _sqrt(temp)), angleExtent = (ux * vy - uy * vx < 0 ? -1 : 1) * Math.acos((ux * vx + uy * vy) / _sqrt(temp * (vx * vx + vy * vy)));
+  isNaN(angleExtent) && (angleExtent = PI);
+  if (!sweepFlag && angleExtent > 0) {
+    angleExtent -= TWOPI;
+  } else if (sweepFlag && angleExtent < 0) {
+    angleExtent += TWOPI;
+  }
+  angleStart %= TWOPI;
+  angleExtent %= TWOPI;
+  var segments = Math.ceil(_abs$1(angleExtent) / (TWOPI / 4)), rawPath = [], angleIncrement = angleExtent / segments, controlLength = 4 / 3 * _sin(angleIncrement / 2) / (1 + _cos(angleIncrement / 2)), ma = cosAngle * rx, mb = sinAngle * rx, mc = sinAngle * -ry, md = cosAngle * ry, i;
+  for (i = 0; i < segments; i++) {
+    angle = angleStart + i * angleIncrement;
+    x1 = _cos(angle);
+    y1 = _sin(angle);
+    ux = _cos(angle += angleIncrement);
+    uy = _sin(angle);
+    rawPath.push(x1 - controlLength * y1, y1 + controlLength * x1, ux + controlLength * uy, uy - controlLength * ux, ux, uy);
+  }
+  for (i = 0; i < rawPath.length; i += 2) {
+    x1 = rawPath[i];
+    y1 = rawPath[i + 1];
+    rawPath[i] = x1 * ma + y1 * mc + cx;
+    rawPath[i + 1] = x1 * mb + y1 * md + cy;
+  }
+  rawPath[i - 2] = x;
+  rawPath[i - 1] = y;
+  return rawPath;
+}
+function stringToRawPath(d) {
+  var a = (d + "").replace(_scientific, function(m) {
+    var n = +m;
+    return n < 1e-4 && n > -1e-4 ? 0 : n;
+  }).match(_svgPathExp) || [], path = [], relativeX = 0, relativeY = 0, twoThirds = 2 / 3, elements = a.length, points = 0, errorMessage = "ERROR: malformed path: " + d, i, j, x, y, command, isRelative, segment, startX, startY, difX, difY, beziers, prevCommand, flag1, flag2, line = function line2(sx, sy, ex, ey) {
+    difX = (ex - sx) / 3;
+    difY = (ey - sy) / 3;
+    segment.push(sx + difX, sy + difY, ex - difX, ey - difY, ex, ey);
+  };
+  if (!d || !isNaN(a[0]) || isNaN(a[1])) {
+    console.log(errorMessage);
+    return path;
+  }
+  for (i = 0; i < elements; i++) {
+    prevCommand = command;
+    if (isNaN(a[i])) {
+      command = a[i].toUpperCase();
+      isRelative = command !== a[i];
+    } else {
+      i--;
+    }
+    x = +a[i + 1];
+    y = +a[i + 2];
+    if (isRelative) {
+      x += relativeX;
+      y += relativeY;
+    }
+    if (!i) {
+      startX = x;
+      startY = y;
+    }
+    if (command === "M") {
+      if (segment) {
+        if (segment.length < 8) {
+          path.length -= 1;
+        } else {
+          points += segment.length;
+        }
+      }
+      relativeX = startX = x;
+      relativeY = startY = y;
+      segment = [x, y];
+      path.push(segment);
+      i += 2;
+      command = "L";
+    } else if (command === "C") {
+      if (!segment) {
+        segment = [0, 0];
+      }
+      if (!isRelative) {
+        relativeX = relativeY = 0;
+      }
+      segment.push(x, y, relativeX + a[i + 3] * 1, relativeY + a[i + 4] * 1, relativeX += a[i + 5] * 1, relativeY += a[i + 6] * 1);
+      i += 6;
+    } else if (command === "S") {
+      difX = relativeX;
+      difY = relativeY;
+      if (prevCommand === "C" || prevCommand === "S") {
+        difX += relativeX - segment[segment.length - 4];
+        difY += relativeY - segment[segment.length - 3];
+      }
+      if (!isRelative) {
+        relativeX = relativeY = 0;
+      }
+      segment.push(difX, difY, x, y, relativeX += a[i + 3] * 1, relativeY += a[i + 4] * 1);
+      i += 4;
+    } else if (command === "Q") {
+      difX = relativeX + (x - relativeX) * twoThirds;
+      difY = relativeY + (y - relativeY) * twoThirds;
+      if (!isRelative) {
+        relativeX = relativeY = 0;
+      }
+      relativeX += a[i + 3] * 1;
+      relativeY += a[i + 4] * 1;
+      segment.push(difX, difY, relativeX + (x - relativeX) * twoThirds, relativeY + (y - relativeY) * twoThirds, relativeX, relativeY);
+      i += 4;
+    } else if (command === "T") {
+      difX = relativeX - segment[segment.length - 4];
+      difY = relativeY - segment[segment.length - 3];
+      segment.push(relativeX + difX, relativeY + difY, x + (relativeX + difX * 1.5 - x) * twoThirds, y + (relativeY + difY * 1.5 - y) * twoThirds, relativeX = x, relativeY = y);
+      i += 2;
+    } else if (command === "H") {
+      line(relativeX, relativeY, relativeX = x, relativeY);
+      i += 1;
+    } else if (command === "V") {
+      line(relativeX, relativeY, relativeX, relativeY = x + (isRelative ? relativeY - relativeX : 0));
+      i += 1;
+    } else if (command === "L" || command === "Z") {
+      if (command === "Z") {
+        x = startX;
+        y = startY;
+        segment.closed = true;
+      }
+      if (command === "L" || _abs$1(relativeX - x) > 0.5 || _abs$1(relativeY - y) > 0.5) {
+        line(relativeX, relativeY, x, y);
+        if (command === "L") {
+          i += 2;
+        }
+      }
+      relativeX = x;
+      relativeY = y;
+    } else if (command === "A") {
+      flag1 = a[i + 4];
+      flag2 = a[i + 5];
+      difX = a[i + 6];
+      difY = a[i + 7];
+      j = 7;
+      if (flag1.length > 1) {
+        if (flag1.length < 3) {
+          difY = difX;
+          difX = flag2;
+          j--;
+        } else {
+          difY = flag2;
+          difX = flag1.substr(2);
+          j -= 2;
+        }
+        flag2 = flag1.charAt(1);
+        flag1 = flag1.charAt(0);
+      }
+      beziers = arcToSegment(relativeX, relativeY, +a[i + 1], +a[i + 2], +a[i + 3], +flag1, +flag2, (isRelative ? relativeX : 0) + difX * 1, (isRelative ? relativeY : 0) + difY * 1);
+      i += j;
+      if (beziers) {
+        for (j = 0; j < beziers.length; j++) {
+          segment.push(beziers[j]);
+        }
+      }
+      relativeX = segment[segment.length - 2];
+      relativeY = segment[segment.length - 1];
+    } else {
+      console.log(errorMessage);
+    }
+  }
+  i = segment.length;
+  if (i < 6) {
+    path.pop();
+    i = 0;
+  } else if (segment[0] === segment[i - 2] && segment[1] === segment[i - 1]) {
+    segment.closed = true;
+  }
+  path.totalPoints = points + i;
+  return path;
+}
+function flatPointsToSegment(points, curviness) {
+  if (curviness === void 0) {
+    curviness = 1;
+  }
+  var x = points[0], y = 0, segment = [x, y], i = 2;
+  for (; i < points.length; i += 2) {
+    segment.push(x, y, points[i], y = (points[i] - x) * curviness / 2, x = points[i], -y);
+  }
+  return segment;
+}
+function pointsToSegment(points, curviness) {
+  _abs$1(points[0] - points[2]) < 1e-4 && _abs$1(points[1] - points[3]) < 1e-4 && (points = points.slice(2));
+  var l = points.length - 2, x = +points[0], y = +points[1], nextX = +points[2], nextY = +points[3], segment = [x, y, x, y], dx2 = nextX - x, dy2 = nextY - y, closed = Math.abs(points[l] - x) < 1e-3 && Math.abs(points[l + 1] - y) < 1e-3, prevX, prevY, i, dx1, dy1, r1, r2, r3, tl, mx1, mx2, mxm, my1, my2, mym;
+  if (closed) {
+    points.push(nextX, nextY);
+    nextX = x;
+    nextY = y;
+    x = points[l - 2];
+    y = points[l - 1];
+    points.unshift(x, y);
+    l += 4;
+  }
+  curviness = curviness || curviness === 0 ? +curviness : 1;
+  for (i = 2; i < l; i += 2) {
+    prevX = x;
+    prevY = y;
+    x = nextX;
+    y = nextY;
+    nextX = +points[i + 2];
+    nextY = +points[i + 3];
+    if (x === nextX && y === nextY) {
+      continue;
+    }
+    dx1 = dx2;
+    dy1 = dy2;
+    dx2 = nextX - x;
+    dy2 = nextY - y;
+    r1 = _sqrt(dx1 * dx1 + dy1 * dy1);
+    r2 = _sqrt(dx2 * dx2 + dy2 * dy2);
+    r3 = _sqrt(Math.pow(dx2 / r2 + dx1 / r1, 2) + Math.pow(dy2 / r2 + dy1 / r1, 2));
+    tl = (r1 + r2) * curviness * 0.25 / r3;
+    mx1 = x - (x - prevX) * (r1 ? tl / r1 : 0);
+    mx2 = x + (nextX - x) * (r2 ? tl / r2 : 0);
+    mxm = x - (mx1 + ((mx2 - mx1) * (r1 * 3 / (r1 + r2) + 0.5) / 4 || 0));
+    my1 = y - (y - prevY) * (r1 ? tl / r1 : 0);
+    my2 = y + (nextY - y) * (r2 ? tl / r2 : 0);
+    mym = y - (my1 + ((my2 - my1) * (r1 * 3 / (r1 + r2) + 0.5) / 4 || 0));
+    if (x !== prevX || y !== prevY) {
+      segment.push(
+        _round$1(mx1 + mxm),
+        // first control point
+        _round$1(my1 + mym),
+        _round$1(x),
+        // anchor
+        _round$1(y),
+        _round$1(mx2 + mxm),
+        // second control point
+        _round$1(my2 + mym)
+      );
+    }
+  }
+  x !== nextX || y !== nextY || segment.length < 4 ? segment.push(_round$1(nextX), _round$1(nextY), _round$1(nextX), _round$1(nextY)) : segment.length -= 2;
+  if (segment.length === 2) {
+    segment.push(x, y, x, y, x, y);
+  } else if (closed) {
+    segment.splice(0, 6);
+    segment.length = segment.length - 6;
+  }
+  return segment;
+}
+function rawPathToString(rawPath) {
+  if (_isNumber$1(rawPath[0])) {
+    rawPath = [rawPath];
+  }
+  var result = "", l = rawPath.length, sl, s, i, segment;
+  for (s = 0; s < l; s++) {
+    segment = rawPath[s];
+    result += "M" + _round$1(segment[0]) + "," + _round$1(segment[1]) + " C";
+    sl = segment.length;
+    for (i = 2; i < sl; i++) {
+      result += _round$1(segment[i++]) + "," + _round$1(segment[i++]) + " " + _round$1(segment[i++]) + "," + _round$1(segment[i++]) + " " + _round$1(segment[i++]) + "," + _round$1(segment[i]) + " ";
+    }
+    if (segment.closed) {
+      result += "z";
+    }
+  }
+  return result;
+}
+/*!
+ * matrix 3.13.0
+ * https://gsap.com
+ *
+ * Copyright 2008-2025, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license
+ * @author: Jack Doyle, jack@greensock.com
+*/
+var _doc$2, _win$2, _docElement, _body$2, _divContainer, _svgContainer, _identityMatrix, _gEl, _transformProp$1 = "transform", _transformOriginProp = _transformProp$1 + "Origin", _hasOffsetBug, _setDoc = function _setDoc2(element) {
+  var doc = element.ownerDocument || element;
+  if (!(_transformProp$1 in element.style) && "msTransform" in element.style) {
+    _transformProp$1 = "msTransform";
+    _transformOriginProp = _transformProp$1 + "Origin";
+  }
+  while (doc.parentNode && (doc = doc.parentNode)) {
+  }
+  _win$2 = window;
+  _identityMatrix = new Matrix2D();
+  if (doc) {
+    _doc$2 = doc;
+    _docElement = doc.documentElement;
+    _body$2 = doc.body;
+    _gEl = _doc$2.createElementNS("http://www.w3.org/2000/svg", "g");
+    _gEl.style.transform = "none";
+    var d1 = doc.createElement("div"), d2 = doc.createElement("div"), root = doc && (doc.body || doc.firstElementChild);
+    if (root && root.appendChild) {
+      root.appendChild(d1);
+      d1.appendChild(d2);
+      d1.setAttribute("style", "position:static;transform:translate3d(0,0,1px)");
+      _hasOffsetBug = d2.offsetParent !== d1;
+      root.removeChild(d1);
+    }
+  }
+  return doc;
+}, _forceNonZeroScale = function _forceNonZeroScale2(e) {
+  var a, cache;
+  while (e && e !== _body$2) {
+    cache = e._gsap;
+    cache && cache.uncache && cache.get(e, "x");
+    if (cache && !cache.scaleX && !cache.scaleY && cache.renderTransform) {
+      cache.scaleX = cache.scaleY = 1e-4;
+      cache.renderTransform(1, cache);
+      a ? a.push(cache) : a = [cache];
+    }
+    e = e.parentNode;
+  }
+  return a;
+}, _svgTemps = [], _divTemps = [], _getDocScrollTop = function _getDocScrollTop2() {
+  return _win$2.pageYOffset || _doc$2.scrollTop || _docElement.scrollTop || _body$2.scrollTop || 0;
+}, _getDocScrollLeft = function _getDocScrollLeft2() {
+  return _win$2.pageXOffset || _doc$2.scrollLeft || _docElement.scrollLeft || _body$2.scrollLeft || 0;
+}, _svgOwner = function _svgOwner2(element) {
+  return element.ownerSVGElement || ((element.tagName + "").toLowerCase() === "svg" ? element : null);
+}, _isFixed = function _isFixed2(element) {
+  if (_win$2.getComputedStyle(element).position === "fixed") {
+    return true;
+  }
+  element = element.parentNode;
+  if (element && element.nodeType === 1) {
+    return _isFixed2(element);
+  }
+}, _createSibling = function _createSibling2(element, i) {
+  if (element.parentNode && (_doc$2 || _setDoc(element))) {
+    var svg = _svgOwner(element), ns = svg ? svg.getAttribute("xmlns") || "http://www.w3.org/2000/svg" : "http://www.w3.org/1999/xhtml", type = svg ? i ? "rect" : "g" : "div", x = i !== 2 ? 0 : 100, y = i === 3 ? 100 : 0, css = "position:absolute;display:block;pointer-events:none;margin:0;padding:0;", e = _doc$2.createElementNS ? _doc$2.createElementNS(ns.replace(/^https/, "http"), type) : _doc$2.createElement(type);
+    if (i) {
+      if (!svg) {
+        if (!_divContainer) {
+          _divContainer = _createSibling2(element);
+          _divContainer.style.cssText = css;
+        }
+        e.style.cssText = css + "width:0.1px;height:0.1px;top:" + y + "px;left:" + x + "px";
+        _divContainer.appendChild(e);
+      } else {
+        _svgContainer || (_svgContainer = _createSibling2(element));
+        e.setAttribute("width", 0.01);
+        e.setAttribute("height", 0.01);
+        e.setAttribute("transform", "translate(" + x + "," + y + ")");
+        _svgContainer.appendChild(e);
+      }
+    }
+    return e;
+  }
+  throw "Need document and parent.";
+}, _consolidate = function _consolidate2(m) {
+  var c = new Matrix2D(), i = 0;
+  for (; i < m.numberOfItems; i++) {
+    c.multiply(m.getItem(i).matrix);
+  }
+  return c;
+}, _getCTM = function _getCTM2(svg) {
+  var m = svg.getCTM(), transform;
+  if (!m) {
+    transform = svg.style[_transformProp$1];
+    svg.style[_transformProp$1] = "none";
+    svg.appendChild(_gEl);
+    m = _gEl.getCTM();
+    svg.removeChild(_gEl);
+    transform ? svg.style[_transformProp$1] = transform : svg.style.removeProperty(_transformProp$1.replace(/([A-Z])/g, "-$1").toLowerCase());
+  }
+  return m || _identityMatrix.clone();
+}, _placeSiblings = function _placeSiblings2(element, adjustGOffset) {
+  var svg = _svgOwner(element), isRootSVG = element === svg, siblings = svg ? _svgTemps : _divTemps, parent = element.parentNode, appendToEl = parent && !svg && parent.shadowRoot && parent.shadowRoot.appendChild ? parent.shadowRoot : parent, container, m, b, x, y, cs;
+  if (element === _win$2) {
+    return element;
+  }
+  siblings.length || siblings.push(_createSibling(element, 1), _createSibling(element, 2), _createSibling(element, 3));
+  container = svg ? _svgContainer : _divContainer;
+  if (svg) {
+    if (isRootSVG) {
+      b = _getCTM(element);
+      x = -b.e / b.a;
+      y = -b.f / b.d;
+      m = _identityMatrix;
+    } else if (element.getBBox) {
+      b = element.getBBox();
+      m = element.transform ? element.transform.baseVal : {};
+      m = !m.numberOfItems ? _identityMatrix : m.numberOfItems > 1 ? _consolidate(m) : m.getItem(0).matrix;
+      x = m.a * b.x + m.c * b.y;
+      y = m.b * b.x + m.d * b.y;
+    } else {
+      m = new Matrix2D();
+      x = y = 0;
+    }
+    if (adjustGOffset && element.tagName.toLowerCase() === "g") {
+      x = y = 0;
+    }
+    (isRootSVG ? svg : parent).appendChild(container);
+    container.setAttribute("transform", "matrix(" + m.a + "," + m.b + "," + m.c + "," + m.d + "," + (m.e + x) + "," + (m.f + y) + ")");
+  } else {
+    x = y = 0;
+    if (_hasOffsetBug) {
+      m = element.offsetParent;
+      b = element;
+      while (b && (b = b.parentNode) && b !== m && b.parentNode) {
+        if ((_win$2.getComputedStyle(b)[_transformProp$1] + "").length > 4) {
+          x = b.offsetLeft;
+          y = b.offsetTop;
+          b = 0;
+        }
+      }
+    }
+    cs = _win$2.getComputedStyle(element);
+    if (cs.position !== "absolute" && cs.position !== "fixed") {
+      m = element.offsetParent;
+      while (parent && parent !== m) {
+        x += parent.scrollLeft || 0;
+        y += parent.scrollTop || 0;
+        parent = parent.parentNode;
+      }
+    }
+    b = container.style;
+    b.top = element.offsetTop - y + "px";
+    b.left = element.offsetLeft - x + "px";
+    b[_transformProp$1] = cs[_transformProp$1];
+    b[_transformOriginProp] = cs[_transformOriginProp];
+    b.position = cs.position === "fixed" ? "fixed" : "absolute";
+    appendToEl.appendChild(container);
+  }
+  return container;
+}, _setMatrix = function _setMatrix2(m, a, b, c, d, e, f) {
+  m.a = a;
+  m.b = b;
+  m.c = c;
+  m.d = d;
+  m.e = e;
+  m.f = f;
+  return m;
+};
+var Matrix2D = /* @__PURE__ */ (function() {
+  function Matrix2D2(a, b, c, d, e, f) {
+    if (a === void 0) {
+      a = 1;
+    }
+    if (b === void 0) {
+      b = 0;
+    }
+    if (c === void 0) {
+      c = 0;
+    }
+    if (d === void 0) {
+      d = 1;
+    }
+    if (e === void 0) {
+      e = 0;
+    }
+    if (f === void 0) {
+      f = 0;
+    }
+    _setMatrix(this, a, b, c, d, e, f);
+  }
+  var _proto = Matrix2D2.prototype;
+  _proto.inverse = function inverse() {
+    var a = this.a, b = this.b, c = this.c, d = this.d, e = this.e, f = this.f, determinant = a * d - b * c || 1e-10;
+    return _setMatrix(this, d / determinant, -b / determinant, -c / determinant, a / determinant, (c * f - d * e) / determinant, -(a * f - b * e) / determinant);
+  };
+  _proto.multiply = function multiply(matrix) {
+    var a = this.a, b = this.b, c = this.c, d = this.d, e = this.e, f = this.f, a2 = matrix.a, b2 = matrix.c, c2 = matrix.b, d2 = matrix.d, e2 = matrix.e, f2 = matrix.f;
+    return _setMatrix(this, a2 * a + c2 * c, a2 * b + c2 * d, b2 * a + d2 * c, b2 * b + d2 * d, e + e2 * a + f2 * c, f + e2 * b + f2 * d);
+  };
+  _proto.clone = function clone() {
+    return new Matrix2D2(this.a, this.b, this.c, this.d, this.e, this.f);
+  };
+  _proto.equals = function equals(matrix) {
+    var a = this.a, b = this.b, c = this.c, d = this.d, e = this.e, f = this.f;
+    return a === matrix.a && b === matrix.b && c === matrix.c && d === matrix.d && e === matrix.e && f === matrix.f;
+  };
+  _proto.apply = function apply(point, decoratee) {
+    if (decoratee === void 0) {
+      decoratee = {};
+    }
+    var x = point.x, y = point.y, a = this.a, b = this.b, c = this.c, d = this.d, e = this.e, f = this.f;
+    decoratee.x = x * a + y * c + e || 0;
+    decoratee.y = x * b + y * d + f || 0;
+    return decoratee;
+  };
+  return Matrix2D2;
+})();
+function getGlobalMatrix(element, inverse, adjustGOffset, includeScrollInFixed) {
+  if (!element || !element.parentNode || (_doc$2 || _setDoc(element)).documentElement === element) {
+    return new Matrix2D();
+  }
+  var zeroScales = _forceNonZeroScale(element), svg = _svgOwner(element), temps = svg ? _svgTemps : _divTemps, container = _placeSiblings(element, adjustGOffset), b1 = temps[0].getBoundingClientRect(), b2 = temps[1].getBoundingClientRect(), b3 = temps[2].getBoundingClientRect(), parent = container.parentNode, isFixed = !includeScrollInFixed && _isFixed(element), m = new Matrix2D((b2.left - b1.left) / 100, (b2.top - b1.top) / 100, (b3.left - b1.left) / 100, (b3.top - b1.top) / 100, b1.left + (isFixed ? 0 : _getDocScrollLeft()), b1.top + (isFixed ? 0 : _getDocScrollTop()));
+  parent.removeChild(container);
+  if (zeroScales) {
+    b1 = zeroScales.length;
+    while (b1--) {
+      b2 = zeroScales[b1];
+      b2.scaleX = b2.scaleY = 0;
+      b2.renderTransform(1, b2);
+    }
+  }
+  return inverse ? m.inverse() : m;
+}
+/*!
+ * MotionPathPlugin 3.13.0
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2025, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license
+ * @author: Jack Doyle, jack@greensock.com
+*/
+var _xProps = "x,translateX,left,marginLeft,xPercent".split(","), _yProps = "y,translateY,top,marginTop,yPercent".split(","), _DEG2RAD = Math.PI / 180, gsap$2, PropTween, _getUnit, _toArray$1, _getStyleSaver, _reverting, _getGSAP$2 = function _getGSAP2() {
+  return gsap$2 || typeof window !== "undefined" && (gsap$2 = window.gsap) && gsap$2.registerPlugin && gsap$2;
+}, _populateSegmentFromArray = function _populateSegmentFromArray2(segment, values, property, mode) {
+  var l = values.length, si = mode === 2 ? 0 : mode, i = 0;
+  for (; i < l; i++) {
+    segment[si] = parseFloat(values[i][property]);
+    mode === 2 && (segment[si + 1] = 0);
+    si += 2;
+  }
+  return segment;
+}, _getPropNum = function _getPropNum2(target, prop, unit) {
+  return parseFloat(target._gsap.get(target, prop, unit || "px")) || 0;
+}, _relativize = function _relativize2(segment) {
+  var x = segment[0], y = segment[1], i;
+  for (i = 2; i < segment.length; i += 2) {
+    x = segment[i] += x;
+    y = segment[i + 1] += y;
+  }
+}, _segmentToRawPath = function _segmentToRawPath2(plugin, segment, target, x, y, slicer, vars, unitX, unitY) {
+  if (vars.type === "cubic") {
+    segment = [segment];
+  } else {
+    vars.fromCurrent !== false && segment.unshift(_getPropNum(target, x, unitX), y ? _getPropNum(target, y, unitY) : 0);
+    vars.relative && _relativize(segment);
+    var pointFunc = y ? pointsToSegment : flatPointsToSegment;
+    segment = [pointFunc(segment, vars.curviness)];
+  }
+  segment = slicer(_align(segment, target, vars));
+  _addDimensionalPropTween(plugin, target, x, segment, "x", unitX);
+  y && _addDimensionalPropTween(plugin, target, y, segment, "y", unitY);
+  return cacheRawPathMeasurements(segment, vars.resolution || (vars.curviness === 0 ? 20 : 12));
+}, _emptyFunc = function _emptyFunc22(v) {
+  return v;
+}, _numExp = /[-+\.]*\d+\.?(?:e-|e\+)?\d*/g, _originToPoint = function _originToPoint2(element, origin, parentMatrix) {
+  var m = getGlobalMatrix(element), x = 0, y = 0, svg;
+  if ((element.tagName + "").toLowerCase() === "svg") {
+    svg = element.viewBox.baseVal;
+    svg.width || (svg = {
+      width: +element.getAttribute("width"),
+      height: +element.getAttribute("height")
+    });
+  } else {
+    svg = origin && element.getBBox && element.getBBox();
+  }
+  if (origin && origin !== "auto") {
+    x = origin.push ? origin[0] * (svg ? svg.width : element.offsetWidth || 0) : origin.x;
+    y = origin.push ? origin[1] * (svg ? svg.height : element.offsetHeight || 0) : origin.y;
+  }
+  return parentMatrix.apply(x || y ? m.apply({
+    x,
+    y
+  }) : {
+    x: m.e,
+    y: m.f
+  });
+}, _getAlignMatrix = function _getAlignMatrix2(fromElement, toElement, fromOrigin, toOrigin) {
+  var parentMatrix = getGlobalMatrix(fromElement.parentNode, true, true), m = parentMatrix.clone().multiply(getGlobalMatrix(toElement)), fromPoint = _originToPoint(fromElement, fromOrigin, parentMatrix), _originToPoint22 = _originToPoint(toElement, toOrigin, parentMatrix), x = _originToPoint22.x, y = _originToPoint22.y, p;
+  m.e = m.f = 0;
+  if (toOrigin === "auto" && toElement.getTotalLength && toElement.tagName.toLowerCase() === "path") {
+    p = toElement.getAttribute("d").match(_numExp) || [];
+    p = m.apply({
+      x: +p[0],
+      y: +p[1]
+    });
+    x += p.x;
+    y += p.y;
+  }
+  if (p) {
+    p = m.apply(toElement.getBBox());
+    x -= p.x;
+    y -= p.y;
+  }
+  m.e = x - fromPoint.x;
+  m.f = y - fromPoint.y;
+  return m;
+}, _align = function _align2(rawPath, target, _ref) {
+  var align = _ref.align, matrix = _ref.matrix, offsetX = _ref.offsetX, offsetY = _ref.offsetY, alignOrigin = _ref.alignOrigin;
+  var x = rawPath[0][0], y = rawPath[0][1], curX = _getPropNum(target, "x"), curY = _getPropNum(target, "y"), alignTarget, m, p;
+  if (!rawPath || !rawPath.length) {
+    return getRawPath("M0,0L0,0");
+  }
+  if (align) {
+    if (align === "self" || (alignTarget = _toArray$1(align)[0] || target) === target) {
+      transformRawPath(rawPath, 1, 0, 0, 1, curX - x, curY - y);
+    } else {
+      if (alignOrigin && alignOrigin[2] !== false) {
+        gsap$2.set(target, {
+          transformOrigin: alignOrigin[0] * 100 + "% " + alignOrigin[1] * 100 + "%"
+        });
+      } else {
+        alignOrigin = [_getPropNum(target, "xPercent") / -100, _getPropNum(target, "yPercent") / -100];
+      }
+      m = _getAlignMatrix(target, alignTarget, alignOrigin, "auto");
+      p = m.apply({
+        x,
+        y
+      });
+      transformRawPath(rawPath, m.a, m.b, m.c, m.d, curX + m.e - (p.x - m.e), curY + m.f - (p.y - m.f));
+    }
+  }
+  if (matrix) {
+    transformRawPath(rawPath, matrix.a, matrix.b, matrix.c, matrix.d, matrix.e, matrix.f);
+  } else if (offsetX || offsetY) {
+    transformRawPath(rawPath, 1, 0, 0, 1, offsetX || 0, offsetY || 0);
+  }
+  return rawPath;
+}, _addDimensionalPropTween = function _addDimensionalPropTween2(plugin, target, property, rawPath, pathProperty, forceUnit) {
+  var cache = target._gsap, harness = cache.harness, alias = harness && harness.aliases && harness.aliases[property], prop = alias && alias.indexOf(",") < 0 ? alias : property, pt = plugin._pt = new PropTween(plugin._pt, target, prop, 0, 0, _emptyFunc, 0, cache.set(target, prop, plugin));
+  pt.u = _getUnit(cache.get(target, prop, forceUnit)) || 0;
+  pt.path = rawPath;
+  pt.pp = pathProperty;
+  plugin._props.push(prop);
+}, _sliceModifier = function _sliceModifier2(start, end) {
+  return function(rawPath) {
+    return start || end !== 1 ? sliceRawPath(rawPath, start, end) : rawPath;
+  };
+};
+var MotionPathPlugin = {
+  version: "3.13.0",
+  name: "motionPath",
+  register: function register(core, Plugin, propTween) {
+    gsap$2 = core;
+    _getUnit = gsap$2.utils.getUnit;
+    _toArray$1 = gsap$2.utils.toArray;
+    _getStyleSaver = gsap$2.core.getStyleSaver;
+    _reverting = gsap$2.core.reverting || function() {
+    };
+    PropTween = propTween;
+  },
+  init: function init4(target, vars, tween) {
+    if (!gsap$2) {
+      console.warn("Please gsap.registerPlugin(MotionPathPlugin)");
+      return false;
+    }
+    if (!(typeof vars === "object" && !vars.style) || !vars.path) {
+      vars = {
+        path: vars
+      };
+    }
+    var rawPaths = [], _vars = vars, path = _vars.path, autoRotate = _vars.autoRotate, unitX = _vars.unitX, unitY = _vars.unitY, x = _vars.x, y = _vars.y, firstObj = path[0], slicer = _sliceModifier(vars.start, "end" in vars ? vars.end : 1), rawPath, p;
+    this.rawPaths = rawPaths;
+    this.target = target;
+    this.tween = tween;
+    this.styles = _getStyleSaver && _getStyleSaver(target, "transform");
+    if (this.rotate = autoRotate || autoRotate === 0) {
+      this.rOffset = parseFloat(autoRotate) || 0;
+      this.radians = !!vars.useRadians;
+      this.rProp = vars.rotation || "rotation";
+      this.rSet = target._gsap.set(target, this.rProp, this);
+      this.ru = _getUnit(target._gsap.get(target, this.rProp)) || 0;
+    }
+    if (Array.isArray(path) && !("closed" in path) && typeof firstObj !== "number") {
+      for (p in firstObj) {
+        if (!x && ~_xProps.indexOf(p)) {
+          x = p;
+        } else if (!y && ~_yProps.indexOf(p)) {
+          y = p;
+        }
+      }
+      if (x && y) {
+        rawPaths.push(_segmentToRawPath(this, _populateSegmentFromArray(_populateSegmentFromArray([], path, x, 0), path, y, 1), target, x, y, slicer, vars, unitX || _getUnit(path[0][x]), unitY || _getUnit(path[0][y])));
+      } else {
+        x = y = 0;
+      }
+      for (p in firstObj) {
+        p !== x && p !== y && rawPaths.push(_segmentToRawPath(this, _populateSegmentFromArray([], path, p, 2), target, p, 0, slicer, vars, _getUnit(path[0][p])));
+      }
+    } else {
+      rawPath = slicer(_align(getRawPath(vars.path), target, vars));
+      cacheRawPathMeasurements(rawPath, vars.resolution);
+      rawPaths.push(rawPath);
+      _addDimensionalPropTween(this, target, vars.x || "x", rawPath, "x", vars.unitX || "px");
+      _addDimensionalPropTween(this, target, vars.y || "y", rawPath, "y", vars.unitY || "px");
+    }
+    tween.vars.immediateRender && this.render(tween.progress(), this);
+  },
+  render: function render3(ratio, data) {
+    var rawPaths = data.rawPaths, i = rawPaths.length, pt = data._pt;
+    if (data.tween._time || !_reverting()) {
+      if (ratio > 1) {
+        ratio = 1;
+      } else if (ratio < 0) {
+        ratio = 0;
+      }
+      while (i--) {
+        getPositionOnPath(rawPaths[i], ratio, !i && data.rotate, rawPaths[i]);
+      }
+      while (pt) {
+        pt.set(pt.t, pt.p, pt.path[pt.pp] + pt.u, pt.d, ratio);
+        pt = pt._next;
+      }
+      data.rotate && data.rSet(data.target, data.rProp, rawPaths[0].angle * (data.radians ? _DEG2RAD : 1) + data.rOffset + data.ru, data, ratio);
+    } else {
+      data.styles.revert();
+    }
+  },
+  getLength: function getLength(path) {
+    return cacheRawPathMeasurements(getRawPath(path)).totalLength;
+  },
+  sliceRawPath,
+  getRawPath,
+  pointsToSegment,
+  stringToRawPath,
+  rawPathToString,
+  transformRawPath,
+  getGlobalMatrix,
+  getPositionOnPath,
+  cacheRawPathMeasurements,
+  convertToPath: function convertToPath$1(targets, swap) {
+    return _toArray$1(targets).map(function(target) {
+      return convertToPath(target, swap !== false);
+    });
+  },
+  convertCoordinates: function convertCoordinates(fromElement, toElement, point) {
+    var m = getGlobalMatrix(toElement, true, true).multiply(getGlobalMatrix(fromElement));
+    return point ? m.apply(point) : m;
+  },
+  getAlignMatrix: _getAlignMatrix,
+  getRelativePosition: function getRelativePosition(fromElement, toElement, fromOrigin, toOrigin) {
+    var m = _getAlignMatrix(fromElement, toElement, fromOrigin, toOrigin);
+    return {
+      x: m.e,
+      y: m.f
+    };
+  },
+  arrayToRawPath: function arrayToRawPath(value, vars) {
+    vars = vars || {};
+    var segment = _populateSegmentFromArray(_populateSegmentFromArray([], value, vars.x || "x", 0), value, vars.y || "y", 1);
+    vars.relative && _relativize(segment);
+    return [vars.type === "cubic" ? segment : pointsToSegment(segment, vars.curviness)];
+  }
+};
+_getGSAP$2() && gsap$2.registerPlugin(MotionPathPlugin);
 function _defineProperties(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
@@ -4230,7 +5445,7 @@ var Observer = /* @__PURE__ */ (function() {
     this.init(vars);
   }
   var _proto = Observer2.prototype;
-  _proto.init = function init4(vars) {
+  _proto.init = function init5(vars) {
     _coreInitted$1 || _initCore(gsap$1) || console.warn("Please gsap.registerPlugin(Observer)");
     ScrollTrigger$1 || _setScrollTrigger();
     var tolerance = vars.tolerance, dragMinimum = vars.dragMinimum, type = vars.type, target = vars.target, lineHeight = vars.lineHeight, debounce = vars.debounce, preventDefault = vars.preventDefault, onStop = vars.onStop, onStopDelay = vars.onStopDelay, ignore = vars.ignore, wheelSpeed = vars.wheelSpeed, event = vars.event, onDragStart = vars.onDragStart, onDragEnd = vars.onDragEnd, onDrag = vars.onDrag, onPress = vars.onPress, onRelease = vars.onRelease, onRight = vars.onRight, onLeft = vars.onLeft, onUp = vars.onUp, onDown = vars.onDown, onChangeX = vars.onChangeX, onChangeY = vars.onChangeY, onChange = vars.onChange, onToggleX = vars.onToggleX, onToggleY = vars.onToggleY, onHover = vars.onHover, onHoverEnd = vars.onHoverEnd, onMove = vars.onMove, ignoreCheck = vars.ignoreCheck, isNormalizer = vars.isNormalizer, onGestureStart = vars.onGestureStart, onGestureEnd = vars.onGestureEnd, onWheel = vars.onWheel, onEnable = vars.onEnable, onDisable = vars.onDisable, onClick = vars.onClick, scrollSpeed = vars.scrollSpeed, capture = vars.capture, allowClicks = vars.allowClicks, lockAxis = vars.lockAxis, onLockAxis = vars.onLockAxis;
@@ -4513,11 +5728,11 @@ _getGSAP$1() && gsap$1.registerPlugin(Observer);
  * @author: Jack Doyle, jack@greensock.com
 */
 var gsap, _coreInitted, _win, _doc, _docEl, _body, _root, _resizeDelay, _toArray, _clamp, _time2, _syncInterval, _refreshing, _pointerIsDown, _transformProp, _i, _prevWidth, _prevHeight, _autoRefresh, _sort, _suppressOverwrites, _ignoreResize, _normalizer, _ignoreMobileResize, _baseScreenHeight, _baseScreenWidth, _fixIOSBug, _context, _scrollRestoration, _div100vh, _100vh, _isReverted, _clampingMax, _limitCallbacks, _startup = 1, _getTime = Date.now, _time1 = _getTime(), _lastScrollTime = 0, _enabled = 0, _parseClamp = function _parseClamp2(value, type, self) {
-  var clamp3 = _isString(value) && (value.substr(0, 6) === "clamp(" || value.indexOf("max") > -1);
+  var clamp3 = _isString3(value) && (value.substr(0, 6) === "clamp(" || value.indexOf("max") > -1);
   self["_" + type + "Clamp"] = clamp3;
   return clamp3 ? value.substr(6, value.length - 7) : value;
 }, _keepClamp = function _keepClamp2(value, clamp3) {
-  return clamp3 && (!_isString(value) || value.substr(0, 6) !== "clamp(") ? "clamp(" + value + ")" : value;
+  return clamp3 && (!_isString3(value) || value.substr(0, 6) !== "clamp(") ? "clamp(" + value + ")" : value;
 }, _rafBugFix = function _rafBugFix2() {
   return _enabled && requestAnimationFrame(_rafBugFix2);
 }, _pointerDownHandler = function _pointerDownHandler2() {
@@ -4526,11 +5741,11 @@ var gsap, _coreInitted, _win, _doc, _docEl, _body, _root, _resizeDelay, _toArray
   return _pointerIsDown = 0;
 }, _passThrough = function _passThrough3(v) {
   return v;
-}, _round = function _round3(value) {
+}, _round3 = function _round4(value) {
   return Math.round(value * 1e5) / 1e5 || 0;
 }, _windowExists = function _windowExists3() {
   return typeof window !== "undefined";
-}, _getGSAP2 = function _getGSAP3() {
+}, _getGSAP3 = function _getGSAP4() {
   return gsap || _windowExists() && (gsap = window.gsap) && gsap.registerPlugin && gsap;
 }, _isViewport2 = function _isViewport3(e) {
   return !!~_root.indexOf(e);
@@ -4562,11 +5777,11 @@ var gsap, _coreInitted, _win, _doc, _docEl, _body, _root, _resizeDelay, _toArray
   for (var i = 0; i < _autoRefresh.length; i += 3) {
     (!events || ~events.indexOf(_autoRefresh[i + 1])) && func(_autoRefresh[i], _autoRefresh[i + 1], _autoRefresh[i + 2]);
   }
-}, _isString = function _isString3(value) {
+}, _isString3 = function _isString4(value) {
   return typeof value === "string";
 }, _isFunction = function _isFunction3(value) {
   return typeof value === "function";
-}, _isNumber = function _isNumber3(value) {
+}, _isNumber3 = function _isNumber4(value) {
   return typeof value === "number";
 }, _isObject = function _isObject3(value) {
   return typeof value === "object";
@@ -4691,7 +5906,7 @@ var gsap, _coreInitted, _win, _doc, _docEl, _body, _root, _resizeDelay, _toArray
   bottom: 1,
   right: 1
 }, _offsetToPx = function _offsetToPx2(value, size) {
-  if (_isString(value)) {
+  if (_isString3(value)) {
     var eqIndex = value.indexOf("="), relative = ~eqIndex ? +(value.charAt(eqIndex - 1) + 1) * parseFloat(value.substr(eqIndex + 1)) : 0;
     if (~eqIndex) {
       value.indexOf("%") > eqIndex && (relative *= size / 100);
@@ -4778,7 +5993,7 @@ var gsap, _coreInitted, _win, _doc, _docEl, _body, _root, _resizeDelay, _toArray
   (force || !_refreshingAll) && _scrollers.forEach(function(obj) {
     return _isFunction(obj) && obj.cacheID++ && (obj.rec = 0);
   });
-  _isString(scrollRestoration) && (_win.history.scrollRestoration = _scrollRestoration = scrollRestoration);
+  _isString3(scrollRestoration) && (_win.history.scrollRestoration = _scrollRestoration = scrollRestoration);
 }, _refreshingAll, _refreshID = 0, _queueRefreshID, _queueRefreshAll = function _queueRefreshAll2() {
   if (_queueRefreshID !== _refreshID) {
     var id = _queueRefreshID = _refreshID;
@@ -4959,13 +6174,13 @@ var gsap, _coreInitted, _win, _doc, _docEl, _body, _root, _resizeDelay, _toArray
   top: 0
 }, _parsePosition = function _parsePosition3(value, trigger, scrollerSize, direction, scroll, marker, markerScroller, self, scrollerBounds, borderWidth, useFixedPosition, scrollerMax, containerAnimation, clampZeroProp) {
   _isFunction(value) && (value = value(self));
-  if (_isString(value) && value.substr(0, 3) === "max") {
+  if (_isString3(value) && value.substr(0, 3) === "max") {
     value = scrollerMax + (value.charAt(4) === "=" ? _offsetToPx("0" + value.substr(3), scrollerSize) : 0);
   }
   var time = containerAnimation ? containerAnimation.time() : 0, p1, p2, element;
   containerAnimation && containerAnimation.seek(0);
   isNaN(value) || (value = +value);
-  if (!_isNumber(value)) {
+  if (!_isNumber3(value)) {
     _isFunction(trigger) && (trigger = trigger(self));
     var offsets = (value || "0").split(" "), bounds, localOffset, globalOffset, display;
     element = _getTarget(trigger, self) || _body;
@@ -5085,14 +6300,14 @@ var ScrollTrigger = /* @__PURE__ */ (function() {
     this.init(vars, animation);
   }
   var _proto = ScrollTrigger2.prototype;
-  _proto.init = function init4(vars, animation) {
+  _proto.init = function init5(vars, animation) {
     this.progress = this.start = 0;
     this.vars && this.kill(true, true);
     if (!_enabled) {
       this.update = this.refresh = this.kill = _passThrough;
       return;
     }
-    vars = _setDefaults(_isString(vars) || _isNumber(vars) || vars.nodeType ? {
+    vars = _setDefaults(_isString3(vars) || _isNumber3(vars) || vars.nodeType ? {
       trigger: vars
     } : vars, _defaults);
     var _vars = vars, onUpdate = _vars.onUpdate, toggleClass = _vars.toggleClass, id = _vars.id, onToggle = _vars.onToggle, onRefresh = _vars.onRefresh, scrub = _vars.scrub, trigger = _vars.trigger, pin = _vars.pin, pinSpacing = _vars.pinSpacing, invalidateOnRefresh = _vars.invalidateOnRefresh, anticipatePin = _vars.anticipatePin, onScrubComplete = _vars.onScrubComplete, onSnapComplete = _vars.onSnapComplete, once = _vars.once, snap3 = _vars.snap, pinReparent = _vars.pinReparent, pinSpacer = _vars.pinSpacer, containerAnimation = _vars.containerAnimation, fastScrollEnd = _vars.fastScrollEnd, preventOverlaps = _vars.preventOverlaps, direction = vars.horizontal || vars.containerAnimation && vars.horizontal !== false ? _horizontal : _vertical, isToggle = !scrub && scrub !== 0, scroller = _getTarget(vars.scroller || _win), scrollerCache = gsap.core.getCache(scroller), isViewport = _isViewport2(scroller), useFixedPosition = ("pinType" in vars ? vars.pinType : _getProxyProp(scroller, "pinType") || isViewport && "fixed") === "fixed", callbacks = [vars.onEnter, vars.onLeave, vars.onEnterBack, vars.onLeaveBack], toggleActions = isToggle && vars.toggleActions.split(" "), markers = "markers" in vars ? vars.markers : _defaults.markers, borderWidth = isViewport ? 0 : parseFloat(_getComputedStyle(scroller)["border" + direction.p2 + _Width]) || 0, self = this, onRefreshInit = vars.onRefreshInit && function() {
@@ -5116,7 +6331,7 @@ var ScrollTrigger = /* @__PURE__ */ (function() {
     };
     self.tweenTo = tweenTo = scrollerCache.tweenScroll[direction.p];
     self.scrubDuration = function(value) {
-      scrubSmooth = _isNumber(value) && value;
+      scrubSmooth = _isNumber3(value) && value;
       if (!scrubSmooth) {
         scrubTween && scrubTween.progress(1).kill();
         scrubTween = 0;
@@ -5167,7 +6382,7 @@ var ScrollTrigger = /* @__PURE__ */ (function() {
         if ((refreshedRecently || Math.abs(self.getVelocity()) < 10) && !tween && !_pointerIsDown && lastSnap !== scroll) {
           var progress = (scroll - start) / change, totalProgress = animation && !isToggle ? animation.totalProgress() : progress, velocity = refreshedRecently ? 0 : (totalProgress - snap22) / (_getTime() - _time2) * 1e3 || 0, change1 = gsap.utils.clamp(-progress, 1 - progress, _abs(velocity / 2) * velocity / 0.185), naturalEnd = progress + (snap3.inertia === false ? 0 : change1), endValue, endScroll, _snap = snap3, onStart = _snap.onStart, _onInterrupt = _snap.onInterrupt, _onComplete = _snap.onComplete;
           endValue = snapFunc(naturalEnd, self);
-          _isNumber(endValue) || (endValue = naturalEnd);
+          _isNumber3(endValue) || (endValue = naturalEnd);
           endScroll = Math.max(0, Math.round(start + endValue * change));
           if (scroll <= end && scroll >= start && endScroll !== scroll) {
             if (tween && !tween._initted && tween.data <= _abs(endScroll - scroll)) {
@@ -5207,7 +6422,7 @@ var ScrollTrigger = /* @__PURE__ */ (function() {
     customRevertReturn = trigger && trigger._gsap && trigger._gsap.stRevert;
     customRevertReturn && (customRevertReturn = customRevertReturn(self));
     pin = pin === true ? trigger : _getTarget(pin);
-    _isString(toggleClass) && (toggleClass = {
+    _isString3(toggleClass) && (toggleClass = {
       targets: trigger,
       className: toggleClass
     });
@@ -5349,12 +6564,12 @@ var ScrollTrigger = /* @__PURE__ */ (function() {
       parsedStart = _parseClamp(parsedStart, "start", self);
       start = _parsePosition(parsedStart, trigger, size, direction, scrollFunc(), markerStart, markerStartTrigger, self, scrollerBounds, borderWidth, useFixedPosition, max, containerAnimation, self._startClamp && "_startClamp") || (pin ? -1e-3 : 0);
       _isFunction(parsedEnd) && (parsedEnd = parsedEnd(self));
-      if (_isString(parsedEnd) && !parsedEnd.indexOf("+=")) {
+      if (_isString3(parsedEnd) && !parsedEnd.indexOf("+=")) {
         if (~parsedEnd.indexOf(" ")) {
-          parsedEnd = (_isString(parsedStart) ? parsedStart.split(" ")[0] : "") + parsedEnd;
+          parsedEnd = (_isString3(parsedStart) ? parsedStart.split(" ")[0] : "") + parsedEnd;
         } else {
           offset2 = _offsetToPx(parsedEnd.substr(2), size);
-          parsedEnd = _isString(parsedStart) ? parsedStart : (containerAnimation ? gsap.utils.mapRange(0, containerAnimation.duration(), containerAnimation.scrollTrigger.start, containerAnimation.scrollTrigger.end, start) : start) + offset2;
+          parsedEnd = _isString3(parsedStart) ? parsedStart : (containerAnimation ? gsap.utils.mapRange(0, containerAnimation.duration(), containerAnimation.scrollTrigger.start, containerAnimation.scrollTrigger.end, start) : start) + offset2;
           parsedEndTrigger = trigger;
         }
       }
@@ -5527,7 +6742,7 @@ var ScrollTrigger = /* @__PURE__ */ (function() {
     };
     self.getTrailing = function(name) {
       var i = _triggers.indexOf(self), a = self.direction > 0 ? _triggers.slice(0, i).reverse() : _triggers.slice(i + 1);
-      return (_isString(name) ? a.filter(function(t) {
+      return (_isString3(name) ? a.filter(function(t) {
         return t.vars.preventOverlaps === name;
       }) : a).filter(function(t) {
         return self.direction > 0 ? t.end <= start : t.start >= end;
@@ -5586,7 +6801,7 @@ var ScrollTrigger = /* @__PURE__ */ (function() {
         if (pin) {
           reset && pinSpacing && (spacer.style[pinSpacing + direction.os2] = spacingStart);
           if (!useFixedPosition) {
-            pinSetter(_round(pinStart + pinChange * clipped));
+            pinSetter(_round3(pinStart + pinChange * clipped));
           } else if (stateChanged) {
             isAtMax = !reset && clipped > prevProgress2 && end + 1 > scroll && scroll + 1 >= _maxScroll(scroller, direction);
             if (pinReparent) {
@@ -5630,7 +6845,7 @@ var ScrollTrigger = /* @__PURE__ */ (function() {
               callbacks[toggleState] && _callback(self, callbacks[toggleState]);
             }
           }
-          if (fastScrollEnd && !isActive && Math.abs(self.getVelocity()) > (_isNumber(fastScrollEnd) ? fastScrollEnd : 2500)) {
+          if (fastScrollEnd && !isActive && Math.abs(self.getVelocity()) > (_isNumber3(fastScrollEnd) ? fastScrollEnd : 2500)) {
             _endAnimation(self.callbackAnimation);
             scrubTween ? scrubTween.progress(1) : _endAnimation(animation, action === "reverse" ? 1 : !clipped, 1);
           }
@@ -5756,9 +6971,9 @@ var ScrollTrigger = /* @__PURE__ */ (function() {
     }
     pin && _queueRefreshAll();
   };
-  ScrollTrigger2.register = function register(core) {
+  ScrollTrigger2.register = function register2(core) {
     if (!_coreInitted) {
-      gsap = core || _getGSAP2();
+      gsap = core || _getGSAP3();
       _windowExists() && window.document && ScrollTrigger2.enable();
       _coreInitted = _enabled;
     }
@@ -5916,11 +7131,11 @@ var ScrollTrigger = /* @__PURE__ */ (function() {
     });
   };
   ScrollTrigger2.isInViewport = function isInViewport(element, ratio, horizontal) {
-    var bounds = (_isString(element) ? _getTarget(element) : element).getBoundingClientRect(), offset = bounds[horizontal ? _width : _height] * ratio || 0;
+    var bounds = (_isString3(element) ? _getTarget(element) : element).getBoundingClientRect(), offset = bounds[horizontal ? _width : _height] * ratio || 0;
     return horizontal ? bounds.right - offset > 0 && bounds.left + offset < _win.innerWidth : bounds.bottom - offset > 0 && bounds.top + offset < _win.innerHeight;
   };
   ScrollTrigger2.positionInViewport = function positionInViewport(element, referencePoint, horizontal) {
-    _isString(element) && (element = _getTarget(element));
+    _isString3(element) && (element = _getTarget(element));
     var bounds = element.getBoundingClientRect(), size = bounds[horizontal ? _width : _height], offset = referencePoint == null ? size / 2 : referencePoint in _keywords ? _keywords[referencePoint] * size : ~referencePoint.indexOf("%") ? parseFloat(referencePoint) * size / 100 : parseFloat(referencePoint) || 0;
     return horizontal ? (bounds.left + offset) / _win.innerWidth : (bounds.top + offset) / _win.innerHeight;
   };
@@ -6089,16 +7304,16 @@ var _clampScrollAndGetDurationMultiplier = function _clampScrollAndGetDurationMu
     normalizeScrollX && (scrollClampX = _clamp(0, _maxScroll(target, _horizontal)));
     lastRefreshID = _refreshID;
   }, removeContentOffset = function removeContentOffset2() {
-    content._gsap.y = _round(parseFloat(content._gsap.y) + scrollFuncY.offset) + "px";
+    content._gsap.y = _round3(parseFloat(content._gsap.y) + scrollFuncY.offset) + "px";
     content.style.transform = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, " + parseFloat(content._gsap.y) + ", 0, 1)";
     scrollFuncY.offset = scrollFuncY.cacheID = 0;
   }, ignoreDrag = function ignoreDrag2() {
     if (skipTouchMove) {
       requestAnimationFrame(resumeTouchMove);
-      var offset = _round(self.deltaY / 2), scroll = scrollClampY(scrollFuncY.v - offset);
+      var offset = _round3(self.deltaY / 2), scroll = scrollClampY(scrollFuncY.v - offset);
       if (content && scroll !== scrollFuncY.v + scrollFuncY.offset) {
         scrollFuncY.offset = scroll - scrollFuncY.v;
-        var y = _round((parseFloat(content && content._gsap.y) || 0) - scrollFuncY.offset);
+        var y = _round3((parseFloat(content && content._gsap.y) || 0) - scrollFuncY.offset);
         content.style.transform = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, " + y + ", 0, 1)";
         content._gsap.y = y + "px";
         scrollFuncY.cacheID = _scrollers.cache;
@@ -6123,7 +7338,7 @@ var _clampScrollAndGetDurationMultiplier = function _clampScrollAndGetDurationMu
   vars.onPress = function() {
     skipTouchMove = false;
     var prevScale = scale;
-    scale = _round((_win.visualViewport && _win.visualViewport.scale || 1) / initialScale);
+    scale = _round3((_win.visualViewport && _win.visualViewport.scale || 1) / initialScale);
     tween.pause();
     prevScale !== scale && _allowNativePanning(target, scale > 1.01 ? true : normalizeScrollX ? false : "x");
     startScrollX = scrollFuncX();
@@ -6264,10 +7479,10 @@ ScrollTrigger.core = {
     }
   }
 };
-_getGSAP2() && gsap.registerPlugin(ScrollTrigger);
-var gsapWithCSS = gsap$2.registerPlugin(CSSPlugin) || gsap$2;
+_getGSAP3() && gsap.registerPlugin(ScrollTrigger);
+var gsapWithCSS = gsap$3.registerPlugin(CSSPlugin) || gsap$3;
 gsapWithCSS.core.Tween;
-gsapWithCSS.registerPlugin(ScrollTrigger);
+gsapWithCSS.registerPlugin(ScrollTrigger, MotionPathPlugin);
 addLoadedAttr();
 document.addEventListener("DOMContentLoaded", () => {
   ScrollTrigger.refresh();
@@ -6276,35 +7491,141 @@ document.addEventListener("DOMContentLoaded", () => {
   const deerParent = document.querySelector(".holiday-gifts__picture");
   const deerImg = document.querySelector(".holiday-gifts__picture img");
   const heartsSection = document.querySelector(".holiday-hearts");
+  const heartsContainer = document.querySelector(".holiday-hearts__container");
   const svgGerland = document.querySelector(".holiday-hearts__gerland");
+  const heartsPicture = document.querySelector(".holiday-hearts__picture");
+  const pathHeartsPicture = heartsPicture?.querySelector("path");
+  const sliderHoliday = document.querySelector(".slider-holiday");
   function createGsapAnim() {
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    blockEl.forEach((section) => {
-      gsapWithCSS.to(section, {
-        yPercent: 15,
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "bottom bottom",
-          end: "bottom top",
-          scrub: 1
+    if (blockEl.length > 0) {
+      blockEl.forEach((section) => {
+        gsapWithCSS.to(section, {
+          yPercent: 15,
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "bottom bottom",
+            end: "bottom top",
+            scrub: 1
+          }
+        });
+      });
+    }
+    if (watchEl.length > 0) {
+      watchEl.forEach((element) => {
+        ScrollTrigger.create({
+          trigger: element,
+          start: "top 80%",
+          onEnter: () => element.classList.add("--view"),
+          onLeaveBack: () => element.classList.remove("--view")
+        });
+      });
+    }
+    if (heartsSection) {
+      ScrollTrigger.create({
+        trigger: heartsSection,
+        start: "top 90%",
+        onEnter: () => heartsSection.classList.add("--view"),
+        onLeaveBack: () => heartsSection.classList.remove("--view")
+      });
+      ScrollTrigger.create({
+        trigger: heartsContainer,
+        start: "center 60%",
+        onEnter: () => heartsContainer.classList.add("--view")
+      });
+    }
+    if (heartsPicture && pathHeartsPicture) {
+      const length = pathHeartsPicture.getTotalLength();
+      pathHeartsPicture.style.strokeDasharray = length;
+      pathHeartsPicture.style.strokeDashoffset = length;
+      ScrollTrigger.create({
+        trigger: heartsPicture,
+        start: "top center",
+        onEnter: () => {
+          gsapWithCSS.to(pathHeartsPicture, {
+            strokeDashoffset: 0,
+            duration: 1.5
+          });
+        },
+        onLeaveBack: () => {
+          gsapWithCSS.to(pathHeartsPicture, {
+            strokeDashoffset: length,
+            duration: 1.5
+          });
         }
       });
-    });
-    watchEl.forEach((element) => {
-      ScrollTrigger.create({
-        trigger: element,
-        start: "top 80%",
-        onEnter: () => element.classList.add("--view"),
-        onLeaveBack: () => element.classList.remove("--view")
+    }
+    const candies = [
+      { el: ".candy-1", path: "#path-1" },
+      { el: ".candy-2", path: "#path-2" },
+      { el: ".candy-3", path: "#path-3" },
+      { el: ".candy-4", path: "#path-4" },
+      { el: ".candy-5", path: "#path-5" }
+    ];
+    if (candies.length > 0) {
+      candies.forEach((candy, index) => {
+        const delay = index * 0.15;
+        const el = document.querySelector(candy.el);
+        const tl = gsapWithCSS.timeline({ paused: true });
+        tl.to(el, {
+          opacity: 1,
+          duration: 0.5
+        }, 0);
+        tl.fromTo(
+          el,
+          {
+            motionPath: {
+              path: candy.path,
+              align: candy.path,
+              alignOrigin: [0.5, 0.5],
+              start: 1,
+              end: 1
+            }
+          },
+          {
+            duration: 2.2,
+            motionPath: {
+              path: candy.path,
+              align: candy.path,
+              autoRotate: true,
+              alignOrigin: [0.5, 0.5],
+              start: 1,
+              end: 0
+            }
+          },
+          0
+        );
+        ScrollTrigger.create({
+          trigger: heartsPicture,
+          start: "top 80%",
+          onEnter: () => {
+            tl.delay(delay).play();
+          },
+          onLeaveBack: () => {
+            tl.pause(0);
+            gsapWithCSS.set(el, {
+              opacity: 0,
+              motionPath: {
+                path: candy.path,
+                align: candy.path,
+                alignOrigin: [0.5, 0.5],
+                start: 1,
+                end: 1
+              }
+            });
+          }
+        });
       });
-    });
-    ScrollTrigger.create({
-      trigger: heartsSection,
-      start: "top 90%",
-      onEnter: () => heartsSection.classList.add("--view"),
-      onLeaveBack: () => heartsSection.classList.remove("--view")
-    });
+    }
+    if (sliderHoliday) {
+      ScrollTrigger.create({
+        trigger: sliderHoliday,
+        start: "top 95%",
+        onEnter: () => sliderHoliday.classList.add("--view"),
+        onLeaveBack: () => sliderHoliday.classList.remove("--view")
+      });
+    }
     gsapWithCSS.set([deerImg], { clearProps: "all" });
     let mm = gsapWithCSS.matchMedia();
     mm.add({
@@ -6347,48 +7668,51 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
       if (min820) {
-        gsapWithCSS.to(deerParent, {
-          opacity: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: deerParent,
-            start: "top center",
-            end: " bottom 70%",
-            scrub: 2
-          }
-        });
-        gsapWithCSS.to(deerImg, {
-          xPercent: -180,
-          // yPercent: 70,
-          scrollTrigger: {
-            trigger: deerParent,
-            start: "top center",
-            end: "bottom top",
-            scrub: 2
-          }
-        });
+        if (deerParent && deerImg) {
+          gsapWithCSS.to(deerParent, {
+            opacity: 1,
+            scrollTrigger: {
+              trigger: deerParent,
+              start: "top center",
+              end: " bottom 70%",
+              scrub: 2
+            }
+          });
+          gsapWithCSS.to(deerImg, {
+            xPercent: -180,
+            // yPercent: 70,
+            scrollTrigger: {
+              trigger: deerParent,
+              start: "top center",
+              end: "bottom top",
+              scrub: 2
+            }
+          });
+        }
       }
       if (max820) {
-        gsapWithCSS.to(deerParent, {
-          opacity: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: deerParent,
-            start: "top 80%",
-            end: " bottom 30%",
-            scrub: 2
-          }
-        });
-        gsapWithCSS.to(deerImg, {
-          xPercent: -100,
-          // yPercent: 30,
-          scrollTrigger: {
-            trigger: deerParent,
-            start: "top 80%",
-            end: "bottom 40%",
-            scrub: 2
-          }
-        });
+        if (deerParent && deerImg) {
+          gsapWithCSS.to(deerParent, {
+            opacity: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: deerParent,
+              start: "top 80%",
+              end: " bottom 30%",
+              scrub: 2
+            }
+          });
+          gsapWithCSS.to(deerImg, {
+            xPercent: -100,
+            // yPercent: 30,
+            scrollTrigger: {
+              trigger: deerParent,
+              start: "top 80%",
+              end: "bottom 40%",
+              scrub: 2
+            }
+          });
+        }
       }
     });
   }

@@ -307,6 +307,12 @@
         "start": 1758716885156,
         "end": 1758729289405,
         "type": "build"
+      },
+      {
+        "date": "25.09.2025",
+        "start": 1758787786265,
+        "end": 1758811429628,
+        "type": "build"
       }
     ],
     "files": [
@@ -368,7 +374,12 @@
       "cloud-3.png",
       "star-glow.png",
       "star-glow.svg",
-      "_some.html"
+      "_some.html",
+      "candy-5.png",
+      "candy-4.png",
+      "candy-3.png",
+      "candy-2.png",
+      "candy-1.png"
     ]
   }
 }

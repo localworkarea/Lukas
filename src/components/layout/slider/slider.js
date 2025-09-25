@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Navigation, EffectFade, Pagination } from 'swiper/modules';
 /*
 Navigation, Pagination, Autoplay, 
 EffectFade, Lazy, Manipulation
@@ -37,6 +37,45 @@ function initSliders() {
 					slidesPerView: 3,
 				},
 			},
+			// Події
+			on: {
+
+			}
+		});
+	}
+	if (document.querySelector('.slider-holiday__slider')) { 
+		new Swiper('.slider-holiday__slider', { 
+			modules: [Navigation, EffectFade, Pagination],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 0,
+			speed: 500,
+
+			effect: 'fade',
+		  fadeEffect: {
+		    crossFade: true
+		  },pagination: {
+			el: '.slider-holiday__slider .swiper-pagination',
+				clickable: true,
+			},
+			loop: true,
+			navigation: {
+				prevEl: '.slider-holiday__slider .swiper-button-prev',
+				nextEl: '.slider-holiday__slider .swiper-button-next',
+			},
+			// Брейкпоінти
+			// breakpoints: {
+			// 	320: {
+			// 		slidesPerView: 1,
+			// 	},
+			// 	768: {
+			// 		slidesPerView: 2,
+			// 	},
+			// 	992: {
+			// 		slidesPerView: 3,
+			// 	},
+			// },
 			// Події
 			on: {
 

@@ -2,7 +2,7 @@ import { addTouchAttr, addLoadedAttr, isMobile, FLS } from "@js/common/functions
 
 import { gsap, ScrollTrigger, Draggable, MotionPathPlugin } from "gsap/all";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 addLoadedAttr();
 
@@ -19,10 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const deerImg = document.querySelector('.holiday-gifts__picture img');
   
   const heartsSection = document.querySelector('.holiday-hearts');
+  const heartsContainer = document.querySelector('.holiday-hearts__container');
 
   const svgGerland = document.querySelector(".holiday-hearts__gerland");
+  const heartsPicture = document.querySelector(".holiday-hearts__picture");
+  const pathHeartsPicture = heartsPicture?.querySelector('path');
   
-  
+  const sliderHoliday = document.querySelector(".slider-holiday");
   
 	// фукнция для создания анимации
 	function createGsapAnim() {
@@ -30,36 +33,148 @@ document.addEventListener("DOMContentLoaded", () => {
     // удаляем тригеры после срабатывания фунции (поворота экрана...)
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     
-    blockEl.forEach((section) => {
-      gsap.to(section, {
-        yPercent: 15,
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "bottom bottom",  
-          end: "bottom top",  
-          scrub: 1
+    if (blockEl.length > 0) {
+      blockEl.forEach((section) => {
+        gsap.to(section, {
+          yPercent: 15,
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "bottom bottom",  
+            end: "bottom top",  
+            scrub: 1
+          }
+        });
+      });
+    }
+    
+    if (watchEl.length > 0) {
+      watchEl.forEach((element) => {
+        ScrollTrigger.create({
+          trigger: element,
+          start: "top 80%", 
+          onEnter: () => element.classList.add('--view'),
+          onLeaveBack: () => element.classList.remove('--view'),
+        });
+      });
+    }
+    
+    if (heartsSection) {
+      ScrollTrigger.create({
+        trigger: heartsSection,
+        start: "top 90%", 
+        onEnter: () => heartsSection.classList.add('--view'),
+        onLeaveBack: () => heartsSection.classList.remove('--view'),
+      });
+      ScrollTrigger.create({
+        trigger: heartsContainer,
+        start: "center 60%", 
+        onEnter: () => heartsContainer.classList.add('--view'),
+      });
+    }
+    
+    if (heartsPicture && pathHeartsPicture) {
+      const length = pathHeartsPicture.getTotalLength();
+    
+      pathHeartsPicture.style.strokeDasharray = length;
+      pathHeartsPicture.style.strokeDashoffset = length;
+    
+      ScrollTrigger.create({
+        trigger: heartsPicture,
+        start: "top center",
+        onEnter: () => {
+          gsap.to(pathHeartsPicture, {
+            strokeDashoffset: 0,
+            duration: 1.5,
+          });
+        },
+        onLeaveBack: () => {
+          gsap.to(pathHeartsPicture, {
+            strokeDashoffset: length,
+            duration: 1.5,
+          });
         }
       });
-    });
-    
-    watchEl.forEach((element) => {
-      ScrollTrigger.create({
-        trigger: element,
-        start: "top 80%", 
-        onEnter: () => element.classList.add('--view'),
-        onLeaveBack: () => element.classList.remove('--view'),
+    }
+
+    // Массив конфет и путей
+    const candies = [
+      { el: '.candy-1', path: '#path-1' },
+      { el: '.candy-2', path: '#path-2' },
+      { el: '.candy-3', path: '#path-3' },
+      { el: '.candy-4', path: '#path-4' },
+      { el: '.candy-5', path: '#path-5' },
+    ];
+
+    if (candies.length > 0) {
+      candies.forEach((candy, index) => {
+        const delay = index * 0.15;
+        const el = document.querySelector(candy.el);
+      
+        const tl = gsap.timeline({ paused: true });
+      
+        // Появление
+        tl.to(el, {
+          opacity: 1,
+          duration: 0.5,
+        }, 0);
+      
+        // Движение
+        tl.fromTo(el,
+          {
+            motionPath: {
+              path: candy.path,
+              align: candy.path,
+              alignOrigin: [0.5, 0.5],
+              start: 1,
+              end: 1
+            }
+          },
+          {
+            duration: 2.2,
+            motionPath: {
+              path: candy.path,
+              align: candy.path,
+              autoRotate: true,
+              alignOrigin: [0.5, 0.5],
+              start: 1,
+              end: 0
+            }
+          }, 0
+        );
+      
+        ScrollTrigger.create({
+          trigger: heartsPicture,
+          start: "top 80%",
+          onEnter: () => {
+            tl.delay(delay).play();
+          },
+          onLeaveBack: () => {
+            tl.pause(0); // останавливаем timeline и возвращаем в начало
+            gsap.set(el, {
+              opacity: 0,
+              motionPath: {
+                path: candy.path,
+                align: candy.path,
+                alignOrigin: [0.5, 0.5],
+                start: 1,
+                end: 1
+              }
+            });
+          }
+        });
       });
-    });
-    
-    
-    ScrollTrigger.create({
-      trigger: heartsSection,
-      start: "top 90%", 
-      onEnter: () => heartsSection.classList.add('--view'),
-      onLeaveBack: () => heartsSection.classList.remove('--view'),
-    });
-    
+    }
+
+    if (sliderHoliday) {
+      ScrollTrigger.create({
+        trigger: sliderHoliday,
+        start: "top 95%", 
+        onEnter: () => sliderHoliday.classList.add('--view'),
+        onLeaveBack: () => sliderHoliday.classList.remove('--view'),
+      });
+    }
+
 
 
 
@@ -121,28 +236,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
       
       if (min820) {
-        
-        gsap.to(deerParent, {
-          opacity: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: deerParent,
-            start: "top center",
-            end: " bottom 70%",
-            scrub: 2,
-          }
-        });
-        
-        gsap.to(deerImg, {
-          xPercent: -180,
-          // yPercent: 70,
-          scrollTrigger: {
-            trigger: deerParent,
-            start: 'top center',
-            end: 'bottom top',
-            scrub: 2
-          }
-        });
+        if (deerParent && deerImg) {
+          gsap.to(deerParent, {
+            opacity: 1,
+            scrollTrigger: {
+              trigger: deerParent,
+              start: "top center",
+              end: " bottom 70%",
+              scrub: 2,
+            }
+          });
+          
+          gsap.to(deerImg, {
+            xPercent: -180,
+            // yPercent: 70,
+            scrollTrigger: {
+              trigger: deerParent,
+              start: 'top center',
+              end: 'bottom top',
+              scrub: 2
+            }
+          });
+        }
 
       }
 
@@ -150,29 +265,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
       
       if (max820) {
-
-       gsap.to(deerParent, {
-          opacity: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: deerParent,
-            start: "top 80%",
-            end: " bottom 30%",
-            scrub: 2,
-          }
-        });
- 
-
-        gsap.to(deerImg, {
-          xPercent: -100,
-          // yPercent: 30,
-          scrollTrigger: {
-            trigger: deerParent,
-            start: 'top 80%',
-            end: 'bottom 40%',
-            scrub: 2
-          }
-        });
+        if (deerParent && deerImg) {
+          gsap.to(deerParent, {
+             opacity: 1,
+             ease: "none",
+             scrollTrigger: {
+               trigger: deerParent,
+               start: "top 80%",
+               end: " bottom 30%",
+               scrub: 2,
+             }
+           });
+    
+   
+           gsap.to(deerImg, {
+             xPercent: -100,
+             // yPercent: 30,
+             scrollTrigger: {
+               trigger: deerParent,
+               start: 'top 80%',
+               end: 'bottom 40%',
+               scrub: 2
+             }
+           });
+        }
         
       }
 
