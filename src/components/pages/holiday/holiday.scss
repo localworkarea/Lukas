@@ -1,6 +1,7 @@
 .page--holiday {
   color: var(--white);
-  background-color: var(--red);
+  // background-color: var(--red);
+  background-color: var(--gray-bg);
 }
 
 [data-stars] {
@@ -106,19 +107,13 @@
   @include adaptiveValue("margin-top", -75, -30);
 }
 
-%bgGradient {
-  background:
-    url("@img/holiday/hero/light.png") no-repeat center / contain,
-    radial-gradient(65.39% 65.39% at 52.15% 70.03%, #ff0006 0%, #a6001e 100%);
-}
-
-
-%bgRepeat {
-  position: relative;
-  width: 100%;
-  background-position: 50% 100%;
-  background-size: contain;
-  background-repeat: repeat-x;
+%firstAnim {
+  opacity: 0;
+  [data-fls-loaded] & {
+    opacity: 1;
+    transform: translate(0,0%);
+    transition: opacity .65s linear 0s, transform .65s ease;
+  }
 }
 
 .holiday-hero {
@@ -147,8 +142,9 @@
   }
 
   // .holiday-hero__body
-  &__body {}
-
+  &__body {
+  }
+  
   // .holiday-hero__title
   &__title {
     @include adaptiveValue("font-size", 37, 24, 0, 768.98, 480.98);
@@ -158,7 +154,11 @@
     line-height: 1.18;
     text-align: center;
     margin-bottom: 11px;
-
+    
+    @extend %firstAnim;
+    [data-fls-loaded] & {
+      transition-delay: 2s;
+    }
     @media (max-width:toEm(396.98)) {
       font-size: 6vw !important;
     }
@@ -176,6 +176,11 @@
     width: 100%;
     max-width: 630px;
     margin-inline: auto;
+
+     @extend %firstAnim;
+    [data-fls-loaded] & {
+      transition-delay: 2.3s;
+    }
   }
 
   // .holiday-hero__item
@@ -217,21 +222,33 @@
     min-width: 889px;
     left: 50%;
     transform: translate(-50%, 0);
-    @include adaptiveValue("margin-top", -60, -30);
+    margin-top: -25px;
+    // @include adaptiveValue("margin-top", -60, -30);
   }
 
   // .holiday-hero__moon
   &__moon {
     position: relative;
     z-index: 0;
+    top: -15px;
+    @media (min-width:toEm($mobileSmall)){
+      top: -40px;
+    }
 
+    
     img {
       display: block;
       margin-inline: auto;
       @include adaptiveValue("width", 368, 228, 0, 1440.98, 480.98);
+      @extend %firstAnim;
+      [data-fls-loaded] & {
+        transition-duration: 1s;
+        transition-delay: .85s;
+      }
     }
   }
 
+  
   // .holiday-hero__santa
   &__santa {
     position: absolute;
@@ -242,10 +259,27 @@
     z-index: 4;
     max-width: 900px;
     margin-inline: auto;
-
-    img {
-      @include adaptiveValue("width", 161, 99);
-    }
+    
+  }
+  
+  // .holiday-hero__img
+  &__img {
+    position: absolute;
+    opacity: 0;
+     pointer-events: none;
+    will-change: transform, opacity;
+    @include adaptiveValue("width", 161, 99);
+  }
+  // .holiday-hero__path
+  &__path {
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    transform: translate(-48%, 50%) rotate(0deg);
+    width: 100%;
+    height: auto;
+    max-width: 866px;
+    opacity: 0;
   }
 
   // .holiday-hero__bgs-wr
@@ -257,50 +291,62 @@
   // .holiday-hero__bg
   &__bg {
     @extend %bgRepeat;
-    // position: relative;
-    // width: 100%;
-    // background-position: 50% 100%;
-    // background-size:contain;
-    // background-repeat:repeat-x;
   }
 
   // .holiday-hero__bg--1
   &__bg--1 {
     z-index: 1;
-    // margin-top: -231px;
-    background-image: url("@img/holiday/hero/mountains-mb.png");
+    @include adaptiveValue("margin-top", -231, -143);
+    @include adaptiveValue("height", 415, 256);
 
+    transform: translate(0,50%);
+    @extend %firstAnim;
+    [data-fls-loaded] & {
+      transition-delay: 0.5s;
+    }
+    
+    background-image: url("@img/holiday/hero/mountains-mb.png");
     @media (min-width:toEm($mobileSmall)) {
       background-image: url("@img/holiday/hero/mountains.png");
     }
-
-    // height: 415px;
-    @include adaptiveValue("margin-top", -231, -143);
-    @include adaptiveValue("height", 415, 256);
+    
   }
-
+  
   // .holiday-hero__bg--2
   &__bg--2 {
     position: absolute;
     bottom: 0;
     z-index: 3;
     background-image: url("@img/holiday/hero/trees-mb.png");
-    // height: 439px;
     height: 85%;
-
+    
+    transform: translate(0,20%);
+    @extend %firstAnim;
+    [data-fls-loaded] & {
+      transition-duration: .8s;
+      transition-delay: 1.3s;
+    }
+    
     @media (min-width:toEm($mobileSmall)) {
       background-image: url("@img/holiday/hero/trees.png");
     }
   }
-
+  
   // .holiday-hero__bg--3
   &__bg--3 {
     position: absolute;
     bottom: 0;
     z-index: 5;
     background-image: url("@img/holiday/hero/houses-mb.png");
-    // height: 346px;
     height: 67%;
+    
+    transform: translate(0,10%);
+     @extend %firstAnim;
+     [data-fls-loaded] & {
+      transition-duration: .8s;
+      transition-timing-function: ease;
+      transition-delay: 1.8s;
+    }
 
     @media (min-width:toEm($mobileSmall)) {
       background-image: url("@img/holiday/hero/houses.png");
@@ -314,7 +360,7 @@
 
     [data-fls-loaded] & {
       opacity: 1;
-      transition: opacity 1s ease 0s;
+      transition: opacity 1s linear 0s;
     }
   }
 
@@ -349,7 +395,10 @@
     z-index: 2;
     max-width: 420px;
 
+    
+    opacity: 0;
     @media (min-width:toEm(820.98)) {
+      transform: translate(0%,50%);
       margin-left: auto;
     }
   }
@@ -473,7 +522,7 @@
   background-image: url("@img/holiday/elements/star-big.svg");
   aspect-ratio: 1;
   pointer-events: none;
- 
+
   transition: opacity .3s ease, transform .8s ease;
 }
 
@@ -495,11 +544,11 @@
       opacity: 1;
       transform: translate(0%, 0px);
     }
-    
+
     // background: linear-gradient(104deg, #00a553 0%, #047840 100%);
-    
+
     @include adaptiveValue("padding-bottom", 163, 81);
-    
+
     &::before {
       content: "";
       position: absolute;
@@ -587,8 +636,8 @@
     &:before,
     &:after {
       @extend %beforeStarBig;
-       opacity: 0;
-        @include adaptiveValue("width", 409, 200);
+      opacity: 0;
+      @include adaptiveValue("width", 409, 200);
     }
 
     &::before {
@@ -631,6 +680,24 @@
   // .holiday-hearts__picture
   &__picture {
     position: relative;
+    &::after {
+      content:'';
+      position: absolute;
+      inset: 0;
+      z-index: 7;
+
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url("@img/holiday/elements/box-mask-mb.png");
+      aspect-ratio: 312/396;
+      pointer-events: none;
+      
+      @media (min-width:toEm(820.98)){
+        background-image: url("@img/holiday/elements/box-mask-pc.png");
+        aspect-ratio: 627/665;
+      }
+    }
   }
 
   // .holiday-hearts__girl-img
@@ -647,6 +714,15 @@
     left: 50%;
     transform: translate(-51.3%, -53.7%);
     max-width: 101%;
+
+    path {
+      stroke: white;
+      stroke-width: 5;
+      fill: none;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      filter: drop-shadow(0 0 6px #F8FF30);
+    }
 
     @media (min-width: toEm(820.98)) {
       max-width: 96%;
@@ -670,6 +746,13 @@
       right: 0;
       width: 84%;
       transform: translate(83.5%, -38%);
+
+      transition: opacity .65s ease;
+      opacity: 0;
+      &.--watcher-view {
+        opacity: 1;
+        transition-delay: 0.5s;
+      }
     }
   }
 
@@ -731,7 +814,13 @@
   &__body {
     padding-top: 20px;
     padding-left: 40px;
-
+    
+    &.--watcher-view {
+      .holiday-hearts__head-title {
+        opacity: 1;
+        transform: translate(0%,0%);
+      }
+    }
     @media (min-width:toEm(1200.98)) {
       padding-left: 81px;
       padding-top: 100px;
@@ -745,6 +834,16 @@
 
   // .holiday-hearts__head-title
   &__head-title {
+
+    opacity: 0;
+    // transform: translate(30%,0%);
+    transition: transform .65s ease, opacity .45s ease;
+    will-change: transform;
+    
+    @media (min-width:toEm(820.98)){
+      transform: translate(40%,0%);
+    }
+    
 
     .title-head__title {}
 
@@ -790,13 +889,14 @@
   // .slider-holiday__slider
   &__slider {
     position: relative;
+
     &::before {
-       @extend %beforeStarBig;
-       z-index: 2;
-       left: 0;
-       transform: translate(-55%,0%);
-        @include adaptiveValue("width", 409, 140);
-        filter: invert(8%) sepia(92%) saturate(5559%) hue-rotate(336deg) brightness(115%) contrast(117%);
+      @extend %beforeStarBig;
+      z-index: 2;
+      left: 0;
+      transform: translate(-55%, 0%);
+      @include adaptiveValue("width", 409, 140);
+      filter: invert(8%) sepia(92%) saturate(5559%) hue-rotate(336deg) brightness(115%) contrast(117%);
     }
   }
 
@@ -925,6 +1025,535 @@
   box-shadow: 0 -9px 11px 0 rgba(105, 6, 0, 0.26);
   background: #a6001e;
 
+  @include adaptiveValue("padding-bottom", 160, 40);
+
   // .holiday-residence__container
   &__container {}
+
+  // .holiday-residence__body
+  &__body {
+    position: relative;
+    display: grid;
+    padding-bottom: 48px;
+
+    &.--view {
+      &::before {
+        opacity: 1;
+        transform: translate(-80%, 45%);
+      }
+    }
+
+    &::before {
+      @extend %beforeStarBig;
+      @include adaptiveValue("width", 607, 140);
+
+      opacity: 0;
+
+      @media (min-width:toEm($mobileSmall)) {
+        z-index: -1;
+        left: 0;
+        bottom: 0;
+        transform: translate(-150%, 45%);
+        filter: invert(12%) sepia(73%) saturate(5231%) hue-rotate(335deg) brightness(90%) contrast(116%);
+      }
+
+      @media (max-width:toEm($mobileSmall)) {
+        display: none;
+      }
+    }
+
+
+    @media (min-width:toEm(1220.98)) {
+      grid-template-columns: 1fr 365px;
+    }
+
+    @media (min-width:toEm(820.98)) {
+      padding-bottom: 340px;
+    }
+
+    @media (max-width: toEm(1220.98)) and (min-width: toEm(820.98)) {
+      grid-template-columns: 1fr 40%;
+    }
+
+    @media (max-width: toEm(820.98)) and (min-width: toEm($mobileSmall)) {
+      padding-bottom: 100px;
+    }
+  }
+
+  // .holiday-residence__pictures
+  &__pictures {
+    position: relative;
+
+    @media (max-width: toEm(820.98)) {
+      width: 155%;
+      transform: translate(-31%, 0);
+    }
+  }
+
+  // .holiday-residence__picture
+  &__picture {
+    position: relative;
+    z-index: 1;
+    aspect-ratio: 1655/746;
+
+    @media (min-width:toEm(1200.98)) {
+      // scale: 2;
+      transform: scale(2);
+      transform-origin: 70% 0%;
+    }
+    
+    @media (max-width: toEm(1200.98)) and (min-width: toEm(820.98)) {
+      // scale: 2.2;
+      transform: scale(2.2);
+      transform-origin: 75% 0%;
+    }
+
+    // @media (max-width: toEm(820.98)){
+    //   scale: 1.55;
+    //   transform-origin: 89% 0%;
+    // }
+
+    .holiday-residence__img {
+      -webkit-mask-image: url("@img/holiday/residence/mask.png");
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: top center;
+      -webkit-mask-size: cover;
+
+      mask-image: url("@img/holiday/residence/mask.png");
+      mask-repeat: no-repeat;
+      mask-position: top center;
+      mask-size: cover;
+
+      aspect-ratio: 1655/746;
+    }
+
+  }
+
+  // .holiday-residence__svg
+  &__svg {
+    position: absolute;
+    top: -1%;
+    right: -0.2%;
+    width: 102%;
+    height: auto;
+
+    [id="path-1"] {
+      filter: drop-shadow(-6px 0px 9px rgb(0, 0, 0, 0.9));
+    }
+
+    [id="path-2"] {
+      filter: drop-shadow(5px -6px 9px rgb(0, 0, 0, 0.8));
+    }
+  }
+
+  // .holiday-residence__svg-2
+  &__svg-2 {
+     position: absolute;
+     opacity: 0;
+    top: -1%;
+    right: -0.2%;
+    width: 102%;
+    height: auto;
+  }
+
+
+	// .holiday-residence__star
+	&__star {
+    @include adaptiveValue("width", 72, 23);
+    height: auto;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+    will-change: transform;
+	}
+
+  // .holiday-residence__box
+  &__box {
+    pointer-events: none;
+    position: absolute;
+    z-index: 5;
+    bottom: -50px;
+    right: 0%;
+    transform: translate(28%, 35%);
+    @include adaptiveValue("max-width", 348, 151);
+    aspect-ratio: 368/343;
+
+      opacity: 0;
+      transition: bottom .75s ease, opacity .45s ease;
+      
+      &.--watcher-view {
+        bottom: 0px;
+        opacity: 1;
+        
+      }
+      
+    @media (min-width:toEm(820.98)) {
+      transition-delay: 0.5s;
+      transform: translate(90%, 80%);
+    }
+  }
+
+  // .holiday-residence__head
+  &__head {
+    max-width: 396px;
+    width: 100%;
+    @include adaptiveValue("padding-top", 180, 95, 2, 1220.98, 820.98);
+
+    @media (max-width: toEm(820.98)) and (min-width: toEm(360.98)) {
+      margin-top: -5%;
+    }
+
+    &.--watcher-view {
+      .title-head {
+        opacity: 1;
+        transform: translate(0%,0%);
+      }
+    }
+
+    .title-head {
+       opacity: 0;
+      transition: transform .75s ease, opacity .45s ease;
+      
+      @media (min-width:toEm(820.98)){
+        transform: translate(50%,0%);
+      }
+
+    }
+
+    .title-head__title {
+      br {
+        display: none;
+
+        @media (min-width:toEm(820.98)) {
+          display: block;
+        }
+      }
+    }
+
+    .title-head__title-up {
+      background: linear-gradient(300deg, #fdefa3 0%, #fbc879 11.93%, #fbc879 23.8%, #f8c775 38.77%, #fcd189 50.2%, #fcd189 57.79%, #f9f1a8 74.19%, #fcd189 89.46%, #f5c573 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.6;
+      padding-left: 6%;
+      margin-left: -6%;
+      margin-bottom: -2px;
+
+      @media (min-width:$mobileSmall) {
+        line-height: 1.2;
+        margin-bottom: -8px;
+      }
+    }
+
+    .title-head__subtitle {}
+  }
+
+  // .holiday-residence__tickets
+  &__tickets {}
 }
+
+%ticketsAnim {
+  opacity: 0;
+  transition: opacity .65s ease, transform .65s ease;
+  &.--watcher-view {
+    opacity: 1;
+  }
+}
+
+.tickets-holiday {
+  position: relative;
+  @include adaptiveValue("padding", 4, 1);
+  @include adaptiveValue("border-radius", 44, 21);
+  background: linear-gradient(0deg, #DA7D22 0%, #FFFDE6 100%);
+  box-shadow: -3px 3px 1px 0 #87001f;
+
+  @media (min-width:toEm($mobileSmall)) {
+    box-shadow: -9px 9px 1px 0 #87001f;
+  }
+
+ @extend %ticketsAnim;
+ 
+ &.--watcher-view {
+  &:before {
+    transition-delay: 0.5s;
+    transform: translate(-5%, -50%) scale(1);
+    @media (min-width:toEm(1200.98)) {
+      transform: translate(0%, -50%) scale(1);
+    }
+  }
+ }
+ 
+ &:before {
+   content: "";
+   position: absolute;
+   top: 50%;
+   left: 0%;
+   @extend %ticketsAnim;
+   transform: translate(-5%, -50%) scale(0);
+   
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    width: 60%;
+    background-image: url("@img/holiday/residence/lights-mb.png");
+    aspect-ratio: 602/508;
+
+    @media (min-width:toEm(1200.98)) {
+      background-image: url("@img/holiday/residence/lights-pc.png");
+      width: 50%;
+      transform: translate(0%, -50%) scale(0);
+    }
+
+  }
+
+  // .tickets-holiday__body
+  &__body {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    @include adaptiveValue("padding-block", 57, 24);
+    @include adaptiveValue("padding-inline-end", 64, 16);
+    @include adaptiveValue("padding-inline-start", 64, 0);
+
+    @include adaptiveValue("border-radius", 41, 19);
+    background: linear-gradient(90deg, #fdefa3 0%, #fbc879 11.93%, #fbc879 23.8%, #f8c775 38.77%, #fcd189 55.29%, #f9f1a8 72.84%, #f5c573 100%);
+
+  
+
+  }
+
+  // .tickets-holiday__picture
+  &__picture {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0%, -50%);
+    max-width: 440px;
+
+    grid-column: 1/2;
+
+    img {
+       @extend %ticketsAnim;
+       transform: translate(-50%,0);
+       .--watcher-view & {
+        opacity: 1;
+          transform: translate(0%,0);
+          transition-delay: 0.3s;
+        }
+    }
+  }
+
+  // .tickets-holiday__block
+  &__block {
+    display: flex;
+    align-items: center;
+    grid-column: 2/3;
+    @include adaptiveValue("gap", 38, 10);
+
+    @media (any-hover: hover) {
+      &:hover {
+        .tickets-holiday__arr {
+          transform: translate(10px, 0);
+        }
+      }
+    }
+  }
+
+  // .tickets-holiday__txt
+  &__txt {
+    font-family: "MontserratAlternates", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.18;
+
+    @include adaptiveValue("font-size", 36, 9);
+
+    text-transform: uppercase;
+    background: linear-gradient(133deg, #c56c44 0%, #a25d33 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  // .tickets-holiday__arr
+  &__arr {
+    flex: 0 0 auto;
+    @include adaptiveValue("max-width", 71, 19);
+    transition: transform .3s ease;
+  }
+}
+
+.holiday-made {
+  position: relative;
+  z-index: 1;
+  background: radial-gradient(79.93% 79.93% at 52.15% 92.12%, #fe0026 0%, #a6001e 100%);
+  // padding-top: 10px;
+  @include adaptiveValue("padding-bottom", 125, 50);
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      bottom: 0;
+      width: 103%;
+      aspect-ratio: 1450/106;
+      pointer-events: none;
+      background: var(--gray-bg);
+
+      left: 50%;
+      transform: translate(-50%, 0%);
+
+      -webkit-mask-image: url("@img/holiday/items/vector.svg");
+      -webkit-mask-repeat: repeat-x;
+      -webkit-mask-position: top center;
+      -webkit-mask-size: contain;
+
+      mask-image: url("@img/holiday/items/vector.svg");
+      mask-repeat: repeat-x;
+      mask-position: top center;
+      mask-size: contain;
+    }
+
+  // .holiday-made__container
+  &__container {
+    position: relative;
+    
+    &.--view {
+      &::after {
+        opacity: 1;
+        transform: translate(50%, -45%);
+
+        @media (min-width:toEm(1200.98)) {
+          transform: translate(75%, -60%);
+        }
+      }
+    }
+
+    &:after {
+      @extend %beforeStarBig;
+      z-index: 0;
+      opacity: 0;
+      @include adaptiveValue("width", 409, 100);
+      filter: invert(12%) sepia(73%) saturate(5231%) hue-rotate(335deg) brightness(90%) contrast(116%);
+      right: 0;
+      top: 0;
+      transform: translate(150%, -60%);
+    }
+
+  }
+
+  // .holiday-made__head
+  &__head {
+    &.cake-format__head {
+      @include adaptiveValue("margin-bottom", 44, 37);
+      text-wrap: balance;
+
+      @media (max-width:toEm($mobileSmall)){
+         max-width: 70%; 
+      }
+
+      .cake-format__title {
+        text-wrap: auto;
+      }
+    }
+  }
+
+  // .holiday-made__list
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    // justify-items: center;
+    gap: 32px 15px;
+    max-width: 95%;
+    margin-inline: auto;
+    
+    @media (min-width:toEm(600.98)) {
+      max-width: 100%;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 100px;
+    }
+  }
+
+  // .holiday-made__item
+  &__item {}
+
+  // .holiday-made__link
+  &__link {
+    width: 100%;
+    display: block;
+
+    opacity: 0;
+    transform: translate(0, 50%);
+    transition: opacity .45s ease, transform .75s ease;
+
+    .--watcher-view & {
+      opacity: 1;
+      transform: translate(0%);
+    }
+
+
+    @extend %beforeHearts;
+
+    &::before {
+      z-index: 2;
+      width: 150%;
+      aspect-ratio: 490/385;
+      background-image: url("@img/holiday/items/items-star.png");
+    }
+
+    img {
+      @include adaptiveValue("max-width", 271, 134);
+      object-fit: contain;
+      display: block;
+      margin-inline: auto;
+      margin-bottom: 10px;
+      transition: transform .45s ease;
+      aspect-ratio: 235/224;
+
+      @media (min-width:toEm($mobileSmall)) {
+        margin-bottom: 5px;
+      }
+    }
+
+    h3 {
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 1.18;
+      @include adaptiveValue("font-size", 20, 12);
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+
+        &::before {
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+    }
+
+    &:active {
+      img {
+        transform: scale(1.05);
+      }
+
+      &::before {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+    }
+  }
+}
+
+

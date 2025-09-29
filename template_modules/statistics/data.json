@@ -313,6 +313,27 @@
         "start": 1758787786265,
         "end": 1758811429628,
         "type": "build"
+      },
+      {
+        "date": "26.09.2025",
+        "start": 1758874821312,
+        "end": 1758917570906
+      },
+      {
+        "date": "29.09.2025",
+        "start": 1759131983239,
+        "end": 1759158807094
+      },
+      {
+        "date": "29.09.2025",
+        "start": 1759158814440,
+        "end": 1759159036163
+      },
+      {
+        "date": "29.09.2025",
+        "start": 1759159043350,
+        "end": 1759174334847,
+        "type": "build"
       }
     ],
     "files": [
@@ -379,7 +400,17 @@
       "candy-4.png",
       "candy-3.png",
       "candy-2.png",
-      "candy-1.png"
+      "candy-1.png",
+      "residence-pc.png",
+      "categorys.scss",
+      "categorys.html",
+      "catalog.html",
+      "catalog.scss",
+      "headtitle.scss",
+      "popup-cake.html",
+      "deer-pc.png",
+      "girl.png",
+      "box-mask-mb.png"
     ]
   }
 }

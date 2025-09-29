@@ -74,6 +74,11 @@ body::after {
 	place-items: center;
 	background-color: var(--red);
 	transition: all .3s ease;
+
+	.popup-el--holiday-gifts & {
+		background-color: transparent;
+	}
+
 	@media (min-width:toEm($mobileSmall)){
 		 padding-top: 2px; 
 	}
@@ -151,6 +156,17 @@ body::after {
 
 
 .popup-cake {
+	.popup-el--holiday-gifts & {
+		.popup-cake__bg {
+			&::before {
+				background: radial-gradient(50% 95% at 52.15% 92.12%, rgb(254, 0, 38) 0%, rgb(166, 0, 30) 100%);
+			}
+		}
+		.popup-cake__head,
+		.specification__list {
+			background-color: transparent;
+		}
+	}
 	// .popup-cake__wrapper
 	&__wrapper {
 			position: relative;
@@ -194,6 +210,11 @@ body::after {
 					clip-path: ellipse(66% 70% at 47% 0%);
 					transition-delay: 0s;
 				}
+				.popup-el--holiday-gifts & {
+					@media (max-width:toEm($mobileSmall)){
+						transition: clip-path 0.85s ease 0.55s;
+					}
+				}
 				
 				@media (orientation: portrait) {
 					// height: 80vh;
@@ -203,6 +224,9 @@ body::after {
 						clip-path: ellipse(60% 70% at 47% 25%) !important;
 						transition-delay: 0s !important;
 					}
+					 .popup-el--holiday-gifts & {
+						 height: 115%; 
+					 }
 				}
 				@media (max-width:toEm($mobileSmall)){
 					clip-path: ellipse(40% 0% at 47% 0%) !important;
@@ -229,6 +253,9 @@ body::after {
 				@media (max-width:toEm($mobileSmall)){
 					 height: 84% !important; 
 					 transform: translate(-50%,0) rotate(-4deg);
+					 .popup-el--holiday-gifts & {
+						 height: 100% !important; 
+					 }
 				}
 			}
 		
@@ -253,6 +280,14 @@ body::after {
 
 		// .popup-cake__btn
 		&__btn {
+			.popup-el--holiday-gifts & {
+				background-color: transparent;
+				@media (any-hover: hover){
+					&:hover{
+						background-color: var(--white);
+					}
+				}
+			}
 		}
 
 		// .popup-cake__close
@@ -342,6 +377,12 @@ body::after {
 				//  margin-top: -30px; 
 			}
 			margin-top: 30px;
+			.popup-el--holiday-gifts & {
+				@media (max-width: toEm(820.98)){
+					max-width: 450px;
+					margin-top: 60px;
+				}
+			}
 		}
 
 		// .popup-cake__block
@@ -356,7 +397,7 @@ body::after {
 			.popup-el--cake-catalog & {
 				max-width: 80%;
 				top: -40px;
-				left: 5px;
+				// left: 5px;
 			}
 			.popup-el--cake-format & {
 				@media (min-width:toEm(1200.98)){
@@ -370,6 +411,11 @@ body::after {
 						transform: scale(1.3)
 					}
 				}
+			}
+			.popup-el--holiday-gifts & {
+				max-width: 95%;
+				top: -20px;
+				// left: -5px;
 			}
 			img {
 				@extend %ibg;
@@ -390,6 +436,10 @@ body::after {
 			z-index: -1;
 			.popup-el--cake-format & {
 				display: none;	
+			}
+			.popup-el--holiday-gifts & {
+				width: 155%;
+				transform: translate(-48%,28%);
 			}
 		}
 }

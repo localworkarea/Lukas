@@ -13,10 +13,10 @@
 		<link rel="preload" href="./assets/fonts/Gogol.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
 		<title>LUKAS | HOLIDAY</title>
-		<script type="module" crossorigin="" src="./js/holiday.min.js?v=1758811429197"></script>
+		<script type="module" crossorigin="" src="./js/holiday.min.js?v=1759174334525"></script>
 		<link rel="modulepreload" crossorigin="" href="./js/app.min.js">
-		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1758811429197">
-		<link rel="stylesheet" crossorigin="" href="./css/holiday.min.css?v=1758811429197">
+		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1759174334525">
+		<link rel="stylesheet" crossorigin="" href="./css/holiday.min.css?v=1759174334525">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -62,8 +62,11 @@
 							<div class="holiday-hero__moon">
 								<img width="368" height="331" alt="луна" src="./assets/img/holiday/hero/moon.webp">
 							</div>
-							<div fetchpriority="high" class="holiday-hero__santa">
-								<img width="161" height="76" alt="санта" src="./assets/img/holiday/hero/santa.webp">
+							<div class="holiday-hero__santa">
+								<img fetchpriority="high" class="holiday-hero__img" width="161" height="76" alt="санта" src="./assets/img/holiday/hero/santa.webp">
+								<svg class="holiday-hero__path" width="868" height="53" viewbox="0 0 868 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1 51.9997C1 51.9997 254.885 2.79016 419.5 1.49971C595.557 0.119561 867.5 51.9997 867.5 51.9997" stroke="black"></path>
+								</svg>
 							</div>
 							<div class="holiday-hero__bg holiday-hero__bg--1"></div>
 							<div class="holiday-hero__bg holiday-hero__bg--2"></div>
@@ -191,21 +194,14 @@
 							</g>
 						</svg>
 						<div class="holiday-hearts__container">
-							<div class="holiday-hearts__picture">
+							<div data-anim-watch="" class="holiday-hearts__picture">
 								<picture>
 									<source srcset="./assets/img/holiday/elements/girl.webp" media="(min-width: 51.311em)" type="image/webp">
 									<source srcset="./assets/img/holiday/elements/girl-mb.webp" type="image/webp">
 									<img loading="lazy" class="holiday-hearts__girl-img ibg-cn" width="849" height="743" alt="image" src="./assets/img/holiday/elements/girl.webp">
 								</picture>
 								<svg class="holiday-hearts__frame" width="602" height="704" viewbox="0 0 602 704" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<defs>
-										<filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-											<feDropShadow dx="0" dy="0" stddeviation="6" flood-color="#F8FF30"></feDropShadow>
-										</filter>
-									</defs>
-									<g filter="url(#glow)">
-										<path d="M16,652V301A285,285 0 0 1 301,16A285,285 0 0 1 586,301V652Q586,688 550,688H52Q16,688 16,652Z" stroke="white" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"></path>
-									</g>
+									<path d="M16,652V301A285,285 0 0 1 301,16A285,285 0 0 1 586,301V652Q586,688 550,688H52Q16,688 16,652Z"></path>
 								</svg>
 								<svg class="holiday-hearts__paths" width="289" height="588" viewbox="0 0 289 588" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path id="path-5" d="M141.5 587.5C141.5 587.5 119.5 472 169 317C218.5 162 191 0.5 191 0.5" stroke="white"></path>
@@ -219,9 +215,9 @@
 								<img loading="lazy" class="holiday-hearts__candy candy-3 ibg-cn" width="82" height="105" alt="candy" src="./assets/img/holiday/candy/candy-3.webp">
 								<img loading="lazy" class="holiday-hearts__candy candy-4 ibg-cn" width="82" height="105" alt="candy" src="./assets/img/holiday/candy/candy-4.webp">
 								<img loading="lazy" class="holiday-hearts__candy candy-5 ibg-cn" width="82" height="105" alt="candy" src="./assets/img/holiday/candy/candy-5.webp">
-								<img loading="lazy" class="holiday-hearts__line" src="./assets/img/holiday/elements/line-with.svg" width="459" height="113" alt="Image">
+								<img data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" loading="lazy" class="holiday-hearts__line" src="./assets/img/holiday/elements/line-with.svg" width="459" height="113" alt="Image">
 							</div>
-							<div class="holiday-hearts__body">
+							<div data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="0.8" class="holiday-hearts__body">
 								<div class="holiday-hearts__head-title title-head">
 									<h2 class="title-head__title">
 										<span class="title-head__title-up">солодощі</span>
@@ -303,82 +299,510 @@
 				</section>
 				<section class="holiday-residence">
 					<div class="holiday-residence__container">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi impedit autem molestias. Nihil omnis quia voluptates minus quis ea, aspernatur maxime fuga ducimus autem fugit aliquid architecto mollitia delectus atque.
-						</p>
-						<br>
-						<br>
-						<br>
-						<br>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi impedit autem molestias. Nihil omnis quia voluptates minus quis ea, aspernatur maxime fuga ducimus autem fugit aliquid architecto mollitia delectus atque.
-						</p>
-						<br>
-						<br>
-						<br>
-						<br>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi impedit autem molestias. Nihil omnis quia voluptates minus quis ea, aspernatur maxime fuga ducimus autem fugit aliquid architecto mollitia delectus atque.
-						</p>
-						<br>
-						<br>
-						<br>
-						<br>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi impedit autem molestias. Nihil omnis quia voluptates minus quis ea, aspernatur maxime fuga ducimus autem fugit aliquid architecto mollitia delectus atque.
-						</p>
-						<br>
-						<br>
-						<br>
-						<br>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi impedit autem molestias. Nihil omnis quia voluptates minus quis ea, aspernatur maxime fuga ducimus autem fugit aliquid architecto mollitia delectus atque.
-						</p>
-						<br>
-						<br>
-						<br>
-						<br>
+						<div class="holiday-residence__body">
+							<div class="holiday-residence__pictures">
+								<div class="holiday-residence__picture">
+									<picture>
+										<source srcset="./assets/img/holiday/residence/residence-pc.webp" media="(min-width: 30.061em)" type="image/webp">
+										<source srcset="./assets/img/holiday/residence/residence-mb.webp" type="image/webp">
+										<img loading="lazy" class="holiday-residence__img ibg" width="1440" height="840" alt="image" src="./assets/img/holiday/residence/residence-pc.webp">
+									</picture>
+									<svg class="holiday-residence__svg" width="1697" height="799" viewbox="0 0 1697 799" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path id="path-1" d="M1673.89 13.3C1673.19 17.5 1673.39 22.1 1674.49 26.2C1676.99 35.8 1682.69 44.4 1684.99 54.1C1690.99 79.5 1671.59 105.1 1647.79 115.8C1623.99 126.5 1596.99 126.1 1570.99 126.7C1500.99 128.3 1426.59 140.3 1374.39 187C1317.09 238.2 1298.59 322.7 1310.39 398.6C1311.99 408.7 1313.99 418.7 1316.39 428.6C1339.99 525.8 1399.89 613.4 1484.49 667.4C1500.19 677.4 1521.89 688.2 1540.29 678.5C1535.09 675.9 1528.09 673.8 1522.29 671C1447.89 634.3 1395.29 571.5 1362.69 496.1C1344.49 454.1 1330.79 409.6 1327.29 364C1323.79 318.4 1330.79 271.3 1352.09 230.7C1365.49 205.2 1384.59 182.4 1408.99 167.2C1471.49 128.2 1552.99 145.6 1624.59 128.1C1647.59 122.5 1670.89 112.2 1684.39 92.8C1702.99 66.1 1697.99 28.8 1682.79 0C1677.69 2.5 1674.89 7.6 1673.89 13.3Z" fill="url(#paint0)"></path>
+										<g filter="url(#shadow)">
+											<path id="path-2" d="M609.376 596.537C570.876 612.337 536.676 635.237 500.176 654.737C356.5 731.496 184.2 855.67 13.0001 740.5C8.66677 734.333 4.3001 720.5 21.5001 714.5C43.0001 707 117.5 865.5 509.676 624.237C544.176 603.937 578.676 585.237 616.676 572.337C652.576 560.137 689.976 552.437 727.776 549.937C801.476 544.937 880.676 559.637 942.776 601.337C972.376 621.237 998.076 649.537 1031.88 662.537C1084.38 682.737 1142.88 685.837 1192.28 655.437C1210.58 644.137 1223.98 626.437 1242.78 616.237C1276.68 597.737 1316.9 600.737 1351 616.237C1388.7 633.337 1417.38 662.637 1451.78 685.037C1484.48 706.337 1521.28 723.137 1560.78 725.437C1566.08 725.737 1571.28 731.737 1574.38 735.437C1574.98 736.337 1581.98 745.937 1577.28 745.737C1567.58 745.137 1558.08 743.737 1548.58 741.737C1515.88 734.737 1484.88 719.937 1456.98 701.737C1427.98 682.837 1402.18 659.637 1371.78 642.737C1346.68 628.837 1315.58 614.837 1286.28 621.337C1248.78 629.537 1226.78 662.337 1193.88 678.837C1141.88 705.037 1074.48 695.537 1025.28 667.637C993.676 649.637 968.576 625.437 936.976 607.637C871.676 570.937 793.276 558.137 719.676 567.537C681.876 572.337 644.676 582.137 609.376 596.537Z" fill="#FCDE91"></path>
+										</g>
+										<path id="path-3" d="M1025.28 667.637C993.676 649.637 969.6 624.3 938 606.5L941.5 602.5C971.1 622.4 998.076 649.537 1031.88 662.537C1084.38 682.737 1142.88 688.9 1192.28 658.5C1210.58 647.2 1228.7 627.2 1247.5 617C1281.4 598.5 1315.68 604.837 1349.78 620.337C1387.48 637.437 1422.58 668.6 1456.98 691C1489.68 712.3 1521.28 723.137 1560.78 725.437C1566.08 725.737 1571.28 731.737 1574.38 735.437C1574.98 736.337 1581.98 745.937 1577.28 745.737C1567.58 745.137 1558.08 743.737 1548.58 741.737C1515.88 734.737 1489.4 720.2 1461.5 702C1432.5 683.1 1403.9 656.9 1373.5 640C1348.4 626.1 1317.3 612.1 1288 618.6C1250.5 626.8 1225.18 659.5 1192.28 676C1140.28 702.2 1074.48 695.537 1025.28 667.637Z" fill="url(#paint1)"></path>
+										<defs>
+											<filter id="shadow" x="0" y="-200" width="1600" height="260" color-interpolation-filters="sRGB">
+												<feOffset dy="3"></feOffset>
+												<feColorMatrix type="matrix" values="0 0 0 0 0.84 0 0 0 0 0.09 0 0 0 0 0.2 0 0 0 0.78 0"></feColorMatrix>
+												<feBlend in="SourceGraphic" mode="normal"></feBlend>
+											</filter>
+											<linearGradient id="paint0" x1="1304.71" y1="338.391" x2="1650.61" y2="341.605" gradientunits="userSpaceOnUse">
+												<stop stop-color="#FDEFA3"></stop>
+												<stop offset="0.12" stop-color="#FBC879"></stop>
+												<stop offset="0.39" stop-color="#F8C775"></stop>
+												<stop offset="0.50" stop-color="#FCD189"></stop>
+												<stop offset="0.74" stop-color="#F9F1A8"></stop>
+												<stop offset="1" stop-color="#F5C573"></stop>
+											</linearGradient>
+											<linearGradient id="paint1" x1="936.976" y1="673.539" x2="1578.89" y2="673.539" gradientunits="userSpaceOnUse">
+												<stop stop-color="#F9CD82"></stop>
+												<stop offset="0.42" stop-color="#FFF0BF"></stop>
+											</linearGradient>
+										</defs>
+									</svg>
+									<img class="holiday-residence__star" loading="lazy" width="74" height="74" alt="Image" src="./assets/img/holiday/residence/star.webp">
+									<img class="holiday-residence__star" loading="lazy" width="74" height="74" alt="Image" src="./assets/img/holiday/residence/star.webp">
+									<svg class="holiday-residence__svg-2" width="1681" height="777" viewbox="0 0 1681 777" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path id="path-1" d="M1 729.5C260.499 897 475.999 558.5 725 558.5C974.001 558.501 987 709.001 1113 686C1239 663 1193.5 621.5 1279.5 609.5C1365.5 597.5 1454 746.5 1550.5 735.5" stroke="#FF0000"></path>
+										<path id="path-2" d="M1666.49 1C1690.92 62.7311 1685 98 1624.99 119C1564.99 140 1450.5 132.5 1390 165.5C1329.5 198.5 1170.5 400.5 1490.5 677" stroke="#FF0000"></path>
+									</svg>
+								</div>
+								<img loading="lazy" data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold=".5" class="holiday-residence__box ibg-cn" width="368" height="343" alt="коробка з подарунками" src="./assets/img/holiday/residence/box.webp">
+							</div>
+							<div data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="holiday-residence__head">
+								<div class="title-head">
+									<h2 class="title-head__title">
+										<span class="title-head__title-up">резиденція</span>
+										Святого
+										<br>
+										Миколая
+									</h2>
+									<div class="title-head__subtitle">
+										<p>
+											Будь-яка добра справа, зроблена
+								від щирого серця, примножить
+								світло навколо. Ми повинні пам’ятати
+								про це завжди, а особливо
+								в реаліях сьогодення.
+										</p>
+										<p>
+											Тому саме сьогодні нам необхідно подвоїти наші зусилля, щоби примножувати добро і радість.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="holiday-residence__tickets tickets-holiday">
+							<div class="tickets-holiday__body">
+								<div class="tickets-holiday__picture">
+									<picture>
+										<source srcset="./assets/img/holiday/residence/tickets-pc.webp" media="(min-width: 30.061em)" type="image/webp">
+										<source srcset="./assets/img/holiday/residence/tickets-mb.webp" type="image/webp">
+										<img loading="lazy" class="ibg-cn" width="1440" height="840" alt="image" src="./assets/img/holiday/residence/tickets-pc.webp">
+									</picture>
+								</div>
+								<a href="#" class="tickets-holiday__block" aria-label="link">
+									<div class="tickets-holiday__txt">
+										<p>
+											отримай свій
+											<br>
+											золотий квиток
+										</p>
+									</div>
+									<img class="tickets-holiday__arr ibg-cn" width="71" height="71" alt="кнопка стрілочка" src="./assets/img/holiday/residence/btn-arr.webp">
+								</a>
+							</div>
+						</div>
 					</div>
 				</section>
-				<section class="test">
-					<div class="test__container">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi impedit autem molestias. Nihil omnis quia voluptates minus quis ea, aspernatur maxime fuga ducimus autem fugit aliquid architecto mollitia delectus atque.
-						</p>
-						<br>
-						<br>
-						<br>
-						<br>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi impedit autem molestias. Nihil omnis quia voluptates minus quis ea, aspernatur maxime fuga ducimus autem fugit aliquid architecto mollitia delectus atque.
-						</p>
-						<br>
-						<br>
-						<br>
-						<br>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi impedit autem molestias. Nihil omnis quia voluptates minus quis ea, aspernatur maxime fuga ducimus autem fugit aliquid architecto mollitia delectus atque.
-						</p>
-						<br>
-						<br>
-						<br>
-						<br>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi impedit autem molestias. Nihil omnis quia voluptates minus quis ea, aspernatur maxime fuga ducimus autem fugit aliquid architecto mollitia delectus atque.
-						</p>
-						<br>
-						<br>
-						<br>
-						<br>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi impedit autem molestias. Nihil omnis quia voluptates minus quis ea, aspernatur maxime fuga ducimus autem fugit aliquid architecto mollitia delectus atque.
-						</p>
-						<br>
-						<br>
-						<br>
-						<br>
+				<section class="holiday-made">
+					<div class="holiday-made__container">
+						<div data-fls-headtitle="" data-fls-watcher="" data-fls-watcher-threshold="1" class="holiday-made__head cake-format__head">
+							<h2 data-fls-splittype="words,span" class="cake-format__title">
+								Зроблено
+								<span class="red">з любов’ю</span>
+							</h2>
+						</div>
+						<ul class="holiday-made__list">
+							<li data-fls-popup-link="popup-cake" data-popup-el="holiday-gifts" data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="holiday-made__item">
+								<a href="#" class="holiday-made__link">
+									<img loading="lazy" class="ibg" width="271" height="262" alt="Циліндр Winter Magic" src="./assets/img/holiday/items/item-1.webp">
+									<h3>«MERRY CHRISTMAS and HAPPY NEW YEAR!»</h3>
+								</a>
+								<div data-popup-info="" hidden data-popup-order="https://shop.example.com/product-1">
+									<div data-popup-title="">«MERRY CHRISTMAS and HAPPY NEW YEAR!»</div>
+									<div data-popup-descr="">
+										<p>
+											Новий тренд! Якщо хочеться похрумтіти з усією родиною! Зустрічайте печивко «Каліфорнія» – хрустке поєднання листкового тіста з начинкою зі смаком апельсину. Надзвичайно легкий смаколик точно знайде шанування серед поціновувачів
+								солодощів до чаю чи кави.
+										</p>
+										<p>Будь в тренді! Хрумти солодко!</p>
+									</div>
+									<div data-popup-specs="">
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Вага</div>
+											<div data-popup-specs-descr="">500 г</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Термін придатності</div>
+											<div data-popup-specs-descr="">6 місяців</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Склад</div>
+											<div data-popup-specs-descr="">борошно, вершкове масло, цукор, ваніль</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li data-fls-popup-link="popup-cake" data-popup-el="holiday-gifts" data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="holiday-made__item">
+								<a href="#" class="holiday-made__link">
+									<img loading="lazy" class="ibg" width="271" height="262" alt="Циліндр Christmas Forest" src="./assets/img/holiday/items/item-2.webp">
+									<h3>«MERRY CHRISTMAS and HAPPY NEW YEAR!»</h3>
+								</a>
+								<div data-popup-info="" hidden data-popup-order="https://shop.example.com/product-2">
+									<div data-popup-title="">«MERRY CHRISTMAS and HAPPY NEW YEAR!»</div>
+									<div data-popup-descr="">
+										<p>
+											Символіка святкового лісу на зеленому фоні приховує всередині улюблене шоколадне печиво.
+										</p>
+										<p>Справжній смак дитинства у зручній подарунковій упаковці.</p>
+									</div>
+									<div data-popup-specs="">
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Вага</div>
+											<div data-popup-specs-descr="">450 г</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Термін придатності</div>
+											<div data-popup-specs-descr="">5 місяців</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Склад</div>
+											<div data-popup-specs-descr="">борошно, какао, вершкове масло, цукор</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li data-fls-popup-link="popup-cake" data-popup-el="holiday-gifts" data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="holiday-made__item">
+								<a href="#" class="holiday-made__link">
+									<img loading="lazy" class="ibg" width="271" height="262" alt="Циліндр Christmas Classic" src="./assets/img/holiday/items/item-3.webp">
+									<h3>«MERRY CHRISTMAS and HAPPY NEW YEAR!»</h3>
+								</a>
+								<div data-popup-info="" hidden data-popup-order="https://shop.example.com/product-3">
+									<div data-popup-title="">«MERRY CHRISTMAS and HAPPY NEW YEAR!»</div>
+									<div data-popup-descr="">
+										<p>
+											Класичний червоний різдвяний дизайн, що нагадує атмосферу родинного свята. Усередині — пісочне печиво з ароматом кориці.
+										</p>
+										<p>Чудове поєднання традицій і сучасного смаку.</p>
+									</div>
+									<div data-popup-specs="">
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Вага</div>
+											<div data-popup-specs-descr="">400 г</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Термін придатності</div>
+											<div data-popup-specs-descr="">4 місяці</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Склад</div>
+											<div data-popup-specs-descr="">борошно, масло, цукор, кориця</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li data-fls-popup-link="popup-cake" data-popup-el="holiday-gifts" data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="holiday-made__item">
+								<a href="#" class="holiday-made__link">
+									<img loading="lazy" class="ibg" width="271" height="262" alt="Трикутник Holiday Joy" src="./assets/img/holiday/items/item-4.webp">
+									<h3>«HOLIDAY JOY»</h3>
+								</a>
+								<div data-popup-info="" hidden data-popup-order="https://shop.example.com/product-4">
+									<div data-popup-title="">«HOLIDAY JOY»</div>
+									<div data-popup-descr="">
+										<p>
+											Веселий синій дизайн із ялинковими прикрасами та пряниковим чоловічком. Усередині — хрустке імбирне печиво.
+										</p>
+										<p>Прекрасний варіант для дитячого подарунка.</p>
+									</div>
+									<div data-popup-specs="">
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Вага</div>
+											<div data-popup-specs-descr="">300 г</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Термін придатності</div>
+											<div data-popup-specs-descr="">6 місяців</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Склад</div>
+											<div data-popup-specs-descr="">борошно, мед, імбир, кориця</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li data-fls-popup-link="popup-cake" data-popup-el="holiday-gifts" data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="holiday-made__item">
+								<a href="#" class="holiday-made__link">
+									<img loading="lazy" class="ibg" width="271" height="262" alt="Трикутник Golden Wishes" src="./assets/img/holiday/items/item-5.webp">
+									<h3>«GOLDEN WISHES»</h3>
+								</a>
+								<div data-popup-info="" hidden data-popup-order="https://shop.example.com/product-5">
+									<div data-popup-title="">ТРИКУТНИК «GOLDEN WISHES»</div>
+									<div data-popup-descr="">
+										<p>
+											Елегантний золотий дизайн із бантом. Усередині — добірні вафельні трубочки з кремом.
+										</p>
+										<p>Символ розкоші та смаку для особливих моментів.</p>
+									</div>
+									<div data-popup-specs="">
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Вага</div>
+											<div data-popup-specs-descr="">350 г</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Термін придатності</div>
+											<div data-popup-specs-descr="">8 місяців</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Склад</div>
+											<div data-popup-specs-descr="">борошно, вершковий крем, шоколад</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li data-fls-popup-link="popup-cake" data-popup-el="holiday-gifts" data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="holiday-made__item">
+								<a href="#" class="holiday-made__link">
+									<img loading="lazy" class="ibg" width="271" height="262" alt="Трикутник Winter Village" src="./assets/img/holiday/items/item-6.webp">
+									<h3>«WINTER VILLAGE»</h3>
+								</a>
+								<div data-popup-info="" hidden data-popup-order="https://shop.example.com/product-6">
+									<div data-popup-title="">«WINTER VILLAGE»</div>
+									<div data-popup-descr="">
+										<p>
+											Ніжний бузковий дизайн із зимовим селищем та сніжинками. Усередині — асорті різдвяного печива.
+										</p>
+										<p>Кожен шматочок створює атмосферу свята.</p>
+									</div>
+									<div data-popup-specs="">
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Вага</div>
+											<div data-popup-specs-descr="">320 г</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Термін придатності</div>
+											<div data-popup-specs-descr="">7 місяців</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Склад</div>
+											<div data-popup-specs-descr="">борошно, масло, шоколад, горіхи</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li data-fls-popup-link="popup-cake" data-popup-el="holiday-gifts" data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="holiday-made__item">
+								<a href="#" class="holiday-made__link">
+									<img loading="lazy" class="ibg" width="271" height="262" alt="Циліндр Winter Magic" src="./assets/img/holiday/items/item-1.webp">
+									<h3>«MERRY CHRISTMAS and HAPPY NEW YEAR!»</h3>
+								</a>
+								<div data-popup-info="" hidden data-popup-order="https://shop.example.com/product-1">
+									<div data-popup-title="">«MERRY CHRISTMAS and HAPPY NEW YEAR!»</div>
+									<div data-popup-descr="">
+										<p>
+											Новий тренд! Якщо хочеться похрумтіти з усією родиною! Зустрічайте печивко «Каліфорнія» – хрустке поєднання листкового тіста з начинкою зі смаком апельсину. Надзвичайно легкий смаколик точно знайде шанування серед поціновувачів
+								солодощів до чаю чи кави.
+										</p>
+										<p>Будь в тренді! Хрумти солодко!</p>
+									</div>
+									<div data-popup-specs="">
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Вага</div>
+											<div data-popup-specs-descr="">500 г</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Термін придатності</div>
+											<div data-popup-specs-descr="">6 місяців</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Склад</div>
+											<div data-popup-specs-descr="">борошно, вершкове масло, цукор, ваніль</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li data-fls-popup-link="popup-cake" data-popup-el="holiday-gifts" data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="holiday-made__item">
+								<a href="#" class="holiday-made__link">
+									<img loading="lazy" class="ibg" width="271" height="262" alt="Циліндр Christmas Forest" src="./assets/img/holiday/items/item-2.webp">
+									<h3>«MERRY CHRISTMAS and HAPPY NEW YEAR!»</h3>
+								</a>
+								<div data-popup-info="" hidden data-popup-order="https://shop.example.com/product-2">
+									<div data-popup-title="">«MERRY CHRISTMAS and HAPPY NEW YEAR!»</div>
+									<div data-popup-descr="">
+										<p>
+											Символіка святкового лісу на зеленому фоні приховує всередині улюблене шоколадне печиво.
+										</p>
+										<p>Справжній смак дитинства у зручній подарунковій упаковці.</p>
+									</div>
+									<div data-popup-specs="">
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Вага</div>
+											<div data-popup-specs-descr="">450 г</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Термін придатності</div>
+											<div data-popup-specs-descr="">5 місяців</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Склад</div>
+											<div data-popup-specs-descr="">борошно, какао, вершкове масло, цукор</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li data-fls-popup-link="popup-cake" data-popup-el="holiday-gifts" data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="holiday-made__item">
+								<a href="#" class="holiday-made__link">
+									<img loading="lazy" class="ibg" width="271" height="262" alt="Циліндр Christmas Classic" src="./assets/img/holiday/items/item-3.webp">
+									<h3>«MERRY CHRISTMAS and HAPPY NEW YEAR!»</h3>
+								</a>
+								<div data-popup-info="" hidden data-popup-order="https://shop.example.com/product-3">
+									<div data-popup-title="">«MERRY CHRISTMAS and HAPPY NEW YEAR!»</div>
+									<div data-popup-descr="">
+										<p>
+											Класичний червоний різдвяний дизайн, що нагадує атмосферу родинного свята. Усередині — пісочне печиво з ароматом кориці.
+										</p>
+										<p>Чудове поєднання традицій і сучасного смаку.</p>
+									</div>
+									<div data-popup-specs="">
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Вага</div>
+											<div data-popup-specs-descr="">400 г</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Термін придатності</div>
+											<div data-popup-specs-descr="">4 місяці</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Склад</div>
+											<div data-popup-specs-descr="">борошно, масло, цукор, кориця</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li data-fls-popup-link="popup-cake" data-popup-el="holiday-gifts" data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="holiday-made__item">
+								<a href="#" class="holiday-made__link">
+									<img loading="lazy" class="ibg" width="271" height="262" alt="Трикутник Holiday Joy" src="./assets/img/holiday/items/item-4.webp">
+									<h3>«HOLIDAY JOY»</h3>
+								</a>
+								<div data-popup-info="" hidden data-popup-order="https://shop.example.com/product-4">
+									<div data-popup-title="">«HOLIDAY JOY»</div>
+									<div data-popup-descr="">
+										<p>
+											Веселий синій дизайн із ялинковими прикрасами та пряниковим чоловічком. Усередині — хрустке імбирне печиво.
+										</p>
+										<p>Прекрасний варіант для дитячого подарунка.</p>
+									</div>
+									<div data-popup-specs="">
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Вага</div>
+											<div data-popup-specs-descr="">300 г</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Термін придатності</div>
+											<div data-popup-specs-descr="">6 місяців</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Склад</div>
+											<div data-popup-specs-descr="">борошно, мед, імбир, кориця</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li data-fls-popup-link="popup-cake" data-popup-el="holiday-gifts" data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="holiday-made__item">
+								<a href="#" class="holiday-made__link">
+									<img loading="lazy" class="ibg" width="271" height="262" alt="Трикутник Golden Wishes" src="./assets/img/holiday/items/item-5.webp">
+									<h3>«GOLDEN WISHES»</h3>
+								</a>
+								<div data-popup-info="" hidden data-popup-order="https://shop.example.com/product-5">
+									<div data-popup-title="">ТРИКУТНИК «GOLDEN WISHES»</div>
+									<div data-popup-descr="">
+										<p>
+											Елегантний золотий дизайн із бантом. Усередині — добірні вафельні трубочки з кремом.
+										</p>
+										<p>Символ розкоші та смаку для особливих моментів.</p>
+									</div>
+									<div data-popup-specs="">
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Вага</div>
+											<div data-popup-specs-descr="">350 г</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Термін придатності</div>
+											<div data-popup-specs-descr="">8 місяців</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Склад</div>
+											<div data-popup-specs-descr="">борошно, вершковий крем, шоколад</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li data-fls-popup-link="popup-cake" data-popup-el="holiday-gifts" data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="holiday-made__item">
+								<a href="#" class="holiday-made__link">
+									<img loading="lazy" class="ibg" width="271" height="262" alt="Трикутник Winter Village" src="./assets/img/holiday/items/item-6.webp">
+									<h3>«WINTER VILLAGE»</h3>
+								</a>
+								<div data-popup-info="" hidden data-popup-order="https://shop.example.com/product-6">
+									<div data-popup-title="">«WINTER VILLAGE»</div>
+									<div data-popup-descr="">
+										<p>
+											Ніжний бузковий дизайн із зимовим селищем та сніжинками. Усередині — асорті різдвяного печива.
+										</p>
+										<p>Кожен шматочок створює атмосферу свята.</p>
+									</div>
+									<div data-popup-specs="">
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Вага</div>
+											<div data-popup-specs-descr="">320 г</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Термін придатності</div>
+											<div data-popup-specs-descr="">7 місяців</div>
+										</div>
+										<div data-popup-specs-item="">
+											<div data-popup-specs-title="">Склад</div>
+											<div data-popup-specs-descr="">борошно, масло, шоколад, горіхи</div>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</section>
+				<div data-fls-categorys="" class="category-cake">
+					<div class="category-cake__container">
+						<ul class="category-cake__list">
+							<li class="category-cake__item">
+								<a href="#" class="category-cake__picture" aria-label="лінк на сторінку">
+									<img width="275" height="280" alt="Image" src="./assets/img/category/category-1.webp">
+								</a>
+								<a href="#" class="category-cake__btn btn btn--a" aria-label="лінк на сторінку">
+									<span>Цукерки</span>
+								</a>
+							</li>
+							<li class="category-cake__item">
+								<a href="#" class="category-cake__picture" aria-label="лінк на сторінку">
+									<img width="275" height="280" alt="Image" src="./assets/img/category/category-2.webp">
+								</a>
+								<a href="#" class="category-cake__btn btn btn--a" aria-label="лінк на сторінку">
+									<span>Круасани</span>
+								</a>
+							</li>
+							<li class="category-cake__item">
+								<a href="#" class="category-cake__picture" aria-label="лінк на сторінку">
+									<img width="275" height="280" alt="Image" src="./assets/img/category/category-3.webp">
+								</a>
+								<a href="#" class="category-cake__btn btn btn--a" aria-label="лінк на сторінку">
+									<span>Печиво</span>
+								</a>
+							</li>
+							<li class="category-cake__item">
+								<a href="#" class="category-cake__picture" aria-label="лінк на сторінку">
+									<img width="275" height="280" alt="Image" src="./assets/img/category/category-4.webp">
+								</a>
+								<a href="#" class="category-cake__btn btn btn--a" aria-label="лінк на сторінку">
+									<span>Торти</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div data-fls-catalog="" data-fls-parallax-parent="" data-fls-parallax-smooth="20" data-fls-parallax-center="center" class="catalog-cake">
+					<div class="catalog-cake__container">
+						<div data-fls-watcher="" data-fls-watcher-threshold="1" class="catalog-cake__item">
+							<p data-fls-splittype="words,span" class="catalog-cake__title">КАТАЛОГ ПРОДУКЦІЇ</p>
+							<div class="catalog-cake__picture">
+								<img data-fls-parallax="" data-fls-parallax-coefficient="10" width="318" height="303" alt="Image" src="./assets/img/elements/catalog.webp">
+							</div>
+							<a href="files/catalog.pdf" target="_blank" class="catalog-cake__link" aria-label="Завантажити каталог">
+								<svg width="74" height="74" viewbox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M29.5054 19.5899C30.0786 18.9919 31.0285 18.9718 31.6265 19.545L50.1685 37.3145L31.6265 55.0831C31.0284 55.6563 30.0786 55.6363 29.5054 55.0382C28.9325 54.4402 28.9526 53.4912 29.5504 52.918L45.8316 37.3145L29.5504 21.711C28.9524 21.1378 28.9323 20.188 29.5054 19.5899Z" fill="#ffffff"></path>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
 			</main>
 			<!--
 <div class="holiday-gifts__head-title title-head">
@@ -391,140 +815,6 @@
 </div>
 </div>
 -->
-		</div>
-		<div data-fls-popup="popup-details" aria-hidden="true" class="popup">
-			<div data-fls-popup-wrapper="" class="popup__wrapper">
-				<div data-fls-popup-body="" class="popup__body">
-					<button data-fls-popup-close="" type="button" class="popup__close" aria-label="закрити попап">
-						<svg width="15" height="15" viewbox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M1.00034 1L13.3747 13.3744M13.3744 1L1 13.3744" stroke="white" stroke-width="2"></path>
-						</svg>
-					</button>
-					<div data-fls-popup-content="">
-						<div data-fls-mouse-wrapper="" data-info-el="" data-fls-dynamic=".cake-detail__body,992.98,1,min" class="info-cake">
-							<span class="info-cake__bg info-cake__bg--0">
-								<span data-fls-mouse=""></span>
-							</span>
-							<div data-info-subel="" class="info-cake__images info-cake__images--1">
-								<span class="info-cake__bg info-cake__bg--1">
-									<span data-fls-mouse=""></span>
-								</span>
-								<span class="info-cake__bg info-cake__bg--2">
-									<span data-fls-mouse=""></span>
-								</span>
-								<div class="info-cake__images-wr">
-									<img class="info-cake__img ibg" width="277" height="311" alt="Image" src="./assets/img/cake-detail/cake-about-1.webp">
-									<img class="info-cake__img ibg" width="277" height="311" alt="Image" src="./assets/img/cake-history/cake-history-2.webp">
-									<img class="info-cake__img ibg" width="277" height="311" alt="Image" src="./assets/img/cake-history/cake-history-3.webp">
-									<img class="info-cake__img ibg" width="277" height="311" alt="Image" src="./assets/img/cake-history/cake-history-4.webp">
-									<img class="info-cake__img ibg" width="277" height="311" alt="Image" src="./assets/img/cake-history/cake-history-5.webp">
-									<img class="info-cake__img ibg" width="277" height="311" alt="Image" src="./assets/img/cake-history/cake-history-6.webp">
-									<img class="info-cake__img ibg" width="277" height="311" alt="Image" src="./assets/img/cake-history/cake-history-7.webp">
-								</div>
-							</div>
-							<div data-info-subel="" class="info-cake__images info-cake__images--2">
-								<span class="info-cake__bg info-cake__bg--1">
-									<span data-fls-mouse=""></span>
-								</span>
-								<span class="info-cake__bg info-cake__bg--2">
-									<span data-fls-mouse=""></span>
-								</span>
-								<div class="info-cake__images-wr">
-									<img class="info-cake__img ibg" width="286" height="196" alt="Image" src="./assets/img/cake-detail/cake-about-2.webp">
-									<img class="info-cake__img ibg" width="286" height="196" alt="Image" src="./assets/img/cake-history/cake-history-8.webp">
-									<img class="info-cake__img ibg" width="286" height="196" alt="Image" src="./assets/img/cake-history/cake-history-9.webp">
-									<img class="info-cake__img ibg" width="286" height="196" alt="Image" src="./assets/img/cake-history/cake-history-10.webp">
-									<img class="info-cake__img ibg" width="286" height="196" alt="Image" src="./assets/img/cake-history/cake-history-11.webp">
-									<img class="info-cake__img ibg" width="286" height="196" alt="Image" src="./assets/img/cake-history/cake-history-12.webp">
-									<img class="info-cake__img ibg" width="286" height="196" alt="Image" src="./assets/img/cake-history/cake-history-13.webp">
-								</div>
-							</div>
-							<div data-info-subel="" class="info-cake__images info-cake__images--3">
-								<span class="info-cake__bg info-cake__bg--1">
-									<span data-fls-mouse="" data-fls-mouse-dxr="" data-fls-mouse-dyr=""></span>
-								</span>
-								<div class="info-cake__images-wr">
-									<img class="info-cake__img ibg" width="237" height="356" alt="Image" src="./assets/img/cake-detail/cake-about-3.webp">
-									<img class="info-cake__img ibg" width="237" height="356" alt="Image" src="./assets/img/cake-history/cake-history-12.webp">
-									<img class="info-cake__img ibg" width="237" height="356" alt="Image" src="./assets/img/cake-history/cake-history-11.webp">
-									<img class="info-cake__img ibg" width="237" height="356" alt="Image" src="./assets/img/cake-history/cake-history-9.webp">
-									<img class="info-cake__img ibg" width="237" height="356" alt="Image" src="./assets/img/cake-history/cake-history-8.webp">
-									<img class="info-cake__img ibg" width="237" height="356" alt="Image" src="./assets/img/cake-history/cake-history-7.webp">
-									<img class="info-cake__img ibg" width="237" height="356" alt="Image" src="./assets/img/cake-history/cake-history-6.webp">
-								</div>
-							</div>
-							<ul data-info-subel="" class="info-cake__list">
-								<li class="info-cake__item">
-									<p class="info-cake__title">Шоколадні крихти</p>
-									<p class="info-cake__txt txt">
-										Ми взбиваємо крем
-								зі згущеним молоком
-								і додаємо какао, щоб отримати
-								ту саму ніжність, яка дарує
-								тепло з першого шматочка.
-									</p>
-								</li>
-								<li class="info-cake__item">
-									<p class="info-cake__title">Вишня для оздоблення</p>
-									<p class="info-cake__txt txt">
-										2 Ми взбиваємо крем
-								зі згущеним молоком
-								і додаємо какао, щоб отримати
-								ту саму ніжність.
-									</p>
-								</li>
-								<li class="info-cake__item">
-									<p class="info-cake__title">Глазур зі сметаною</p>
-									<p class="info-cake__txt txt">
-										3 Ми взбиваємо крем
-								зі згущеним молоком
-								і додаємо какао, яка дарує
-								тепло з першого шматочка.
-									</p>
-								</li>
-								<li class="info-cake__item">
-									<p class="info-cake__title">Сироп з коньяком</p>
-									<p class="info-cake__txt txt">
-										4 Щоб отримати
-								ту саму ніжність, яка дарує
-								тепло з першого шматочка.
-									</p>
-								</li>
-								<li class="info-cake__item">
-									<p class="info-cake__title">бісквіт з какао</p>
-									<p class="info-cake__txt txt">
-										5 Ми взбиваємо крем
-								зі згущеним молоком
-								і додаємо какао, щоб отримати
-								ту саму ніжність, яка дарує
-								тепло з першого шматочка.
-									</p>
-								</li>
-								<li class="info-cake__item">
-									<p class="info-cake__title">Крем зі згущеним молоком</p>
-									<p class="info-cake__txt txt">
-										6 Ми взбиваємо крем
-								зі згущеним молоком
-								і додаємо какао, щоб отримати
-								ту саму ніжність, яка дарує
-								тепло з першого шматочка.
-									</p>
-								</li>
-								<li class="info-cake__item">
-									<p class="info-cake__title">Соковита вишня</p>
-									<p class="info-cake__txt txt">
-										7 Ми взбиваємо крем
-								зі згущеним молоком
-								і додаємо какао, щоб отримати
-								ту саму ніжність, яка дарує
-								тепло з першого шматочка.
-									</p>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 		<div data-fls-popup="popup-cake" aria-hidden="true" class="popup popup-cake">
 			<div data-fls-popup-wrapper="">

@@ -1,0 +1,72 @@
+
+// == CATEGORY-CAKE =============
+.category-cake {
+@include adaptiveValue("padding-block", 96, 45);
+  position: relative;
+  z-index: 1;
+
+  //  .page--holiday & {
+  //   background-color:var(--gray-bg);
+  // }
+
+  // .category-cake__container
+  &__container {}
+
+  // .category-cake__list
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    gap: 30px 15px;
+
+    @media (min-width:toEm(700.98)) {
+      gap: 15px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  // .category-cake__item
+  &__item {}
+
+  // .category-cake__picture
+  &__picture {
+
+    @extend %beforeHearts;
+    margin-bottom: 5px;
+    &::before{
+      width: 100%;
+    }
+
+    img {
+      @extend %ibg;
+      object-fit: contain;
+      transition: transform .45s ease;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          transform: translate(-50%, -50%) scale(1);
+        }
+        img {
+          transform: translate(0,-5%);
+        }
+      }
+    }
+
+    &:active {
+      &::before {
+        transform: translate(-50%, -50%) scale(1);
+      }
+        img {
+          transform: translate(0,-5%);
+        }
+    }
+  }
+
+  // .category-cake__btn
+  &__btn {
+    max-width: 230px !important;
+    margin-inline: auto;
+  }
+}

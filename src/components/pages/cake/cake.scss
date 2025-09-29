@@ -1832,7 +1832,6 @@
   &__dessert {}
 }
 
-
 %pddBlock96-45 {
   @include adaptiveValue("padding-block", 96, 45);
 }
@@ -2034,6 +2033,8 @@
 }
 
 
+// ===== !!!!! category-cake и catalog-cake вынес как отдельные блоки custom. Для страницы page--cake оставил чтобы не было путанцицы. По хорошему попросить вордпресс разработчика добавить data-fls- атрибуты и обновить css. Только после єтого удалить этот CSS. Также проверить атрибуты на странице
+
 // == CATEGORY-CAKE =============
 .category-cake {
   @extend %pddBlock96-45;
@@ -2197,6 +2198,3 @@
 		}
 }
 
-.footer-margin {
-  margin-bottom: 500px;
-}

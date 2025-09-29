@@ -1,0 +1,93 @@
+.catalog-cake {
+  padding-top: 50px;
+  margin-bottom: 50px;
+		// .catalog-cake__container
+		&__container {
+		}
+
+		// .catalog-cake__item
+		&__item {
+      position: relative;
+      display: grid;
+      grid-template-columns: auto 40% auto;
+      justify-content: space-between;
+      align-items: center;
+      @include adaptiveValue("border-radius", 25, 19);
+      background-color: var(--red);
+      color: var(--white);
+      padding-inline: 22px;
+      padding-block: 27px;
+      @media (min-width:toEm(1024.98)){
+        padding-inline: 110px 80px;
+        padding-block: 58px;
+      }
+      @media (min-width:toEm($mobileSmall)){
+        gap: 20px;
+        grid-template-columns: auto 33% auto;
+      }
+		}
+
+		// .catalog-cake__title
+		&__title {
+      font-family: "MontserratAlternates", sans-serif;
+      font-weight: 500;
+      line-height: 1.18;
+      @include adaptiveValue("font-size", 36, 18);
+      @extend %splitTransformOpacityWatcher;
+		}
+
+		// .catalog-cake__picture
+		&__picture {
+      position: absolute;
+      grid-column: 2/3;
+      left: 50%;
+      transform: translate(-60%,0%);
+      width: 100%;
+      max-width: 318px;
+      min-width: 150px;
+      @media (min-width:toEm($mobileSmall)){
+        transform: translate(-50%,0%);
+      }
+      @media (max-width: toEm(374.98)){
+        min-width: 100px;
+      }
+      img {
+        @extend %ibg;
+        object-fit: contain;
+      }
+		}
+
+		// .catalog-cake__link
+		&__link {
+      grid-column: 3/4;
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 1px solid var(--white);
+      transition: all .3s ease;
+      @media (min-width:toEm(600.98)){
+        width: 74px;
+        height: 74px;
+        border-width: 2px;
+      }
+      svg {
+        width: 100%;
+        height: auto;
+        path {
+          transition: fill .3s ease;
+        }
+      }
+      @media (any-hover: hover){
+        &:hover{
+          background-color: var(--white);
+          svg {
+            path {
+              fill: var(--red);
+            }
+          }
+        }
+      }
+		}
+}

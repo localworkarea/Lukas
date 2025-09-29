@@ -178,6 +178,7 @@
   &::before {
     content: '';
     position: absolute;
+		pointer-events: none;
     top: 44%;
     left: 45%;
     transform: translate(-50%, -50%) scale(0);
@@ -190,4 +191,21 @@
     transition: transform .45s ease;
     // will-change: transform;
   }
+}
+
+
+
+%bgGradient {
+  background:
+    url("@img/holiday/hero/light.png") no-repeat center / contain,
+    radial-gradient(65.39% 65.39% at 52.15% 70.03%, #ff0006 0%, #a6001e 100%);
+}
+
+
+%bgRepeat {
+  position: relative;
+  width: 100%;
+  background-position: 50% 100%;
+  background-size: contain;
+  background-repeat: repeat-x;
 }

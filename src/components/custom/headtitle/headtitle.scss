@@ -1,0 +1,45 @@
+.cake-format {
+  // .cake-format__head
+    &__head {
+      display: grid;
+      grid-template-columns: 1fr 75% 1fr;
+      align-items: center;
+      max-width: calc(100% - 40px);
+      margin-inline: auto;
+  
+      @media (min-width:toEm($mobileSmall)) {
+        grid-template-columns: 1fr auto 1fr;
+        gap: 40px;
+      }
+  
+      &:before,
+      &:after {
+        content: '';
+        height: 1px;
+        width: 100%;
+        background-color: var(--red);
+  
+        @media (min-width:toEm($mobileSmall)) {
+          height: 2px;
+        }
+      }
+    }
+  
+  
+  
+    // .cake-format__title
+    &__title {
+      text-align: center;
+      font-family: "MontserratAlternates", sans-serif;
+      font-weight: 400;
+      @include adaptiveValue("font-size", 40, 22);
+  
+      @extend %splitTransformOpacityWatcher;
+      .subword {
+        .--watcher-view & {
+          transform: translateY(-8%);
+        }
+      }
+  
+    }
+}

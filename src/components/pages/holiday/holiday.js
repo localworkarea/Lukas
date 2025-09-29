@@ -15,23 +15,104 @@ document.addEventListener("DOMContentLoaded", () => {
   const blockEl = document.querySelectorAll('[data-anim-block]');
   const watchEl = document.querySelectorAll('[data-anim-watch]');
   // const starsEl = document.querySelectorAll('[data-stars]');
+  const deerSection = document.querySelector('.holiday-gifts');
   const deerParent = document.querySelector('.holiday-gifts__picture');
   const deerImg = document.querySelector('.holiday-gifts__picture img');
+  const deerTitle = document.querySelector('.holiday-gifts__head-title');
   
   const heartsSection = document.querySelector('.holiday-hearts');
   const heartsContainer = document.querySelector('.holiday-hearts__container');
+  const heartsHead = document.querySelector('.holiday-hearts__head-title');
 
   const svgGerland = document.querySelector(".holiday-hearts__gerland");
   const heartsPicture = document.querySelector(".holiday-hearts__picture");
   const pathHeartsPicture = heartsPicture?.querySelector('path');
+
+
+  const pictureBody = document.querySelector('.holiday-residence__body');
+  const pictureResidence = document.querySelector('.holiday-residence__picture');
+  const svgResidence = document.querySelector('.holiday-residence__svg-2');
+  const starsResidence = document.querySelectorAll('.holiday-residence__star');
+  const starsResidencePath1 = svgResidence.querySelector('#path-1');
+  const starsResidencePath2 = svgResidence.querySelector('#path-2');
   
   const sliderHoliday = document.querySelector(".slider-holiday");
+
+  const madeContainer = document.querySelector(".holiday-made__container");
   
 	// фукнция для создания анимации
 	function createGsapAnim() {
     
     // удаляем тригеры после срабатывания фунции (поворота экрана...)
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
+    
+    let animationPlayed = false;
+    let santaReadyTime = null;
+    function startSantaAnimation() {
+      if (animationPlayed) return;
+      animationPlayed = true;
+    
+      const santa = document.querySelector(".holiday-hero__img");
+      const path = document.querySelector(".holiday-hero__path path");
+    
+      if (!santa || !path) return;
+    
+      // Timeline анимации
+      const tl = gsap.timeline();
+    
+      tl.to(santa, {
+        duration: 5,
+        ease: "none",
+        motionPath: {
+          path: path,
+          align: path,
+          alignOrigin: [0.5, 0.5],
+          autoRotate: true,
+          start: 0,
+          end: 1
+        }
+      }, 0);
+    
+      // Быстрое появление за 0.5s
+      tl.to(santa, {
+        opacity: 1,
+        duration: 0.3,
+        ease: "power1.out"
+      }, 0);
+    
+      // Постепенное исчезновение в конце (с 5.5s)
+      tl.to(santa, {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power1.in"
+      }, 4.5);
+    }
+
+    function handleScrollTrigger() {
+    if (animationPlayed || !santaReadyTime) return;
+
+    const now = Date.now();
+    const timeLeft = santaReadyTime - now;
+
+    if (timeLeft <= 0) {
+      startSantaAnimation();
+      window.removeEventListener("scroll", handleScrollTrigger);
+    } else {
+      // Если пользователь проскроллил раньше, ждём оставшееся время
+      setTimeout(() => {
+        startSantaAnimation();
+        window.removeEventListener("scroll", handleScrollTrigger);
+      }, timeLeft);
+    }
+  }
+
+  window.addEventListener("load", () => {
+    santaReadyTime = Date.now() + 2000;
+
+    window.addEventListener("scroll", handleScrollTrigger, { once: false });
+  });
+
     
     if (blockEl.length > 0) {
       blockEl.forEach((section) => {
@@ -175,12 +256,63 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    if (starsResidence.length >= 2) {
+      const [star1, star2] = starsResidence;
+    
+      ScrollTrigger.create({
+        trigger: pictureResidence,
+        start: "bottom bottom",
+        onEnter: () => {
+          animateStar(star1, starsResidencePath1);
+          animateStar(star2, starsResidencePath2);
+        }
+      });
+    }
+    
+    function animateStar(star, path) {
+      gsap.timeline()
+        .set(star, { opacity: 1 }) 
+        .to(star, {
+          duration: 4,
+          ease: "power1.inOut",
+          motionPath: {
+            path: path,
+            align: path,
+            autoRotate: true,
+            alignOrigin: [0.5, 0.5],
+            start: 0,
+            end: 1
+          }
+        })
+        .to(star, {
+          opacity: 0,
+          duration: 0.5,
+          ease: "power1.out"
+        }, ">-0.5"); 
+    }
 
 
+
+    if (pictureBody) {
+      ScrollTrigger.create({
+        trigger: pictureBody,
+        start: "bottom 80%", 
+        onEnter: () => pictureBody.classList.add('--view'),
+        // onLeaveBack: () => pictureBody.classList.remove('--view'),
+      });
+    }
+    if (madeContainer) {
+      ScrollTrigger.create({
+        trigger: madeContainer,
+        start: "top center", 
+        onEnter: () => madeContainer.classList.add('--view'),
+        // onLeaveBack: () => madeContainer.classList.remove('--view'),
+      });
+    }
 
 
     // для очищения стилей gsap при повороте для элементов, которым не нужно больше
-    gsap.set([deerImg], { clearProps: "all" }); 
+    gsap.set([deerImg, deerTitle], { clearProps: "all" }); 
     
     
     let mm = gsap.matchMedia();
@@ -236,13 +368,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
       
       if (min820) {
+
+        if (deerTitle) {
+          gsap.timeline({
+            scrollTrigger: {
+              trigger: deerSection,
+              start: "top center",
+              end: "bottom bottom",
+              scrub: 2,
+            }
+          })
+          // Трансформация: от начала до конца
+          .to(deerTitle, {
+            yPercent: -100,
+            ease: "none",
+            duration: 1
+          }, 0)
+        
+          // Opacity: 0 → 1 (0–25%)
+          .to(deerTitle, {
+            opacity: 1,
+            ease: "none",
+            duration: 0.25
+          }, 0)
+        
+          // Opacity: держим 1 (25–75%)
+          .to(deerTitle, {
+            opacity: 1,
+            ease: "none",
+            duration: 0.5
+          }, ">")
+        
+          // Opacity: 1 → 0 (75–100%)
+          .to(deerTitle, {
+            opacity: 0,
+            ease: "none",
+            duration: 0.25
+          }, ">");
+        }
+
         if (deerParent && deerImg) {
           gsap.to(deerParent, {
             opacity: 1,
             scrollTrigger: {
               trigger: deerParent,
-              start: "top center",
-              end: " bottom 70%",
+                start: 'top 40%',
+              end: 'center 40%',
               scrub: 2,
             }
           });
@@ -252,12 +423,13 @@ document.addEventListener("DOMContentLoaded", () => {
             // yPercent: 70,
             scrollTrigger: {
               trigger: deerParent,
-              start: 'top center',
+              start: 'top 40%',
               end: 'bottom top',
-              scrub: 2
+              scrub: 2,
             }
           });
         }
+
 
       }
 
@@ -265,6 +437,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
       
       if (max820) {
+
+        if (deerTitle) {
+          gsap.to(deerTitle, {
+            opacity: 1,
+            scrollTrigger: {
+              trigger: deerSection,
+              start: "top center",
+              end: "bottom bottom",
+              scrub: 2,
+            }
+          });
+        }
+
+
         if (deerParent && deerImg) {
           gsap.to(deerParent, {
              opacity: 1,
@@ -289,6 +475,7 @@ document.addEventListener("DOMContentLoaded", () => {
              }
            });
         }
+      
         
       }
 
@@ -505,6 +692,83 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   renderStars();
+
+
+
+
+  // == Подставление информации в попап (при последующих обновлениях сайта перенести в один компонент)
+	const popupCake = document.querySelector('[data-fls-popup="popup-cake"]');
+
+	if (popupCake) {
+	  const popupTitle = popupCake.querySelector(".popup-cake__title");
+	  const popupDescr = popupCake.querySelector(".popup-cake__txt");
+	  const popupSpecs = popupCake.querySelector(".popup-cake__specification");
+	  const orderBtn   = popupCake.querySelector(".popup-cake__btn");
+	  const popupImg   = popupCake.querySelector(".popup-cake__picture img");
+
+	  const ROOT = document.documentElement;
+	  const CLASS_PREFIX = "popup-el--";
+
+	  const catalogItems = document.querySelectorAll('[data-fls-popup-link="popup-cake"]');
+
+	  catalogItems.forEach((item) => {
+	    item.addEventListener("click", (e) => {
+	      e.preventDefault();
+
+	      // 1) Данные берём из блока внутри текущего item
+	      const info = item.querySelector("[data-popup-info]");
+	      if (!info) return;
+
+	      // 2) Заголовок
+	      popupTitle.textContent = "";
+	      const infoTitle = info.querySelector("[data-popup-title]");
+	      if (infoTitle) popupTitle.textContent = infoTitle.textContent.trim();
+
+	      // 3) Описание
+	      popupDescr.innerHTML = "";
+	      const infoDescr = info.querySelector("[data-popup-descr]");
+	      if (infoDescr) popupDescr.innerHTML = infoDescr.innerHTML.trim();
+
+	      // 4) Спецификации
+	      popupSpecs.innerHTML = "";
+	      const infoSpecs = info.querySelectorAll("[data-popup-specs-item]");
+	      if (infoSpecs.length) {
+	        const ul = document.createElement("ul");
+	        ul.className = "specification__list";
+
+	        infoSpecs.forEach((spec) => {
+	          const title = spec.querySelector("[data-popup-specs-title]")?.textContent.trim() || "";
+	          const descr = spec.querySelector("[data-popup-specs-descr]")?.textContent.trim() || "";
+	          if (!title && !descr) return;
+
+	          const li = document.createElement("li");
+	          li.className = "specification__item";
+	          li.innerHTML = `
+	            <div class="specification__title"><p>${title}</p></div>
+	            <div class="specification__descr"><p>${descr}</p></div>
+	          `;
+	          ul.appendChild(li);
+	        });
+
+	        if (ul.children.length) popupSpecs.appendChild(ul);
+	      }
+
+	      // 5) Картинка из кликнутого элемента
+	      const catalogImg = item.querySelector("img");
+	      if (catalogImg && popupImg) {
+	        popupImg.src = catalogImg.getAttribute("src") || popupImg.src;
+	        popupImg.alt = catalogImg.getAttribute("alt") || "Image";
+	      }
+
+	      // 6) Кнопка заказа
+	      orderBtn.setAttribute("href", info.dataset.popupOrder || "#");
+	    });
+	  });
+	}
+
+	// ===== END ========================================
+
+
   
   
   // === RESIZI OBSERVER ==========================================

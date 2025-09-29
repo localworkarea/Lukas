@@ -7488,16 +7488,76 @@ document.addEventListener("DOMContentLoaded", () => {
   ScrollTrigger.refresh();
   const blockEl = document.querySelectorAll("[data-anim-block]");
   const watchEl = document.querySelectorAll("[data-anim-watch]");
+  const deerSection = document.querySelector(".holiday-gifts");
   const deerParent = document.querySelector(".holiday-gifts__picture");
   const deerImg = document.querySelector(".holiday-gifts__picture img");
+  const deerTitle = document.querySelector(".holiday-gifts__head-title");
   const heartsSection = document.querySelector(".holiday-hearts");
   const heartsContainer = document.querySelector(".holiday-hearts__container");
+  document.querySelector(".holiday-hearts__head-title");
   const svgGerland = document.querySelector(".holiday-hearts__gerland");
   const heartsPicture = document.querySelector(".holiday-hearts__picture");
   const pathHeartsPicture = heartsPicture?.querySelector("path");
+  const pictureBody = document.querySelector(".holiday-residence__body");
+  const pictureResidence = document.querySelector(".holiday-residence__picture");
+  const svgResidence = document.querySelector(".holiday-residence__svg-2");
+  const starsResidence = document.querySelectorAll(".holiday-residence__star");
+  const starsResidencePath1 = svgResidence.querySelector("#path-1");
+  const starsResidencePath2 = svgResidence.querySelector("#path-2");
   const sliderHoliday = document.querySelector(".slider-holiday");
+  const madeContainer = document.querySelector(".holiday-made__container");
   function createGsapAnim() {
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    let animationPlayed = false;
+    let santaReadyTime = null;
+    function startSantaAnimation() {
+      if (animationPlayed) return;
+      animationPlayed = true;
+      const santa = document.querySelector(".holiday-hero__img");
+      const path = document.querySelector(".holiday-hero__path path");
+      if (!santa || !path) return;
+      const tl = gsapWithCSS.timeline();
+      tl.to(santa, {
+        duration: 5,
+        ease: "none",
+        motionPath: {
+          path,
+          align: path,
+          alignOrigin: [0.5, 0.5],
+          autoRotate: true,
+          start: 0,
+          end: 1
+        }
+      }, 0);
+      tl.to(santa, {
+        opacity: 1,
+        duration: 0.3,
+        ease: "power1.out"
+      }, 0);
+      tl.to(santa, {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power1.in"
+      }, 4.5);
+    }
+    function handleScrollTrigger() {
+      if (animationPlayed || !santaReadyTime) return;
+      const now = Date.now();
+      const timeLeft = santaReadyTime - now;
+      if (timeLeft <= 0) {
+        startSantaAnimation();
+        window.removeEventListener("scroll", handleScrollTrigger);
+      } else {
+        setTimeout(() => {
+          startSantaAnimation();
+          window.removeEventListener("scroll", handleScrollTrigger);
+        }, timeLeft);
+      }
+    }
+    window.addEventListener("load", () => {
+      santaReadyTime = Date.now() + 2e3;
+      window.addEventListener("scroll", handleScrollTrigger, { once: false });
+    });
     if (blockEl.length > 0) {
       blockEl.forEach((section) => {
         gsapWithCSS.to(section, {
@@ -7626,7 +7686,52 @@ document.addEventListener("DOMContentLoaded", () => {
         onLeaveBack: () => sliderHoliday.classList.remove("--view")
       });
     }
-    gsapWithCSS.set([deerImg], { clearProps: "all" });
+    if (starsResidence.length >= 2) {
+      const [star1, star2] = starsResidence;
+      ScrollTrigger.create({
+        trigger: pictureResidence,
+        start: "bottom bottom",
+        onEnter: () => {
+          animateStar(star1, starsResidencePath1);
+          animateStar(star2, starsResidencePath2);
+        }
+      });
+    }
+    function animateStar(star, path) {
+      gsapWithCSS.timeline().set(star, { opacity: 1 }).to(star, {
+        duration: 4,
+        ease: "power1.inOut",
+        motionPath: {
+          path,
+          align: path,
+          autoRotate: true,
+          alignOrigin: [0.5, 0.5],
+          start: 0,
+          end: 1
+        }
+      }).to(star, {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power1.out"
+      }, ">-0.5");
+    }
+    if (pictureBody) {
+      ScrollTrigger.create({
+        trigger: pictureBody,
+        start: "bottom 80%",
+        onEnter: () => pictureBody.classList.add("--view")
+        // onLeaveBack: () => pictureBody.classList.remove('--view'),
+      });
+    }
+    if (madeContainer) {
+      ScrollTrigger.create({
+        trigger: madeContainer,
+        start: "top center",
+        onEnter: () => madeContainer.classList.add("--view")
+        // onLeaveBack: () => madeContainer.classList.remove('--view'),
+      });
+    }
+    gsapWithCSS.set([deerImg, deerTitle], { clearProps: "all" });
     let mm = gsapWithCSS.matchMedia();
     mm.add({
       min820: "(min-width: 51.311em)",
@@ -7668,13 +7773,39 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
       if (min820) {
+        if (deerTitle) {
+          gsapWithCSS.timeline({
+            scrollTrigger: {
+              trigger: deerSection,
+              start: "top center",
+              end: "bottom bottom",
+              scrub: 2
+            }
+          }).to(deerTitle, {
+            yPercent: -100,
+            ease: "none",
+            duration: 1
+          }, 0).to(deerTitle, {
+            opacity: 1,
+            ease: "none",
+            duration: 0.25
+          }, 0).to(deerTitle, {
+            opacity: 1,
+            ease: "none",
+            duration: 0.5
+          }, ">").to(deerTitle, {
+            opacity: 0,
+            ease: "none",
+            duration: 0.25
+          }, ">");
+        }
         if (deerParent && deerImg) {
           gsapWithCSS.to(deerParent, {
             opacity: 1,
             scrollTrigger: {
               trigger: deerParent,
-              start: "top center",
-              end: " bottom 70%",
+              start: "top 40%",
+              end: "center 40%",
               scrub: 2
             }
           });
@@ -7683,7 +7814,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // yPercent: 70,
             scrollTrigger: {
               trigger: deerParent,
-              start: "top center",
+              start: "top 40%",
               end: "bottom top",
               scrub: 2
             }
@@ -7691,6 +7822,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
       if (max820) {
+        if (deerTitle) {
+          gsapWithCSS.to(deerTitle, {
+            opacity: 1,
+            scrollTrigger: {
+              trigger: deerSection,
+              start: "top center",
+              end: "bottom bottom",
+              scrub: 2
+            }
+          });
+        }
         if (deerParent && deerImg) {
           gsapWithCSS.to(deerParent, {
             opacity: 1,
@@ -7898,6 +8040,53 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   renderStars();
+  const popupCake = document.querySelector('[data-fls-popup="popup-cake"]');
+  if (popupCake) {
+    const popupTitle = popupCake.querySelector(".popup-cake__title");
+    const popupDescr = popupCake.querySelector(".popup-cake__txt");
+    const popupSpecs = popupCake.querySelector(".popup-cake__specification");
+    const orderBtn = popupCake.querySelector(".popup-cake__btn");
+    const popupImg = popupCake.querySelector(".popup-cake__picture img");
+    const catalogItems = document.querySelectorAll('[data-fls-popup-link="popup-cake"]');
+    catalogItems.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        e.preventDefault();
+        const info = item.querySelector("[data-popup-info]");
+        if (!info) return;
+        popupTitle.textContent = "";
+        const infoTitle = info.querySelector("[data-popup-title]");
+        if (infoTitle) popupTitle.textContent = infoTitle.textContent.trim();
+        popupDescr.innerHTML = "";
+        const infoDescr = info.querySelector("[data-popup-descr]");
+        if (infoDescr) popupDescr.innerHTML = infoDescr.innerHTML.trim();
+        popupSpecs.innerHTML = "";
+        const infoSpecs = info.querySelectorAll("[data-popup-specs-item]");
+        if (infoSpecs.length) {
+          const ul = document.createElement("ul");
+          ul.className = "specification__list";
+          infoSpecs.forEach((spec) => {
+            const title = spec.querySelector("[data-popup-specs-title]")?.textContent.trim() || "";
+            const descr = spec.querySelector("[data-popup-specs-descr]")?.textContent.trim() || "";
+            if (!title && !descr) return;
+            const li = document.createElement("li");
+            li.className = "specification__item";
+            li.innerHTML = `
+	            <div class="specification__title"><p>${title}</p></div>
+	            <div class="specification__descr"><p>${descr}</p></div>
+	          `;
+            ul.appendChild(li);
+          });
+          if (ul.children.length) popupSpecs.appendChild(ul);
+        }
+        const catalogImg = item.querySelector("img");
+        if (catalogImg && popupImg) {
+          popupImg.src = catalogImg.getAttribute("src") || popupImg.src;
+          popupImg.alt = catalogImg.getAttribute("alt") || "Image";
+        }
+        orderBtn.setAttribute("href", info.dataset.popupOrder || "#");
+      });
+    });
+  }
   let lastWidth2 = window.innerWidth;
   const resizeObserver2 = new ResizeObserver((entries) => {
     requestAnimationFrame(() => {
