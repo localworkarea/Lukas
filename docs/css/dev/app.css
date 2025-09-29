@@ -593,7 +593,6 @@ body::after {
   z-index: 1;
   aspect-ratio: 1440/800;
   background-color: var(--red);
-  clip-path: ellipse(66% 0% at 47% 0%);
   transition: clip-path 0.45s ease 0.55s;
 }
 [data-fls-popup-active] .popup-cake__bg::before {
@@ -726,9 +725,6 @@ body::after {
   }
 }
 @media (max-width: 30.06125em) {
-  .popup-el--holiday-gifts .popup-cake__bg::before {
-    transition: clip-path 0.85s ease 0.55s;
-  }
   .popup-cake__bg::before {
     clip-path: ellipse(40% 0% at 47% 0%) !important;
   }
@@ -1011,6 +1007,11 @@ body::after {
     background-color: var(--white);
   }
 }
+@media (orientation: landscape) {
+  .popup-cake__bg::before {
+    clip-path: ellipse(66% 0% at 47% 0%);
+  }
+}
 @media (orientation: portrait) {
   .popup-cake__bg::before {
     height: 95%;
@@ -1021,7 +1022,11 @@ body::after {
     transition-delay: 0s !important;
   }
   .popup-el--holiday-gifts .popup-cake__bg::before {
-    height: 115%;
+    transition: clip-path 0.45s ease 0.55s !important;
+    height: 100%;
+  }
+  [data-fls-popup-active] .popup-el--holiday-gifts .popup-cake__bg::before {
+    transition: clip-path 0.85s ease 0s !important;
   }
   .popup-cake__bg::after {
     top: 0%;

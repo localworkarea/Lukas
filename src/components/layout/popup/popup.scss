@@ -181,6 +181,12 @@ body::after {
 			inset: 0;
 			z-index: -1;
 			overflow: hidden;
+			
+			.popup-el--holiday-gifts & {
+				@media (max-width: toEm($mobileSmall)){
+					// overflow: auto;
+				}
+			}
 
 			&::before,
 			&::after {
@@ -202,7 +208,7 @@ body::after {
 				aspect-ratio: 1440/800;
 				// background-image: url("@img/cake-popup/bg.png");
 				background-color: var(--red);		
-				clip-path: ellipse(66% 0% at 47% 0%);
+				// clip-path: ellipse(66% 0% at 47% 0%);
 				
 				transition: clip-path 0.45s ease 0.55s;
 				
@@ -210,11 +216,10 @@ body::after {
 					clip-path: ellipse(66% 70% at 47% 0%);
 					transition-delay: 0s;
 				}
-				.popup-el--holiday-gifts & {
-					@media (max-width:toEm($mobileSmall)){
-						transition: clip-path 0.85s ease 0.55s;
-					}
-				}
+				
+				@media (orientation: landscape) {
+					clip-path: ellipse(66% 0% at 47% 0%);
+				} 
 				
 				@media (orientation: portrait) {
 					// height: 80vh;
@@ -224,8 +229,12 @@ body::after {
 						clip-path: ellipse(60% 70% at 47% 25%) !important;
 						transition-delay: 0s !important;
 					}
-					 .popup-el--holiday-gifts & {
-						 height: 115%; 
+					.popup-el--holiday-gifts & {
+						[data-fls-popup-active] & {
+							transition: clip-path 0.85s ease 0s !important;
+						}
+						 transition: clip-path 0.45s ease 0.55s !important;
+						 height: 100%; 
 					 }
 				}
 				@media (max-width:toEm($mobileSmall)){
