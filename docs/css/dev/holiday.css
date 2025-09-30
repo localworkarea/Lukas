@@ -199,7 +199,7 @@
   left: 50%;
   transform: translate(-50%, 0);
   width: 100vw;
-  z-index: 3;
+  z-index: 1;
   max-width: 56.25rem;
   margin-inline: auto;
 }
@@ -214,9 +214,9 @@
   left: 50%;
   top: 0%;
   transform: translate(-48%, 0%) rotate(0deg);
-  width: 100%;
   height: auto;
-  max-width: 54.125rem;
+  width: 90%;
+  max-width: 38.75rem;
   opacity: 0;
 }
 .holiday-hero__bgs-wr {
@@ -224,7 +224,7 @@
   z-index: 1;
 }
 .holiday-hero__bg--1 {
-  z-index: 1;
+  z-index: 2;
   transform: translate(0, 50%);
   background-image: url("../assets/img/holiday/hero/mountains-mb.webp");
 }
@@ -1190,6 +1190,10 @@
   }
   .holiday-hero__moon {
     top: -2.5rem;
+  }
+  .holiday-hero__path {
+    transform: translate(-48%, -100%) rotate(2deg);
+    width: 100%;
   }
   .holiday-hero__bg--1 {
     background-image: url("../assets/img/holiday/hero/mountains.webp");

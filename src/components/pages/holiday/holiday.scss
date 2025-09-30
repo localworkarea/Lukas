@@ -256,7 +256,8 @@
     left: 50%;
     transform: translate(-50%, 0);
     width: 100vw;
-    z-index: 3;
+    // z-index: 3;
+    z-index: 1;
     max-width: 900px;
     margin-inline: auto;
     
@@ -275,11 +276,18 @@
     position: absolute;
     left: 50%;
     top: 0%;
+    // transform: translate(-48%, 0%) rotate(0deg);
     transform: translate(-48%, 0%) rotate(0deg);
-    width: 100%;
     height: auto;
-    max-width: 866px;
+    width: 90%; 
+    // max-width: 866px;
+    max-width: 620px;
     opacity: 0;
+    @media (min-width:toEm($mobileSmall)){
+      transform: translate(-48%, -100%) rotate(2deg);
+      width: 100%;
+        
+    }
   }
 
   // .holiday-hero__bgs-wr
@@ -295,7 +303,7 @@
 
   // .holiday-hero__bg--1
   &__bg--1 {
-    z-index: 1;
+    z-index: 2;
     @include adaptiveValue("margin-top", -271, -143);
     @include adaptiveValue("height", 415, 256);
 
