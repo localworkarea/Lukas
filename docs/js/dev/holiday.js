@@ -7517,6 +7517,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const path = document.querySelector(".holiday-hero__path path");
       if (!santa || !path) return;
       const tl = gsapWithCSS.timeline();
+      tl.set(santa, { opacity: 0 });
       tl.to(santa, {
         duration: 5,
         ease: "none",
@@ -7557,6 +7558,27 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("load", () => {
       santaReadyTime = Date.now() + 2e3;
       window.addEventListener("scroll", handleScrollTrigger, { once: false });
+      ScrollTrigger.create({
+        trigger: document.querySelector(".holiday-hero__santa"),
+        start: "top bottom",
+        end: "bottom top",
+        onEnter: () => {
+          if (!animationPlayed && Date.now() >= santaReadyTime) {
+            startSantaAnimation();
+          }
+        },
+        onLeave: () => {
+          animationPlayed = false;
+        },
+        onEnterBack: () => {
+          if (!animationPlayed && Date.now() >= santaReadyTime) {
+            startSantaAnimation();
+          }
+        },
+        onLeaveBack: () => {
+          animationPlayed = false;
+        }
+      });
     });
     if (blockEl.length > 0) {
       blockEl.forEach((section) => {
@@ -7800,22 +7822,19 @@ document.addEventListener("DOMContentLoaded", () => {
           }, ">");
         }
         if (deerParent && deerImg) {
-          gsapWithCSS.to(deerParent, {
-            opacity: 1,
-            scrollTrigger: {
-              trigger: deerParent,
-              start: "top 40%",
-              end: "center 40%",
-              scrub: 2
-            }
+          ScrollTrigger.create({
+            trigger: deerParent,
+            start: "top 50%",
+            onEnter: () => deerParent.classList.add("--view"),
+            onLeaveBack: () => deerParent.classList.remove("--view")
           });
           gsapWithCSS.to(deerImg, {
-            xPercent: -180,
+            xPercent: -280,
             // yPercent: 70,
             scrollTrigger: {
               trigger: deerParent,
-              start: "top 40%",
-              end: "bottom top",
+              start: "top 50%",
+              end: "bottom 20%",
               scrub: 2
             }
           });
@@ -8094,6 +8113,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const currentWidth = entry.contentRect.width;
         if (currentWidth !== lastWidth2) {
           renderStars();
+          createGsapAnim();
           lastWidth2 = currentWidth;
         }
       });

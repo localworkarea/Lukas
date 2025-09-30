@@ -47,8 +47,76 @@ document.addEventListener("DOMContentLoaded", () => {
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
     
+  //   let animationPlayed = false;
+  //   let santaReadyTime = null;
+  //   function startSantaAnimation() {
+  //     if (animationPlayed) return;
+  //     animationPlayed = true;
+    
+  //     const santa = document.querySelector(".holiday-hero__img");
+  //     const path = document.querySelector(".holiday-hero__path path");
+    
+  //     if (!santa || !path) return;
+    
+  //     // Timeline анимации
+  //     const tl = gsap.timeline();
+    
+  //     tl.to(santa, {
+  //       duration: 5,
+  //       ease: "none",
+  //       motionPath: {
+  //         path: path,
+  //         align: path,
+  //         alignOrigin: [0.5, 0.5],
+  //         autoRotate: true,
+  //         start: 0,
+  //         end: 1
+  //       }
+  //     }, 0);
+    
+  //     // Быстрое появление за 0.5s
+  //     tl.to(santa, {
+  //       opacity: 1,
+  //       duration: 0.3,
+  //       ease: "power1.out"
+  //     }, 0);
+    
+  //     // Постепенное исчезновение в конце (с 5.5s)
+  //     tl.to(santa, {
+  //       opacity: 0,
+  //       duration: 0.5,
+  //       ease: "power1.in"
+  //     }, 4.5);
+  //   }
+
+  //   function handleScrollTrigger() {
+  //   if (animationPlayed || !santaReadyTime) return;
+
+  //   const now = Date.now();
+  //   const timeLeft = santaReadyTime - now;
+
+  //   if (timeLeft <= 0) {
+  //     startSantaAnimation();
+  //     window.removeEventListener("scroll", handleScrollTrigger);
+  //   } else {
+  //     // Если пользователь проскроллил раньше, ждём оставшееся время
+  //     setTimeout(() => {
+  //       startSantaAnimation();
+  //       window.removeEventListener("scroll", handleScrollTrigger);
+  //     }, timeLeft);
+  //   }
+  // }
+
+  // window.addEventListener("load", () => {
+  //   santaReadyTime = Date.now() + 2000;
+
+  //   window.addEventListener("scroll", handleScrollTrigger, { once: false });
+  // });
+
+
     let animationPlayed = false;
     let santaReadyTime = null;
+
     function startSantaAnimation() {
       if (animationPlayed) return;
       animationPlayed = true;
@@ -58,8 +126,9 @@ document.addEventListener("DOMContentLoaded", () => {
     
       if (!santa || !path) return;
     
-      // Timeline анимации
       const tl = gsap.timeline();
+    
+      tl.set(santa, { opacity: 0 }); // сброс перед стартом
     
       tl.to(santa, {
         duration: 5,
@@ -74,14 +143,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }, 0);
     
-      // Быстрое появление за 0.5s
       tl.to(santa, {
         opacity: 1,
         duration: 0.3,
         ease: "power1.out"
       }, 0);
     
-      // Постепенное исчезновение в конце (с 5.5s)
       tl.to(santa, {
         opacity: 0,
         duration: 0.5,
@@ -90,28 +157,50 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function handleScrollTrigger() {
-    if (animationPlayed || !santaReadyTime) return;
-
-    const now = Date.now();
-    const timeLeft = santaReadyTime - now;
-
-    if (timeLeft <= 0) {
-      startSantaAnimation();
-      window.removeEventListener("scroll", handleScrollTrigger);
-    } else {
-      // Если пользователь проскроллил раньше, ждём оставшееся время
-      setTimeout(() => {
+      if (animationPlayed || !santaReadyTime) return;
+    
+      const now = Date.now();
+      const timeLeft = santaReadyTime - now;
+    
+      if (timeLeft <= 0) {
         startSantaAnimation();
         window.removeEventListener("scroll", handleScrollTrigger);
-      }, timeLeft);
+      } else {
+        setTimeout(() => {
+          startSantaAnimation();
+          window.removeEventListener("scroll", handleScrollTrigger);
+        }, timeLeft);
+      }
     }
-  }
 
-  window.addEventListener("load", () => {
-    santaReadyTime = Date.now() + 2000;
+    window.addEventListener("load", () => {
+      santaReadyTime = Date.now() + 2000;
+      window.addEventListener("scroll", handleScrollTrigger, { once: false });
+    
+      // повторный запуск при входе во viewport
+      ScrollTrigger.create({
+        trigger: document.querySelector(".holiday-hero__santa"),
+        start: "top bottom",      
+        end: "bottom top",  
+        onEnter: () => {
+          if (!animationPlayed && Date.now() >= santaReadyTime) {
+            startSantaAnimation();
+          }
+        },
+        onLeave: () => {
+          animationPlayed = false;
+        },
+        onEnterBack: () => {
+          if (!animationPlayed && Date.now() >= santaReadyTime) {
+            startSantaAnimation();
+          }
+        },
+        onLeaveBack: () => {
+          animationPlayed = false;
+        }
+      });
+    });
 
-    window.addEventListener("scroll", handleScrollTrigger, { once: false });
-  });
 
     
     if (blockEl.length > 0) {
@@ -408,23 +497,30 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (deerParent && deerImg) {
-          gsap.to(deerParent, {
-            opacity: 1,
-            scrollTrigger: {
-              trigger: deerParent,
-                start: 'top 40%',
-              end: 'center 40%',
-              scrub: 2,
-            }
+          // gsap.to(deerParent, {
+          //   opacity: 1,
+          //   scrollTrigger: {
+          //     trigger: deerParent,
+          //       start: 'top 50%',
+          //     end: 'center 40%',
+          //     scrub: 2,
+          //   }
+          // });
+
+           ScrollTrigger.create({
+            trigger: deerParent,
+            start: 'top 50%',
+            onEnter: () => deerParent.classList.add('--view'),
+            onLeaveBack: () => deerParent.classList.remove('--view'),
           });
           
           gsap.to(deerImg, {
-            xPercent: -180,
+            xPercent: -280,
             // yPercent: 70,
             scrollTrigger: {
               trigger: deerParent,
-              start: 'top 40%',
-              end: 'bottom top',
+              start: 'top 50%',
+              end: 'bottom 20%',
               scrub: 2,
             }
           });
@@ -781,7 +877,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const currentWidth = entry.contentRect.width;
         if (currentWidth !== lastWidth2) {
           renderStars();
-          // createGsapAnim();
+          createGsapAnim();
           lastWidth2 = currentWidth;
         }
       });

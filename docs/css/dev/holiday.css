@@ -199,7 +199,7 @@
   left: 50%;
   transform: translate(-50%, 0);
   width: 100vw;
-  z-index: 4;
+  z-index: 3;
   max-width: 56.25rem;
   margin-inline: auto;
 }
@@ -213,7 +213,7 @@
   position: absolute;
   left: 50%;
   top: 0%;
-  transform: translate(-48%, 50%) rotate(0deg);
+  transform: translate(-48%, 0%) rotate(0deg);
   width: 100%;
   height: auto;
   max-width: 54.125rem;
@@ -234,7 +234,7 @@
 .holiday-hero__bg--2 {
   position: absolute;
   bottom: 0;
-  z-index: 3;
+  z-index: 4;
   background-image: url("../assets/img/holiday/hero/trees-mb.webp");
   height: 85%;
   transform: translate(0, 20%);
@@ -278,7 +278,11 @@
   position: relative;
   z-index: 3;
   opacity: 0;
+  transition: opacity 0.3s ease;
   max-width: 30rem;
+}
+.holiday-gifts__picture.--view {
+  opacity: 1;
 }
 .holiday-gifts__picture img {
   transform: translate(100%, 0%) scale(1);
@@ -619,8 +623,8 @@
 .holiday-residence__svg {
   position: absolute;
   top: -1%;
-  right: -0.2%;
-  width: 102%;
+  right: -0.3%;
+  width: 103%;
   height: auto;
 }
 .holiday-residence__svg [id=path-1] {
@@ -1048,9 +1052,6 @@
   }
 }
 @media (min-width: 480.98) {
-  .holiday-gifts__cloud--2 {
-    background-image: url("../assets/img/holiday/clouds/cloud-2.webp");
-  }
   .holiday-residence__head .title-head__title-up {
     line-height: 1.2;
     margin-bottom: -0.5rem;
@@ -1079,7 +1080,7 @@
     width: clamp( 6.1875rem , 4.809722222225rem  +  6.8888888889vw , 10.0625rem );
   }
   .holiday-hero__bg--1 {
-    margin-top: clamp( -14.4375rem , -6.98194444444375rem  +  -9.7777777778vw , -8.9375rem );
+    margin-top: clamp( -16.9375rem , -6.09305555555625rem  +  -14.2222222222vw , -8.9375rem );
   }
   .holiday-hero__bg--1 {
     height: clamp( 16rem , 12.46666666666875rem  +  17.6666666667vw , 25.9375rem );
@@ -1202,6 +1203,9 @@
   .holiday-gifts__cloud--1 {
     background-image: url("../assets/img/holiday/clouds/cloud-1.webp");
   }
+  .holiday-gifts__cloud--2 {
+    background-image: url("../assets/img/holiday/clouds/cloud-2.webp");
+  }
   .holiday-gifts__cloud--3 {
     background-image: url("../assets/img/holiday/clouds/cloud-3.webp");
   }
@@ -1294,7 +1298,7 @@
     max-width: auto;
   }
   .holiday-gifts__picture img {
-    transform: translate(50%, -10%) scale(1.45);
+    transform: translate(150%, -10%) scale(1.45);
   }
   .holiday-hearts__container {
     display: grid;
@@ -1421,7 +1425,7 @@
     width: 10.0625rem;
   }
   .holiday-hero__bg--1 {
-    margin-top: -14.4375rem;
+    margin-top: -16.9375rem;
   }
   .holiday-hero__bg--1 {
     height: 25.9375rem;

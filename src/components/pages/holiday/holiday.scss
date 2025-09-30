@@ -256,7 +256,7 @@
     left: 50%;
     transform: translate(-50%, 0);
     width: 100vw;
-    z-index: 4;
+    z-index: 3;
     max-width: 900px;
     margin-inline: auto;
     
@@ -275,7 +275,7 @@
     position: absolute;
     left: 50%;
     top: 0%;
-    transform: translate(-48%, 50%) rotate(0deg);
+    transform: translate(-48%, 0%) rotate(0deg);
     width: 100%;
     height: auto;
     max-width: 866px;
@@ -296,7 +296,7 @@
   // .holiday-hero__bg--1
   &__bg--1 {
     z-index: 1;
-    @include adaptiveValue("margin-top", -231, -143);
+    @include adaptiveValue("margin-top", -271, -143);
     @include adaptiveValue("height", 415, 256);
 
     transform: translate(0,50%);
@@ -316,7 +316,7 @@
   &__bg--2 {
     position: absolute;
     bottom: 0;
-    z-index: 3;
+    z-index: 4;
     background-image: url("@img/holiday/hero/trees-mb.png");
     height: 85%;
     
@@ -408,7 +408,13 @@
     position: relative;
     z-index: 3;
     opacity: 0;
+
+    transition: opacity .3s ease;
     max-width: 480px;
+
+    &.--view {
+      opacity: 1;
+    }
 
     @media (min-width:toEm(820.98)) {
       max-width: auto;
@@ -426,7 +432,7 @@
       transform: translate(100%, 0%) scale(1);
 
       @media (min-width:toEm(820.98)) {
-        transform: translate(50%, -10%) scale(1.45);
+        transform: translate(150%, -10%) scale(1.45);
       }
     }
   }
@@ -485,7 +491,7 @@
     background-image: url("@img/holiday/clouds/cloud-2-mb.png");
     height: 78%;
 
-    @media (min-width:$mobileSmall) {
+    @media (min-width: toEm($mobileSmall)) {
       background-image: url("@img/holiday/clouds/cloud-2.png");
     }
 
@@ -1133,8 +1139,8 @@
   &__svg {
     position: absolute;
     top: -1%;
-    right: -0.2%;
-    width: 102%;
+    right: -0.3%;
+    width: 103%;
     height: auto;
 
     [id="path-1"] {
