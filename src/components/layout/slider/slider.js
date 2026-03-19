@@ -51,11 +51,13 @@ function initSliders() {
 			slidesPerView: 1,
 			spaceBetween: 0,
 			speed: 500,
+		
 
 			effect: 'fade',
 		  fadeEffect: {
 		    crossFade: true
-		  },pagination: {
+		  },
+			pagination: {
 			el: '.slider-holiday__slider .swiper-pagination',
 				clickable: true,
 			},
@@ -82,6 +84,78 @@ function initSliders() {
 			}
 		});
 	}
+	if (document.querySelector('.home-slides__slider')) { 
+		new Swiper('.home-slides__slider', { 
+			modules: [Navigation, EffectFade],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 0,
+			speed: 500,
+				loop: true,
+
+			//touchRatio: 0,
+			//simulateTouch: false,
+			//loop: true,
+			//preloadImages: false,
+			//lazy: true,
+
+			effect: 'fade',
+			fadeEffect: {
+		    crossFade: true
+		  },
+
+			// Пагінація
+			/*
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			*/
+
+			// Скроллбар
+			/*
+			scrollbar: {
+				el: '.swiper-scrollbar',
+				draggable: true,
+			},
+			*/
+
+			// Кнопки "вліво/вправо"
+			navigation: {
+				prevEl: '.home-slides__btn.swiper-button-prev',
+				nextEl: '.home-slides__btn.swiper-button-next',
+			},
+			/*
+			// Брейкпоінти
+			breakpoints: {
+				640: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					autoHeight: true,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				1268: {
+					slidesPerView: 4,
+					spaceBetween: 30,
+				},
+			},
+			*/
+			// Події
+			on: {
+
+			}
+		});
+	}
+
+
 	// if (document.querySelector('.swiper')) { 
 	// 	new Swiper('.swiper', { 
 	// 		modules: [Navigation],

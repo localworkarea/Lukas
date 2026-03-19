@@ -1,5 +1,126 @@
 <header data-fls-header class="header">
 	<div class="header__container">
-		<!-- <include src="@components/layout/menu/menu.html" locals='{"active":"[[active]]"}'></include> -->
+		<a href="#" class="header__logo" aria-label="home">
+			<img src="@img/icons2/logo.svg" width="201" height="105" alt="Logo lukas Taste Of Quality">
+		</a>
+		<div class="header__menu menu">
+			<div class="menu__body">
+				<nav class="menu__nav">
+					<ul class="menu__list">
+						<li class="menu__item menu-has-sublist">
+							<a href="#" class="menu__link" aria-label="link">Компанія</a>
+							<ul class="menu__sublist">
+								<li class="menu__subitem">
+									<a href="#" class="menu__sublink" aria-label="link">Історія компанії</a>
+								</li>
+								<li class="menu__subitem">
+									<a href="#" class="menu__sublink" aria-label="link">Можливості</a>
+								</li>
+								<li class="menu__subitem">
+									<a href="#" class="menu__sublink" aria-label="link">Принципи та цінності</a>
+								</li>
+								<li class="menu__subitem">
+									<a href="#" class="menu__sublink" aria-label="link">Магазини-партнери</a>
+								</li>
+								<li class="menu__subitem">
+									<a href="#" class="menu__sublink" aria-label="link">Контакти</a>
+								</li>
+							</ul>
+						</li>
+						<li class="menu__item menu-has-sublist">
+							<a href="#" class="menu__link" aria-label="link">Продукція</a>
+							<ul class="menu__sublist">
+								<li class="menu__subitem">
+									<a href="#" class="menu__sublink" aria-label="link">Круасани</a>
+								</li>
+								<li class="menu__subitem">
+									<a href="#" class="menu__sublink" aria-label="link">Цукерки</a>
+								</li>
+								<li class="menu__subitem">
+									<a href="#" class="menu__sublink" aria-label="link">Печиво</a>
+								</li>
+								<li class="menu__subitem">
+									<a href="#" class="menu__sublink" aria-label="link">Торти</a>
+								</li>
+								<li class="menu__subitem">
+									<a href="#" class="menu__sublink" aria-label="link">Новорічні подарунки</a>
+								</li>
+							</ul>
+						</li>
+						<li class="menu__item menu-has-sublist">
+							<a href="#" class="menu__link" aria-label="link">Сьогодення</a>
+							<ul class="menu__sublist">
+								<li class="menu__subitem">
+									<a href="#" class="menu__sublink" aria-label="link">Новини та події</a>
+								</li>
+								<li class="menu__subitem">
+									<a href="#" class="menu__sublink" aria-label="link">Рекорди компанії</a>
+								</li>
+								<li class="menu__subitem">
+									<a href="#" class="menu__sublink" aria-label="link">Екскурсія до нас</a>
+								</li>
+								<li class="menu__subitem">
+									<a href="#" class="menu__sublink" aria-label="link">Команда</a>
+								</li>
+							</ul>
+						</li>
+						<li class="menu__item">
+							<a href="#" class="menu__link" aria-label="link">Франшиза</a>
+						</li>
+					</ul>
+				</nav>
+				<ul style="display: none;" class="menu__social social-menu">
+					<li class="social-menu__item">
+						<a href="#" class="social-menu__link" aria-label="">
+							<img src="@img/icons2/yt.svg" width="50" height="50" alt="Image">
+						</a>
+					</li>
+					<li class="social-menu__item">
+						<a href="#" class="social-menu__link" aria-label="">
+							<img src="@img/icons2/inst.svg" width="50" height="50" alt="Image">
+						</a>
+					</li>
+					<li class="social-menu__item">
+						<a href="#" class="social-menu__link" aria-label="">
+							<img src="@img/icons2/fb.svg" width="50" height="50" alt="Image">
+						</a>
+					</li>
+					<li class="social-menu__item">
+						<a href="#" class="social-menu__link" aria-label="">
+							<img src="@img/icons2/x.svg" width="50" height="50" alt="Image">
+						</a>
+					</li>
+					<li class="social-menu__item">
+						<a href="#" class="social-menu__link" aria-label="">
+							<img src="@img/icons2/in.svg" width="50" height="50" alt="Image">
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="menu__btns">
+				<div class="menu__lng lng">
+					<button type="button" class="lng__btn" aria-label="open lngs">UA</button>
+					<div class="lng__wrapper">
+						<ul class="lng__list" hidden>
+							<li class="lng__item">
+								<a href="#" class="lng__link" aria-label="language">EN</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="menu__shop-wr">
+					<a href="#" class="menu__shop btn-shop" aria-label="link to shop">
+						<img class="btn-shop__img" src="@img/icons2/cart.svg" width="24" height="22" alt="cart">
+						<span class="btn-shop__t">Магазин</span>
+					</a>
+				</div>
+			</div>
+
+			<button type="button" data-fls-menu class="menu__icon icon-menu">
+				<span class="icon-menu__lines">
+					<span></span>
+				</span>
+			</button>
+		</div>
 	</div>
 </header>

@@ -79,5 +79,12 @@
       }
     }
   }
- 
+    // .btn--e
+  &--e {
+    min-height: 50px;
+    font-size: 16px;
+    @media (min-width:toEm($mobileSmall)){
+       min-height: 44px; 
+    }
+  }
 }

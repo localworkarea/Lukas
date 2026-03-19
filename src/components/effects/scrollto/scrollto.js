@@ -22,9 +22,9 @@ export function pageNavigation() {
 					if (fullpageSectionId !== null) {
 						window.fullpage.switchingSection(fullpageSectionId);
 						// Закриваємо меню, якщо воно відкрите
-						if (document.documentElement.hasAttribute("data-fls-menu-open")) {
+						if (document.documentElement.hasAttribute("data-menu-open")) {
 							bodyUnlock()
-							document.documentElement.removeAttribute("data-fls-menu-open")
+							document.documentElement.removeAttribute("")
 						}
 					}
 				} else {

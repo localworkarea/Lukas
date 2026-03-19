@@ -358,6 +358,53 @@
         "start": 1759230596480,
         "end": 1759231138842,
         "type": "build"
+      },
+      {
+        "date": "16.03.2026",
+        "start": 1773677108635,
+        "end": 1773684646803
+      },
+      {
+        "date": "16.03.2026",
+        "start": 1773684720939,
+        "end": 1773696145667
+      },
+      {
+        "date": "17.03.2026",
+        "start": 1773741633494,
+        "end": 1773783704165
+      },
+      {
+        "date": "18.03.2026",
+        "start": 1773829955066,
+        "end": 1773830079975
+      },
+      {
+        "date": "18.03.2026",
+        "start": 1773830132215,
+        "end": 1773838267553
+      },
+      {
+        "date": "18.03.2026",
+        "start": 1773839270246,
+        "end": 1773853311573,
+        "type": "build"
+      },
+      {
+        "date": "18.03.2026",
+        "start": 1773853805066,
+        "end": 1773872316094
+      },
+      {
+        "date": "19.03.2026",
+        "start": 1773913737129,
+        "end": 1773915855187,
+        "type": "build"
+      },
+      {
+        "date": "19.03.2026",
+        "start": 1773915970332,
+        "end": 1773921143939
       }
     ],
     "files": [
@@ -435,7 +482,27 @@
       "deer-pc.png",
       "girl.png",
       "box-mask-mb.png",
-      "cloud-2-2.png"
+      "cloud-2-2.png",
+      "home.html",
+      "variables.css",
+      "header.html",
+      "header.scss",
+      "home.scss",
+      "arr-fill.svg",
+      "header.js",
+      "functions.js",
+      "scrollto.js",
+      "menu.js",
+      "menu.scss",
+      "x.svg",
+      "in.svg",
+      "yt.svg",
+      "inst.svg",
+      "hero-video.mp4",
+      "hero-video-short.mp4",
+      "hero-video - Copy.mp4",
+      "hero-video-short - Copy.mp4",
+      "mask-hero.png"
     ]
   }
 }
