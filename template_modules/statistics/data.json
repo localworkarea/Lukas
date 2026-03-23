@@ -405,6 +405,40 @@
         "date": "19.03.2026",
         "start": 1773915970332,
         "end": 1773921143939
+      },
+      {
+        "date": "23.03.2026",
+        "start": 1774264927050,
+        "end": 1774274230050,
+        "type": "build"
+      },
+      {
+        "date": "23.03.2026",
+        "start": 1774274460978,
+        "end": 1774285339930,
+        "type": "build"
+      },
+      {
+        "date": "23.03.2026",
+        "start": 1774285400843,
+        "end": 1774286596437,
+        "type": "build"
+      },
+      {
+        "date": "23.03.2026",
+        "start": 1774286748717,
+        "end": 1774292428897
+      },
+      {
+        "date": "23.03.2026",
+        "start": 1774292489085,
+        "end": 1774292531921
+      },
+      {
+        "date": "23.03.2026",
+        "start": 1774292808206,
+        "end": 1774295374155,
+        "type": "build"
       }
     ],
     "files": [
@@ -502,7 +536,12 @@
       "hero-video-short.mp4",
       "hero-video - Copy.mp4",
       "hero-video-short - Copy.mp4",
-      "mask-hero.png"
+      "mask-hero.png",
+      "slide-2-mb.jpg",
+      "slide-1-mb.jpg",
+      "scroll.js",
+      "hero-video-mb.mp4",
+      "slider.scss"
     ]
   }
 }

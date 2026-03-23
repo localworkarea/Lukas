@@ -1,5 +1,5 @@
 <template src="@components/templates/main/main.html" locals='{
-		"title":"LUKAS | HOME", 
+		"title":"LUKAS | ТОРТИ", 
 		"lang":"uk",
 		"preloader": {
 			"enable":"false",
@@ -8,16 +8,16 @@
 		"keywords":"", 
 		"description":""
 	}'>
-	<block name="header">
+	<!-- <block name="header">
 		<include src="@components/layout/header/header.html" locals='{"active":"Home"}'></include>
-	</block>
+	</block> -->
 	<block name="main">
-		<include src="@components/pages/home/home.html" locals='{}'></include>
+		<include src="@components/pages/cake/cake.html" locals='{}'></include>
 	</block>
 	<!-- <block name="footer">
 		<include src="@components/layout/footer/footer.html" locals='{}'></include>
 	</block> -->
-	<!-- <block name="popup">
-		<include src="@components/layout/popup/popup-cake.html" locals='{}'></include>
-	</block> -->
+	<block name="popup">
+		<include src="@components/layout/popup/popup.html" locals='{}'></include>
+	</block>
 </template>

@@ -14,12 +14,17 @@
 				<source media="(max-width: 600px)" srcset="@img/home/hero-preview-mb.webp" type="image/webp">
 				<img data-img-ignore class="home-hero__poster" width="1440" height="680" alt="Image" src="@img/home/hero-preview-pc.webp">
 			</picture>
-			<button type="button" class="home-hero__next" aria-label="next section">
-				<img src="@img/icons2/btn-dwn.svg" width="80" height="80" alt="Image">
+			<button type="button" data-fls-scroll=".home-slides" class="home-hero__next" aria-label="next section">
+				<svg class="btn-circle" width="70" height="70" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle class="btn-circle__fill" cx="39.5" cy="39.5" r="37.5" fill="transparent" />
+					<circle class="btn-circle__stroke" cx="39.5" cy="39.5" r="38.5" stroke="white" stroke-width="2" fill="none" />
+					<path class="btn-circle__arrow"
+						d="M55.2784 33.4822C55.6631 33.8782 55.6545 34.5114 55.2589 34.8963L40.0092 49.7108C39.6212 50.0878 39.0038 50.0878 38.6157 49.7108L23.367 34.8963C22.971 34.5115 22.9618 33.8784 23.3466 33.4822C23.7315 33.0865 24.3647 33.078 24.7607 33.4627L39.3125 47.5791L53.8643 33.4627C54.2602 33.0781 54.8935 33.0866 55.2784 33.4822Z"
+						fill="white" />
+				</svg>
 			</button>
 		</div>
 	</section>
-
 	<section class="home-slides">
 		<div class="home-slides__body">
 			<div data-fls-slider class="home-slides__slider swiper">
@@ -28,7 +33,7 @@
 						<div class="home-slides__img">
 							<picture>
 								<source media="(max-width: 600px)" srcset="@img/home/slide-1-mb.webp" type="image/webp">
-								<img data-img-ignore class="ibg" src="@img/home/slide-1-pc.webp" width="1914" height="708" alt="Image">
+								<img data-img-ignore loading="lazy" class="ibg" src="@img/home/slide-1-pc.webp" width="1914" height="708" alt="Image">
 							</picture>
 						</div>
 						<div class="home-slides__container">
@@ -41,7 +46,7 @@
 						<div class="home-slides__img">
 							<picture>
 								<source media="(max-width: 600px)" srcset="@img/home/slide-2-mb.webp" type="image/webp">
-								<img data-img-ignore class="ibg" src="@img/home/slide-2-pc.webp" width="1914" height="708" alt="Image">
+								<img data-img-ignore loading="lazy" class="ibg" src="@img/home/slide-2-pc.webp" width="1914" height="708" alt="Image">
 							</picture>
 						</div>
 						<div class="home-slides__container">
@@ -54,7 +59,7 @@
 						<div class="home-slides__img">
 							<picture>
 								<source media="(max-width: 600px)" srcset="@img/home/slide-1-mb.webp" type="image/webp">
-								<img data-img-ignore class="ibg" src="@img/home/slide-1-pc.webp" width="1914" height="708" alt="Image">
+								<img data-img-ignore loading="lazy" class="ibg" src="@img/home/slide-1-pc.webp" width="1914" height="708" alt="Image">
 							</picture>
 						</div>
 						<div class="home-slides__container">
@@ -67,7 +72,7 @@
 						<div class="home-slides__img">
 							<picture>
 								<source media="(max-width: 600px)" srcset="@img/home/slide-2-mb.webp" type="image/webp">
-								<img data-img-ignore class="ibg" src="@img/home/slide-2-pc.webp" width="1914" height="708" alt="Image">
+								<img data-img-ignore loading="lazy" class="ibg" src="@img/home/slide-2-pc.webp" width="1914" height="708" alt="Image">
 							</picture>
 						</div>
 						<div class="home-slides__container">
@@ -82,15 +87,15 @@
 				<button type="button" class="home-slides__btn swiper-btn swiper-button-prev" aria-label="prev slide">
 					<svg class="swiper-btn__icon" width="53" height="53" viewBox="0 0 53 53" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 						<circle class="swiper-btn__fill" cx="26.5" cy="26.5" r="25.5" />
-						<circle class="swiper-btn__stroke"  cx="26.5" cy="26.5" r="25.5" />
+						<circle class="swiper-btn__stroke" cx="26.5" cy="26.5" r="25.5" />
 						<path class="swiper-btn__arrow" d="M29.918 36.787a1 1 0 0 1-1.414-.02l-9.062-9.44a1.86 1.86 0 0 1 0-2.575l9.062-9.44a1 1 0 1 1 1.444 1.384l-8.822 9.344 8.822 9.343a1 1 0 0 1-.03 1.404Z" />
 					</svg>
 				</button>
 				<button type="button" class="home-slides__btn swiper-btn swiper-button-next" aria-label="next slide">
 					<svg class="swiper-btn__icon" width="53" height="53" viewBox="0 0 53 53" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 						<circle class="swiper-btn__fill" fill="green" cx="26.5" cy="26.5" r="25.5" />
-						<circle class="swiper-btn__stroke"  cx="26.5" cy="26.5" r="25.5" />
-						<path class="swiper-btn__arrow"  d="M23.082 16.213a1 1 0 0 1 1.414.02l9.062 9.44a1.86 1.86 0 0 1 0 2.575l-9.062 9.44a1 1 0 1 1-1.444-1.384l8.822-9.344-8.822-9.343a1 1 0 0 1 .03-1.404Z" />
+						<circle class="swiper-btn__stroke" cx="26.5" cy="26.5" r="25.5" />
+						<path class="swiper-btn__arrow" d="M23.082 16.213a1 1 0 0 1 1.414.02l9.062 9.44a1.86 1.86 0 0 1 0 2.575l-9.062 9.44a1 1 0 1 1-1.444-1.384l8.822-9.344-8.822-9.343a1 1 0 0 1 .03-1.404Z" />
 					</svg>
 				</button>
 			</div>
@@ -102,28 +107,28 @@
 				<ul class="home-prod__list">
 					<li class="home-prod__item">
 						<a href="#" class="home-prod__link" aria-label="link">
-							<img data-img-ignore class="ibg-cn" src="@img/home/prod-1.webp" width="280" height="328" alt="Image">
+							<img data-img-ignore loading="lazy" class="ibg-cn" src="@img/home/prod-1.webp" width="280" height="328" alt="Image">
 							<div class="home-prod__t">Цукерки</div>
 							<span></span>
 						</a>
 					</li>
 					<li class="home-prod__item">
 						<a href="#" class="home-prod__link" aria-label="link">
-							<img data-img-ignore class="ibg-cn" src="@img/home/prod-2.webp" width="280" height="328" alt="Image">
+							<img data-img-ignore loading="lazy" class="ibg-cn" src="@img/home/prod-2.webp" width="280" height="328" alt="Image">
 							<div class="home-prod__t">Круасани</div>
 							<span></span>
 						</a>
 					</li>
 					<li class="home-prod__item">
 						<a href="#" class="home-prod__link" aria-label="link">
-							<img data-img-ignore class="ibg-cn" src="@img/home/prod-3.webp" width="280" height="328" alt="Image">
+							<img data-img-ignore loading="lazy" class="ibg-cn" src="@img/home/prod-3.webp" width="280" height="328" alt="Image">
 							<div class="home-prod__t">Печиво</div>
 							<span></span>
 						</a>
 					</li>
 					<li class="home-prod__item">
 						<a href="#" class="home-prod__link" aria-label="link">
-							<img data-img-ignore class="ibg-cn" src="@img/home/prod-4.webp" width="280" height="328" alt="Image">
+							<img data-img-ignore loading="lazy" class="ibg-cn" src="@img/home/prod-4.webp" width="280" height="328" alt="Image">
 							<div class="home-prod__t">Торти</div>
 							<span></span>
 						</a>
@@ -132,9 +137,283 @@
 			</div>
 		</div>
 		<div class="home-news">
-
+			<div class="home-news__container">
+				<a href="@files/catalog.pdf" target="_blank" class="home-news__dwnl dwnl-btn" aria-label="download a file">
+					<span class="dwnl-btn__t">ЗАВАНТАЖИТИ<br> КАТАЛОГ</span>
+					<span class="dwnl-btn__pdf">PDF</span>
+					<svg class="btn-circle" width="70" height="70" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle class="btn-circle__fill" cx="39.5" cy="39.5" r="37.5" fill="transparent" />
+						<circle class="btn-circle__stroke" cx="39.5" cy="39.5" r="38.5" stroke="white" stroke-width="2" fill="none" />
+						<path class="btn-circle__arrow"
+							d="M55.2784 33.4822C55.6631 33.8782 55.6545 34.5114 55.2589 34.8963L40.0092 49.7108C39.6212 50.0878 39.0038 50.0878 38.6157 49.7108L23.367 34.8963C22.971 34.5115 22.9618 33.8784 23.3466 33.4822C23.7315 33.0865 24.3647 33.078 24.7607 33.4627L39.3125 47.5791L53.8643 33.4627C54.2602 33.0781 54.8935 33.0866 55.2784 33.4822Z"
+							fill="white" />
+					</svg>
+				</a>
+				<div class="home-news__head">
+					<h2 class="home-news__title">сьогодення</h2>
+					<div class="home-news__subtitle">
+						<p>
+							новини та події з життя компанії
+						</p>
+					</div>
+				</div>
+				<div class="home-news__swiper">
+					<div data-fls-slider class="home-news__slider swiper">
+						<ul class="home-news__wrapper swiper-wrapper">
+							<li class="home-news__slide swiper-slide">
+								<div class="home-news__slide-w">
+									<div class="home-news__img">
+										<img data-img-ignore class="ibg" loading="lazy" src="@img/home/slide-1.webp" width="473" height="351" alt="Image">
+									</div>
+									<div class="home-news__txt">
+										<p>Lukas на найбільшому
+											шоколадному фестивалі</p>
+									</div>
+								</div>
+							</li>
+							<li class="home-news__slide swiper-slide">
+								<div class="home-news__slide-w">
+									<div class="home-news__img">
+										<img data-img-ignore class="ibg" loading="lazy" src="@img/home/slide-2.webp" width="473" height="351" alt="Image">
+									</div>
+									<div class="home-news__txt">
+										<p>Разом робимо важливе</p>
+									</div>
+								</div>
+							</li>
+							<li class="home-news__slide swiper-slide">
+								<div class="home-news__slide-w">
+									<div class="home-news__img">
+										<img data-img-ignore class="ibg" loading="lazy" src="@img/home/slide-3.webp" width="473" height="351" alt="Image">
+									</div>
+									<div class="home-news__txt">
+										<p>Lukas продовжує
+											підтримувати наших
+											захисників</p>
+									</div>
+								</div>
+							</li>
+							<li class="home-news__slide swiper-slide">
+								<div class="home-news__slide-w">
+									<div class="home-news__img">
+										<img data-img-ignore class="ibg" loading="lazy" src="@img/home/slide-4.webp" width="473" height="351" alt="Image">
+									</div>
+									<div class="home-news__txt">
+										<p>Lukas продовжує
+											підтримувати наших
+											захисників</p>
+									</div>
+								</div>
+							</li>
+							<li class="home-news__slide swiper-slide">
+								<div class="home-news__slide-w">
+									<div class="home-news__img">
+										<img data-img-ignore class="ibg" loading="lazy" src="@img/home/slide-3.webp" width="473" height="351" alt="Image">
+									</div>
+									<div class="home-news__txt">
+										<p>Lukas продовжує
+											підтримувати наших
+											захисників</p>
+									</div>
+								</div>
+							</li>
+							<li class="home-news__slide swiper-slide">
+								<div class="home-news__slide-w">
+									<div class="home-news__img">
+										<img data-img-ignore class="ibg" loading="lazy" src="@img/home/slide-4.webp" width="473" height="351" alt="Image">
+									</div>
+									<div class="home-news__txt">
+										<p>Lukas продовжує
+											підтримувати наших
+											захисників</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<button type="button" class="home-news__btn swiper-btn swiper-button-prev" aria-label="prev slide">
+						<svg class="swiper-btn__icon" width="53" height="53" viewBox="0 0 53 53" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+							<circle class="swiper-btn__fill" cx="26.5" cy="26.5" r="25.5" />
+							<circle class="swiper-btn__stroke" cx="26.5" cy="26.5" r="25.5" />
+							<path class="swiper-btn__arrow" d="M29.918 36.787a1 1 0 0 1-1.414-.02l-9.062-9.44a1.86 1.86 0 0 1 0-2.575l9.062-9.44a1 1 0 1 1 1.444 1.384l-8.822 9.344 8.822 9.343a1 1 0 0 1-.03 1.404Z" />
+						</svg>
+					</button>
+					<button type="button" class="home-news__btn swiper-btn swiper-button-next" aria-label="next slide">
+						<svg class="swiper-btn__icon" width="53" height="53" viewBox="0 0 53 53" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+							<circle class="swiper-btn__fill" fill="green" cx="26.5" cy="26.5" r="25.5" />
+							<circle class="swiper-btn__stroke" cx="26.5" cy="26.5" r="25.5" />
+							<path class="swiper-btn__arrow" d="M23.082 16.213a1 1 0 0 1 1.414.02l9.062 9.44a1.86 1.86 0 0 1 0 2.575l-9.062 9.44a1 1 0 1 1-1.444-1.384l8.822-9.344-8.822-9.343a1 1 0 0 1 .03-1.404Z" />
+						</svg>
+					</button>
+				</div>
+				<a href="#" class="home-news__link btn btn--f" data-fls-buttons aria-label="link">
+					<span>Читати всі новини &ensp; ></span>
+				</a>
+			</div>
 		</div>
 	</section>
+	<section class="home-banner">
+		<div class="home-banner__body">
+			<div data-fls-slider class="home-banner__slider swiper">
+				<ul class="home-banner__wrapper swiper-wrapper">
+					<li class="home-banner__slide swiper-slide">
+						<div class="home-banner__img">
+							<picture>
+								<source media="(max-width: 600px)" srcset="@img/home/slide-8-mb.webp" type="image/webp">
+								<img data-img-ignore loading="lazy" class="ibg" src="@img/home/slide-8-pc.webp" width="1914" height="708" alt="Image">
+							</picture>
+						</div>
+						<div class="home-banner__container">
+							<a href="#1" class="home-banner__link btn btn--e btn-bg-white" data-fls-buttons aria-label="link">
+								<span>Переглянути &ensp; ></span>
+							</a>
+						</div>
+					</li>
+					<li class="home-banner__slide swiper-slide">
+						<div class="home-banner__img">
+							<picture>
+								<source media="(max-width: 600px)" srcset="@img/home/slide-9-mb.webp" type="image/webp">
+								<img data-img-ignore loading="lazy" class="ibg" src="@img/home/slide-9-pc.webp" width="1914" height="708" alt="Image">
+							</picture>
+						</div>
+						<div class="home-banner__container">
+							<a href="#2" class="home-banner__link btn btn--e btn-bg-white" data-fls-buttons aria-label="link">
+								<span>Переглянути &ensp; ></span>
+							</a>
+						</div>
+					</li>
+					<li class="home-banner__slide swiper-slide">
+						<div class="home-banner__img">
+							<picture>
+								<source media="(max-width: 600px)" srcset="@img/home/slide-8-mb.webp" type="image/webp">
+								<img data-img-ignore loading="lazy" class="ibg" src="@img/home/slide-8-pc.webp" width="1914" height="708" alt="Image">
+							</picture>
+						</div>
+						<div class="home-banner__container">
+							<a href="#3" class="home-banner__link btn btn--e btn-bg-white" data-fls-buttons aria-label="link">
+								<span>Переглянути &ensp; ></span>
+							</a>
+						</div>
+					</li>
+					<li class="home-banner__slide swiper-slide">
+						<div class="home-banner__img">
+							<picture>
+								<source media="(max-width: 600px)" srcset="@img/home/slide-9-mb.webp" type="image/webp">
+								<img data-img-ignore loading="lazy" class="ibg" src="@img/home/slide-9-pc.webp" width="1914" height="708" alt="Image">
+							</picture>
+						</div>
+						<div class="home-banner__container">
+							<a href="#4" class="home-banner__link btn btn--e btn-bg-white" data-fls-buttons aria-label="link">
+								<span>Переглянути &ensp; ></span>
+							</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="home-banner__btns __container">
+				<button type="button" class="home-banner__btn swiper-btn swiper-button-prev" aria-label="prev slide">
+					<svg class="swiper-btn__icon" width="53" height="53" viewBox="0 0 53 53" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<circle class="swiper-btn__fill" cx="26.5" cy="26.5" r="25.5" />
+						<circle class="swiper-btn__stroke" cx="26.5" cy="26.5" r="25.5" />
+						<path class="swiper-btn__arrow" d="M29.918 36.787a1 1 0 0 1-1.414-.02l-9.062-9.44a1.86 1.86 0 0 1 0-2.575l9.062-9.44a1 1 0 1 1 1.444 1.384l-8.822 9.344 8.822 9.343a1 1 0 0 1-.03 1.404Z" />
+					</svg>
+				</button>
+				<button type="button" class="home-banner__btn swiper-btn swiper-button-next" aria-label="next slide">
+					<svg class="swiper-btn__icon" width="53" height="53" viewBox="0 0 53 53" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<circle class="swiper-btn__fill" fill="green" cx="26.5" cy="26.5" r="25.5" />
+						<circle class="swiper-btn__stroke" cx="26.5" cy="26.5" r="25.5" />
+						<path class="swiper-btn__arrow" d="M23.082 16.213a1 1 0 0 1 1.414.02l9.062 9.44a1.86 1.86 0 0 1 0 2.575l-9.062 9.44a1 1 0 1 1-1.444-1.384l8.822-9.344-8.822-9.343a1 1 0 0 1 .03-1.404Z" />
+					</svg>
+				</button>
+			</div>
+		</div>
+	</section>
+	<div  class="home-marquee">
+		<div data-fls-marquee-wrapper class="home-marquee__wrapper">
+			<div class="home-marquee__body" data-fls-marquee data-fls-marquee-space="0" data-fls-marquee-speed="300" data-fls-marquee-direction="left" data-fls-marquee-drag>
+				<div class="home-marquee__item">
+					<div class="home-marquee__img">
+						<img class="ibg-cn" data-img-ignore loading="lazy" src="@img/home/candys-1.webp" width="421" height="297" alt="Image">
+					</div>
+					<div class="home-marquee__txt">
+						<p>
+							Цукерки «Лукася з солоною
+							карамельною начинкою»
+						</p>
+					</div>
+				</div>
+				<div class="home-marquee__item">
+					<div class="home-marquee__img">
+						<img class="ibg-cn" data-img-ignore loading="lazy" src="@img/home/candys-2.webp" width="421" height="297" alt="Image">
+					</div>
+					<div class="home-marquee__txt">
+						<p>
+							Круасанчик з наповнювачем
+	зі смаком маракуї
+						</p>
+					</div>
+				</div>
+				<div class="home-marquee__item">
+					<div class="home-marquee__img">
+						<img class="ibg-cn" data-img-ignore loading="lazy" src="@img/home/candys-3.webp" width="421" height="297" alt="Image">
+					</div>
+					<div class="home-marquee__txt">
+						<p>
+							Цукерки «LUKABON»
+						</p>
+					</div>
+				</div>
+				<div class="home-marquee__item">
+					<div class="home-marquee__img">
+						<img class="ibg-cn" data-img-ignore loading="lazy" src="@img/home/candys-1.webp" width="421" height="297" alt="Image">
+					</div>
+					<div class="home-marquee__txt">
+						<p>
+							Цукерки «Лукася з солоною
+							карамельною начинкою»
+						</p>
+					</div>
+				</div>
+				<div class="home-marquee__item">
+					<div class="home-marquee__img">
+						<img class="ibg-cn" data-img-ignore loading="lazy" src="@img/home/candys-2.webp" width="421" height="297" alt="Image">
+					</div>
+					<div class="home-marquee__txt">
+						<p>
+							Круасанчик з наповнювачем
+	зі смаком маракуї
+						</p>
+					</div>
+				</div>
+				<div class="home-marquee__item">
+					<div class="home-marquee__img">
+						<img class="ibg-cn" data-img-ignore loading="lazy" src="@img/home/candys-3.webp" width="421" height="297" alt="Image">
+					</div>
+					<div class="home-marquee__txt">
+						<p>
+							Цукерки «LUKABON»
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="home-marquee__nav">
+				<button class="home-marquee__btn swiper-btn swiper-btn-white prev" type="button" data-fls-marquee-btn="prev" aria-label="prev">
+					<svg class="swiper-btn__icon" width="53" height="53" viewBox="0 0 53 53" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<circle class="swiper-btn__fill" cx="26.5" cy="26.5" r="25.5" />
+						<circle class="swiper-btn__stroke" cx="26.5" cy="26.5" r="25.5" />
+						<path class="swiper-btn__arrow" d="M29.918 36.787a1 1 0 0 1-1.414-.02l-9.062-9.44a1.86 1.86 0 0 1 0-2.575l9.062-9.44a1 1 0 1 1 1.444 1.384l-8.822 9.344 8.822 9.343a1 1 0 0 1-.03 1.404Z" />
+					</svg>
+				</button>
+				<button class="home-marquee__btn swiper-btn swiper-btn-white next" type="button" data-fls-marquee-btn="next" aria-label="next">
+					<svg class="swiper-btn__icon" width="53" height="53" viewBox="0 0 53 53" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<circle class="swiper-btn__fill" fill="green" cx="26.5" cy="26.5" r="25.5" />
+						<circle class="swiper-btn__stroke" cx="26.5" cy="26.5" r="25.5" />
+						<path class="swiper-btn__arrow" d="M23.082 16.213a1 1 0 0 1 1.414.02l9.062 9.44a1.86 1.86 0 0 1 0 2.575l-9.062 9.44a1 1 0 1 1-1.444-1.384l8.822-9.344-8.822-9.343a1 1 0 0 1 .03-1.404Z" />
+					</svg>
+				</button>
+			</div>
+		</div>
+	</div>
 
 	<!-- <div data-video-hero class="video-hero__video">
 				<button type="button" class="video-hero__play" aria-label="play">

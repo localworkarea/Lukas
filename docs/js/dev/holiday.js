@@ -1,4 +1,5 @@
-import { a as addLoadedAttr, i as isMobile } from "./app.min.js";
+import { e as addLoadedAttr, i as isMobile } from "./app.min.js";
+import "./popup.min.js";
 document.addEventListener("DOMContentLoaded", () => {
   const counters = document.querySelectorAll("[data-fls-counter]");
   if (!counters.length) return;

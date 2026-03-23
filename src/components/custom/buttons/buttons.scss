@@ -83,8 +83,22 @@
   &--e {
     min-height: 50px;
     font-size: 16px;
+    padding: 6px 35px;
     @media (min-width:toEm($mobileSmall)){
        min-height: 44px; 
+    }
+  }
+  &--f {
+    min-height: 60px;
+    font-size: 16px;
+  }
+  &.btn-bg-white {
+    background-color: var(--white);
+    color: var(--gray-acc);
+    @media (any-hover: hover){
+      &:hover{
+        color: var(--red);
+      }
     }
   }
 }

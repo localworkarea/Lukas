@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Navigation, EffectFade, Pagination } from 'swiper/modules';
+import { Navigation, EffectFade, Pagination, EffectCoverflow } from 'swiper/modules';
 /*
 Navigation, Pagination, Autoplay, 
 EffectFade, Lazy, Manipulation
@@ -84,6 +84,8 @@ function initSliders() {
 			}
 		});
 	}
+
+	// HOME PAGE ===========
 	if (document.querySelector('.home-slides__slider')) { 
 		new Swiper('.home-slides__slider', { 
 			modules: [Navigation, EffectFade],
@@ -93,12 +95,6 @@ function initSliders() {
 			spaceBetween: 0,
 			speed: 500,
 				loop: true,
-
-			//touchRatio: 0,
-			//simulateTouch: false,
-			//loop: true,
-			//preloadImages: false,
-			//lazy: true,
 
 			effect: 'fade',
 			fadeEffect: {
@@ -125,6 +121,127 @@ function initSliders() {
 			navigation: {
 				prevEl: '.home-slides__btn.swiper-button-prev',
 				nextEl: '.home-slides__btn.swiper-button-next',
+			},
+			/*
+			// Брейкпоінти
+			breakpoints: {
+				640: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					autoHeight: true,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				1268: {
+					slidesPerView: 4,
+					spaceBetween: 30,
+				},
+			},
+			*/
+			// Події
+			on: {
+
+			}
+		});
+	}
+	if (document.querySelector('.home-news__slider')) { 
+		new Swiper('.home-news__slider', { 
+			modules: [Navigation, EffectCoverflow],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 0,
+			speed: 600,
+
+			initialSlide: 1,
+
+			loop: true,
+			loopAdditionalSlides: true,
+
+			effect: 'coverflow',
+			coverflowEffect: {
+				depth: 100,
+				modifier: 2.5,
+				scale: 1,
+  		  rotate: 0,
+  		  slideShadows: false,
+				stretch: 0
+  		},
+
+
+			navigation: {
+				prevEl: '.home-news__btn.swiper-button-prev',
+				nextEl: '.home-news__btn.swiper-button-next',
+			},
+			/*
+			// Брейкпоінти
+			breakpoints: {
+				640: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					autoHeight: true,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				1268: {
+					slidesPerView: 4,
+					spaceBetween: 30,
+				},
+			},
+			*/
+			// Події
+			on: {
+
+			}
+		});
+	}
+	if (document.querySelector('.home-banner__slider')) { 
+		new Swiper('.home-banner__slider', { 
+			modules: [Navigation, EffectFade],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 0,
+			speed: 500,
+				loop: true,
+
+			effect: 'fade',
+			fadeEffect: {
+		    crossFade: true
+		  },
+
+			// Пагінація
+			/*
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			*/
+
+			// Скроллбар
+			/*
+			scrollbar: {
+				el: '.swiper-scrollbar',
+				draggable: true,
+			},
+			*/
+
+			// Кнопки "вліво/вправо"
+			navigation: {
+				prevEl: '.home-banner__btn.swiper-button-prev',
+				nextEl: '.home-banner__btn.swiper-button-next',
 			},
 			/*
 			// Брейкпоінти
