@@ -200,6 +200,9 @@
 		&__slider {
       position: relative;
       z-index: 1;
+      @media (max-width:toEm($mobileSmall)){
+         max-height: 800px; 
+      }
 		}
 
 		// .home-slides__wrapper
