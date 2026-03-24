@@ -1048,6 +1048,9 @@
   .social-menu {
     justify-content: space-between;
   }
+  .home-slides__slider {
+    max-height: 50rem;
+  }
   .home-slides__link {
     margin-left: 0;
     max-width: 100%;
