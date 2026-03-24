@@ -9,6 +9,59 @@
   }
 }
 
+// .ibg {
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+
+// .ibg-cn {
+// 	width: 100%;
+// 	height: 100%;
+// 	object-fit: contain;
+// }
+// .home-hero {
+//   position: relative;
+//   z-index: 2;
+//   background-color: var(--red);
+//   padding-top: 60px;
+//    height: 100svh;
+// }
+// .home-hero__video {
+//   position: absolute;
+//   inset: 0;
+//   mask: url("../assets/img/home/mask-hero.webp");
+//   mask-position: center bottom;
+//   mask-repeat: no-repeat;
+//   mask-size: auto 100%;
+//   -webkit-mask: url("../assets/img/home/mask-hero.webp");
+//   -webkit-mask-position: center bottom;
+//   -webkit-mask-repeat: no-repeat;
+//   -webkit-mask-size: auto 100%;
+// }
+// .home-hero__video video {
+//   position: relative;
+//   z-index: 1;
+// }
+// .home-hero__poster {
+//   position: absolute;
+//   inset: 0;
+//   z-index: 0;
+// }
+
+// @media (max-width: 62.06125em) {
+//   .home-hero {
+//     padding-top: 84px;
+//   }
+// }
+
+// @media (orientation: portrait) and (min-width: 30.06125em) and (min-height: 62.56125em) {
+//   .home-banner__img img, .home-banner, .home-slides__img img, .home-slides, .home-hero {
+//     max-height: 50svh;
+//   }
+// }
+
+
 .home-hero {
   position: relative;
   z-index: 2;

@@ -12,7 +12,7 @@
 			</video>
 			<picture>
 				<source media="(max-width: 600px)" srcset="@img/home/hero-preview-mb.webp" type="image/webp">
-				<img data-img-ignore fetchpriority="high" class="home-hero__poster" width="1440" height="680" alt="Image" src="@img/home/hero-preview-pc.webp">
+				<img data-img-ignore fetchpriority="high" class="home-hero__poster ibg" width="1440" height="680" alt="Image" src="@img/home/hero-preview-pc.webp">
 			</picture>
 			<button type="button" data-fls-scroll=".home-slides" class="home-hero__next" aria-label="next section">
 				<svg class="btn-circle" width="70" height="70" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -413,17 +413,19 @@
 				</button>
 			</div>
 		</div>
-		<a href="@files/catalog.pdf" target="_blank" class="home-news__dwnl dwnl-btn" aria-label="download a file">
-			<span class="dwnl-btn__t">ЗАВАНТАЖИТИ<br> КАТАЛОГ</span>
-			<span class="dwnl-btn__pdf">PDF</span>
-			<svg class="btn-circle" width="70" height="70" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<circle class="btn-circle__fill" cx="39.5" cy="39.5" r="37.5" fill="transparent" />
-				<circle class="btn-circle__stroke" cx="39.5" cy="39.5" r="38.5" stroke="white" stroke-width="2" fill="none" />
-				<path class="btn-circle__arrow"
-					d="M55.2784 33.4822C55.6631 33.8782 55.6545 34.5114 55.2589 34.8963L40.0092 49.7108C39.6212 50.0878 39.0038 50.0878 38.6157 49.7108L23.367 34.8963C22.971 34.5115 22.9618 33.8784 23.3466 33.4822C23.7315 33.0865 24.3647 33.078 24.7607 33.4627L39.3125 47.5791L53.8643 33.4627C54.2602 33.0781 54.8935 33.0866 55.2784 33.4822Z"
-					fill="white" />
-			</svg>
-		</a>
+		<div class="home-marquee__container">
+			<a href="@files/catalog.pdf" target="_blank" class="home-news__dwnl dwnl-btn" aria-label="download a file">
+				<span class="dwnl-btn__t">ЗАВАНТАЖИТИ<br> КАТАЛОГ</span>
+				<span class="dwnl-btn__pdf">PDF</span>
+				<svg class="btn-circle" width="70" height="70" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle class="btn-circle__fill" cx="39.5" cy="39.5" r="37.5" fill="transparent" />
+					<circle class="btn-circle__stroke" cx="39.5" cy="39.5" r="38.5" stroke="white" stroke-width="2" fill="none" />
+					<path class="btn-circle__arrow"
+						d="M55.2784 33.4822C55.6631 33.8782 55.6545 34.5114 55.2589 34.8963L40.0092 49.7108C39.6212 50.0878 39.0038 50.0878 38.6157 49.7108L23.367 34.8963C22.971 34.5115 22.9618 33.8784 23.3466 33.4822C23.7315 33.0865 24.3647 33.078 24.7607 33.4627L39.3125 47.5791L53.8643 33.4627C54.2602 33.0781 54.8935 33.0866 55.2784 33.4822Z"
+						fill="white" />
+				</svg>
+			</a>
+		</div>
 	</div>
 
 	<!-- <div data-video-hero class="video-hero__video">
