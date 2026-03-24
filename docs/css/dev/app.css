@@ -105,6 +105,10 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
 }
+.page-home body {
+  background: var(--white);
+  overflow-x: unset;
+}
 [data-fls-scrolllock] body {
   overflow: hidden;
   touch-action: none;

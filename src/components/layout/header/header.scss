@@ -44,16 +44,23 @@
 	}
 
 	// .header__menu
-	&__menu {}
-}
-
-.menu {
-	display: flex;
+	&__menu {
+			display: flex;
 	align-items: center;
 	gap: 16px;
 	@media (min-width:toEm($tablet)){
 		gap: 34px;
 	}
+	}
+}
+
+.menu {
+	// display: flex;
+	// align-items: center;
+	// gap: 16px;
+	// @media (min-width:toEm($tablet)){
+	// 	gap: 34px;
+	// }
 
 	// .menu__btns
 	&__btns {
@@ -419,6 +426,7 @@
 		aspect-ratio: 1;
 		display: grid;
 		place-items: center;
+		color: var(--white);
 	}
 
 }

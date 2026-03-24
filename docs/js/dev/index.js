@@ -1,29 +1,44 @@
 import { b as bodyLockToggle, a as bodyLockStatus, s as slideUp, c as slideToggle, i as isMobile, d as slideDown } from "./app.min.js";
 import "./marquee.min.js";
-function initScrollToButtons() {
-  const scrollButtons = document.querySelectorAll("[data-fls-scroll]");
-  if (!scrollButtons.length) return;
-  scrollButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-      const targetSelector = button.dataset.flsScroll;
-      if (!targetSelector) return;
-      let targetElement = null;
-      try {
-        targetElement = document.querySelector(targetSelector);
-      } catch (error) {
-        console.warn(`error data-fls-scroll: ${targetSelector}`);
-        return;
+const homeVideo = document.querySelectorAll("[data-fls-video]");
+if (homeVideo.length > 0) {
+  homeVideo.forEach((block) => {
+    const btn = block.querySelector("[data-fls-video-btn]");
+    const previewVideo = block.querySelector("[data-lazy-video]");
+    const mainVideo = block.querySelector("[data-fls-video-main] video");
+    let mainLoaded = false;
+    const loadMainVideo = () => {
+      if (mainLoaded) return;
+      const sources = mainVideo.querySelectorAll("source");
+      sources.forEach((source) => {
+        source.src = source.dataset.src;
+      });
+      mainVideo.load();
+      mainLoaded = true;
+    };
+    const ioMain = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        loadMainVideo();
+        observer.unobserve(entry.target);
+      });
+    }, {
+      rootMargin: "1000px"
+    });
+    ioMain.observe(block);
+    btn.addEventListener("click", () => {
+      loadMainVideo();
+      block.classList.add("--play");
+      if (previewVideo) {
+        previewVideo.pause();
       }
-      if (!targetElement) return;
-      window.scrollTo({
-        top: targetElement.getBoundingClientRect().top + window.scrollY,
-        behavior: "smooth"
+      mainVideo.muted = false;
+      mainVideo.volume = 0.3;
+      mainVideo.play().catch(() => {
       });
     });
   });
 }
-initScrollToButtons();
 function menuInit() {
   document.addEventListener("click", function(e) {
     if (bodyLockStatus && e.target.closest("[data-fls-menu]")) {
@@ -171,3 +186,67 @@ function initLangDropdown() {
   });
 }
 initLangDropdown();
+function initScrollToButtons() {
+  const scrollButtons = document.querySelectorAll("[data-fls-scroll]");
+  if (!scrollButtons.length) return;
+  scrollButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetSelector = button.dataset.flsScroll;
+      if (!targetSelector) return;
+      let targetElement = null;
+      try {
+        targetElement = document.querySelector(targetSelector);
+      } catch (error) {
+        console.warn(`error data-fls-scroll: ${targetSelector}`);
+        return;
+      }
+      if (!targetElement) return;
+      window.scrollTo({
+        top: targetElement.getBoundingClientRect().top + window.scrollY,
+        behavior: "smooth"
+      });
+    });
+  });
+}
+initScrollToButtons();
+const videosLazy = document.querySelectorAll("[data-lazy-video]");
+const io = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    const video = entry.target;
+    const sources = video.querySelectorAll("source");
+    sources.forEach((source) => {
+      source.src = source.dataset.src;
+    });
+    video.load();
+    video.play().catch(() => {
+    });
+    observer.unobserve(video);
+  });
+}, {
+  rootMargin: "1000px"
+});
+videosLazy.forEach((video) => io.observe(video));
+const joyItems = document.querySelectorAll(".home-joy__item");
+if (joyItems.length) {
+  joyItems.forEach((item) => {
+    const images = item.querySelectorAll("img");
+    if (images.length === 0) return;
+    let currentIndex = 0;
+    const delay = parseInt(item.dataset.delay) || 2500;
+    const duration = parseInt(item.dataset.duration) || 500;
+    images.forEach((img) => {
+      img.style.transitionDuration = `${duration}ms`;
+    });
+    images.forEach((img) => img.classList.remove("_active"));
+    images[0].classList.add("_active");
+    if (images.length < 2) return;
+    setInterval(() => {
+      images[currentIndex].classList.remove("_active");
+      currentIndex++;
+      if (currentIndex >= images.length) currentIndex = 0;
+      images[currentIndex].classList.add("_active");
+    }, delay);
+  });
+}

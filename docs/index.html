@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="uk">
+<html lang="uk" class="page-home">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,13 +16,13 @@
 		<link rel="preload" href="./assets/fonts/Gogol.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
 		<title>LUKAS | HOME</title>
-		<style>.ibg,.ibg-cn{height:100%;width:100%}.ibg{object-fit:cover}.ibg-cn{object-fit:contain}.home-hero{position:relative;z-index:2;background-color:var(--red);padding-top:60px;height:100svh}.home-hero__video{position:absolute;inset:0;mask:url("../assets/img/home/mask-hero.webp");mask-position:center bottom;mask-repeat:no-repeat;mask-size:auto 100%;-webkit-mask:url("../assets/img/home/mask-hero.webp");-webkit-mask-position:center bottom;-webkit-mask-repeat:no-repeat;-webkit-mask-size:auto 100%}.home-hero__video video{position:relative;z-index:1}.home-hero__poster{position:absolute;inset:0;z-index:0}.swiper{overflow:hidden}.swiper-initialized{touch-action:pan-y}.swiper-wrapper{width:100%;height:100%;box-sizing:content-box;display:flex;position:relative}@media (max-width:62.06125em){.home-hero{padding-top:84px}}@media (orientation:portrait) and (min-width:30.06125em) and (min-height:62.56125em){.home-banner,.home-banner__img img,.home-hero,.home-slides,.home-slides__img img{max-height:50svh}}</style>
-		<script type="module" crossorigin="" src="./js/index.min.js?v=1774348444131"></script>
+		<style>.ibg,.ibg-cn{height:100%;width:100%}.ibg{object-fit:cover}.ibg-cn{object-fit:contain}.home-hero{ max-height: 100svh;position:relative;z-index:2;background-color:var(--red);padding-top:60px;height:100svh}.home-hero__video{position:absolute;inset:0;mask:url("../assets/img/home/mask-hero.webp");mask-position:center bottom;mask-repeat:no-repeat;mask-size:auto 100%;-webkit-mask:url("../assets/img/home/mask-hero.webp");-webkit-mask-position:center bottom;-webkit-mask-repeat:no-repeat;-webkit-mask-size:auto 100%}.home-hero__video video{position:relative;z-index:1}.home-hero__poster{position:absolute;inset:0;z-index:0}.swiper{overflow:hidden}.swiper-initialized{touch-action:pan-y}.swiper-wrapper{width:100%;height:100%;box-sizing:content-box;display:flex;position:relative}@media (max-width:62.06125em){.home-hero{padding-top:84px}}@media (orientation:portrait) and (min-width:30.06125em) and (min-height:62.56125em){.home-banner,.home-banner__img img,.home-hero,.home-slides,.home-slides__img img{max-height:50svh}}</style>
+		<script type="module" crossorigin="" src="./js/index.min.js?v=1774383112785"></script>
 		<link rel="modulepreload" crossorigin="" href="./js/app.min.js">
 		<link rel="modulepreload" crossorigin="" href="./js/marquee.min.js">
-		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1774348444131">
-		<link rel="stylesheet" crossorigin="" href="./css/marquee.min.css?v=1774348444131">
-		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1774348444131">
+		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1774383112785">
+		<link rel="stylesheet" crossorigin="" href="./css/marquee.min.css?v=1774383112785">
+		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1774383112785">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -31,7 +31,7 @@
 					<a href="#" class="header__logo" aria-label="home">
 						<img src="./assets/img/icons2/logo.svg" width="201" height="105" alt="Logo lukas Taste Of Quality">
 					</a>
-					<div class="header__menu menu">
+					<div class="header__menu">
 						<div class="menu__body">
 							<nav class="menu__nav">
 								<ul class="menu__list">
@@ -160,6 +160,7 @@
 							<!-- видео для мобилок (вес/качество меньше) -->
 							<source src="./assets/video/hero-video-mb.mp4" type="video/mp4">
 						</video>
+						<!-- poster для видео, пк и моб -->
 						<picture>
 							<source media="(max-width: 600px)" srcset="./assets/img/home/hero-preview-mb.webp" type="image/webp">
 							<img data-img-ignore="" fetchpriority="high" class="home-hero__poster ibg" width="1440" height="680" alt="Image" src="./assets/img/home/hero-preview-pc.webp">
@@ -476,7 +477,7 @@
 						</div>
 					</div>
 				</section>
-				<div class="home-marquee">
+				<section class="home-marquee">
 					<div data-fls-marquee-wrapper="" class="home-marquee__wrapper">
 						<div class="home-marquee__body" data-fls-marquee="" data-fls-marquee-space="0" data-fls-marquee-speed="300" data-fls-marquee-direction="left" data-fls-marquee-drag="">
 							<div class="home-marquee__item">
@@ -550,7 +551,7 @@
 						</div>
 					</div>
 					<div class="home-marquee__container">
-						<a href="files/catalog.pdf" target="_blank" class="home-news__dwnl dwnl-btn" aria-label="download a file">
+						<a href="files/catalog.pdf" target="_blank" class="home-marquee__dwnl dwnl-btn" aria-label="download a file">
 							<span class="dwnl-btn__t">
 								ЗАВАНТАЖИТИ
 								<br>
@@ -564,41 +565,140 @@
 							</svg>
 						</a>
 					</div>
+				</section>
+				<section class="home-about">
+					<div data-fls-video="" class="home-about__body">
+						<div class="home-about__head">
+							<div class="home-about__container">
+								<h2 class="home-about__title">МИ БУДУЄМО КОМПАНІЮ, ЖИТТЄВИЙ ЦИКЛ ЯКОЇ ПРЯМУЄ ДАЛЕКО ЗА МЕЖІ НАШОГО ЖИТТЯ</h2>
+								<button data-fls-video-btn="" type="button" class="home-about__play" aria-label="play">
+									<svg width="108" height="108" viewbox="0 0 108 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M70.3019 52.5735L45.6453 36.6792C45.034 36.2716 44.4227 36.2716 43.8113 36.6792C43.2 37.0867 42.7925 37.4943 42.7925 38.3094V70.0981C42.7925 70.7094 43.2 71.3207 43.8113 71.7283C44.0151 71.932 44.4227 71.932 44.6264 71.932C45.034 71.932 45.2378 71.932 45.6453 71.7283L70.3019 55.8339C70.7095 55.4264 71.117 55.0188 71.117 54.4075C71.117 53.3886 70.7095 52.7773 70.3019 52.5735Z" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+								</button>
+							</div>
+						</div>
+						<div data-fls-video-preview="" class="home-about__preview">
+							<!-- короткое видео превью пк и моб -->
+							<video data-lazy-video="" class="ibg" muted loop playsinline="">
+								<source data-src="assets/video/posh-showreel-short-pc.mp4" type="video/mp4" media="(min-width: 30.061em)">
+								<source data-src="assets/video/posh-showreel-short-mb.mp4" type="video/mp4">
+							</video>
+						</div>
+						<div data-fls-video-main="" class="home-about__main">
+							<!-- полное видео пк и моб -->
+							<video class="ibg" controls muted playsinline="">
+								<source data-src="assets/video/posh-showreel-long-pc.mp4" type="video/mp4" media="(min-width: 30.061em)">
+								<source data-src="assets/video/posh-showreel-long-mb.mp4" type="video/mp4">
+							</video>
+							<!-- постер для полного видео перед загрузкой для пк и моб -->
+							<picture>
+								<source media="(max-width: 600px)" srcset="./assets/img/home/poster-hero-mb.webp" type="image/webp">
+								<img class="ibg" data-img-ignore="" width="1440" height="680" alt="Image" src="./assets/img/home/poster-hero-pc.webp">
+							</picture>
+						</div>
+					</div>
+					<div class="home-about__container">
+						<div class="home-about__team">
+							<div class="team-card">
+								<div class="team-card__img">
+									<img loading="lazy" data-img-ignore="" src="./assets/img/home/team.webp" width="411" height="312" alt="Image">
+								</div>
+								<div class="team-card__body">
+									<div class="team-card__txt">
+										<p>
+											скажи привіт
+											<br>
+											компанії LUKAS!
+										</p>
+									</div>
+									<a href="#" class="team-card__link" aria-label="link to">
+										<svg class="btn-circle" width="70" height="70" viewbox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<circle class="btn-circle__fill" cx="39.5" cy="39.5" r="37.5" fill="transparent"></circle>
+											<circle class="btn-circle__stroke" cx="39.5" cy="39.5" r="38.5" stroke="white" stroke-width="2" fill="none"></circle>
+											<path class="btn-circle__arrow" d="M55.2784 33.4822C55.6631 33.8782 55.6545 34.5114 55.2589 34.8963L40.0092 49.7108C39.6212 50.0878 39.0038 50.0878 38.6157 49.7108L23.367 34.8963C22.971 34.5115 22.9618 33.8784 23.3466 33.4822C23.7315 33.0865 24.3647 33.078 24.7607 33.4627L39.3125 47.5791L53.8643 33.4627C54.2602 33.0781 54.8935 33.0866 55.2784 33.4822Z" fill="white"></path>
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="home-about__social social-home">
+							<a href="#" class="social-home__link btn btn--f" aria-label="link">
+								<span>підписуйся!</span>
+							</a>
+							<div class="social-home__txt">
+								<p>у нас багато цікавого</p>
+							</div>
+							<ul class="social-home__items">
+								<li class="social-home__item">
+									<a href="#" class="social-home__item-l" aria-label="social link">
+										<img loading="lazy" src="./assets/img/icons2/insta-2.svg" width="60" height="60" alt="Image">
+									</a>
+								</li>
+								<li class="social-home__item">
+									<a href="#" class="social-home__item-l" aria-label="social link">
+										<img loading="lazy" src="./assets/img/icons2/fb-2.svg" width="60" height="60" alt="Image">
+									</a>
+								</li>
+								<li class="social-home__item">
+									<a href="#" class="social-home__item-l" aria-label="social link">
+										<img loading="lazy" src="./assets/img/icons2/tt-2.svg" width="60" height="60" alt="Image">
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<div class="home-joy">
+					<div class="home-joy__container">
+						<div class="home-joy__body">
+							<div class="home-joy__candy">
+								<img data-img-ignore="" src="./assets/img/home/candy-2.png" width="216" height="211" loading="lazy" alt="Image">
+							</div>
+							<ul class="home-joy__items">
+								<li data-delay="3050" data-duration="1800" class="home-joy__item item--1">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-2.webp" width="271" height="271" alt="Image">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-1.webp" width="271" height="271" alt="Image">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-3.webp" width="271" height="271" alt="Image">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-4.webp" width="271" height="271" alt="Image">
+								</li>
+								<li data-delay="3100" data-duration="2000" class="home-joy__item item--2">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-1.webp" width="271" height="271" alt="Image">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-3.webp" width="271" height="271" alt="Image">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-4.webp" width="271" height="271" alt="Image">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-2.webp" width="271" height="271" alt="Image">
+								</li>
+								<li data-delay="3070" data-duration="1900" class="home-joy__item item--3">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-1.webp" width="271" height="271" alt="Image">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-2.webp" width="271" height="271" alt="Image">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-4.webp" width="271" height="271" alt="Image">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-3.webp" width="271" height="271" alt="Image">
+								</li>
+								<li data-delay="3120" data-duration="2200" class="home-joy__item item--4">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-3.webp" width="271" height="271" alt="Image">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-4.webp" width="271" height="271" alt="Image">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-1.webp" width="271" height="271" alt="Image">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-2.webp" width="271" height="271" alt="Image">
+								</li>
+								<li data-delay="3010" data-duration="2300" class="home-joy__item item--5">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-4.webp" width="271" height="271" alt="Image">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-1.webp" width="271" height="271" alt="Image">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-2.webp" width="271" height="271" alt="Image">
+									<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/home/slide-3.webp" width="271" height="271" alt="Image">
+								</li>
+							</ul>
+						</div>
+						<div class="home-joy__text">
+							<p>
+								радість,
+								<br>
+								яку можна відчути
+								<br>
+								на смак!
+							</p>
+						</div>
+					</div>
 				</div>
-				<!--
-<div data-video-hero class="video-hero__video">
-<button type="button" class="video-hero__play" aria-label="play">
-<svg class="playBut" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
-<polygon class="triangle" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="39.65 65.38 39.65 34.62 64.32 50 39.65 65.38">
-</polygon>
-<circle class="circle_wh" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="50" cy="50" r="40">
-</circle>
-<circle class="circle" fill="none" stroke="#1A1F35" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="50" cy="50" r="40">
-</circle>
-</svg>
-</button>
-<div class="video-hero__preview">
-<video muted loop playsinline>
-<source data-src="@video/hero-video-short.mp4" type="video/mp4" media="(min-width: 30.061em)">
-<source data-src="@video/hero-video-short-mb.mp4" type="video/mp4">
-</video>
-<picture>
-<source media="(max-width: 600px)" srcset="@img/home/hero-preview-mb.webp" type="image/webp">
-<img data-img-ignore width="1440" height="680" alt="Image" src="@img/home/hero-preview-pc.webp">
-</picture>
-</div>
-<div class="video-hero__main">
-<video muted playsinline>
-<source src="@video/hero-video.mp4" type="video/mp4" media="(min-width: 30.061em)">
-<source src="@video/hero-video-mb.mp4" type="video/mp4">
-</video>
-<picture>
-<source media="(max-width: 600px)" srcset="@img/home/hero-preview-mb.webp" type="image/webp">
-<img data-img-ignore width="1440" height="680" alt="Image" src="@img/home/hero-preview-pc.webp">
-</picture>
-</div>
-</div>
--->
 			</main>
 		</div>
 	</body>
