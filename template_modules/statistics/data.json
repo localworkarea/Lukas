@@ -481,6 +481,12 @@
         "start": 1774424281848,
         "end": 1774424384735,
         "type": "build"
+      },
+      {
+        "date": "25.03.2026",
+        "start": 1774431799738,
+        "end": 1774441449338,
+        "type": "build"
       }
     ],
     "files": [
@@ -594,7 +600,8 @@
       "footer.html",
       "lukascopy.scss",
       "footer.scss",
-      "main.html"
+      "main.html",
+      "logo-lukas-mask.svg"
     ]
   }
 }

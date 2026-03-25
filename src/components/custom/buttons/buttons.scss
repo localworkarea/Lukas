@@ -1,4 +1,5 @@
 .btn {
+  position: relative;
   display: grid;
   place-items: center;
   width: 100%;
@@ -92,7 +93,8 @@
     min-height: 60px;
     font-size: 16px;
   }
-  &.btn-bg-white {
+
+  &.btn-white-gray {
     background-color: var(--white);
     color: var(--gray-acc);
     @media (any-hover: hover){
@@ -101,4 +103,86 @@
       }
     }
   }
+
+  &.hover-ltr {
+    overflow: hidden;
+    transition-delay: 0.1s;
+    span {
+      position: relative;
+      z-index: 1;
+    }
+    &::before {
+      content:'';
+      position: absolute;
+      z-index: 0;
+      left: -10%;
+      top: 0;
+      width: 0%;
+      height: 100%;
+      border-radius: 84px;
+      background-color: var(--white);
+      transition: left .45s ease, width .45s ease;
+    }
+    // .hover-ltr--a
+    &--a {
+      border-color: var(--white) !important;
+      background-color: var(--red) !important;
+      @media (any-hover: hover){
+        &:hover{
+          color: var(--red);
+        }
+      }
+      &:active {
+        color: var(--red);
+      }
+    }
+    
+    // .hover-ltr--b
+    &--b {
+      background-color: var(--red) !important;
+      border-color: var(--red);
+      @media (any-hover: hover){
+        &:hover{
+          color: var(--red);
+        }
+      }
+      &:active {
+        color: var(--red);
+      }
+    }
+    // .hover-ltr--d
+    &--d {
+      border-color: var(--white) !important;
+      background-color: var(--white) !important;
+      &::before {
+        background-color: var(--red);
+      }
+      @media (any-hover: hover){
+        &:hover{
+          color: var(--white);
+        }
+      }
+      &:active {
+        &:hover{
+          color: var(--white);
+        }
+      }
+    }
+    
+    @media (any-hover: hover){
+      &:hover{
+        &::before {
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
+    &:active {
+      &::before {
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+   
 }
